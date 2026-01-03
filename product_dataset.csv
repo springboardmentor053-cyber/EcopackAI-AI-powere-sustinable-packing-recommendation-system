@@ -1,0 +1,501 @@
+product_category,required_strength,product_weight_kg,handling_type,value_category,shipping_type,breakage_risk,temperature_sensitive,shelf_life_months
+Sports Equipment,10,18.97,Perishable,Low,Domestic,Low,No,4
+Toys,3,23.85,Perishable,Medium,Domestic,Low,Yes,2
+Pharmaceuticals,8,20.09,Liquid,Medium,Domestic,High,Yes,5
+Cosmetics,1,19.62,Light,Low,Domestic,Medium,No,4
+Sports Equipment,5,11.06,Perishable,Low,International,Low,Yes,5
+Books,3,26.88,Light,High,Domestic,Low,No,3
+Furniture,9,7.4,Liquid,High,Domestic,High,Yes,4
+Clothing,3,16.31,Light,Low,Domestic,Low,No,5
+Glassware,8,11.37,Perishable,Low,Domestic,Low,No,4
+Electronics,5,21.15,Fragile,Medium,International,Medium,Yes,3
+Food,10,14.57,Liquid,Low,International,High,Yes,5
+Cosmetics,7,13.93,Fragile,Low,International,Medium,Yes,2
+Furniture,3,14.36,Heavy,Low,International,Low,Yes,3
+Books,1,27.38,Fragile,Medium,Domestic,Low,No,1
+Books,2,15.44,Fragile,Medium,Domestic,Medium,Yes,5
+Sports Equipment,2,20.14,Heavy,High,International,Medium,No,4
+Pharmaceuticals,6,15.09,Fragile,High,International,Medium,No,1
+Books,7,15.44,Fragile,Medium,Domestic,High,Yes,3
+Glassware,10,9.67,Perishable,Medium,Domestic,Medium,Yes,5
+Automotive,2,27.7,Perishable,Low,International,Low,Yes,3
+Home Decor,8,10.69,Light,Low,Domestic,Low,Yes,1
+Groceries,7,25.67,Perishable,High,International,Medium,No,3
+Home Decor,9,4.53,Heavy,Low,Domestic,Medium,Yes,4
+Books,3,4.39,Fragile,Low,Domestic,Low,No,2
+Furniture,10,10.8,Perishable,Medium,International,Medium,Yes,2
+Books,4,11.16,Liquid,High,Domestic,High,Yes,3
+Medical Devices,4,7.34,Light,Low,Domestic,High,Yes,3
+Home Decor,10,2.43,Liquid,Medium,International,Low,Yes,2
+Books,10,8.99,Light,High,International,Low,No,4
+Sports Equipment,4,27.62,Fragile,Low,Domestic,High,No,2
+Furniture,4,14.19,Fragile,Medium,Domestic,Medium,Yes,5
+Groceries,10,12.65,Perishable,Low,International,Low,Yes,1
+Books,6,18.55,Perishable,High,Domestic,High,Yes,3
+Food,9,21.57,Fragile,High,International,Medium,Yes,5
+Electronics,2,7.48,Perishable,High,Domestic,Low,No,3
+Books,6,6.56,Heavy,High,Domestic,High,No,3
+Luxury Items,8,1.56,Liquid,High,International,High,No,1
+Automotive,3,24.34,Perishable,High,International,Low,Yes,1
+Automotive,3,3.25,Liquid,Low,Domestic,Low,No,4
+Books,3,23.53,Liquid,Low,Domestic,Low,No,2
+Food,6,0.64,Heavy,Medium,Domestic,Medium,No,5
+Books,4,27.46,Light,Medium,International,Medium,No,5
+Clothing,3,11.39,Liquid,High,International,Low,Yes,1
+Electronics,7,29.46,Fragile,Low,International,High,No,3
+Groceries,7,20.42,Light,High,International,Medium,Yes,1
+Sports Equipment,10,9.93,Fragile,High,Domestic,Low,No,4
+Clothing,5,8.26,Light,Low,Domestic,High,Yes,5
+Medical Devices,9,27.22,Perishable,Medium,Domestic,Low,No,5
+Home Decor,5,14.78,Fragile,High,Domestic,Low,No,4
+Books,9,11.34,Heavy,High,Domestic,Low,No,3
+Books,5,28.24,Liquid,Low,Domestic,Medium,Yes,2
+Pharmaceuticals,3,24.96,Liquid,High,Domestic,High,No,1
+Home Decor,5,24.35,Liquid,Low,International,High,No,4
+Glassware,3,20.29,Light,High,International,High,Yes,3
+Automotive,7,15.13,Perishable,Low,Domestic,High,No,4
+Furniture,1,24.07,Liquid,High,International,High,No,2
+Pharmaceuticals,3,6.87,Fragile,High,Domestic,Medium,Yes,5
+Toys,6,3.64,Fragile,Low,International,High,Yes,3
+Furniture,1,15.39,Heavy,High,Domestic,Medium,No,4
+Clothing,6,24.86,Heavy,High,International,Low,Yes,2
+Food,5,3.99,Perishable,High,International,Medium,No,1
+Electronics,9,1.37,Liquid,Low,International,Low,No,5
+Medical Devices,6,4.86,Perishable,High,International,High,Yes,4
+Pharmaceuticals,4,27.62,Light,High,International,Low,No,3
+Luxury Items,5,28.56,Fragile,Medium,Domestic,Medium,Yes,3
+Food,7,6.07,Light,High,International,Low,Yes,3
+Toys,4,7.05,Light,High,International,Medium,No,5
+Toys,1,15.58,Fragile,Medium,Domestic,Low,No,2
+Clothing,8,2.4,Light,Medium,International,High,Yes,4
+Glassware,8,4.99,Heavy,High,Domestic,Medium,Yes,5
+Automotive,3,24.74,Fragile,Low,International,Low,No,5
+Glassware,5,23.71,Heavy,Medium,International,Low,No,5
+Glassware,1,8.99,Light,Low,Domestic,Low,Yes,3
+Food,8,22.73,Liquid,High,International,High,No,2
+Home Decor,4,18.15,Liquid,Medium,International,High,No,3
+Glassware,9,28.22,Heavy,Low,International,Low,Yes,5
+Toys,9,13.66,Light,High,International,Low,Yes,1
+Food,5,3.23,Perishable,Low,Domestic,Medium,Yes,5
+Cosmetics,2,27.19,Heavy,Medium,Domestic,Low,Yes,1
+Furniture,4,19.49,Light,Medium,International,High,Yes,3
+Books,4,14.95,Perishable,High,International,High,No,1
+Books,8,0.26,Heavy,Medium,International,High,Yes,4
+Cosmetics,4,19.23,Liquid,Medium,International,High,Yes,5
+Automotive,6,3.76,Heavy,Low,Domestic,High,Yes,5
+Furniture,7,0.75,Fragile,Medium,Domestic,Low,No,3
+Clothing,2,16.82,Liquid,Low,Domestic,High,Yes,2
+Books,9,28.5,Liquid,Medium,International,High,No,3
+Sports Equipment,4,1.03,Perishable,High,Domestic,Low,No,3
+Cosmetics,2,7.37,Light,Medium,Domestic,Medium,Yes,3
+Cosmetics,10,0.96,Liquid,Medium,Domestic,Low,Yes,1
+Furniture,1,12.26,Fragile,High,International,Low,Yes,5
+Food,7,8.34,Heavy,Low,Domestic,High,No,1
+Books,3,8.8,Fragile,Medium,International,Low,No,4
+Clothing,10,14.72,Perishable,Medium,International,Medium,No,2
+Pharmaceuticals,1,3.06,Perishable,High,International,Low,Yes,2
+Toys,1,0.18,Perishable,High,International,Medium,No,4
+Luxury Items,9,17.89,Light,Medium,Domestic,Medium,Yes,2
+Food,8,9.72,Liquid,Low,Domestic,High,Yes,3
+Sports Equipment,3,4.93,Heavy,Low,International,High,No,2
+Cosmetics,4,14.55,Fragile,Low,International,High,No,4
+Electronics,10,22.55,Heavy,High,Domestic,Low,No,4
+Automotive,10,9.33,Light,High,International,Low,Yes,3
+Clothing,2,27.68,Light,Medium,Domestic,Medium,Yes,3
+Sports Equipment,6,25.76,Perishable,Low,International,High,No,1
+Luxury Items,10,16.75,Fragile,High,International,High,No,1
+Food,9,21.04,Perishable,High,International,High,Yes,2
+Sports Equipment,4,5.03,Liquid,Low,International,High,No,3
+Food,5,20.1,Heavy,High,International,Low,Yes,4
+Cosmetics,4,1.56,Heavy,Medium,Domestic,Medium,No,2
+Groceries,5,5.15,Perishable,Low,Domestic,Medium,Yes,4
+Furniture,8,13.3,Liquid,Low,International,Low,No,1
+Glassware,9,15.96,Light,High,Domestic,Medium,Yes,4
+Glassware,9,24.08,Liquid,Low,Domestic,Low,No,3
+Groceries,10,9.84,Heavy,High,International,High,Yes,1
+Furniture,2,27.22,Liquid,Medium,Domestic,High,No,2
+Books,6,14.61,Fragile,High,Domestic,Medium,Yes,2
+Toys,5,19.36,Light,High,International,Low,Yes,1
+Clothing,2,23.51,Light,Low,Domestic,High,No,2
+Home Decor,9,11.73,Perishable,Low,International,High,No,4
+Luxury Items,5,15.37,Fragile,Low,Domestic,High,No,3
+Toys,1,29.76,Liquid,Low,Domestic,Low,No,2
+Home Decor,10,21.63,Light,Low,Domestic,Low,No,5
+Furniture,2,0.2,Liquid,High,Domestic,Low,Yes,2
+Books,7,11.58,Light,Medium,International,High,No,3
+Glassware,9,18.47,Fragile,Low,International,Low,No,1
+Medical Devices,9,18.51,Liquid,High,Domestic,High,No,3
+Luxury Items,8,2.82,Fragile,High,International,Low,No,2
+Cosmetics,5,4.32,Perishable,Medium,International,Medium,Yes,3
+Home Decor,3,25.13,Light,Low,International,High,Yes,1
+Groceries,10,7.9,Heavy,Low,Domestic,Medium,No,2
+Home Decor,3,12.65,Fragile,Low,International,Medium,No,4
+Automotive,1,5.93,Liquid,Medium,Domestic,High,No,1
+Electronics,7,29.86,Perishable,Low,Domestic,Low,No,3
+Clothing,5,9.23,Heavy,Medium,Domestic,Medium,Yes,3
+Food,9,29.48,Fragile,Low,Domestic,High,No,4
+Electronics,5,7.84,Liquid,Low,International,Medium,No,2
+Home Decor,9,14.93,Light,Medium,Domestic,High,Yes,1
+Books,1,17.71,Light,Low,Domestic,High,Yes,4
+Luxury Items,2,7.83,Perishable,Medium,International,High,No,4
+Electronics,1,20.64,Fragile,Medium,International,Medium,Yes,3
+Food,3,7.19,Liquid,Medium,Domestic,High,Yes,4
+Toys,1,17.48,Heavy,High,Domestic,High,Yes,5
+Automotive,1,11.92,Light,High,International,Medium,No,4
+Pharmaceuticals,4,21.2,Light,High,Domestic,Low,Yes,5
+Sports Equipment,8,6.64,Heavy,Medium,International,Medium,Yes,3
+Automotive,2,3.25,Fragile,Low,International,Medium,Yes,5
+Cosmetics,2,2.59,Perishable,High,Domestic,Medium,No,4
+Toys,6,3.52,Liquid,Medium,Domestic,Low,No,4
+Clothing,5,21.75,Perishable,Low,Domestic,Low,No,2
+Pharmaceuticals,9,10.19,Light,High,Domestic,Low,No,1
+Toys,9,27.78,Liquid,High,International,Low,Yes,2
+Home Decor,2,14.76,Heavy,High,Domestic,Low,Yes,5
+Toys,9,2.31,Liquid,Low,International,Low,No,1
+Food,4,23.41,Fragile,Medium,Domestic,Low,Yes,1
+Pharmaceuticals,8,18.56,Liquid,High,International,High,No,4
+Automotive,4,4.75,Fragile,Low,Domestic,High,Yes,1
+Automotive,7,24.49,Perishable,Low,Domestic,High,No,2
+Medical Devices,6,16.23,Fragile,Low,Domestic,Medium,No,1
+Glassware,2,6.54,Light,Medium,Domestic,High,Yes,1
+Furniture,10,11.08,Fragile,High,International,Medium,No,5
+Pharmaceuticals,10,9.42,Perishable,Medium,International,High,Yes,2
+Luxury Items,3,1.99,Light,Medium,International,High,No,5
+Sports Equipment,2,5.7,Heavy,Medium,Domestic,Low,Yes,3
+Automotive,2,28.3,Fragile,High,Domestic,Medium,No,1
+Clothing,7,23.36,Light,Medium,Domestic,Medium,No,1
+Sports Equipment,2,24.26,Perishable,High,Domestic,Medium,Yes,1
+Pharmaceuticals,4,28.87,Heavy,Medium,International,Medium,Yes,2
+Cosmetics,5,18.5,Heavy,Medium,International,Medium,No,2
+Medical Devices,5,16.81,Heavy,High,International,Medium,Yes,4
+Electronics,5,21.64,Light,High,International,Medium,Yes,2
+Electronics,10,13.51,Fragile,High,International,Low,Yes,3
+Toys,2,1.7,Perishable,High,Domestic,Low,Yes,3
+Glassware,6,7.07,Heavy,High,Domestic,High,No,4
+Pharmaceuticals,9,18.01,Perishable,High,International,Medium,Yes,1
+Furniture,4,17.02,Perishable,High,International,Medium,No,3
+Medical Devices,3,18.11,Liquid,High,Domestic,High,Yes,2
+Cosmetics,3,8.82,Heavy,Low,Domestic,High,No,3
+Books,1,15.22,Heavy,High,International,Medium,Yes,1
+Clothing,4,4.53,Light,Low,Domestic,High,Yes,3
+Food,6,7.84,Fragile,Medium,International,Medium,Yes,2
+Medical Devices,8,10.26,Liquid,Medium,Domestic,Medium,No,4
+Glassware,4,21.12,Light,Low,Domestic,Low,No,5
+Electronics,9,27.09,Light,High,Domestic,Medium,No,1
+Medical Devices,10,4.11,Perishable,Medium,Domestic,Low,Yes,4
+Automotive,7,13.43,Heavy,High,International,Low,Yes,3
+Medical Devices,4,17.13,Perishable,Low,International,Low,Yes,3
+Food,7,18.94,Light,High,Domestic,High,No,4
+Cosmetics,7,6.05,Fragile,Low,Domestic,Medium,Yes,4
+Food,4,24.03,Perishable,Medium,Domestic,Medium,No,2
+Sports Equipment,3,27.02,Fragile,Medium,International,Medium,Yes,2
+Glassware,7,22.66,Heavy,High,International,Medium,Yes,1
+Pharmaceuticals,10,13.0,Perishable,Medium,International,Low,Yes,1
+Groceries,10,1.69,Liquid,Medium,International,High,Yes,2
+Cosmetics,4,15.2,Fragile,Medium,International,Medium,No,4
+Furniture,9,27.44,Liquid,Low,Domestic,Low,Yes,5
+Electronics,7,20.47,Liquid,Low,International,Medium,Yes,5
+Automotive,1,25.87,Liquid,Medium,Domestic,Medium,Yes,2
+Food,4,0.84,Heavy,Medium,International,Medium,Yes,3
+Electronics,8,17.31,Heavy,Medium,International,Medium,Yes,2
+Groceries,10,2.22,Perishable,Medium,Domestic,Low,Yes,2
+Cosmetics,5,29.46,Liquid,Low,International,Medium,Yes,4
+Groceries,9,1.29,Heavy,Medium,Domestic,Low,No,2
+Electronics,2,15.9,Liquid,High,International,Medium,Yes,3
+Furniture,4,27.87,Heavy,Low,International,Medium,No,3
+Food,6,11.9,Perishable,Medium,Domestic,Low,Yes,5
+Books,5,26.73,Fragile,High,Domestic,Medium,No,5
+Groceries,2,22.79,Fragile,Medium,Domestic,Low,No,5
+Home Decor,2,22.5,Light,Medium,Domestic,High,No,1
+Medical Devices,6,12.31,Perishable,Medium,International,High,Yes,2
+Cosmetics,2,2.85,Heavy,Low,International,Medium,Yes,5
+Pharmaceuticals,6,18.97,Light,High,International,Medium,No,3
+Groceries,8,6.9,Heavy,Medium,International,High,No,3
+Glassware,2,12.39,Fragile,Low,Domestic,Low,Yes,3
+Books,7,24.86,Light,Medium,International,High,Yes,3
+Books,3,25.89,Liquid,High,Domestic,High,Yes,3
+Medical Devices,6,9.27,Heavy,High,International,High,Yes,3
+Books,6,17.53,Liquid,High,International,High,No,1
+Pharmaceuticals,4,2.87,Fragile,High,International,Low,No,2
+Furniture,8,19.94,Liquid,Low,International,Low,No,3
+Automotive,1,27.09,Liquid,Low,International,Medium,No,5
+Medical Devices,3,9.38,Liquid,Low,International,Low,No,2
+Cosmetics,9,9.56,Light,Medium,Domestic,Low,No,4
+Glassware,7,13.02,Liquid,High,Domestic,High,No,5
+Clothing,7,10.91,Fragile,Medium,International,Medium,Yes,2
+Pharmaceuticals,10,20.11,Liquid,Medium,Domestic,High,No,4
+Clothing,1,14.98,Light,Low,Domestic,Medium,Yes,3
+Home Decor,9,2.43,Perishable,High,International,Medium,No,4
+Glassware,2,23.41,Liquid,High,Domestic,High,Yes,5
+Sports Equipment,8,18.33,Liquid,Medium,International,Medium,Yes,1
+Electronics,5,10.75,Light,Low,Domestic,High,No,1
+Books,5,23.67,Liquid,High,International,Medium,No,1
+Food,5,13.14,Liquid,High,International,High,No,5
+Pharmaceuticals,8,17.88,Perishable,Low,International,Medium,Yes,2
+Automotive,3,29.68,Fragile,Low,International,High,Yes,2
+Pharmaceuticals,4,5.75,Fragile,High,Domestic,Medium,No,1
+Glassware,4,22.54,Fragile,Medium,Domestic,Medium,No,3
+Automotive,8,11.23,Liquid,High,Domestic,Medium,No,2
+Luxury Items,10,16.08,Perishable,High,International,Low,Yes,1
+Home Decor,4,16.1,Perishable,Low,International,High,No,5
+Glassware,10,6.4,Perishable,Medium,Domestic,Medium,Yes,5
+Electronics,10,10.59,Fragile,Low,International,Low,No,4
+Books,2,4.63,Liquid,Medium,Domestic,Medium,Yes,1
+Cosmetics,4,25.37,Liquid,Medium,International,High,Yes,2
+Books,4,29.74,Light,Low,Domestic,Low,Yes,2
+Cosmetics,8,1.62,Liquid,Low,International,Medium,No,1
+Sports Equipment,7,17.82,Light,High,International,High,Yes,5
+Automotive,6,20.02,Light,Low,International,Low,Yes,5
+Cosmetics,3,16.21,Fragile,Medium,Domestic,Low,No,3
+Luxury Items,7,18.16,Light,Low,Domestic,Low,No,1
+Pharmaceuticals,5,2.6,Light,Low,International,High,No,4
+Pharmaceuticals,8,1.83,Heavy,Low,International,Medium,Yes,4
+Glassware,6,27.59,Fragile,Medium,Domestic,Low,No,5
+Cosmetics,2,11.1,Light,Low,Domestic,Medium,No,4
+Food,1,23.66,Liquid,High,International,Low,No,1
+Medical Devices,8,2.84,Heavy,Medium,International,Low,Yes,1
+Sports Equipment,3,20.37,Perishable,Medium,International,Medium,Yes,3
+Toys,6,3.72,Heavy,Low,International,High,Yes,3
+Pharmaceuticals,9,14.07,Light,Low,International,Low,Yes,1
+Luxury Items,7,4.65,Perishable,Medium,Domestic,Low,Yes,4
+Pharmaceuticals,3,12.01,Perishable,Low,Domestic,Medium,Yes,3
+Toys,3,15.28,Perishable,High,International,Medium,Yes,3
+Sports Equipment,4,22.15,Fragile,High,International,Low,Yes,4
+Automotive,6,23.49,Liquid,Medium,International,Medium,No,3
+Books,5,24.9,Light,Low,Domestic,High,Yes,2
+Pharmaceuticals,4,10.97,Perishable,High,International,Low,No,4
+Toys,6,27.66,Heavy,High,International,High,Yes,3
+Clothing,3,23.62,Light,Medium,Domestic,Medium,No,1
+Furniture,9,16.17,Perishable,Medium,International,Low,Yes,1
+Home Decor,1,21.01,Heavy,Low,International,High,Yes,1
+Groceries,1,17.31,Heavy,High,Domestic,Low,No,1
+Cosmetics,1,3.11,Heavy,Medium,International,Medium,No,3
+Home Decor,7,27.68,Fragile,Medium,Domestic,Medium,No,3
+Clothing,9,15.43,Light,Medium,International,High,Yes,4
+Automotive,4,6.38,Heavy,Medium,Domestic,Medium,No,2
+Furniture,10,3.89,Perishable,Low,International,Medium,Yes,1
+Toys,6,13.07,Fragile,Medium,International,Low,Yes,2
+Automotive,1,0.88,Heavy,Low,Domestic,High,Yes,4
+Luxury Items,8,1.69,Liquid,Low,International,High,No,3
+Furniture,7,28.88,Heavy,Low,International,High,Yes,1
+Furniture,5,4.55,Perishable,High,International,Medium,No,5
+Cosmetics,2,25.44,Heavy,High,International,Medium,No,3
+Cosmetics,2,2.94,Heavy,Low,International,Low,No,2
+Groceries,7,14.76,Heavy,Low,International,Low,Yes,2
+Luxury Items,5,27.7,Light,Low,International,Low,No,2
+Luxury Items,1,26.88,Fragile,Low,Domestic,Low,No,1
+Medical Devices,9,10.05,Perishable,Medium,Domestic,Low,No,1
+Sports Equipment,1,15.49,Light,Low,Domestic,Low,No,5
+Books,3,9.93,Liquid,Low,International,Low,Yes,3
+Luxury Items,5,22.72,Perishable,High,International,Medium,No,5
+Cosmetics,6,6.08,Heavy,High,Domestic,Low,Yes,4
+Pharmaceuticals,10,7.22,Liquid,Low,International,Medium,No,3
+Furniture,5,4.7,Light,High,International,Medium,No,2
+Groceries,1,19.96,Light,Medium,Domestic,Low,Yes,1
+Medical Devices,4,25.37,Light,Medium,International,High,No,4
+Toys,10,4.81,Liquid,High,International,Low,No,1
+Glassware,5,10.42,Fragile,Medium,International,Medium,Yes,4
+Luxury Items,9,22.46,Liquid,Low,Domestic,Low,No,4
+Sports Equipment,3,5.6,Heavy,High,International,High,Yes,2
+Luxury Items,7,3.37,Liquid,Low,International,High,No,3
+Toys,2,4.24,Perishable,Medium,International,High,No,1
+Home Decor,8,7.99,Perishable,Medium,Domestic,High,Yes,4
+Clothing,6,2.14,Fragile,High,Domestic,Low,Yes,2
+Electronics,9,6.2,Perishable,High,International,Low,Yes,1
+Electronics,10,2.03,Light,High,International,Low,No,4
+Home Decor,10,7.69,Perishable,Low,Domestic,High,No,2
+Pharmaceuticals,8,18.84,Light,High,International,High,No,1
+Clothing,10,6.59,Perishable,High,Domestic,Low,No,2
+Clothing,3,12.73,Perishable,Low,Domestic,High,No,1
+Electronics,3,27.81,Liquid,High,Domestic,Medium,No,5
+Furniture,6,29.05,Liquid,Medium,Domestic,High,No,3
+Toys,2,27.78,Liquid,High,Domestic,Medium,No,2
+Electronics,6,24.07,Perishable,High,International,Low,Yes,5
+Medical Devices,6,3.44,Fragile,Low,International,Medium,No,3
+Luxury Items,5,25.3,Light,High,International,High,No,2
+Clothing,1,18.73,Heavy,Medium,Domestic,High,Yes,2
+Groceries,4,28.81,Heavy,Low,Domestic,High,No,2
+Medical Devices,9,22.47,Fragile,High,Domestic,Medium,Yes,3
+Glassware,2,16.62,Perishable,Medium,Domestic,Medium,No,3
+Automotive,7,3.55,Light,Low,Domestic,High,No,3
+Cosmetics,8,29.0,Liquid,High,International,Low,No,3
+Automotive,6,25.28,Heavy,Medium,International,Medium,Yes,3
+Automotive,10,23.55,Heavy,High,International,Low,Yes,2
+Home Decor,6,26.89,Perishable,Low,Domestic,Medium,Yes,3
+Electronics,3,25.27,Heavy,High,International,High,Yes,5
+Books,7,20.23,Heavy,Medium,Domestic,Medium,No,3
+Furniture,9,11.29,Liquid,High,International,Medium,Yes,2
+Sports Equipment,6,25.34,Liquid,Low,Domestic,Medium,Yes,3
+Toys,2,16.94,Light,Medium,Domestic,High,No,4
+Home Decor,5,10.66,Heavy,High,Domestic,High,No,2
+Luxury Items,1,17.98,Heavy,Medium,Domestic,Medium,No,3
+Pharmaceuticals,8,7.63,Heavy,Low,International,Medium,No,1
+Groceries,8,27.98,Perishable,High,Domestic,Medium,No,5
+Sports Equipment,2,15.73,Fragile,High,International,Medium,Yes,5
+Toys,3,2.66,Light,High,Domestic,High,No,1
+Automotive,5,13.33,Perishable,High,Domestic,Low,Yes,4
+Food,2,7.48,Perishable,High,International,High,No,5
+Glassware,9,3.3,Light,Low,Domestic,High,No,2
+Groceries,8,27.58,Heavy,Low,Domestic,High,Yes,2
+Medical Devices,9,23.26,Liquid,Low,International,Low,No,3
+Medical Devices,9,10.43,Perishable,Medium,Domestic,Low,Yes,1
+Electronics,7,19.99,Perishable,Low,International,Medium,No,3
+Glassware,2,9.07,Perishable,Medium,International,Medium,No,1
+Groceries,8,28.27,Fragile,Low,International,Low,Yes,4
+Groceries,10,27.78,Light,Low,International,Low,No,1
+Home Decor,2,20.54,Light,Medium,Domestic,Low,Yes,1
+Pharmaceuticals,5,14.15,Heavy,Medium,Domestic,Medium,No,4
+Pharmaceuticals,2,26.81,Perishable,High,Domestic,Low,No,5
+Cosmetics,7,18.92,Perishable,Low,Domestic,Low,No,1
+Clothing,7,22.47,Perishable,Low,International,Medium,Yes,5
+Electronics,3,8.34,Fragile,Medium,International,Medium,Yes,3
+Home Decor,9,10.33,Fragile,Medium,International,High,Yes,2
+Food,4,12.64,Liquid,Medium,International,Medium,No,3
+Electronics,8,28.39,Fragile,Medium,International,Low,No,5
+Food,4,15.01,Light,Low,International,High,No,1
+Electronics,7,15.27,Perishable,Medium,International,Medium,No,3
+Home Decor,8,22.34,Heavy,Low,Domestic,Medium,Yes,2
+Groceries,2,1.63,Light,Medium,International,High,No,1
+Automotive,2,6.04,Heavy,Low,Domestic,High,Yes,5
+Food,1,9.34,Liquid,Low,Domestic,High,No,5
+Automotive,7,7.39,Liquid,Medium,International,Low,Yes,3
+Luxury Items,1,14.34,Liquid,Low,Domestic,High,Yes,4
+Pharmaceuticals,4,22.71,Light,High,Domestic,Low,Yes,1
+Home Decor,3,8.91,Light,Medium,International,Medium,Yes,1
+Clothing,10,28.83,Heavy,High,Domestic,High,No,4
+Pharmaceuticals,9,18.54,Perishable,High,Domestic,Medium,Yes,3
+Electronics,1,22.54,Heavy,Medium,Domestic,Medium,No,5
+Furniture,1,12.67,Liquid,Medium,International,Medium,No,5
+Books,8,26.76,Fragile,Low,Domestic,High,No,4
+Medical Devices,4,2.32,Fragile,High,Domestic,Low,Yes,4
+Glassware,9,0.64,Heavy,Medium,International,High,No,3
+Furniture,4,10.52,Heavy,High,Domestic,Low,Yes,2
+Pharmaceuticals,8,26.98,Light,Medium,Domestic,Low,Yes,1
+Electronics,7,23.32,Light,High,Domestic,High,Yes,4
+Electronics,10,26.17,Liquid,High,Domestic,Low,Yes,5
+Furniture,1,10.59,Fragile,Low,Domestic,High,No,3
+Home Decor,9,20.07,Perishable,High,International,High,Yes,5
+Pharmaceuticals,2,16.39,Fragile,High,Domestic,Medium,No,2
+Electronics,6,29.23,Light,Low,Domestic,Low,Yes,3
+Cosmetics,2,5.77,Liquid,Low,Domestic,High,No,5
+Medical Devices,2,21.39,Light,High,Domestic,Medium,Yes,3
+Groceries,1,14.84,Fragile,Low,Domestic,High,No,1
+Luxury Items,8,10.81,Light,Medium,Domestic,High,Yes,1
+Glassware,5,0.73,Light,High,Domestic,Medium,No,5
+Pharmaceuticals,1,25.5,Liquid,Medium,International,High,Yes,3
+Furniture,1,6.15,Heavy,High,Domestic,Medium,Yes,3
+Electronics,7,7.42,Liquid,Medium,Domestic,Medium,Yes,1
+Electronics,8,9.38,Liquid,Low,Domestic,Low,Yes,3
+Electronics,8,25.35,Fragile,Low,Domestic,High,Yes,3
+Glassware,8,16.17,Liquid,Medium,International,Low,No,4
+Cosmetics,4,10.41,Heavy,Low,Domestic,Low,Yes,5
+Pharmaceuticals,10,10.13,Liquid,High,Domestic,Low,Yes,3
+Home Decor,8,7.22,Heavy,High,Domestic,Low,Yes,1
+Cosmetics,4,17.64,Light,Low,Domestic,High,No,1
+Sports Equipment,4,7.21,Fragile,Medium,International,Low,No,4
+Books,1,18.71,Light,High,Domestic,Medium,Yes,3
+Clothing,10,4.92,Liquid,High,International,Medium,Yes,2
+Furniture,10,19.87,Liquid,Low,International,Medium,No,2
+Automotive,2,9.58,Perishable,High,Domestic,Medium,No,1
+Groceries,9,18.68,Perishable,High,International,Low,Yes,4
+Sports Equipment,10,5.58,Liquid,High,International,Low,Yes,5
+Automotive,10,28.71,Heavy,Low,Domestic,High,No,1
+Pharmaceuticals,7,2.97,Light,Medium,Domestic,Medium,No,5
+Furniture,7,26.79,Liquid,High,International,High,Yes,4
+Furniture,3,13.44,Perishable,High,International,High,No,4
+Furniture,1,0.83,Perishable,Medium,Domestic,High,Yes,5
+Pharmaceuticals,2,7.99,Liquid,Medium,International,Low,Yes,5
+Toys,6,14.18,Fragile,Low,Domestic,Low,Yes,1
+Luxury Items,3,3.29,Heavy,Low,Domestic,Low,Yes,3
+Toys,7,6.18,Heavy,Medium,International,Medium,Yes,3
+Medical Devices,2,18.97,Light,Medium,International,Medium,No,1
+Pharmaceuticals,4,23.09,Liquid,Medium,International,Low,Yes,4
+Home Decor,8,24.5,Perishable,High,International,Low,No,3
+Clothing,2,13.9,Light,High,Domestic,Medium,No,1
+Books,6,3.99,Fragile,Low,International,Medium,Yes,2
+Automotive,5,29.61,Fragile,Low,Domestic,Medium,No,5
+Luxury Items,5,25.72,Fragile,Medium,Domestic,Medium,Yes,3
+Medical Devices,7,10.33,Light,Low,Domestic,High,Yes,2
+Glassware,8,28.42,Light,High,Domestic,High,No,4
+Clothing,6,18.52,Heavy,Low,International,Low,No,5
+Glassware,7,12.55,Heavy,High,Domestic,Low,Yes,1
+Groceries,4,25.76,Fragile,Low,Domestic,Low,No,1
+Books,9,19.64,Liquid,Medium,Domestic,Low,No,5
+Pharmaceuticals,6,28.59,Perishable,Medium,Domestic,High,Yes,5
+Clothing,2,10.83,Heavy,Low,International,Low,Yes,4
+Glassware,3,21.7,Heavy,Low,International,High,No,1
+Groceries,5,2.23,Perishable,Medium,Domestic,High,No,5
+Toys,5,13.77,Fragile,Low,Domestic,Low,Yes,1
+Electronics,2,2.34,Perishable,Low,Domestic,High,Yes,2
+Cosmetics,1,2.06,Perishable,Low,International,Medium,Yes,3
+Home Decor,7,13.72,Fragile,High,Domestic,High,Yes,3
+Toys,8,21.27,Liquid,Low,Domestic,Low,No,5
+Groceries,10,14.05,Liquid,High,Domestic,Low,No,2
+Cosmetics,3,27.04,Heavy,Low,International,Low,Yes,3
+Cosmetics,3,20.95,Perishable,High,International,High,Yes,3
+Clothing,10,24.94,Heavy,Medium,Domestic,High,No,2
+Books,5,23.13,Liquid,Medium,International,Medium,No,5
+Furniture,1,7.45,Light,High,International,Low,No,1
+Books,4,25.38,Light,High,Domestic,High,No,4
+Furniture,7,9.52,Liquid,Medium,Domestic,High,No,4
+Luxury Items,10,4.44,Heavy,High,International,Medium,Yes,2
+Books,8,12.26,Fragile,High,Domestic,Low,Yes,4
+Toys,2,1.89,Perishable,Medium,Domestic,Medium,No,4
+Sports Equipment,7,22.99,Fragile,Medium,Domestic,Low,No,2
+Medical Devices,4,3.45,Perishable,Low,Domestic,Low,No,1
+Furniture,8,12.78,Light,Low,International,High,No,5
+Food,8,13.7,Liquid,Medium,International,Low,No,3
+Cosmetics,1,29.54,Liquid,Low,International,Low,Yes,1
+Food,5,5.26,Fragile,Low,International,Low,Yes,5
+Pharmaceuticals,8,29.13,Fragile,High,International,High,No,5
+Books,8,26.81,Light,Low,Domestic,Medium,Yes,4
+Sports Equipment,10,16.25,Fragile,Low,Domestic,Medium,Yes,1
+Food,1,4.47,Fragile,Medium,Domestic,Low,No,4
+Books,4,26.23,Light,Low,Domestic,High,No,1
+Home Decor,6,8.4,Liquid,Medium,Domestic,High,Yes,2
+Toys,9,6.03,Perishable,Medium,International,Medium,No,1
+Food,4,9.93,Perishable,Medium,International,High,No,2
+Automotive,6,26.78,Liquid,Low,International,Medium,No,4
+Home Decor,4,8.5,Liquid,Medium,International,Low,Yes,2
+Pharmaceuticals,3,14.99,Perishable,Medium,Domestic,Medium,Yes,5
+Groceries,6,6.97,Liquid,Low,International,Low,Yes,2
+Cosmetics,4,5.93,Heavy,High,International,Medium,No,4
+Glassware,1,12.21,Fragile,Low,International,High,No,3
+Books,7,20.93,Fragile,High,International,Medium,No,4
+Electronics,6,3.78,Heavy,Low,Domestic,Low,No,1
+Clothing,10,11.8,Perishable,High,Domestic,Medium,Yes,4
+Food,7,12.8,Perishable,High,Domestic,Low,Yes,5
+Food,9,12.43,Light,Medium,Domestic,High,Yes,4
+Automotive,6,23.23,Fragile,Low,Domestic,High,Yes,5
+Toys,6,10.86,Liquid,Low,Domestic,High,Yes,2
+Medical Devices,9,22.08,Light,Low,International,Medium,Yes,5
+Furniture,3,7.71,Perishable,Low,Domestic,Low,No,1
+Pharmaceuticals,6,21.99,Fragile,High,Domestic,Low,No,1
+Groceries,4,11.77,Heavy,Low,International,Low,No,4
+Books,7,17.73,Perishable,Medium,International,High,Yes,4
+Home Decor,6,24.12,Liquid,Low,Domestic,Low,Yes,2
+Food,9,27.86,Liquid,Low,Domestic,High,No,5
+Food,8,22.11,Heavy,High,Domestic,Low,Yes,5
+Sports Equipment,10,29.96,Perishable,Low,International,High,Yes,3
+Luxury Items,9,14.27,Perishable,Low,Domestic,High,Yes,3
+Pharmaceuticals,9,28.63,Liquid,High,Domestic,High,No,4
+Pharmaceuticals,8,19.62,Perishable,Low,International,High,No,3
+Food,2,29.34,Light,High,Domestic,Low,No,4
+Books,8,3.83,Heavy,Medium,Domestic,Low,Yes,4
+Groceries,1,27.76,Liquid,Medium,Domestic,Low,Yes,1
+Automotive,7,12.05,Liquid,High,Domestic,Low,No,1
+Home Decor,9,19.43,Light,Medium,International,Low,Yes,5
+Food,1,5.28,Heavy,Medium,International,High,No,4
+Home Decor,5,11.97,Fragile,Low,Domestic,High,Yes,5
+Clothing,9,14.97,Liquid,Medium,Domestic,Low,No,1
+Pharmaceuticals,3,13.58,Perishable,High,International,Low,Yes,5
+Cosmetics,1,9.74,Liquid,Low,Domestic,Low,No,5
+Furniture,9,17.51,Perishable,High,Domestic,Low,Yes,5
+Automotive,4,17.6,Fragile,High,International,Medium,Yes,5
+Furniture,5,16.42,Liquid,Low,Domestic,Medium,No,4
+Pharmaceuticals,2,13.94,Liquid,Low,Domestic,Medium,No,5
+Books,10,6.73,Light,Medium,Domestic,Medium,No,1
+Electronics,8,27.48,Perishable,High,Domestic,Medium,Yes,3
+Medical Devices,7,7.6,Heavy,Medium,Domestic,High,Yes,1
+Glassware,3,10.71,Perishable,High,Domestic,High,No,3
+Automotive,2,12.85,Liquid,Low,International,Medium,Yes,4

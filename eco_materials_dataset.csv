@@ -1,0 +1,501 @@
+material_name,strength_score,weight_capacity_kg,biodegradability_score,co2_emission_kg,recyclability_percent,cost_per_unit_usd,moisture_resistance,heat_resistance,industry_standard,reuse_cycles,compostable
+Palm Leaf Variant 1,4,39.6,6,1.75,44,2.11,High,Medium,Food,5,Yes
+Kraft Paper Variant 2,7,16.25,2,5.13,74,0.55,Medium,Low,Electronics,4,No
+Wooden Crate Variant 3,10,15.41,4,0.53,61,0.97,Low,Medium,General,3,Yes
+Kraft Paper Variant 4,6,10.02,5,3.01,62,2.01,High,Low,Cosmetics,5,No
+Recycled Paper Variant 5,9,19.63,7,4.23,73,1.14,High,Medium,General,3,No
+Bagasse Fiber Variant 6,6,46.7,6,3.24,47,1.7,Low,Low,Food,5,No
+Biodegradable Plastic (PLA) Variant 7,6,41.3,1,1.11,56,0.73,Medium,High,Cosmetics,2,Yes
+Bagasse Fiber Variant 8,10,13.16,4,4.15,82,1.3,Medium,Medium,Electronics,1,Yes
+Molded Pulp Variant 9,10,39.99,3,1.98,98,0.37,High,High,Food,2,No
+Steel Variant 10,9,29.34,5,4.58,59,1.9,High,Medium,Electronics,2,No
+Steel Variant 11,4,26.9,1,2.95,71,1.57,Low,Medium,Cosmetics,5,Yes
+Steel Variant 12,6,22.0,1,1.58,41,1.11,Low,Low,Food,2,No
+Wooden Crate Variant 13,6,40.91,3,4.41,99,1.26,Medium,Low,Cosmetics,4,Yes
+Steel Variant 14,5,8.2,3,5.65,51,2.22,Low,Low,Electronics,3,Yes
+Glass Variant 15,10,45.61,1,5.37,52,2.25,Low,High,Food,4,Yes
+Corrugated Cardboard Variant 16,6,32.58,2,3.42,43,1.79,High,High,General,2,Yes
+Recycled PET Variant 17,4,49.84,10,3.48,49,1.82,High,Low,General,1,Yes
+Corrugated Cardboard Variant 18,4,21.71,8,3.04,62,2.45,High,Low,Cosmetics,1,No
+Corrugated Cardboard Variant 19,9,37.28,8,0.38,63,0.53,High,High,General,4,No
+Aluminum Variant 20,5,22.55,2,3.17,74,0.62,High,Medium,Food,1,Yes
+Bagasse Fiber Variant 21,9,23.83,8,0.93,85,1.91,High,High,General,4,Yes
+Recycled PET Variant 22,8,39.56,10,2.48,73,1.99,Low,Low,Food,4,Yes
+Kraft Paper Variant 23,9,12.88,6,4.0,43,2.04,High,Low,Cosmetics,5,No
+Glass Variant 24,10,5.86,3,2.92,88,2.09,High,High,General,2,No
+Bamboo Fiber Variant 25,7,3.31,4,4.69,74,0.46,Medium,Medium,Cosmetics,5,No
+Aluminum Variant 26,10,32.7,3,4.0,96,1.97,High,Low,General,1,No
+Bagasse Fiber Variant 27,7,35.36,3,2.26,100,0.99,Low,Medium,General,5,No
+Recycled Paper Variant 28,8,4.57,4,4.3,90,2.17,Low,High,Electronics,4,Yes
+Kraft Paper Variant 29,10,4.33,9,5.46,94,0.21,Low,Medium,Cosmetics,3,Yes
+Aluminum Variant 30,6,46.54,8,5.09,62,1.87,Low,Low,Cosmetics,2,No
+Molded Pulp Variant 31,8,36.81,10,1.76,68,1.03,Low,Low,Electronics,3,No
+Recycled PET Variant 32,10,15.72,4,5.34,52,1.3,High,Low,Cosmetics,2,Yes
+Bamboo Fiber Variant 33,5,16.82,3,1.77,40,0.72,Medium,High,General,2,No
+Mushroom Packaging Variant 34,8,8.75,9,3.83,84,1.45,Medium,Low,Food,3,No
+Biodegradable Plastic (PLA) Variant 35,7,11.88,6,3.84,40,0.71,Medium,Medium,General,5,No
+Bamboo Fiber Variant 36,9,11.24,1,0.42,82,0.31,Medium,Low,Food,1,No
+Bamboo Fiber Variant 37,6,4.17,8,2.92,90,0.78,Low,Medium,Food,2,No
+Bagasse Fiber Variant 38,7,37.19,5,4.45,60,2.25,Medium,Medium,Electronics,5,Yes
+Bagasse Fiber Variant 39,9,17.82,9,2.69,94,0.75,High,High,Electronics,5,Yes
+Kraft Paper Variant 40,6,41.32,5,1.72,40,1.52,Medium,High,Food,1,No
+Kraft Paper Variant 41,8,26.96,3,4.43,57,0.31,High,High,Electronics,1,No
+Bamboo Fiber Variant 42,5,7.48,7,4.26,89,2.19,High,High,General,3,Yes
+Mushroom Packaging Variant 43,9,17.24,5,3.67,93,1.07,Low,Medium,Electronics,2,No
+Bagasse Fiber Variant 44,5,29.96,6,3.39,83,0.81,Medium,Medium,Electronics,1,No
+Wooden Crate Variant 45,9,24.53,10,1.97,98,1.15,High,High,Food,3,No
+Recycled Paper Variant 46,4,17.73,2,2.03,62,0.9,Low,Medium,Cosmetics,3,No
+Recycled PET Variant 47,10,1.96,4,1.21,84,1.35,Low,Low,Food,1,Yes
+Steel Variant 48,4,41.36,8,3.9,84,1.57,Low,High,Electronics,4,Yes
+Corrugated Cardboard Variant 49,9,44.14,2,1.54,90,0.95,High,Medium,Electronics,1,Yes
+Cornstarch Packaging Variant 50,4,43.26,3,2.0,74,0.44,Medium,Medium,Food,1,No
+Bagasse Fiber Variant 51,5,24.31,7,5.95,86,2.27,High,Low,Cosmetics,2,No
+Molded Pulp Variant 52,10,29.62,10,1.77,86,1.28,Low,Medium,Food,5,No
+Cornstarch Packaging Variant 53,7,38.22,1,2.89,47,2.4,High,Medium,Cosmetics,5,Yes
+Glass Variant 54,8,34.2,6,4.47,58,1.23,High,Medium,Electronics,5,No
+Molded Pulp Variant 55,5,24.37,4,5.44,63,0.38,High,High,Food,2,Yes
+Steel Variant 56,5,9.11,1,3.72,93,2.49,Low,Low,Cosmetics,3,Yes
+Corrugated Cardboard Variant 57,5,37.63,8,3.17,61,0.49,Low,Low,Cosmetics,3,Yes
+Mushroom Packaging Variant 58,10,46.99,6,0.36,46,0.83,Low,High,Cosmetics,2,No
+Cornstarch Packaging Variant 59,9,40.73,8,4.96,80,2.42,High,High,Food,2,No
+Bamboo Fiber Variant 60,10,42.89,3,2.35,90,0.57,Low,Medium,Cosmetics,2,Yes
+Recycled Paper Variant 61,5,15.27,10,5.0,48,1.03,High,Medium,General,1,Yes
+Cornstarch Packaging Variant 62,5,20.25,8,4.74,41,0.33,Medium,High,General,4,Yes
+Biodegradable Plastic (PLA) Variant 63,4,19.77,7,2.42,58,0.88,Medium,Low,Cosmetics,2,Yes
+Aluminum Variant 64,9,30.69,7,4.71,68,0.98,Medium,High,Cosmetics,2,No
+Kraft Paper Variant 65,9,35.73,6,0.34,70,0.66,High,High,General,1,Yes
+Mushroom Packaging Variant 66,5,10.83,1,3.75,69,1.45,Low,Medium,General,4,Yes
+Bagasse Fiber Variant 67,9,41.22,4,3.5,55,1.89,Medium,High,Electronics,3,No
+Biodegradable Plastic (PLA) Variant 68,9,43.53,1,2.15,51,0.68,High,High,Cosmetics,3,No
+Biodegradable Plastic (PLA) Variant 69,10,18.21,9,1.44,40,2.12,Low,Low,Electronics,4,Yes
+Mushroom Packaging Variant 70,7,9.8,1,0.48,54,2.05,Medium,Medium,Electronics,2,No
+Kraft Paper Variant 71,4,17.18,4,0.34,46,1.86,Low,Low,Electronics,3,Yes
+Cornstarch Packaging Variant 72,10,3.66,7,0.8,97,0.39,High,Medium,Cosmetics,3,No
+Wooden Crate Variant 73,7,29.7,1,5.94,53,1.14,Medium,Low,Food,3,No
+Bagasse Fiber Variant 74,10,29.53,4,4.72,86,1.13,Low,Low,Cosmetics,2,Yes
+Kraft Paper Variant 75,6,43.23,1,0.72,46,0.71,Low,High,General,4,No
+Cornstarch Packaging Variant 76,4,42.23,6,1.54,71,1.49,Low,Low,Cosmetics,1,Yes
+Cornstarch Packaging Variant 77,7,22.05,2,1.13,89,0.49,High,High,General,4,Yes
+Bagasse Fiber Variant 78,9,41.95,5,4.88,98,0.49,Low,Medium,Electronics,4,No
+Glass Variant 79,8,19.39,3,5.4,87,0.93,High,Low,General,4,Yes
+Biodegradable Plastic (PLA) Variant 80,10,29.69,10,5.17,55,1.73,High,Low,Food,5,No
+Corrugated Cardboard Variant 81,7,30.72,1,0.23,84,1.31,Medium,Medium,General,4,Yes
+Palm Leaf Variant 82,8,1.35,10,5.41,96,0.59,Low,High,Cosmetics,2,No
+Cornstarch Packaging Variant 83,4,28.09,7,2.57,74,1.97,High,Medium,General,2,No
+Recycled Paper Variant 84,8,23.65,3,3.92,91,0.33,High,Medium,Food,2,Yes
+Palm Leaf Variant 85,5,15.07,6,1.45,44,0.22,High,Medium,Cosmetics,2,Yes
+Molded Pulp Variant 86,5,2.67,6,0.91,76,2.21,High,High,Cosmetics,1,Yes
+Molded Pulp Variant 87,5,11.59,6,3.34,93,1.95,Low,Medium,Food,4,No
+Glass Variant 88,9,42.41,8,5.95,77,0.35,Medium,Medium,Electronics,2,No
+Molded Pulp Variant 89,10,32.6,8,1.59,46,0.91,Low,Medium,Cosmetics,3,No
+Corrugated Cardboard Variant 90,9,15.15,7,1.62,75,2.44,Medium,Medium,General,5,Yes
+Bamboo Fiber Variant 91,9,14.71,2,5.0,57,0.51,High,Medium,General,4,Yes
+Wooden Crate Variant 92,6,7.93,1,1.53,78,0.39,Medium,High,Cosmetics,5,No
+Biodegradable Plastic (PLA) Variant 93,6,37.85,10,2.03,96,1.97,Low,High,Cosmetics,3,No
+Recycled Paper Variant 94,7,45.64,8,3.85,78,0.59,Medium,High,Electronics,2,No
+Mushroom Packaging Variant 95,8,16.6,5,4.44,40,1.02,Low,Medium,Cosmetics,3,No
+Recycled PET Variant 96,5,49.83,2,2.36,98,1.29,High,High,Food,2,No
+Corrugated Cardboard Variant 97,10,45.08,5,2.12,56,0.94,Low,High,Food,2,No
+Palm Leaf Variant 98,4,17.58,1,2.0,70,0.36,Low,Low,Cosmetics,5,No
+Kraft Paper Variant 99,4,6.38,2,5.77,55,0.87,Low,Medium,Food,4,No
+Aluminum Variant 100,6,33.31,9,1.2,51,1.53,High,Low,Electronics,5,No
+Wooden Crate Variant 101,9,44.21,1,1.3,58,0.32,Medium,Low,Food,4,No
+Kraft Paper Variant 102,10,38.06,7,0.56,87,0.4,Medium,Low,Food,1,No
+Kraft Paper Variant 103,9,12.07,3,2.08,94,0.23,Medium,High,Cosmetics,3,No
+Palm Leaf Variant 104,4,7.1,3,4.53,83,2.33,Low,Medium,Cosmetics,1,No
+Recycled PET Variant 105,6,44.58,9,0.92,42,0.95,High,Low,Cosmetics,4,Yes
+Palm Leaf Variant 106,5,22.22,1,0.44,77,0.4,Medium,Low,Electronics,5,Yes
+Bagasse Fiber Variant 107,7,41.07,7,4.5,53,0.21,Low,High,General,2,Yes
+Glass Variant 108,5,13.25,6,1.56,66,1.99,High,Medium,Food,3,No
+Steel Variant 109,10,11.16,2,4.02,49,0.79,Low,Medium,General,4,No
+Mushroom Packaging Variant 110,10,40.85,3,4.85,90,1.12,High,Medium,Cosmetics,4,No
+Molded Pulp Variant 111,9,18.37,4,2.46,43,1.5,Low,High,General,4,Yes
+Recycled Paper Variant 112,4,19.87,2,2.68,46,1.51,Low,High,General,1,No
+Kraft Paper Variant 113,4,13.29,6,4.95,91,1.16,High,Medium,Cosmetics,3,Yes
+Mushroom Packaging Variant 114,8,39.31,9,0.99,91,0.68,Medium,Medium,General,2,No
+Mushroom Packaging Variant 115,7,1.16,5,0.61,95,0.76,High,Low,Electronics,3,No
+Bamboo Fiber Variant 116,5,34.75,1,4.7,75,0.49,Medium,High,Food,3,No
+Aluminum Variant 117,5,37.25,4,1.71,77,0.59,Low,Low,Electronics,3,Yes
+Palm Leaf Variant 118,6,36.41,10,4.84,45,1.76,Low,High,General,5,Yes
+Palm Leaf Variant 119,10,7.93,5,2.63,59,1.64,Medium,High,General,1,Yes
+Bagasse Fiber Variant 120,6,28.74,8,5.92,88,0.52,Medium,High,Electronics,2,No
+Glass Variant 121,5,38.06,9,4.85,72,0.41,High,Medium,Cosmetics,5,Yes
+Kraft Paper Variant 122,10,46.95,10,0.35,73,1.03,Medium,Medium,Food,5,No
+Recycled PET Variant 123,6,23.85,3,3.21,80,1.87,Low,Medium,Cosmetics,4,No
+Palm Leaf Variant 124,9,17.64,10,1.81,71,2.39,High,Low,Cosmetics,4,No
+Aluminum Variant 125,6,7.73,4,3.66,56,0.3,Low,Medium,Electronics,3,No
+Recycled Paper Variant 126,7,34.25,1,3.0,74,1.43,Low,High,General,3,Yes
+Bagasse Fiber Variant 127,6,42.43,3,3.73,90,0.34,High,Low,Food,3,No
+Corrugated Cardboard Variant 128,8,36.0,7,3.66,66,1.23,High,High,Cosmetics,5,No
+Aluminum Variant 129,6,41.45,3,4.29,93,0.23,High,Low,General,3,Yes
+Aluminum Variant 130,5,17.32,1,3.26,44,1.49,Medium,Medium,General,3,Yes
+Bagasse Fiber Variant 131,6,45.02,3,3.63,97,0.64,Low,Low,General,2,Yes
+Palm Leaf Variant 132,9,42.78,3,2.48,59,1.8,Medium,Medium,Cosmetics,4,Yes
+Aluminum Variant 133,9,9.62,9,1.57,52,0.91,High,Low,General,1,No
+Bamboo Fiber Variant 134,4,20.24,9,3.91,56,2.5,Low,High,Cosmetics,2,Yes
+Molded Pulp Variant 135,9,20.03,5,0.27,100,2.34,High,Low,Electronics,4,No
+Bagasse Fiber Variant 136,9,6.82,5,5.43,82,0.98,Low,Low,General,1,No
+Glass Variant 137,7,29.07,3,4.54,92,0.95,Low,Low,General,2,Yes
+Steel Variant 138,4,8.6,8,5.22,79,1.79,Low,Low,General,3,No
+Glass Variant 139,10,29.72,9,3.16,77,1.53,Medium,Low,General,4,Yes
+Recycled PET Variant 140,9,25.45,9,5.32,85,0.58,High,Low,Food,1,Yes
+Glass Variant 141,10,10.66,10,3.47,81,1.66,Low,Medium,Food,5,No
+Recycled Paper Variant 142,9,32.87,7,3.63,66,0.79,Low,High,Cosmetics,5,No
+Aluminum Variant 143,9,30.92,7,4.52,40,1.19,Medium,Low,Electronics,4,Yes
+Palm Leaf Variant 144,6,40.55,9,2.17,59,0.78,Low,High,Food,5,No
+Biodegradable Plastic (PLA) Variant 145,7,25.85,1,3.05,41,0.87,Medium,High,General,4,No
+Palm Leaf Variant 146,8,20.04,9,5.54,41,2.08,Low,Low,Electronics,3,Yes
+Aluminum Variant 147,4,12.34,10,3.49,94,1.16,High,Low,Food,1,Yes
+Kraft Paper Variant 148,6,29.5,8,4.38,64,2.17,High,Medium,Electronics,5,Yes
+Corrugated Cardboard Variant 149,5,31.58,6,2.72,65,0.34,High,High,Food,1,No
+Kraft Paper Variant 150,5,33.4,9,2.92,88,1.51,Medium,High,General,3,No
+Corrugated Cardboard Variant 151,7,21.24,4,0.33,54,1.33,High,Low,Electronics,1,Yes
+Molded Pulp Variant 152,8,15.61,1,1.74,94,1.63,Low,Medium,Cosmetics,3,No
+Aluminum Variant 153,8,45.26,2,3.32,70,1.47,Medium,Low,General,3,Yes
+Molded Pulp Variant 154,10,26.05,7,2.93,91,1.78,High,Medium,Electronics,4,Yes
+Bamboo Fiber Variant 155,6,6.93,8,2.24,54,1.61,Low,Low,Electronics,3,No
+Recycled Paper Variant 156,4,37.11,10,3.57,62,1.76,Low,Low,Cosmetics,3,Yes
+Biodegradable Plastic (PLA) Variant 157,5,29.06,3,4.34,91,0.53,Low,Medium,Electronics,3,No
+Steel Variant 158,8,12.17,9,0.91,98,1.87,Medium,Medium,Cosmetics,1,Yes
+Wooden Crate Variant 159,8,13.38,2,4.49,87,2.18,Low,High,Food,4,No
+Palm Leaf Variant 160,9,48.05,6,0.74,76,0.91,Medium,Medium,General,3,No
+Wooden Crate Variant 161,10,14.58,10,2.45,50,1.89,Low,Medium,Food,5,No
+Bagasse Fiber Variant 162,8,2.61,10,4.29,49,2.1,Low,Medium,Electronics,5,Yes
+Wooden Crate Variant 163,5,35.53,6,0.26,57,1.25,Medium,High,Food,2,Yes
+Corrugated Cardboard Variant 164,10,30.09,6,0.54,78,2.28,Medium,Medium,General,4,No
+Mushroom Packaging Variant 165,9,34.34,7,4.58,66,1.62,High,Medium,Cosmetics,1,Yes
+Recycled Paper Variant 166,7,1.22,8,3.08,89,2.18,Medium,Medium,Cosmetics,4,No
+Biodegradable Plastic (PLA) Variant 167,7,9.58,8,3.77,67,0.39,High,High,General,4,No
+Mushroom Packaging Variant 168,4,25.4,3,5.41,89,2.19,High,Medium,Electronics,2,No
+Wooden Crate Variant 169,5,40.96,9,3.73,78,1.67,Low,High,General,5,Yes
+Recycled PET Variant 170,9,35.76,10,5.1,52,0.25,Medium,High,Electronics,5,No
+Steel Variant 171,10,34.19,10,0.35,78,0.53,High,Low,Cosmetics,4,No
+Glass Variant 172,4,26.37,6,5.84,48,1.17,Low,High,Cosmetics,4,Yes
+Aluminum Variant 173,8,49.53,9,0.97,75,0.81,Medium,High,Electronics,2,No
+Recycled PET Variant 174,5,36.59,4,3.66,87,2.24,Low,High,Cosmetics,3,Yes
+Corrugated Cardboard Variant 175,7,49.47,1,2.39,90,1.69,Low,Low,Electronics,3,Yes
+Palm Leaf Variant 176,6,38.64,4,5.99,72,1.33,Low,High,Food,4,Yes
+Biodegradable Plastic (PLA) Variant 177,7,11.49,3,5.7,74,0.38,Medium,High,Food,3,Yes
+Bagasse Fiber Variant 178,5,49.6,2,0.27,89,2.3,Low,Medium,Cosmetics,2,No
+Bagasse Fiber Variant 179,4,5.92,9,4.68,100,1.16,Low,Medium,General,5,No
+Corrugated Cardboard Variant 180,7,31.2,10,0.82,66,1.53,High,Medium,Food,5,No
+Bagasse Fiber Variant 181,10,33.3,7,4.1,43,1.08,Low,Low,General,5,No
+Recycled Paper Variant 182,5,3.36,9,3.13,97,2.31,Medium,Medium,Food,3,No
+Wooden Crate Variant 183,5,37.86,8,0.99,81,1.36,High,Medium,General,1,No
+Mushroom Packaging Variant 184,9,48.71,10,3.54,69,1.62,Medium,Low,Cosmetics,2,No
+Corrugated Cardboard Variant 185,5,16.96,3,4.65,45,2.07,Low,Medium,General,4,No
+Kraft Paper Variant 186,9,5.18,10,2.88,62,1.67,Low,Medium,General,4,Yes
+Mushroom Packaging Variant 187,6,36.34,2,3.94,87,0.69,High,High,General,3,No
+Biodegradable Plastic (PLA) Variant 188,6,32.91,10,4.54,88,0.41,Low,Medium,General,5,Yes
+Corrugated Cardboard Variant 189,10,17.78,9,3.04,81,1.84,Medium,High,Cosmetics,3,No
+Mushroom Packaging Variant 190,4,3.0,6,5.3,73,1.78,High,Low,Food,4,Yes
+Molded Pulp Variant 191,8,37.89,6,3.62,70,2.4,Low,Medium,Cosmetics,1,No
+Glass Variant 192,6,2.86,6,3.61,66,1.97,Low,Low,Electronics,2,Yes
+Steel Variant 193,6,15.71,3,4.78,45,0.6,Medium,High,Cosmetics,3,Yes
+Cornstarch Packaging Variant 194,8,26.87,1,4.79,73,0.64,High,Low,Cosmetics,5,Yes
+Corrugated Cardboard Variant 195,8,9.93,1,2.19,94,2.21,High,Low,Cosmetics,4,No
+Bamboo Fiber Variant 196,4,16.6,2,5.04,57,0.53,High,Low,Electronics,1,No
+Recycled Paper Variant 197,4,28.87,8,3.67,91,0.97,Medium,Low,Food,3,Yes
+Cornstarch Packaging Variant 198,7,16.25,2,0.7,45,2.35,Low,Medium,Electronics,4,Yes
+Wooden Crate Variant 199,4,24.53,10,0.52,93,1.32,High,Medium,Electronics,4,Yes
+Biodegradable Plastic (PLA) Variant 200,5,6.06,10,4.84,93,2.06,Medium,High,Food,3,Yes
+Recycled PET Variant 201,9,23.66,10,4.97,62,1.1,Low,Medium,Electronics,2,Yes
+Aluminum Variant 202,10,47.18,3,1.86,52,1.26,Medium,High,Cosmetics,1,No
+Palm Leaf Variant 203,4,47.09,10,0.65,46,2.39,Medium,Low,Food,3,Yes
+Bagasse Fiber Variant 204,10,36.44,10,1.91,96,2.43,Medium,Medium,General,5,No
+Mushroom Packaging Variant 205,10,36.12,4,4.56,72,1.15,High,Low,Food,5,No
+Glass Variant 206,4,31.19,9,1.66,90,1.2,Low,Medium,General,2,No
+Recycled PET Variant 207,10,6.32,1,4.46,59,0.88,Medium,Low,General,4,Yes
+Recycled Paper Variant 208,5,32.23,8,0.45,72,2.11,Medium,Medium,Electronics,4,No
+Molded Pulp Variant 209,8,35.89,10,5.36,74,0.92,Low,Low,Electronics,2,No
+Bamboo Fiber Variant 210,9,44.64,4,1.69,82,0.41,Low,High,General,4,No
+Aluminum Variant 211,10,14.52,5,3.64,79,2.19,Low,Medium,Food,2,No
+Steel Variant 212,8,38.44,6,0.23,75,2.48,High,High,General,3,Yes
+Bamboo Fiber Variant 213,8,33.97,5,5.18,69,0.31,Medium,Low,Cosmetics,3,Yes
+Wooden Crate Variant 214,5,46.21,6,5.58,92,0.24,Low,Low,Electronics,2,No
+Mushroom Packaging Variant 215,8,8.97,2,5.26,91,1.68,Low,High,Cosmetics,3,No
+Palm Leaf Variant 216,5,42.71,2,2.57,98,2.23,Medium,Low,Food,1,Yes
+Bamboo Fiber Variant 217,4,3.3,4,4.49,89,1.56,Medium,Low,Cosmetics,3,No
+Aluminum Variant 218,4,32.39,8,4.61,100,1.43,Low,High,Food,4,Yes
+Molded Pulp Variant 219,6,47.59,3,1.69,86,1.32,Low,Medium,General,2,Yes
+Palm Leaf Variant 220,6,36.11,6,5.3,56,1.05,High,Medium,Food,1,No
+Glass Variant 221,7,48.06,3,1.44,85,1.91,High,Medium,General,3,No
+Bagasse Fiber Variant 222,6,12.08,9,1.65,73,1.78,Medium,Medium,Electronics,5,Yes
+Cornstarch Packaging Variant 223,8,5.26,7,2.59,50,0.43,High,High,Electronics,4,Yes
+Glass Variant 224,7,43.3,6,1.38,98,0.57,Medium,Medium,General,2,No
+Kraft Paper Variant 225,8,29.84,4,3.94,52,1.16,Low,High,Cosmetics,4,Yes
+Recycled Paper Variant 226,10,9.65,9,3.74,97,1.93,Low,Medium,General,4,Yes
+Recycled PET Variant 227,5,4.66,8,3.95,59,2.2,Low,High,Food,1,Yes
+Kraft Paper Variant 228,6,29.84,10,5.65,91,1.04,High,High,Food,4,Yes
+Recycled PET Variant 229,10,3.12,10,4.93,90,2.22,Low,High,General,1,Yes
+Glass Variant 230,5,28.82,9,1.03,41,1.3,Medium,Medium,Electronics,5,Yes
+Bamboo Fiber Variant 231,6,13.05,1,3.15,55,2.05,High,Medium,Electronics,4,Yes
+Cornstarch Packaging Variant 232,7,12.29,8,0.44,40,2.24,High,High,General,1,No
+Molded Pulp Variant 233,10,37.61,9,3.51,80,2.34,Low,Medium,Cosmetics,4,Yes
+Biodegradable Plastic (PLA) Variant 234,4,44.71,7,3.33,99,0.31,Low,Low,General,5,Yes
+Biodegradable Plastic (PLA) Variant 235,8,45.54,4,0.31,78,2.31,Low,Low,Electronics,4,Yes
+Recycled Paper Variant 236,10,22.69,2,0.77,73,1.68,High,Low,General,1,No
+Mushroom Packaging Variant 237,9,41.8,7,0.5,67,1.47,Medium,Medium,Food,4,No
+Bagasse Fiber Variant 238,8,31.67,5,2.48,53,2.01,High,Medium,Food,3,Yes
+Mushroom Packaging Variant 239,5,47.69,8,0.85,79,1.32,Low,Medium,General,5,Yes
+Aluminum Variant 240,5,6.76,6,2.57,42,1.47,Medium,High,Food,5,Yes
+Molded Pulp Variant 241,6,30.95,3,3.34,51,0.92,High,Low,Electronics,2,No
+Recycled Paper Variant 242,9,9.63,9,5.49,68,2.43,Low,Medium,Electronics,5,No
+Wooden Crate Variant 243,8,30.08,2,3.51,64,1.14,Medium,Low,Cosmetics,4,No
+Steel Variant 244,7,45.28,8,3.66,45,0.45,Medium,High,Cosmetics,1,Yes
+Steel Variant 245,9,17.92,4,3.19,75,0.71,Low,High,Electronics,3,No
+Recycled Paper Variant 246,6,12.88,4,2.05,42,1.33,Medium,Medium,Electronics,3,No
+Molded Pulp Variant 247,8,46.29,5,0.64,66,1.17,High,Medium,Cosmetics,5,Yes
+Recycled Paper Variant 248,5,21.14,7,3.15,67,1.14,High,High,Electronics,4,Yes
+Recycled Paper Variant 249,8,10.34,8,5.77,82,1.47,High,Medium,Cosmetics,4,No
+Wooden Crate Variant 250,8,29.42,6,2.31,90,0.46,Low,High,Food,5,No
+Bagasse Fiber Variant 251,4,10.91,5,4.51,52,1.22,Medium,Medium,Food,5,No
+Molded Pulp Variant 252,5,31.13,10,4.09,89,2.48,High,Low,Electronics,3,Yes
+Recycled Paper Variant 253,4,34.97,4,2.03,77,1.48,High,Low,Electronics,3,Yes
+Glass Variant 254,7,9.92,3,2.13,85,0.31,High,High,Electronics,5,Yes
+Wooden Crate Variant 255,10,38.05,2,0.67,60,1.43,Low,Low,Cosmetics,5,No
+Biodegradable Plastic (PLA) Variant 256,10,25.66,9,4.25,71,1.85,Medium,High,General,5,Yes
+Wooden Crate Variant 257,5,2.76,9,3.42,43,1.63,Medium,Medium,General,2,No
+Recycled Paper Variant 258,10,37.68,4,2.42,54,0.82,Low,Low,Cosmetics,4,No
+Bamboo Fiber Variant 259,5,47.67,6,5.57,40,0.61,High,Medium,Food,3,Yes
+Kraft Paper Variant 260,4,25.55,2,5.14,56,1.79,Low,High,Food,5,Yes
+Recycled Paper Variant 261,8,17.66,4,0.3,57,1.93,Medium,Medium,Food,3,No
+Aluminum Variant 262,8,26.65,4,0.77,84,1.89,High,Low,Electronics,2,Yes
+Palm Leaf Variant 263,8,31.35,3,4.71,72,2.37,Medium,Low,Electronics,1,Yes
+Cornstarch Packaging Variant 264,7,13.36,5,2.57,40,1.47,High,Medium,Cosmetics,5,No
+Bamboo Fiber Variant 265,10,12.01,5,2.76,93,2.15,Medium,High,General,3,Yes
+Steel Variant 266,6,28.44,3,2.48,44,2.05,Low,High,Cosmetics,1,Yes
+Bamboo Fiber Variant 267,8,23.71,3,0.69,40,2.3,Medium,Medium,Electronics,3,Yes
+Aluminum Variant 268,8,49.71,9,0.86,82,0.88,High,High,General,5,Yes
+Recycled PET Variant 269,5,8.77,6,4.2,94,0.94,Low,Medium,Cosmetics,1,Yes
+Wooden Crate Variant 270,8,1.71,8,1.43,52,0.44,Medium,Low,Cosmetics,4,Yes
+Wooden Crate Variant 271,7,29.52,4,2.71,50,2.35,Low,Medium,Cosmetics,2,No
+Mushroom Packaging Variant 272,5,10.19,4,2.27,99,1.63,Low,High,Cosmetics,5,No
+Mushroom Packaging Variant 273,4,8.28,4,1.39,85,0.48,Medium,Low,Electronics,1,No
+Recycled Paper Variant 274,9,9.19,5,5.08,81,0.89,Medium,Low,Cosmetics,4,Yes
+Molded Pulp Variant 275,7,14.74,6,2.87,60,2.09,High,Low,General,3,Yes
+Biodegradable Plastic (PLA) Variant 276,8,41.96,5,5.01,100,1.59,Medium,Low,Food,2,Yes
+Corrugated Cardboard Variant 277,4,42.18,6,2.38,82,1.33,Medium,Low,Electronics,4,Yes
+Cornstarch Packaging Variant 278,4,28.91,9,0.48,47,1.49,High,Low,General,3,No
+Kraft Paper Variant 279,8,40.43,10,3.16,57,1.26,Medium,High,Electronics,3,Yes
+Recycled PET Variant 280,7,16.59,4,2.9,56,1.03,High,Medium,Food,2,No
+Glass Variant 281,4,7.69,1,5.19,94,1.66,High,Medium,Cosmetics,1,No
+Corrugated Cardboard Variant 282,4,42.0,10,1.61,91,1.35,High,High,Food,2,No
+Kraft Paper Variant 283,7,10.22,3,2.47,93,1.05,High,Low,Food,4,No
+Bagasse Fiber Variant 284,4,20.34,9,4.33,94,1.55,Low,Low,Food,2,Yes
+Aluminum Variant 285,4,26.76,9,0.85,44,2.0,Medium,Low,General,4,Yes
+Bagasse Fiber Variant 286,8,21.73,2,4.51,51,1.03,Low,Low,Food,1,No
+Cornstarch Packaging Variant 287,9,10.68,5,2.87,59,1.37,Medium,Low,Electronics,2,Yes
+Kraft Paper Variant 288,8,46.83,10,0.75,80,0.49,Low,High,General,4,No
+Wooden Crate Variant 289,5,45.45,10,2.32,95,1.99,Low,High,Cosmetics,1,Yes
+Bamboo Fiber Variant 290,8,2.0,4,2.33,84,1.22,Low,Medium,General,1,Yes
+Bagasse Fiber Variant 291,5,9.52,6,4.39,91,1.27,Low,Low,Cosmetics,1,Yes
+Steel Variant 292,10,49.78,10,3.37,70,1.47,Low,Medium,Cosmetics,2,No
+Molded Pulp Variant 293,10,42.21,1,4.7,76,0.8,Low,Medium,General,4,No
+Recycled Paper Variant 294,10,42.82,10,1.99,76,0.41,High,Medium,Cosmetics,2,Yes
+Steel Variant 295,9,1.21,5,5.82,50,2.0,High,Low,Food,2,No
+Wooden Crate Variant 296,8,20.71,5,5.93,93,1.57,High,Medium,Food,3,No
+Kraft Paper Variant 297,4,14.31,2,3.39,94,1.33,Low,Medium,Food,5,No
+Kraft Paper Variant 298,7,18.99,8,4.73,68,1.96,Medium,Low,Electronics,3,No
+Corrugated Cardboard Variant 299,10,21.3,10,1.53,64,1.8,Medium,Medium,Electronics,4,Yes
+Recycled PET Variant 300,9,5.08,8,4.39,68,0.54,Low,Medium,Electronics,5,Yes
+Biodegradable Plastic (PLA) Variant 301,9,39.75,6,1.72,91,2.37,Low,Medium,Food,1,No
+Bamboo Fiber Variant 302,10,22.75,2,3.02,43,1.05,Medium,High,Food,4,No
+Corrugated Cardboard Variant 303,7,45.24,9,2.85,98,0.82,Medium,Low,General,3,Yes
+Cornstarch Packaging Variant 304,10,1.19,6,2.42,68,0.44,Low,Low,Food,5,Yes
+Cornstarch Packaging Variant 305,7,35.87,7,2.86,53,1.62,Medium,Medium,Food,3,No
+Molded Pulp Variant 306,10,34.28,6,2.15,64,2.03,Low,Medium,Cosmetics,2,Yes
+Molded Pulp Variant 307,8,33.86,9,4.1,60,0.82,Medium,High,Cosmetics,5,Yes
+Wooden Crate Variant 308,7,25.26,5,3.22,42,1.49,High,Medium,Electronics,3,Yes
+Recycled Paper Variant 309,5,35.39,2,1.55,52,1.72,Medium,High,Cosmetics,4,No
+Kraft Paper Variant 310,4,46.81,9,4.1,53,1.95,High,Low,Cosmetics,3,No
+Recycled PET Variant 311,7,23.94,4,5.81,92,0.58,Low,High,General,3,No
+Glass Variant 312,6,38.03,2,0.94,45,0.44,High,Medium,General,1,Yes
+Glass Variant 313,4,33.58,10,0.54,88,1.5,High,Medium,Electronics,3,No
+Aluminum Variant 314,7,9.56,10,4.45,67,1.67,Medium,Low,Electronics,3,Yes
+Mushroom Packaging Variant 315,8,21.6,2,3.08,79,2.32,Medium,High,Food,5,Yes
+Bamboo Fiber Variant 316,10,9.37,9,5.45,58,1.7,High,High,Food,1,Yes
+Wooden Crate Variant 317,4,15.1,1,6.0,47,0.68,Low,Medium,Food,5,No
+Steel Variant 318,4,47.14,2,4.72,75,1.97,Medium,Low,Cosmetics,4,No
+Corrugated Cardboard Variant 319,8,43.08,6,0.37,99,1.48,Medium,Low,Food,5,No
+Bagasse Fiber Variant 320,6,22.56,7,4.85,81,0.82,Medium,Medium,Electronics,4,Yes
+Corrugated Cardboard Variant 321,7,27.67,3,2.86,95,0.59,Low,Medium,Food,1,Yes
+Recycled PET Variant 322,4,42.12,3,4.7,86,2.12,Low,Low,General,2,Yes
+Cornstarch Packaging Variant 323,7,3.45,3,5.93,92,2.22,High,High,Food,2,Yes
+Kraft Paper Variant 324,6,1.98,4,5.12,53,1.61,Medium,Low,Cosmetics,5,No
+Kraft Paper Variant 325,10,3.03,6,1.41,80,0.23,Medium,Low,Cosmetics,4,No
+Corrugated Cardboard Variant 326,5,8.53,3,5.42,52,2.44,High,High,Electronics,2,Yes
+Biodegradable Plastic (PLA) Variant 327,5,45.85,3,2.12,77,1.14,Low,Medium,Food,2,Yes
+Molded Pulp Variant 328,5,1.79,3,1.49,59,1.27,High,Low,Cosmetics,1,No
+Recycled PET Variant 329,9,17.69,9,1.2,69,1.12,High,Low,General,4,No
+Wooden Crate Variant 330,4,3.56,8,2.46,65,1.26,High,Low,Cosmetics,3,Yes
+Wooden Crate Variant 331,6,20.35,3,0.39,52,0.6,Medium,High,Food,5,No
+Corrugated Cardboard Variant 332,6,30.49,4,4.55,87,1.04,High,High,Food,4,No
+Palm Leaf Variant 333,6,10.75,9,2.17,94,0.94,Medium,High,Electronics,1,Yes
+Mushroom Packaging Variant 334,9,8.06,5,2.04,70,0.66,Low,Medium,Food,1,No
+Molded Pulp Variant 335,4,22.68,1,4.43,55,1.35,Low,Low,Cosmetics,5,No
+Molded Pulp Variant 336,9,5.62,6,3.94,58,0.92,Low,High,General,5,Yes
+Recycled PET Variant 337,10,3.58,10,3.06,64,0.68,Medium,Medium,Cosmetics,1,Yes
+Kraft Paper Variant 338,4,30.64,5,1.67,97,2.33,Low,Low,Electronics,1,Yes
+Corrugated Cardboard Variant 339,4,2.59,9,1.01,66,0.47,Low,Low,Food,5,No
+Glass Variant 340,10,12.73,1,5.98,72,2.05,High,High,Cosmetics,1,Yes
+Mushroom Packaging Variant 341,4,2.4,7,1.38,41,1.92,Low,Low,Cosmetics,4,Yes
+Corrugated Cardboard Variant 342,7,2.69,9,1.97,72,1.15,Medium,High,Electronics,2,No
+Wooden Crate Variant 343,8,31.79,10,1.65,82,2.36,Medium,Medium,General,3,No
+Bagasse Fiber Variant 344,8,32.06,6,5.08,69,0.29,Medium,Medium,Electronics,2,No
+Aluminum Variant 345,9,17.92,2,3.34,85,0.52,High,Low,Cosmetics,4,No
+Bagasse Fiber Variant 346,7,35.03,6,4.38,79,2.19,High,Medium,General,4,Yes
+Recycled Paper Variant 347,4,19.58,2,3.88,57,0.22,Medium,Medium,Electronics,3,Yes
+Corrugated Cardboard Variant 348,5,7.58,8,2.56,81,1.91,Low,Low,Food,2,Yes
+Corrugated Cardboard Variant 349,6,48.04,1,3.19,65,1.8,High,High,Electronics,5,No
+Steel Variant 350,7,12.32,5,3.66,60,1.14,Low,Low,Electronics,4,No
+Molded Pulp Variant 351,9,40.22,8,4.93,61,2.03,Low,Medium,Food,4,Yes
+Recycled Paper Variant 352,9,17.01,7,4.69,53,2.46,Medium,High,General,2,Yes
+Glass Variant 353,6,7.61,6,5.21,66,0.51,Medium,Medium,General,2,No
+Palm Leaf Variant 354,6,43.03,7,3.29,96,0.75,Low,Medium,Electronics,4,Yes
+Recycled PET Variant 355,8,15.09,4,3.21,78,2.45,Medium,Medium,General,4,Yes
+Bagasse Fiber Variant 356,4,14.27,5,1.59,61,1.34,Medium,Medium,Electronics,4,No
+Glass Variant 357,7,37.95,5,2.19,48,1.8,Low,Low,Food,1,Yes
+Biodegradable Plastic (PLA) Variant 358,8,33.76,2,2.81,51,1.9,Medium,Medium,General,4,No
+Kraft Paper Variant 359,10,22.82,3,1.19,92,1.67,High,High,Cosmetics,2,Yes
+Molded Pulp Variant 360,6,45.09,7,2.8,88,0.44,Medium,Low,Electronics,5,No
+Mushroom Packaging Variant 361,6,36.05,5,3.37,93,0.84,Low,Medium,Food,1,Yes
+Recycled Paper Variant 362,9,44.12,10,5.36,63,1.53,Low,Low,Food,2,No
+Steel Variant 363,4,41.94,6,1.24,52,0.4,Low,Medium,Food,4,No
+Molded Pulp Variant 364,7,4.32,3,3.55,42,0.36,Low,Low,Electronics,1,No
+Glass Variant 365,9,24.2,9,2.53,57,2.15,High,High,Cosmetics,1,No
+Molded Pulp Variant 366,6,20.08,8,1.38,91,1.82,Low,Low,Food,1,No
+Steel Variant 367,7,37.87,1,5.32,88,2.38,Medium,Medium,General,2,No
+Glass Variant 368,9,6.51,1,1.03,41,2.18,Medium,Low,Cosmetics,1,No
+Steel Variant 369,5,23.55,9,3.61,45,1.03,High,Low,Cosmetics,1,No
+Recycled PET Variant 370,4,15.71,6,1.02,76,2.31,Low,Low,Electronics,3,No
+Steel Variant 371,8,46.42,10,2.74,52,1.39,Low,Medium,Food,1,No
+Molded Pulp Variant 372,8,10.67,4,0.74,89,0.82,High,Low,Electronics,1,No
+Bagasse Fiber Variant 373,8,33.57,2,4.18,44,0.94,High,Medium,General,4,Yes
+Corrugated Cardboard Variant 374,4,12.06,5,5.93,90,1.29,Low,High,Food,4,No
+Steel Variant 375,6,31.58,4,2.35,41,0.99,High,Low,Electronics,1,No
+Glass Variant 376,6,39.41,4,4.33,73,0.97,Low,Medium,General,1,No
+Glass Variant 377,9,20.77,4,4.33,40,1.36,Low,High,Electronics,5,No
+Wooden Crate Variant 378,10,21.67,9,2.34,59,1.28,Medium,Medium,Food,5,Yes
+Molded Pulp Variant 379,8,29.54,4,2.15,79,0.24,High,Medium,Electronics,3,Yes
+Recycled Paper Variant 380,5,13.8,7,4.38,62,0.25,High,High,Food,2,No
+Glass Variant 381,4,5.12,7,2.21,97,1.01,Low,High,General,2,No
+Kraft Paper Variant 382,8,8.15,9,1.86,67,0.81,Low,Medium,General,2,No
+Aluminum Variant 383,10,22.15,4,0.35,75,0.51,Low,Medium,Electronics,4,No
+Mushroom Packaging Variant 384,5,44.95,9,3.03,58,1.89,Low,High,Cosmetics,5,Yes
+Cornstarch Packaging Variant 385,5,29.55,6,5.11,67,1.93,Medium,Low,Cosmetics,3,No
+Kraft Paper Variant 386,9,41.2,6,1.27,68,0.25,High,Medium,Food,5,No
+Recycled Paper Variant 387,9,25.22,1,5.26,97,1.92,Medium,Low,Electronics,5,No
+Bamboo Fiber Variant 388,4,11.03,1,3.47,57,0.79,High,Low,Food,5,Yes
+Glass Variant 389,6,5.23,10,3.08,99,1.93,High,Low,Electronics,5,No
+Mushroom Packaging Variant 390,9,44.16,3,2.53,100,2.23,Medium,Medium,General,4,Yes
+Recycled PET Variant 391,5,15.1,4,5.0,50,0.59,High,Low,Food,5,Yes
+Glass Variant 392,10,14.56,1,0.75,90,2.15,High,Medium,Cosmetics,1,Yes
+Glass Variant 393,5,10.7,3,5.45,87,2.26,Low,Medium,Cosmetics,4,No
+Bagasse Fiber Variant 394,6,37.75,8,5.21,51,0.31,Low,Medium,Food,4,No
+Glass Variant 395,6,3.0,3,4.96,55,0.61,Low,Low,Food,3,Yes
+Molded Pulp Variant 396,5,35.54,10,1.64,91,2.03,High,Medium,General,3,No
+Mushroom Packaging Variant 397,7,21.43,5,4.85,49,1.65,High,Low,Electronics,4,No
+Cornstarch Packaging Variant 398,10,29.94,10,0.4,95,2.06,Low,Medium,General,5,Yes
+Glass Variant 399,6,20.39,5,3.71,92,0.24,High,Low,Cosmetics,4,No
+Aluminum Variant 400,6,3.18,7,5.72,84,0.8,High,Low,Electronics,2,No
+Molded Pulp Variant 401,5,17.8,10,1.57,92,2.0,Low,Medium,General,3,No
+Corrugated Cardboard Variant 402,6,7.12,1,5.91,81,0.59,Medium,Low,Electronics,5,No
+Cornstarch Packaging Variant 403,5,46.34,8,1.64,49,1.14,Low,Medium,Electronics,2,Yes
+Bamboo Fiber Variant 404,6,33.2,1,2.85,77,2.0,High,High,General,2,No
+Glass Variant 405,7,5.15,3,2.57,53,2.33,Medium,Medium,Food,5,No
+Glass Variant 406,9,46.67,7,4.26,61,1.63,Medium,Low,General,5,Yes
+Recycled PET Variant 407,8,6.29,9,5.3,95,0.55,Medium,Medium,Food,4,Yes
+Palm Leaf Variant 408,8,16.92,5,5.42,72,1.83,Medium,Low,General,1,No
+Molded Pulp Variant 409,8,28.01,6,2.84,67,2.27,Low,Medium,Electronics,5,No
+Bamboo Fiber Variant 410,8,41.28,3,5.25,65,0.94,High,High,Food,1,Yes
+Mushroom Packaging Variant 411,9,45.51,2,3.67,68,0.86,Medium,Medium,Cosmetics,5,No
+Wooden Crate Variant 412,5,1.45,4,2.37,99,1.47,Low,High,Electronics,5,No
+Corrugated Cardboard Variant 413,6,29.98,4,5.8,96,1.13,Low,Medium,General,5,Yes
+Glass Variant 414,6,18.5,1,1.24,98,0.56,Low,Medium,Electronics,2,No
+Cornstarch Packaging Variant 415,8,44.49,8,4.3,96,1.16,Medium,Low,Food,2,Yes
+Wooden Crate Variant 416,7,18.0,9,4.65,93,2.19,High,Medium,Electronics,1,Yes
+Wooden Crate Variant 417,7,36.04,6,2.74,42,2.06,Medium,Medium,General,2,No
+Wooden Crate Variant 418,6,24.49,3,0.34,69,1.08,Low,High,Cosmetics,3,Yes
+Aluminum Variant 419,5,3.41,8,5.26,90,2.29,Low,High,Cosmetics,5,Yes
+Glass Variant 420,10,38.36,7,5.04,61,2.22,Medium,High,Electronics,2,No
+Glass Variant 421,6,14.34,6,3.69,87,1.2,High,Low,Cosmetics,5,No
+Mushroom Packaging Variant 422,7,19.78,3,3.69,44,1.28,Medium,Low,Food,2,No
+Steel Variant 423,6,38.68,3,2.03,84,0.47,Medium,High,General,4,No
+Wooden Crate Variant 424,5,19.0,7,5.83,94,0.79,Medium,High,Food,1,No
+Aluminum Variant 425,10,46.37,7,4.15,90,1.4,Low,High,Electronics,2,Yes
+Bamboo Fiber Variant 426,7,41.94,2,1.81,66,0.89,Medium,Medium,Cosmetics,4,No
+Palm Leaf Variant 427,5,38.08,1,1.92,68,1.64,Low,Medium,Food,3,No
+Palm Leaf Variant 428,7,42.53,7,3.6,84,1.79,Low,Medium,Food,5,No
+Cornstarch Packaging Variant 429,4,1.07,6,5.54,45,0.94,Medium,High,General,1,Yes
+Mushroom Packaging Variant 430,5,5.99,4,0.35,47,1.79,High,High,General,5,Yes
+Cornstarch Packaging Variant 431,6,33.85,3,2.17,48,2.16,Medium,High,General,2,Yes
+Bamboo Fiber Variant 432,6,3.29,8,5.85,84,0.3,High,Medium,Cosmetics,4,Yes
+Kraft Paper Variant 433,4,17.75,3,2.65,61,2.02,Medium,High,General,2,No
+Steel Variant 434,5,24.17,4,1.2,50,0.3,High,High,Cosmetics,4,Yes
+Steel Variant 435,4,48.57,7,3.64,84,1.87,Medium,Low,General,5,No
+Biodegradable Plastic (PLA) Variant 436,8,49.58,1,5.72,58,1.19,High,Medium,General,5,No
+Bamboo Fiber Variant 437,4,18.94,5,5.1,90,0.39,Low,Medium,Electronics,3,Yes
+Mushroom Packaging Variant 438,7,38.63,10,3.7,62,0.47,High,High,Cosmetics,5,No
+Recycled Paper Variant 439,10,29.76,8,1.82,64,0.78,High,High,General,4,No
+Bagasse Fiber Variant 440,9,18.07,8,0.28,68,0.99,Medium,Low,Food,1,Yes
+Recycled PET Variant 441,10,19.39,2,4.93,74,1.13,Medium,Medium,General,3,No
+Mushroom Packaging Variant 442,8,49.53,4,3.84,85,2.26,High,Low,Cosmetics,1,Yes
+Mushroom Packaging Variant 443,4,16.31,8,3.31,44,1.87,High,Low,General,4,No
+Biodegradable Plastic (PLA) Variant 444,8,25.45,3,1.3,48,1.27,Medium,Medium,Food,5,No
+Molded Pulp Variant 445,6,1.11,7,4.83,53,1.21,Medium,Low,Electronics,1,Yes
+Recycled Paper Variant 446,9,15.52,8,2.09,55,0.61,Medium,High,Cosmetics,2,No
+Steel Variant 447,8,18.65,3,5.91,46,2.38,Low,Medium,General,2,Yes
+Steel Variant 448,9,8.49,3,3.08,67,2.18,High,High,General,1,Yes
+Bagasse Fiber Variant 449,10,11.06,10,0.47,63,1.96,High,Medium,Food,1,No
+Aluminum Variant 450,7,31.24,7,5.7,62,1.17,Low,High,General,4,Yes
+Steel Variant 451,10,25.65,2,0.55,95,0.76,Medium,Low,General,5,Yes
+Corrugated Cardboard Variant 452,5,38.07,9,1.28,83,1.01,Medium,High,Electronics,3,No
+Molded Pulp Variant 453,10,25.47,3,2.49,92,0.79,Low,High,General,2,Yes
+Palm Leaf Variant 454,7,31.0,10,2.74,84,1.37,High,Medium,Food,4,Yes
+Palm Leaf Variant 455,8,6.75,1,4.37,99,1.27,High,High,Food,2,No
+Recycled PET Variant 456,5,44.24,5,2.57,92,1.23,High,Low,Electronics,2,No
+Bamboo Fiber Variant 457,9,12.08,1,2.84,40,2.34,High,High,General,2,Yes
+Bagasse Fiber Variant 458,5,30.22,10,1.71,69,0.88,Medium,Low,Food,4,No
+Corrugated Cardboard Variant 459,7,20.26,2,5.66,67,0.8,Low,Medium,General,1,No
+Corrugated Cardboard Variant 460,5,32.62,2,2.82,98,0.9,High,Low,General,4,No
+Mushroom Packaging Variant 461,8,44.02,1,4.74,65,1.18,High,High,Cosmetics,2,Yes
+Mushroom Packaging Variant 462,6,49.21,6,4.79,76,0.69,Medium,Medium,General,2,Yes
+Palm Leaf Variant 463,4,19.47,4,3.37,41,1.9,High,High,Food,4,No
+Recycled Paper Variant 464,5,45.61,2,3.89,70,0.64,High,Low,Food,3,Yes
+Bagasse Fiber Variant 465,7,31.65,9,1.22,40,0.37,Low,Low,Electronics,4,Yes
+Cornstarch Packaging Variant 466,7,38.27,3,4.92,98,1.18,Low,High,Cosmetics,3,Yes
+Recycled Paper Variant 467,6,14.89,1,5.18,82,1.15,Low,Low,Food,4,Yes
+Kraft Paper Variant 468,4,43.9,7,3.11,51,0.94,Low,Medium,General,2,No
+Wooden Crate Variant 469,8,11.81,1,2.32,97,1.72,Low,Low,Food,1,Yes
+Glass Variant 470,6,16.11,2,0.3,92,2.01,Low,High,Food,2,Yes
+Bagasse Fiber Variant 471,6,3.53,9,4.53,71,1.73,High,Low,Electronics,4,Yes
+Recycled Paper Variant 472,9,7.35,5,2.27,66,2.07,High,Low,Food,3,Yes
+Bamboo Fiber Variant 473,6,35.7,8,0.48,77,2.25,High,Medium,Electronics,2,Yes
+Wooden Crate Variant 474,10,8.22,1,5.48,77,2.08,High,Medium,Food,4,Yes
+Recycled PET Variant 475,6,32.62,7,0.86,66,0.88,High,Low,Food,5,No
+Bamboo Fiber Variant 476,10,15.85,10,5.1,64,2.19,Medium,Medium,Electronics,4,No
+Bamboo Fiber Variant 477,5,44.84,1,5.61,70,2.33,Low,Medium,Cosmetics,4,No
+Palm Leaf Variant 478,5,40.77,10,2.83,100,1.09,Low,Medium,Electronics,3,No
+Bagasse Fiber Variant 479,6,13.1,3,3.0,79,1.14,Medium,Low,General,3,No
+Wooden Crate Variant 480,10,23.67,10,0.26,50,0.43,Low,High,Electronics,3,No
+Recycled PET Variant 481,5,41.4,5,2.92,96,2.05,Medium,High,Cosmetics,1,No
+Wooden Crate Variant 482,9,8.04,3,5.58,59,1.79,Medium,Medium,Food,1,Yes
+Cornstarch Packaging Variant 483,6,40.8,2,4.56,95,1.62,High,High,Food,1,No
+Recycled Paper Variant 484,10,38.59,7,2.44,79,2.36,High,High,Electronics,5,Yes
+Aluminum Variant 485,8,6.08,4,3.32,93,1.88,Medium,High,Food,5,Yes
+Molded Pulp Variant 486,5,24.31,9,1.19,91,0.6,Medium,Low,Food,4,Yes
+Bamboo Fiber Variant 487,7,21.29,4,1.73,47,1.13,High,Medium,Food,4,Yes
+Biodegradable Plastic (PLA) Variant 488,9,27.72,7,4.71,70,0.62,Low,High,Cosmetics,4,No
+Palm Leaf Variant 489,7,31.35,10,0.26,82,1.08,Medium,Medium,Food,3,No
+Bamboo Fiber Variant 490,7,46.07,4,5.04,67,1.95,High,Low,Electronics,5,No
+Aluminum Variant 491,6,7.0,1,3.78,47,1.04,Medium,Low,General,1,No
+Wooden Crate Variant 492,9,20.12,5,5.64,60,1.86,Medium,Medium,Electronics,2,Yes
+Bamboo Fiber Variant 493,10,42.83,3,2.77,64,1.52,High,Low,Electronics,2,No
+Molded Pulp Variant 494,10,27.85,9,1.77,93,1.51,Medium,Low,Cosmetics,3,Yes
+Wooden Crate Variant 495,8,12.52,2,1.17,62,1.6,Medium,Low,Electronics,4,No
+Mushroom Packaging Variant 496,6,23.73,8,4.16,50,0.61,High,High,Electronics,1,No
+Cornstarch Packaging Variant 497,7,10.25,4,3.23,70,1.83,Low,High,Food,2,Yes
+Recycled Paper Variant 498,7,33.43,4,2.18,87,0.55,Medium,High,Electronics,2,Yes
+Mushroom Packaging Variant 499,9,11.63,1,3.41,94,2.23,Low,High,Electronics,2,Yes
+Steel Variant 500,6,4.41,8,5.53,81,1.91,Low,Medium,Electronics,3,Yes
