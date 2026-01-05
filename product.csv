@@ -1,0 +1,135 @@
+product_id,product_name,sector,strength_score,weight_capacity_score,barrier_score ,biodegradability_score,co2_emission_score,recyclability_percent,cost_score,reuse_potential_score
+1,Smartphone box,Electronics,3,3,3,85,70,72,3,2
+2,Laptop shipping pack,Electronics,3,4,3,88,70,73,3,2
+3,Earbuds/headphones retail box,Electronics,3,3,3,85,70,75,3,2
+4,Fragile gadget shipper with loose fill,Electronics,3,3,3,90,78,55,3,2
+5,Snack bar wrapper,Food,3,3,4,80,75,28,4,1
+6,Chips / dry snacks bag,Food,3,3,5,65,55,20,3,1
+7,Ready-meal tray ,Food,3,3,4,85,80,45,3,1
+8,Beverage can,Food,5,5,5,0,55,85,3,2
+9,Sauce or jam jar,Food,4,3,5,0,50,82,3,4
+10,Dairy in paper based cup,Food,3,3,4,60,60,40,3,1
+11,Premium chocolate box,Food,3,3,3,85,70,75,4,3
+12,Glass skincare jar,Cosmetics,4,3,5,10,52,80,3,4
+13,PCR PET skincare bottle,Cosmetics,4,4,4,0,55,58,2,3
+14,Bamboo-cased lipstick / compact,Cosmetics,4,4,4,70,80,45,4,4
+15,Aluminium cosmetic tin,Cosmetics,5,5,5,0,55,85,3,4
+16,Refillable foundation bottle,Cosmetics,4,4,5,40,60,60,5,5
+17,Refillable aluminium bodywash bottle,Cosmetics,5,5,5,80,80,85,4,5
+18,Blister pack for tablets ,Pharmaceuticals,4,3,5,5,50,30,2,1
+19,Cough syrup bottle ,Pharmaceuticals,4,3,5,2,52,70,3,3
+20,Soda PET bottle ,Beverages,4,4,5,0,55,60,2,4
+21,Premium glass water ,Beverages,4,3,5,0,50,82,3,5
+22,Tshirt shipping envelope ,Textiles/Apparel,3,3,3,80,65,60,2,2
+23,Jeans retail box ,Textiles/Apparel,3,3,3,85,70,75,3,3
+24,Shampoo refill pouch ,Personal Care/Home,3,3,4,70,65,40,2,4
+25,Detergent pod tray ,Personal Care/Home,3,3,4,75,72,65,3,2
+26,Electric kettle box,Household Appliances,4,4,3,85,70,75,3,2
+27,Microwave oven shipper,Household Appliances,5,5,3,65,55,50,3,1
+28,Blender packaging,Household Appliances,4,4,3,88,70,73,3,2
+29,Refrigerator outer box,Household Appliances,5,5,3,80,72,70,4,2
+30,Vacuum cleaner pack,Household Appliances,4,4,3,85,70,75,3,2
+31,Ceiling fan box,Household Appliances,4,4,3,85,70,72,3,2
+32,Iron packaging,Household Appliances,3,3,3,88,70,75,3,2
+33,Air purifier box,Household Appliances,4,4,4,75,65,70,3,2
+34,Coffee maker box,Household Appliances,3,3,3,85,68,70,3,2
+35,Toaster packaging,Household Appliances,3,3,3,85,70,75,3,2
+36,Dining chair carton,Furniture,4,5,3,70,65,50,3,2
+37,Table flat pack,Furniture,5,5,3,75,68,68,4,2
+38,Cushion packaging,Furniture,3,3,2,90,78,60,3,3
+39,Mattress roll wrap,Furniture,4,4,3,60,55,55,3,2
+40,Lamp box,Furniture,3,3,3,85,70,75,3,3
+41,Kids toy box,Toys,3,3,3,85,70,70,3,2
+42,Building blocks tub,Toys,4,4,4,20,55,60,2,3
+43,Soft toy bag,Toys,3,3,2,80,70,40,3,2
+44,Educational kit box,Toys,3,3,3,85,70,75,3,3
+45,Doll packaging,Toys,3,3,3,65,60,55,3,2
+46,Baby bottle pack,Baby Care,4,4,4,25,55,60,3,3
+47,Baby lotion bottle,Baby Care,4,4,4,0,55,55,2,3
+48,Diaper bag pack,Baby Care,3,3,3,70,65,45,3,2
+49,Baby food pouch,Baby Care,3,3,4,75,70,30,3,1
+50,Baby wipes packet,Baby Care,3,3,3,60,60,50,3,2
+51,Motor oil bottle,Industrial/Automotive,5,5,5,0,55,55,3,2
+52,Brake fluid can,Industrial/Automotive,5,5,5,0,50,75,3,3
+53,Car part box,Industrial/Automotive,4,5,3,70,60,60,3,2
+54,Lubricant pouch,Industrial/Automotive,4,4,4,50,55,45,2,3
+55,Battery packaging,Industrial/Automotive,4,4,4,10,52,55,3,1
+56,Medical syringe pack,Healthcare/Medical Devices,4,3,5,5,50,30,3,1
+57,Diagnostic test kit,Healthcare/Medical Devices,3,3,4,40,60,50,3,2
+58,Surgical gloves box,Healthcare/Medical Devices,3,3,3,85,72,75,3,3
+59,Bandage pouch,Healthcare/Medical Devices,3,3,4,20,55,40,3,1
+60,Thermometer box,Healthcare/Medical Devices,3,3,3,88,70,75,3,2
+61,Notebook pack,Stationery,3,3,2,95,80,80,2,3
+62,Pen blister card,Stationery,3,3,3,10,52,55,2,1
+63,Printer cartridge box,Stationery,3,3,3,80,70,70,3,2
+64,Marker set pouch,Stationery,3,3,3,70,65,50,2,2
+65,Stapler pack,Stationery,3,3,3,88,72,80,3,2
+66,Water bottle (sports),Sports & Outdoor,5,5,5,0,55,85,3,5
+67,Energy gel pouch,Sports & Outdoor,3,3,4,70,65,30,3,1
+68,Tennis ball can,Sports & Outdoor,5,5,5,0,55,60,3,3
+69,Sleeping bag sack,Sports & Outdoor,4,4,3,30,55,50,3,4
+70,Fitness band box,Sports & Outdoor,3,3,3,85,72,75,3,2
+71,Camping stove box,Sports & Outdoor,4,4,3,85,70,75,3,3
+72,Helmet box,Sports & Outdoor,4,5,3,85,70,70,4,2
+73,Yoga mat sleeve,Sports & Outdoor,3,3,2,90,75,80,2,3
+74,Instant tent bag,Sports & Outdoor,4,4,3,20,50,45,3,4
+75,Torchlight blister,Sports & Outdoor,4,4,4,10,52,55,3,2
+76,Hand warmer pouch,Sports & Outdoor,3,3,3,75,70,50,3,1
+77,Vacuum-sealed coffee pack,Food,3,3,4,75,70,35,3,1
+78,Protein powder tub,Food,4,4,5,20,55,60,3,3
+79,Pet food pouch,Food,4,4,4,60,65,55,3,2
+80,Ice cream pint,Food,3,3,4,65,60,40,3,2
+81,Non-stick pan box,Household Appliances,4,4,3,85,70,70,3,3
+82,Wall clock box,Household Appliances,3,3,3,88,72,75,3,2
+83,Yoga resistance band pouch,Sports & Outdoor,3,3,3,85,75,40,3,2
+84,Camping lantern box,Sports & Outdoor,4,4,3,85,72,72,3,3
+85,Baby shampoo bottle,Baby Care,4,4,4,0,55,58,3,3
+86,Baby formula tin,Baby Care,5,5,5,0,50,80,3,4
+87,Office file folder wrap,Stationery,3,3,2,95,80,85,2,3
+88,Mechanical pencil pack,Stationery,3,3,3,10,52,55,2,1
+89,Wrench set box,Industrial/Automotive,4,5,3,75,68,65,4,2
+90,Engine filter box,Industrial/Automotive,4,4,3,85,70,70,3,2
+91,Hospital gloves pouch,Healthcare/Medical Devices,3,3,4,80,70,45,3,1
+92,Dishwasher box,Household Appliances,5,5,3,80,68,72,4,2
+93,Mixer grinder set,Household Appliances,4,4,3,85,70,75,3,2
+94,Induction cooktop box,Household Appliances,4,4,3,78,68,68,3,2
+95,Electric fan heater box,Household Appliances,4,4,3,85,70,75,3,2
+96,LED projector pack,Electronics,3,3,3,85,70,70,3,2
+97,Gaming console packaging,Electronics,5,5,3,75,65,65,4,2
+98,Smart speaker box,Electronics,3,3,3,88,72,75,3,2
+99,Power bank pack,Electronics,4,4,4,20,55,52,3,1
+100,External hard drive box,Electronics,4,4,4,75,65,55,3,1
+101,Wireless charger box,Electronics,3,3,3,92,80,70,4,2
+102,Gaming keyboard box,Electronics,4,4,3,88,70,75,3,2
+103,Office printer box,Electronics,5,5,3,75,65,65,3,2
+104,Keyboard + mouse combo pack,Electronics,4,4,3,85,70,70,3,2
+105,Refrigerated yogurt cup,Food,3,3,4,60,60,38,3,1
+106,Soup cup (instant),Food,3,3,4,70,65,45,3,2
+107,Bakery pastry box,Food,3,3,3,85,72,75,3,2
+108,Frozen peas pouch,Food,3,3,4,80,72,40,3,1
+109,Cooking oil pouch,Food,4,4,5,60,55,50,3,2
+110,Honey jar,Food,4,3,5,0,50,82,3,4
+111,Jam refill pouch,Food,3,3,4,70,70,35,3,1
+112,Cosmetic serum bottle,Cosmetics,4,4,5,0,52,80,3,4
+113,Shampoo bar box,Cosmetics,3,3,3,90,78,80,3,3
+114,Perfume gift set,Cosmetics,3,3,4,85,72,75,4,3
+115,Hair oil bottle,Cosmetics,4,4,4,0,55,60,3,3
+116,Compact powder tin,Cosmetics,5,5,5,0,55,85,3,4
+117,Deodorant can,Cosmetics,5,5,5,0,55,80,3,3
+118,Makeup refill pouch,Cosmetics,3,3,4,70,70,40,3,2
+119,Travel cosmetic kit,Cosmetics,3,3,3,50,58,55,3,4
+120,Pain relief spray can,Pharmaceuticals,5,5,5,0,55,80,3,3
+121,Thermal patch pack,Pharmaceuticals,3,3,5,10,55,40,3,1
+122,Bandage roll wrap,Healthcare,3,3,3,85,72,58,3,2
+123,Cotton swab box,Healthcare,3,3,3,90,75,70,3,3
+124,Safety gloves pack,Industrial,3,3,3,80,70,55,3,2
+125,Bike part kit,Automotive,4,5,3,70,60,60,3,3
+126,Tool organizer box,Industrial Tools,5,5,4,15,50,65,3,4
+127,Paint can,Industrial,5,5,5,0,50,85,3,3
+128,Office paper ream wrapper,Stationery,3,3,2,95,78,85,2,3
+129,Fine art brush set pack,Stationery,3,3,3,90,75,75,3,3
+130,Sports shoe box,Textiles/Apparel,4,4,3,85,70,80,3,3
+131,Jacket mailer,Textiles/Apparel,3,3,3,80,70,60,2,3
+132,Laundry detergent powder pack,Personal Care/Home,3,3,4,80,75,70,3,2
+133,Scented candle jar,Home Decor,4,4,5,0,50,80,3,4
+134,Curtain set sleeve,Home Decor,3,3,2,95,80,80,2,3
