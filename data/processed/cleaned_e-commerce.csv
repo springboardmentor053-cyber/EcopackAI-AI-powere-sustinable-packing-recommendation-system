@@ -1,0 +1,21 @@
+material_id,eco_alternative,category,weight_capacity_upto
+MAT001,Corrugated Cardboard,Clothing,1
+MAT001,Corrugated Cardboard,Accessories,1
+MAT007,Recycled Paperboard,Electronics,4
+MAT007,Recycled Paperboard,Gadgets,5
+MAT016,Recycled Carton,Home Essentials,3
+MAT016,Recycled Carton,Stationery,2
+MAT021,Recycled Molded Fiber,Beauty Products,2
+MAT021,Recycled Molded Fiber,Personal Care,2
+MAT010,Sugarcane Bagasse,Toys,2
+MAT010,Sugarcane Bagasse,Eco Gifts,2
+MAT004,Kraft Paper,Books,1
+MAT004,Kraft Paper,Documents,1
+MAT009,Cornstarch Packaging,Gift Items,2
+MAT009,Cornstarch Packaging,Promotional Kits,2
+MAT033,Recycled Paper Foam,Fragile Items,3
+MAT033,Recycled Paper Foam,Handcrafted Items,3
+MAT029,Recycled Kraft Board,Subscription Boxes,4
+MAT029,Recycled Kraft Board,Monthly Kits,4
+MAT025,Areca Leaf Packaging,Eco Hampers,3
+MAT025,Areca Leaf Packaging,Sustainable Products,3

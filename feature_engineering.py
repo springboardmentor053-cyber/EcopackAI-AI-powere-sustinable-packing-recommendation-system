@@ -1,0 +1,20 @@
+import pandas as pd
+
+df = pd.read_csv("data/processed/cleaned_material_data.csv")
+
+df["co2_impact_index"] = df["co2_emission_score"] * df["weight_capacity_kg"]
+
+df["cost_efficiency_index"] = df["weight_capacity_kg"] / df["cost_per_unit_inr"]
+
+df["material_suitability_score"] = (
+    df["biodegradability_score"] * 0.4 +
+    df["recyclability_percent"] * 0.3 +
+    df["cost_efficiency_index"] * 0.3
+)
+
+df.to_csv(
+    "data/processed/feature_engineered_materials.csv",
+    index=False
+)
+
+print("Feature engineering completed")

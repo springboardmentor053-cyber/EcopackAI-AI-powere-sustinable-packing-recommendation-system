@@ -1,0 +1,16 @@
+material_id,eco_alternative,category,weight_capacity_upto
+MAT013,Jute Packaging,Clothing,5
+MAT013,Jute Packaging,Apparel,5
+MAT005,Bamboo Fiber,Lifestyle Products,6
+MAT005,Bamboo Fiber,Premium Shopping Bags,6
+MAT030,Natural Fiber Blend,Apparel,6
+MAT030,Natural Fiber Blend,Fashion Accessories,5
+MAT023,Banana Fiber,Organic Products,4
+MAT023,Banana Fiber,Handloom Items,4
+MAT014,Palm Leaf Packaging,Groceries,4
+MAT014,Palm Leaf Packaging,Organic Stores,4
+MAT019,Wood Wool,Decorative Items,3
+MAT019,Wood Wool,Gift Packaging,3
+MAT022,Wheat Straw Packaging,Retail Food Packs,2
+MAT022,Wheat Straw Packaging,Eco Retail,2
+MAT032,Cellulose Fiber Mold,Lightweight Goods,2
