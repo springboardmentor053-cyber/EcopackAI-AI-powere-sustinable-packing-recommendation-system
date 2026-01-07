@@ -1,0 +1,121 @@
+﻿material_id,material_name,strength_score,weight_capacity_kg,biodegradability_score,co2_emission_kg,recyclability_percent,cost_per_unit_inr,product_category,used_for_products
+M001,Single-wall corrugated cardboard,8,15,9,1.6,92,55,Electronics,Shipping boxes
+M002,Double-wall corrugated cardboard,9,20,8,2,90,75,Electronics,Heavy-duty boxes
+M003,Triple-wall corrugated cardboard,10,30,7,2.5,88,95,Industrial,Machinery packaging
+M004,Kraft linerboard,7,12,9,1.5,90,50,Food,Outer cartons
+M005,Test linerboard,7,10,8,1.8,85,48,Retail,Packaging cartons
+M006,Solid bleached sulfate (SBS),7,10,6,2.6,82,75,Cosmetics,Premium boxes
+M007,Solid unbleached board (SUB),8,12,7,2.2,85,70,Food,Dry food boxes
+M008,Folding boxboard (FBB),7,9,8,2,88,65,Pharma,Medicine cartons
+M009,Chipboard,6,8,7,2.4,80,40,Retail,Cereal boxes
+M010,Thick-wall molded pulp,6,8,10,1.2,88,45,Electronics,Protective trays
+M011,Thin-wall molded pulp,5,6,10,1,90,42,Electronics,Insert trays
+M012,Cellulose acetate film,4,2,8,1.5,60,85,Food,Wrappers
+M013,Glassine paper,4,3,7,1.7,65,38,Food,Bakery wraps
+M014,Wax-coated paper,4,3,6,2.2,55,40,Food,Greaseproof wraps
+M015,Greaseproof paper,4,3,7,1.9,60,42,Food,Fast food wraps
+M016,Jute fiber sheet,7,12,9,1.7,80,95,Agriculture,Produce sacks
+M017,Cotton textile wrap,6,8,8,2.1,75,105,Retail,Reusable bags
+M018,Hemp fiber paper,6,7,9,1.4,78,90,Retail,Eco bags
+M019,Kenaf fiber board,7,10,9,1.6,80,88,Industrial,Boards
+M020,Rice husk fiber board,6,9,8,1.8,75,85,Food,Food boxes
+M021,Wheat straw pulp board,6,8,9,1.5,78,82,Food,Takeaway boxes
+M022,Banana fiber paper,5,6,9,1.3,80,80,Retail,Paper bags
+M023,Areca leaf plates,5,4,10,1.1,70,65,Food,Disposable plates
+M024,Paper foam,5,5,9,1.2,85,70,Electronics,Cushioning
+M025,Honeycomb paperboard,8,18,9,1.8,90,90,Industrial,Pallets
+M026,PLA bioplastic,5,3,8,2.9,60,95,Food,Containers
+M027,PHA bioplastic,5,3,9,2.4,65,110,Food,Compostable packs
+M028,PBS bioplastic,5,3,8,2.7,62,100,Food,Flexible packaging
+M029,Starch-based bioplastic,5,3,8,2.6,65,90,Food,Carry bags
+M030,Sugarcane bagasse pulp,5,4,10,1.1,75,60,Food,Plates
+M031,Bamboo molded pulp,6,6,10,1.3,70,85,Home,Containers
+M032,Mushroom mycelium packaging,5,5,10,0.9,100,110,Electronics,Protective packaging
+M033,Palm leaf packaging,5,4,10,1.2,70,70,Food,Disposable bowls
+M034,Seaweed film,4,2,9,1.4,55,120,Food,Edible wraps
+M035,Cellulose bioplastic,4,2,9,1.6,60,100,Food,Films
+M036,Chitosan biopolymer film,4,2,9,1.8,55,130,Food,Antimicrobial wraps
+M037,Algae-based packaging,4,3,9,1.5,60,125,Food,Eco wraps
+M038,Corn husk fiber,5,4,9,1.4,70,85,Food,Food trays
+M039,Coconut coir fiber,6,7,9,1.6,75,90,Agriculture,Sacks
+M040,Wood wool packaging,6,6,9,1.5,80,80,Electronics,Cushioning
+M041,Bio-coated paper,6,7,8,2.1,70,75,Food,Liquid cartons
+M042,Compostable multilayer film,4,3,8,2.5,55,115,Food,Flexible packs
+M043,Natural latex packaging,5,4,8,2.3,65,105,Medical,Gloves
+M044,Paper-laminated bioplastic,5,4,7,2.8,60,98,Food,Pouches
+M045,Starch biodegradable foam,6,6,9,1.9,70,90,Electronics,Cushioning
+M046,PLA-coated paperboard,6,6,8,2.4,75,88,Food,Cups
+M047,PHA-coated paperboard,6,6,9,2.2,78,92,Food,Takeaway boxes
+M048,Bio-based barrier film,4,3,8,2.6,58,120,Food,Sealed packs
+M049,Compostable shrink wrap,4,3,7,2.9,55,110,Retail,Wrapping
+M050,Bio-resin composite,7,8,8,2.7,65,130,Industrial,Protective shells
+M051,PET plastic,7,6,2,3.8,85,70,Beverage,Bottles
+M052,Recycled PET (rPET),7,6,3,2.9,90,78,Beverage,Bottles
+M053,HDPE plastic,8,9,2,3.4,88,82,Pharma,Containers
+M054,Recycled HDPE,8,9,3,2.8,90,85,Pharma,Containers
+M055,LDPE plastic,6,5,1,3.6,70,65,Retail,Bags
+M056,Recycled LDPE,6,5,2,3,75,70,Retail,Bags
+M057,PP plastic,7,7,2,3.2,80,78,Food,Food tubs
+M058,Recycled PP,7,7,3,2.7,85,82,Food,Containers
+M059,PS plastic,6,6,1,4.1,60,72,Food,Cups
+M060,EPS foam,8,10,1,4.9,35,90,Electronics,Cushioning
+M061,EPP foam,8,12,1,4.2,45,115,Automotive,Parts
+M062,PVC plastic,7,8,1,4.5,55,85,Industrial,Pipes
+M063,Bio-PET,7,6,3,3.1,85,88,Beverage,Bottles
+M064,Oxo-degradable plastic,6,5,2,4,50,75,Retail,Bags
+M065,Multilayer plastic film,6,5,1,4.8,40,90,Food,Snack packs
+M066,PE stretch film,6,6,1,3.9,60,80,Logistics,Wrapping
+M067,Blown PE film,6,6,1,3.7,65,78,Retail,Wraps
+M068,Injection molded PP,8,9,2,3.3,80,95,Industrial,Crates
+M069,Thermoformed PET,7,6,2,3.6,85,88,Food,Trays
+M070,PE foam,7,8,1,4,55,100,Electronics,Cushioning
+M071,EVOH barrier film,6,5,1,4.2,50,120,Food,Vacuum packs
+M072,Nylon (PA) film,7,7,1,4.6,60,110,Food,Sealed packs
+M073,Polycarbonate,9,15,1,5.2,75,180,Industrial,Protective cases
+M074,ABS plastic,8,12,1,4.8,70,160,Industrial,Housings
+M075,Acetal (POM),8,10,1,4.4,65,155,Industrial,Precision parts
+M076,Soda-lime glass,9,20,1,5.2,100,140,Cosmetics,Bottles
+M077,Flint glass,9,18,1,5,100,150,Food,Jars
+M078,Amber glass,9,18,1,5.1,100,145,Pharma,Medicine bottles
+M079,Borosilicate glass,9,22,1,5.8,100,165,Pharma,Lab containers
+M080,Tempered glass,10,25,1,6,100,180,Electronics,Protective panels
+M081,Aluminum can alloy,9,12,2,4.8,95,120,Beverage,Cans
+M082,Aluminum foil,6,5,2,4.5,95,90,Food,Wrapping
+M083,Recycled aluminum,9,12,2,3.5,98,110,Beverage,Cans
+M084,Tinplate steel,10,25,1,6.2,92,160,Food,Cans
+M085,Chromium coated steel,10,28,1,6.5,90,170,Food,Containers
+M086,Stainless steel 304,10,30,1,6.8,85,220,Industrial,Drums
+M087,Stainless steel 316,10,32,1,7,85,240,Medical,Containers
+M088,Galvanized steel,10,35,1,6.6,88,200,Industrial,Crates
+M089,Cold rolled steel,10,40,1,7.2,85,210,Industrial,Heavy crates
+M090,Recycled steel,10,38,1,5.5,92,190,Industrial,Containers
+M091,Copper packaging foil,8,10,1,5.9,90,230,Food,Special wraps
+M092,Brass containers,9,18,1,6.4,88,260,Decor,Gift boxes
+M093,Lightweight aluminum sheet,8,10,2,4.2,95,115,Electronics,Casings
+M094,Heavy gauge aluminum,9,20,2,5.1,95,140,Industrial,Panels
+M095,Metalized paper,6,6,5,3.5,70,85,Food,Snack packs
+M096,Aluminum composite panel,9,25,1,6.3,80,210,Construction,Panels
+M097,Steel drums,10,50,1,7.5,85,300,Chemical,Barrels
+M098,Metal closures,8,5,1,4.9,90,60,Beverage,Bottle caps
+M099,Aerosol aluminum cans,9,12,2,5,95,130,Cosmetics,Spray cans
+M100,Food-grade steel cans,10,30,1,6.6,92,175,Food,Canned goods
+M101,Medical-grade Tyvek,6,5,2,3.8,85,140,Pharma,Sterile pouches
+M102,Blister aluminum foil,7,4,1,4.6,95,120,Pharma,Tablet blisters
+M103,PVC/PVDC blister film,6,4,1,4.9,60,110,Pharma,Medicine packs
+M104,Sterile paper pouches,5,4,7,2.1,75,95,Medical,Surgical tools
+M105,HDPE medical bottles,8,8,2,3.3,88,90,Pharma,Liquid medicine bottles
+M106,Vacuum insulated panels,9,20,1,6.9,50,260,Cold Chain,Thermal containers
+M107,Gel-based cold packs,6,6,1,4.8,40,180,Cold Chain,Vaccine shipping
+M108,Reflective thermal liners,5,5,3,3.9,60,120,Cold Chain,Food delivery bags
+M109,Insulated paper liners,6,7,8,2,75,95,Cold Chain,Fresh food boxes
+M110,Recyclable EPS alternative foam,7,9,6,3.2,70,130,Cold Chain,Insulated packaging
+M111,Paper bubble wrap,6,6,9,1.6,85,85,E-commerce,Protective wrapping
+M112,Corrugated mailers,7,10,9,1.8,90,75,E-commerce,Book shipping
+M113,Rigid paper mailer envelopes,6,7,9,1.7,88,70,E-commerce,Document shipping
+M114,Tamper-evident paper seals,4,2,9,1.2,80,40,E-commerce,Secure packaging
+M115,Inflatable paper air pillows,5,4,9,1.4,78,60,E-commerce,Void fill
+M116,Grease-resistant molded fiber,6,6,9,1.5,80,70,Food,Burger boxes
+M117,Barrier-coated paper trays,6,6,8,2.3,72,85,Food,Meal trays
+M118,Compostable takeaway clamshells,5,5,10,1.2,75,90,Food,Takeaway meals
+M119,Modified atmosphere packaging film,6,5,2,4.4,55,140,Food,Fresh produce
+M120,Fiber-reinforced paperboard,8,14,9,2.2,85,110,Industrial,Heavy cartons

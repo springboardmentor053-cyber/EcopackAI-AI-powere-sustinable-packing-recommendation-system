@@ -1,0 +1,176 @@
+﻿product_id,product_name,product_category,product_weight_kg,fragility_level,required_strength_score,preferred_biodegradability_score,max_packaging_cost_inr,temperature_sensitive
+P001,Smartphone,Electronics,0.22,High,7,7,100,No
+P002,Laptop,Electronics,2.1,High,8,7,260,No
+P003,Tablet,Electronics,0.55,High,7,7,160,No
+P004,Smartwatch,Electronics,0.18,Medium,6,7,90,No
+P005,Bluetooth Earbuds,Electronics,0.12,Medium,6,7,75,No
+P006,LED Television,Electronics,9.5,High,9,6,420,No
+P007,Computer Monitor,Electronics,4.8,High,8,6,320,No
+P008,Desktop CPU,Electronics,6.5,Medium,8,6,290,No
+P009,Router,Electronics,0.85,Medium,6,7,120,No
+P010,External Hard Drive,Electronics,0.28,High,6,7,110,No
+P011,Gaming Console,Electronics,4.2,High,8,6,340,No
+P012,VR Headset,Electronics,0.95,High,7,6,190,No
+P013,Printer,Electronics,7.8,Medium,8,6,360,No
+P014,Scanner,Electronics,5.3,Medium,7,6,310,No
+P015,Digital Camera,Electronics,0.92,High,7,6,210,No
+P016,Power Bank,Electronics,0.48,Medium,6,7,105,No
+P017,Smart Speaker,Electronics,1.6,Medium,6,7,160,No
+P018,Set-top Box,Electronics,1.3,Medium,6,7,140,No
+P019,Wi-Fi Extender,Electronics,0.65,Medium,6,7,120,No
+P020,CCTV Camera,Electronics,0.78,High,7,6,170,No
+P021,Projector,Electronics,3.9,High,8,6,380,No
+P022,Graphics Card,Electronics,1.5,High,8,6,310,No
+P023,Motherboard,Electronics,0.95,High,7,6,230,No
+P024,CPU Processor,Electronics,0.18,High,7,6,210,No
+P025,RAM Module,Electronics,0.06,Medium,5,7,95,No
+P026,Keyboard,Electronics,0.85,Low,4,8,90,No
+P027,Mouse,Electronics,0.12,Low,4,8,70,No
+P028,Webcam,Electronics,0.42,Medium,5,7,115,No
+P029,UPS Battery,Electronics,11.5,Medium,9,5,480,No
+P030,Smart Home Hub,Electronics,1.2,Medium,6,7,170,No
+P031,Security Alarm Panel,Electronics,2.7,High,8,6,300,No
+P032,Fitness Band,Electronics,0.14,Medium,5,8,80,No
+P033,Portable SSD,Electronics,0.11,High,6,7,130,No
+P034,Server Rack Unit,Electronics,14,High,9,5,650,No
+P035,Network Switch,Electronics,3.8,Medium,7,6,260,No
+P036,Barcode Scanner,Electronics,0.45,Medium,6,7,140,No
+P037,POS Machine,Electronics,2.3,Medium,7,6,240,No
+P038,Thermal Printer,Electronics,4.2,Medium,7,6,280,No
+P039,Smart Plug,Electronics,0.2,Low,4,8,65,No
+P040,Smart Bulb,Electronics,0.25,Low,4,8,70,No
+P041,Video Doorbell,Electronics,0.6,Medium,6,7,150,No
+P042,Smart Thermostat,Electronics,0.75,Medium,6,7,165,No
+P043,Solar Inverter,Electronics,12.5,Medium,9,5,520,No
+P044,EV Charger Unit,Electronics,10.8,Medium,9,5,600,No
+P045,Smart Glasses,Electronics,0.35,High,7,6,190,No
+P046,AR Headset,Electronics,0.9,High,8,6,420,No
+P047,Medical Monitor Device,Electronics,2.2,High,8,6,330,No
+P048,Fresh Vegetables,Food,2,Medium,5,9,80,Yes
+P049,Fresh Fruits,Food,1.8,Medium,5,9,85,Yes
+P050,Frozen Food Pack,Food,1.2,Medium,6,8,150,Yes
+P051,Ice Cream Tub,Food,0.9,Medium,6,8,140,Yes
+P052,Bakery Items,Food,0.7,High,5,9,65,No
+P053,Ready-to-eat Meals,Food,1.4,Medium,6,8,100,Yes
+P054,Milk Carton,Food,1,Medium,6,7,85,No
+P055,Juice Bottles,Food,1.25,Medium,7,6,115,No
+P056,Soft Drink Bottles,Food,1.4,Medium,7,6,125,No
+P057,Snack Packets,Food,0.35,Low,4,8,55,No
+P058,Breakfast Cereals,Food,0.75,Low,4,8,65,No
+P059,Chocolate Bars,Food,0.22,Low,4,8,45,No
+P060,Cooking Oil Bottle,Food,1.1,Medium,6,7,105,No
+P061,Spice Containers,Food,0.45,Low,4,8,65,No
+P062,Frozen Meat,Food,1.7,Medium,6,7,165,Yes
+P063,Seafood Pack,Food,1.5,Medium,6,7,155,Yes
+P064,Yogurt Cups,Food,0.65,Medium,5,8,75,Yes
+P065,Cheese Blocks,Food,0.95,Medium,6,7,95,Yes
+P066,Instant Noodles,Food,0.45,Low,4,8,60,No
+P067,Coffee Powder,Food,0.55,Low,4,8,70,No
+P068,Rice Bag (5kg),Food,5.1,Low,6,8,150,No
+P069,Wheat Flour Bag,Food,5,Low,6,8,140,No
+P070,Pulses Pack,Food,1.1,Low,5,8,85,No
+P071,Frozen Vegetables,Food,1.3,Medium,6,8,135,Yes
+P072,Egg Trays,Food,1.3,High,6,9,110,No
+P073,Butter Pack,Food,0.55,Medium,5,8,75,Yes
+P074,Cheese Spread,Food,0.42,Medium,5,8,70,Yes
+P075,Baby Food Jars,Food,0.68,High,6,7,150,No
+P076,Honey Jar,Food,0.75,High,6,7,130,No
+P077,Tea Powder,Food,0.45,Low,4,8,65,No
+P078,Energy Drink Cans,Food,0.52,Medium,6,6,115,No
+P079,Protein Powder,Food,1.25,Low,5,7,160,No
+P080,Pet Food Pack,Food,2.2,Low,6,7,190,No
+P081,Frozen Pizza,Food,1,Medium,6,7,150,Yes
+P082,Bread Loaves,Food,0.55,Low,4,8,55,No
+P083,Packaged Salad,Food,0.6,Medium,5,9,95,Yes
+P084,Cut Fruits Box,Food,0.75,Medium,5,9,100,Yes
+P085,Cold Brew Coffee,Food,0.6,Medium,6,6,120,Yes
+P086,Milk Powder,Food,1,Low,5,8,110,No
+P087,Infant Formula,Food,0.9,Low,5,8,130,No
+P088,Frozen Desserts,Food,0.95,Medium,6,7,145,Yes
+P089,Soup Sachets,Food,0.4,Low,4,8,55,No
+P090,Sauce Bottles,Food,0.9,Medium,6,7,105,No
+P091,Pickle Jar,Food,0.85,High,6,7,120,No
+P092,Jam Bottle,Food,0.8,High,6,7,115,No
+P093,Dry Fruits Pack,Food,0.6,Low,5,8,90,No
+P094,Frozen Fries,Food,1.1,Medium,6,7,140,Yes
+P095,Pharmaceutical Tablets,Pharma,0.32,Low,5,6,75,No
+P096,Liquid Syrup Bottle,Pharma,0.55,Medium,6,5,125,No
+P097,Vaccines,Pharma,0.42,High,7,5,320,Yes
+P098,Insulin Pens,Pharma,0.22,High,6,5,210,Yes
+P099,Medical Devices,Pharma,1.6,High,8,5,270,No
+P100,Surgical Instruments,Pharma,2.3,High,9,4,380,No
+P101,Diagnostic Kits,Pharma,0.9,Medium,6,5,190,No
+P102,IV Fluid Bags,Pharma,1.1,Medium,6,5,170,No
+P103,Blood Collection Tubes,Pharma,0.35,Medium,5,5,95,No
+P104,Medical Gloves,Pharma,0.25,Low,4,6,65,No
+P105,Face Masks,Pharma,0.12,Low,4,6,55,No
+P106,First Aid Kits,Pharma,1.4,Medium,6,6,165,No
+P107,Thermometers,Pharma,0.22,High,6,6,135,No
+P108,Syringes,Pharma,0.35,Low,4,6,75,No
+P109,OTC Medicines,Pharma,0.45,Low,4,6,70,No
+P110,Vitamin Bottles,Pharma,0.65,Medium,5,6,105,No
+P111,Medical Test Strips,Pharma,0.25,Medium,5,6,95,No
+P112,Eye Drops,Pharma,0.14,Medium,5,6,90,No
+P113,Medical Implants,Pharma,0.95,High,9,4,420,No
+P114,Dental Products,Pharma,0.55,Medium,5,6,115,No
+P115,COVID Test Kits,Pharma,0.35,Medium,5,6,130,No
+P116,Blood Storage Bags,Pharma,0.7,Medium,6,5,190,Yes
+P117,Dialysis Kits,Pharma,2.8,High,8,4,370,No
+P118,Surgical Masks (N95),Pharma,0.18,Low,4,6,95,No
+P119,Injection Vials,Pharma,0.28,High,6,5,140,No
+P120,Sterile Cotton Rolls,Pharma,0.45,Low,4,6,65,No
+P121,Medical Bandages,Pharma,0.6,Low,4,7,75,No
+P122,Pregnancy Test Kits,Pharma,0.22,Medium,5,6,95,No
+P123,Medical Swabs,Pharma,0.12,Low,3,7,50,No
+P124,Oxygen Masks,Pharma,0.38,Medium,5,6,90,No
+P125,Therapy Equipment,Pharma,4.2,High,8,5,400,No
+P126,Physiotherapy Tools,Pharma,3.8,Medium,7,6,340,No
+P127,Hearing Aids,Pharma,0.09,High,6,6,160,No
+P128,Blood Pressure Monitor,Pharma,0.95,Medium,6,6,210,No
+P129,Glucometer,Pharma,0.45,Medium,5,6,150,No
+P130,Nebulizer,Pharma,1.35,Medium,6,6,240,No
+P131,ECG Monitor,Pharma,3.5,High,8,5,390,No
+P132,Pulse Oximeter,Pharma,0.18,High,5,6,120,No
+P133,Infusion Pump,Pharma,4.8,High,8,5,420,No
+P134,Ventilator Accessories,Pharma,2.9,High,8,5,380,No
+P135,Catheters,Pharma,0.32,Low,4,6,70,No
+P136,Specimen Containers,Pharma,0.5,Medium,5,6,85,No
+P137,Lab Reagent Bottles,Pharma,0.75,Medium,6,5,150,No
+P138,Pathology Sample Kits,Pharma,1.2,Medium,6,5,180,No
+P139,Dialysis Filters,Pharma,1.6,Medium,7,4,260,No
+P140,IV Cannulas,Pharma,0.22,Low,4,6,65,No
+P141,Industrial Machinery Part,Industrial,12.5,Low,9,4,500,No
+P142,Electrical Panels,Industrial,18,Medium,9,4,600,No
+P143,Industrial Tools Kit,Industrial,7.5,Medium,8,5,420,No
+P144,Chemical Drums,Industrial,25,Low,10,3,700,No
+P145,Clothing Apparel,Retail,0.8,Low,4,9,90,No
+P146,Footwear Box,Retail,1.2,Medium,5,8,120,No
+P147,Accessories Pack,Retail,0.3,Low,4,9,70,No
+P148,Perfume Bottle,Cosmetics,0.6,High,7,5,220,No
+P149,Skincare Cream Jar,Cosmetics,0.5,Medium,6,6,180,No
+P150,Makeup Kit,Cosmetics,0.9,Medium,6,6,210,No
+P151,Fresh Produce Crate,Agriculture,6,Medium,7,9,250,Yes
+P152,Seed Packaging Bags,Agriculture,1.5,Low,5,9,120,No
+P153,Fertilizer Pack,Agriculture,5,Low,6,7,200,No
+P154,Kitchen Storage Containers,Home,2,Medium,6,7,180,No
+P155,Home Decor Items,Home,3.5,High,7,7,260,No
+P156,Cleaning Supplies,Home,2.8,Medium,6,7,200,No
+P157,Glass Beverage Bottles,Beverage,1.2,High,7,6,150,No
+P158,Aluminum Beverage Cans,Beverage,0.5,Medium,6,6,120,No
+P159,Juice Cartons,Beverage,1,Medium,6,7,130,No
+P160,Pharmaceutical Tablets,Pharma,0.3,Low,5,6,80,No
+P161,Liquid Medicine Bottles,Pharma,0.6,Medium,6,5,140,No
+P162,Automotive Spare Parts,Automotive,8.5,Low,9,4,480,No
+P163,Car Accessories,Automotive,2.5,Medium,7,6,260,No
+P164,Bulk Shipping Cartons,Logistics,15,Low,8,6,350,No
+P165,Protective Pallet Wrap,Logistics,5,Low,6,6,200,No
+P166,Medical Devices,Medical,1.8,High,8,5,300,No
+P167,Surgical Instruments,Medical,2.2,High,9,4,380,No
+P168,Glass Decorative Items,Decor,2.5,High,7,6,240,No
+P169,Ceramic Showpieces,Decor,3,High,7,6,260,No
+P170,Construction Fasteners,Construction,10,Low,9,3,420,No
+P171,Cement Additives Pack,Construction,12,Low,8,3,380,No
+P172,Frozen Food Packs,Cold Chain,1.5,Medium,6,8,180,Yes
+P173,Vaccine Shipments,Cold Chain,0.6,High,7,5,320,Yes
+P174,E-commerce Parcels,E-commerce,3,Medium,6,8,220,No
+P175,Online Order Packaging,E-commerce,2.5,Medium,6,8,200,No
