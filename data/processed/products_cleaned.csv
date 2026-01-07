@@ -1,0 +1,458 @@
+product_id,product_name,product_category,product_weight_g,product_volume_cm3,price_inr,fragility_level,temperature_sensitivity,moisture_sensitivity,shelf_life_days,packaging_format,current_packaging_material,flag_weight_outlier,flag_volume_outlier,flag_price_outlier
+PRD0001,Dabur Body Wash 400 ml v2,Personal Care,400.0,422.27,221.4,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0002,Nestlé Namkeen 200 g,Food,200.0,410.27,47.69,Low,Low,Medium,240,Wrapper,LDPE Plastic,False,False,False
+PRD0003,Sugar Cosmetics Cream 100 g,Cosmetics,100.0,161.27,120.5,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0004,Patanjali Rice 5000 g,Grocery,5000.0,8920.73,324.28,Low,Low,Low,365,Bag,Kraft Paper (Unbleached),False,False,False
+PRD0005,Milky Mist Buttermilk 500 ml,Dairy,500.0,571.71,22.94,Medium,High,High,7,Pouch,HDPE Plastic,False,False,False
+PRD0006,Saffola Pickle 1000 g,Grocery,1000.0,1245.42,219.74,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0007,Britannia Dairy Lassi 500 ml v2,Dairy,500.0,528.04,20.22,Medium,High,High,10,Pouch,HDPE Plastic,False,False,False
+PRD0008,Tropicana Juice 500 ml,Beverages,500.0,535.18,61.41,Medium,Medium,Low,120,Can,Steel (Carbon Steel),False,False,False
+PRD0009,Dolo Syrup 200 ml,Healthcare,200.0,211.73,113.49,Medium,Medium,Medium,540,Bottle,HDPE Plastic,False,False,False
+PRD0010,Haldiram Chips 30 g,Food,30.0,46.63,10.0,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0011,Cadbury Sauce 200 g,Food,200.0,417.23,37.58,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0012,Britannia Dairy Butter 200 g,Dairy,200.0,367.08,51.82,Medium,High,High,180,Wrapper,LDPE Plastic,False,False,False
+PRD0013,Britannia Dairy Cheese 500 g v2,Dairy,500.0,869.29,172.6,Medium,High,High,180,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0014,Lizol Detergent 2000 g,Home Care,2000.0,3912.02,329.44,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0015,Vim Floor Cleaner 1000 ml,Home Care,1000.0,1087.48,113.33,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0016,Sunfeast Namkeen 400 g,Food,400.0,774.63,102.24,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0017,Good Knight Insect Repellent 60 g,Home Care,60.0,88.4,34.44,Low,Low,Low,720,Can,Paperboard (Folding Carton),False,False,False
+PRD0018,Head & Shoulders Handwash 500 ml,Personal Care,500.0,551.15,110.04,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0019,Mi Laptop 15-inch,Electronics,2185.57,8669.62,39999.0,High,Low,Low,365,Box,Corrugated Cardboard,False,False,True
+PRD0020,Kellogg's Biscuits 1000 g,Food,1000.0,2142.74,116.96,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0021,Nestlé Chocolate 80 g,Food,80.0,132.01,69.63,Low,Medium,High,365,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0022,Real Mineral Water 2000 ml,Beverages,2000.0,2159.18,75.75,Medium,Medium,Low,365,Can,Steel (Carbon Steel),False,False,False
+PRD0023,Everest Honey 500 g,Grocery,500.0,867.01,219.91,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0024,Paper Boat Coffee 200 g,Beverages,200.0,252.05,100.32,Medium,Medium,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0025,Patanjali Pulses 2000 g,Grocery,2000.0,4876.0,234.57,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0026,Good Knight Floor Cleaner 1000 ml,Home Care,1000.0,1146.13,131.46,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0027,Bingo Noodles 280 g v2,Food,280.0,586.05,51.53,Low,Low,Medium,240,Box,Paperboard (Folding Carton),False,False,False
+PRD0028,Mi Laptop 15-inch v2,Electronics,1351.24,6544.12,39999.0,High,Low,Low,365,Box,Corrugated Cardboard,False,False,True
+PRD0029,ITC Chips 200 g,Food,200.0,346.83,57.67,Low,Low,Medium,240,Wrapper,LDPE Plastic,False,False,False
+PRD0030,Dettol Lotion 200 ml,Personal Care,200.0,210.9,136.72,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0031,Vim Air Freshener 150 g,Home Care,150.0,249.24,40.39,Low,Low,Low,720,Can,Paperboard (Folding Carton),False,False,False
+PRD0032,MDH Pulses 500 g,Grocery,500.0,1247.55,56.71,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0033,Betadine Syrup 200 ml,Healthcare,200.0,221.71,147.3,Medium,Medium,Medium,540,Bottle,HDPE Plastic,False,False,False
+PRD0034,Fanta Mineral Water 1000 ml,Beverages,1000.0,1043.69,36.65,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0035,Samsung Power Bank 10000mAh,Electronics,438.52,374.12,1299.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0036,Kellogg's Cereal 1000 g,Food,1000.0,2092.02,352.34,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0037,Lux Body Wash 400 ml,Personal Care,400.0,457.37,205.27,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0038,Maybelline Cream 100 g,Cosmetics,100.0,210.29,114.06,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0039,Paper Boat Iced Tea 500 ml v2,Beverages,500.0,543.12,43.92,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0040,ITC Pasta 1000 g,Food,1000.0,1439.25,181.79,Low,Low,Medium,240,Box,Cellulose Film,False,False,False
+PRD0041,Dettol Handwash 750 ml,Personal Care,750.0,856.32,161.64,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0042,Bisleri Mineral Water 500 ml,Beverages,500.0,526.96,18.1,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0043,Rajdhani Tea 100 g,Grocery,100.0,185.09,54.61,Low,Low,High,365,Bag,Kraft Paper (Unbleached),False,False,False
+PRD0044,Kissan Chocolate 200 g,Food,200.0,371.21,144.22,Low,Medium,High,365,Pouch,LDPE Plastic,False,False,False
+PRD0045,Milky Mist Butter 500 g,Dairy,500.0,1056.41,119.31,Medium,High,High,180,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0046,Haldiram Chips 150 g,Food,150.0,280.14,51.61,Low,Low,Medium,240,Pouch,Paperboard (Folding Carton),False,False,False
+PRD0047,Sunfeast Chips 90 g,Food,90.0,164.96,26.56,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0048,Aashirvaad Flour 2000 g,Grocery,2000.0,3914.23,102.05,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0049,Betadine Capsules 10 tablets,Healthcare,11.95,24.71,160.23,Medium,Medium,Medium,730,Box,PVC Plastic,False,False,False
+PRD0050,Dove Conditioner 340 ml,Personal Care,340.0,371.64,182.97,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0051,Dettol Face Wash 100 g,Personal Care,100.0,170.88,83.73,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0052,Cadbury Noodles 70 g,Food,70.0,90.85,14.88,Low,Low,Medium,240,Box,Cellulose Film,False,False,False
+PRD0053,24 Mantra Coffee 500 g,Grocery,500.0,848.1,409.75,Low,Low,High,365,Pouch,PP Plastic,False,False,False
+PRD0054,Lakmé Lipstick 5 g,Cosmetics,5.0,9.77,584.32,Low,Low,Medium,1095,Box,Glass (Soda-Lime),True,False,False
+PRD0055,Himalaya Tablets 30 tablets,Healthcare,32.67,70.7,159.36,Medium,Medium,Medium,730,Blister,PVC Plastic,False,False,False
+PRD0056,Mi Power Bank 20000mAh,Electronics,604.37,580.44,2299.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0057,Parle Noodles 70 g,Food,70.0,102.74,13.34,Low,Low,Medium,240,Box,Paperboard (Folding Carton),False,False,False
+PRD0058,Soframycin Cream 100 g,Healthcare,100.0,158.86,209.35,Medium,Medium,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0059,Nestlé Chocolate 40 g,Food,40.0,54.11,30.08,Low,Medium,High,365,Pouch,LDPE Plastic,False,False,False
+PRD0060,Apple Smartwatch Wearable,Electronics,53.43,175.81,1499.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0061,Himalaya Cream 50 g,Healthcare,50.0,90.87,203.34,Medium,Medium,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0062,ITC Chips 30 g,Food,30.0,43.35,10.0,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0063,Parle Pasta 1000 g,Food,1000.0,2112.63,201.17,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0064,Dettol Handwash 750 ml v2,Personal Care,750.0,846.45,158.49,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0065,Odonil Surface Cleaner 1000 ml,Home Care,1000.0,1040.75,166.17,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0066,Kissan Noodles 280 g,Food,280.0,366.27,62.61,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0067,Rajdhani Salt 1000 g,Grocery,1000.0,2129.08,31.01,Low,Low,Low,365,Bag,Kraft Paper (Unbleached),False,False,False
+PRD0068,Vim Floor Cleaner 500 ml,Home Care,500.0,532.73,67.81,Low,Low,Low,720,Pouch,HDPE Plastic,False,False,False
+PRD0069,Lux Body Wash 400 ml v2,Personal Care,400.0,425.81,208.67,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0070,India Gate Rice 1000 g,Grocery,1000.0,2259.88,60.73,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0071,Clinic Plus Handwash 750 ml,Personal Care,750.0,782.33,179.06,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0072,Good Knight Surface Cleaner 1000 ml,Home Care,1000.0,1124.89,158.38,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0073,Haldiram Pasta 500 g,Food,500.0,786.71,101.24,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0074,Surf Excel Detergent 1000 g,Home Care,1000.0,2269.01,204.97,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0075,Tata Tea 100 g,Grocery,100.0,206.21,52.2,Low,Low,High,365,Pouch,PP Plastic,False,False,False
+PRD0076,Lux Shampoo 180 ml,Personal Care,180.0,194.19,91.83,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0077,Bingo Noodles 280 g,Food,280.0,446.82,59.8,Low,Low,Medium,240,Pouch,Paperboard (Folding Carton),False,False,False
+PRD0078,24 Mantra Oil 500 g,Grocery,500.0,824.14,79.24,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0079,Samsung Charger 18W,Electronics,87.82,240.99,699.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0080,Paper Boat Juice 1000 ml,Beverages,1000.0,1084.06,121.28,Medium,Medium,Low,120,Bottle,PET Plastic,False,False,False
+PRD0081,Odonil Detergent 2000 g,Home Care,2000.0,4690.66,382.04,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0082,The Body Shop Perfume 100 ml,Cosmetics,100.0,108.53,822.61,Medium,Low,Medium,1095,Box,Paperboard (Folding Carton),False,False,False
+PRD0083,Pears Conditioner 180 ml,Personal Care,180.0,196.24,104.23,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0084,Bingo Noodles 70 g,Food,70.0,150.29,12.9,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0085,Bingo Sauce 1000 g,Food,1000.0,2131.76,166.66,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0086,Realme Smartphone Budget,Electronics,202.09,382.77,13999.0,High,Low,Low,365,Box,Molded Pulp,False,False,False
+PRD0087,Sony Charger 30W,Electronics,135.64,288.27,1099.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0088,Britannia Dairy Cheese 500 g,Dairy,500.0,1090.12,168.16,Medium,High,High,180,Box,Paperboard (Folding Carton),False,False,False
+PRD0089,Coca-Cola Soda 1000 ml,Beverages,1000.0,1099.44,101.9,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0090,Cadbury Noodles 140 g,Food,140.0,210.73,30.77,Low,Low,Medium,240,Box,Paperboard (Folding Carton),False,False,False
+PRD0091,Milky Mist Cheese 500 g,Dairy,500.0,933.42,196.83,Medium,High,High,180,Box,Paperboard (Folding Carton),False,False,False
+PRD0092,Sunfeast Pasta 1000 g,Food,1000.0,2164.36,203.8,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0093,Nestlé Pasta 1000 g v2,Food,1000.0,1920.72,192.68,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0094,Lay's Dry Fruits 500 g,Food,500.0,663.64,452.3,Low,Low,Medium,240,Box,Cellulose Film,False,False,False
+PRD0095,Dolo Antiseptic 500 ml,Healthcare,500.0,541.98,262.15,Medium,Medium,Medium,730,Bottle,HDPE Plastic,False,False,False
+PRD0096,L'Oréal Compact 6 g,Cosmetics,6.0,9.7,598.05,Medium,Low,Medium,1095,Bottle,Glass (Soda-Lime),False,True,False
+PRD0097,Parle Chips 30 g,Food,30.0,46.18,10.04,Low,Low,Medium,240,Box,Cellulose Film,False,False,False
+PRD0098,Haldiram Chocolate 80 g,Food,80.0,134.85,63.82,Low,Medium,High,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0099,Clinic Plus Toothpaste 100 g,Personal Care,100.0,121.41,54.14,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0100,Real Energy Drink 500 ml,Beverages,500.0,520.48,136.86,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0101,boAt Earphones Wired,Electronics,27.16,160.8,699.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0102,Good Knight Insect Repellent 45 g,Home Care,45.0,77.6,28.81,Low,Low,Low,720,Can,Aluminum (Primary),False,False,False
+PRD0103,Paper Boat Coffee 500 g,Beverages,500.0,638.0,235.98,Medium,Medium,Low,365,Box,Glass (Soda-Lime),False,False,False
+PRD0104,Saffola Spices 50 g v2,Grocery,50.0,66.22,29.76,Low,Low,High,365,Pouch,LDPE Plastic,False,False,False
+PRD0105,Vim Air Freshener 150 g v2,Home Care,150.0,184.38,39.51,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0106,Good Knight Insect Repellent 60 g v2,Home Care,60.0,72.63,28.94,Low,Low,Low,720,Bottle,Aluminum (Primary),False,False,False
+PRD0107,Soframycin Ointment 15 g,Healthcare,15.0,20.81,179.32,Medium,Medium,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0108,Tata Honey 500 g,Grocery,500.0,693.66,240.09,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0109,Sprite Coffee 500 g,Beverages,500.0,945.3,233.52,Medium,Medium,Low,365,Box,Glass (Soda-Lime),False,False,False
+PRD0110,Odonil Insect Repellent 45 g,Home Care,45.0,96.49,32.41,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0111,Bingo Biscuits 1000 g,Food,1000.0,2173.12,119.36,Low,Low,Medium,240,Wrapper,LDPE Plastic,False,False,False
+PRD0112,Britannia Noodles 280 g,Food,280.0,458.69,58.01,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0113,Rajdhani Rice 5000 g,Grocery,5000.0,11416.13,335.02,Low,Low,Low,365,Bag,Kraft Paper (Unbleached),False,False,False
+PRD0114,Bisleri Coffee 50 g,Beverages,50.0,75.73,53.95,Medium,Medium,Low,365,Pouch,Glass (Soda-Lime),False,False,False
+PRD0115,Odonil Floor Cleaner 1000 ml,Home Care,1000.0,1116.64,121.57,Low,Low,Low,720,Bottle,LDPE Plastic,False,False,False
+PRD0116,Ariel Insect Repellent 90 g,Home Care,90.0,145.12,33.32,Low,Low,Low,720,Can,Aluminum (Primary),False,False,False
+PRD0117,ITC Dry Fruits 500 g,Food,500.0,790.81,517.06,Low,Low,Medium,240,Pouch,Paperboard (Folding Carton),False,False,False
+PRD0118,Benadryl Tablets 30 tablets,Healthcare,25.73,33.22,89.13,Medium,Medium,Medium,730,Box,PVC Plastic,False,False,False
+PRD0119,Apple Power Bank 10000mAh,Electronics,273.89,369.1,1599.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0120,Surf Excel Dishwash Liquid 500 ml,Home Care,500.0,550.22,87.05,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0121,Parle Namkeen 1000 g,Food,1000.0,1477.87,248.0,Low,Low,Medium,240,Box,Paperboard (Folding Carton),False,False,False
+PRD0122,Nestlé Pasta 1000 g v3,Food,1000.0,1493.5,169.12,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0123,Realme Earphones Wired,Electronics,24.74,190.51,699.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0124,Nestlé Cereal 250 g,Food,250.0,344.64,99.81,Low,Low,Medium,240,Pouch,Paperboard (Folding Carton),False,False,False
+PRD0125,Dolo Capsules 20 tablets v2,Healthcare,13.65,26.93,158.0,Medium,Medium,Medium,730,Box,Paperboard (Folding Carton),False,False,False
+PRD0126,Clinic Plus Conditioner 90 ml,Personal Care,90.0,96.44,56.19,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0127,Patanjali Salt 500 g,Grocery,500.0,1014.91,14.54,Low,Low,Low,365,Bag,PP Plastic,False,False,False
+PRD0128,Parle Dry Fruits 100 g,Food,100.0,188.69,102.16,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0129,Maaza Mineral Water 2000 ml,Beverages,2000.0,2125.83,91.49,Medium,Medium,Low,365,Can,Aluminum (Primary),False,False,False
+PRD0130,Pears Handwash 750 ml,Personal Care,750.0,818.16,169.53,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0131,Rajdhani Tea 100 g v2,Grocery,100.0,203.13,54.64,Low,Low,High,365,Bag,PP Plastic,False,False,False
+PRD0132,Haldiram Jam 200 g,Food,200.0,396.92,57.3,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0133,Patanjali Honey 1000 g,Grocery,1000.0,1355.58,489.87,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0134,MDH Salt 1000 g,Grocery,1000.0,1540.9,27.79,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0135,Cadbury Chips 50 g,Food,50.0,76.9,15.71,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0136,Parle Noodles 280 g,Food,280.0,578.62,55.72,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0137,Betadine Bandage 2 roll,Healthcare,127.03,264.23,45.03,Medium,Medium,Medium,1095,Bottle,Paperboard (Folding Carton),False,False,False
+PRD0138,Sprite Energy Drink 250 ml,Beverages,250.0,263.25,65.08,Medium,Medium,Low,365,Can,Aluminum (Primary),False,False,False
+PRD0139,Aashirvaad Pickle 500 g,Grocery,500.0,619.15,124.23,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0140,Benadryl Capsules 30 tablets,Healthcare,25.92,49.83,168.37,Medium,Medium,Medium,730,Blister,PVC Plastic,False,False,False
+PRD0141,Coca-Cola Juice 1000 ml,Beverages,1000.0,1061.76,110.44,Medium,Medium,Low,120,Bottle,PET Plastic,False,False,False
+PRD0142,Tropicana Soft Drink 250 ml,Beverages,250.0,261.98,23.42,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0143,Saffola Oil 1000 g,Grocery,1000.0,1236.62,169.88,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0144,Britannia Dairy Lassi 500 ml,Dairy,500.0,552.05,19.17,Medium,High,High,10,Bottle,LDPE Plastic,False,False,False
+PRD0145,Dettol Syrup 200 ml,Healthcare,200.0,211.49,129.92,Medium,Medium,Medium,540,Bottle,HDPE Plastic,False,False,False
+PRD0146,Ariel Floor Cleaner 500 ml,Home Care,500.0,516.36,59.15,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0147,Colin Dishwash Liquid 500 ml,Home Care,500.0,517.74,89.28,Low,Low,Low,720,Pouch,LDPE Plastic,False,False,False
+PRD0148,Milky Mist Yogurt 150 g,Dairy,150.0,215.58,10.0,Medium,High,High,20,Cup,PP Plastic,False,False,False
+PRD0149,Everest Rice 10000 g,Grocery,10000.0,24710.93,547.59,Low,Low,Low,365,Bag,Kraft Paper (Unbleached),True,True,False
+PRD0150,MDH Oil 1000 g,Grocery,1000.0,2001.26,149.54,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0151,Betadine Antiseptic 500 ml,Healthcare,500.0,561.84,264.55,Medium,Medium,Medium,730,Bottle,HDPE Plastic,False,False,False
+PRD0152,Britannia Dairy Yogurt 400 g,Dairy,400.0,662.14,13.73,Medium,High,High,20,Cup,Paperboard (Folding Carton),False,False,False
+PRD0153,Lakmé Gel 100 g,Cosmetics,100.0,143.42,101.62,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0154,Dabur Body Wash 400 ml v3,Personal Care,400.0,454.68,186.71,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0155,Mother Dairy Yogurt 150 g,Dairy,150.0,327.14,10.0,Medium,High,High,20,Cup,PP Plastic,False,False,False
+PRD0156,Everest Honey 1000 g,Grocery,1000.0,1918.54,437.77,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0157,Maaza Iced Tea 250 ml,Beverages,250.0,266.39,22.28,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0158,Rajdhani Tea 500 g,Grocery,500.0,657.59,226.3,Low,Low,High,365,Pouch,LDPE Plastic,False,False,False
+PRD0159,Amul Yogurt 150 g,Dairy,150.0,258.89,10.0,Medium,High,High,20,Cup,PP Plastic,False,False,False
+PRD0160,L'Oréal Gel 100 g,Cosmetics,100.0,205.45,90.94,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0161,Mother Dairy Butter 200 g,Dairy,200.0,275.01,53.67,Medium,High,High,180,Wrapper,LDPE Plastic,False,False,False
+PRD0162,Plum Perfume 100 ml,Cosmetics,100.0,113.52,851.88,Medium,Low,Medium,1095,Box,Glass (Soda-Lime),False,False,False
+PRD0163,Head & Shoulders Face Wash 100 g,Personal Care,100.0,156.59,90.01,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0164,Kissan Dry Fruits 500 g,Food,500.0,873.07,472.87,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0165,Harpic Toilet Cleaner 500 ml,Home Care,500.0,541.08,70.37,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0166,Amul Curd 200 ml,Dairy,200.0,208.17,10.0,Medium,High,High,7,Bottle,HDPE Plastic,False,False,False
+PRD0167,Maybelline Cream 100 g v2,Cosmetics,100.0,161.92,130.98,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0168,Odonil Surface Cleaner 500 ml,Home Care,500.0,533.0,88.56,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0169,Britannia Dry Fruits 100 g,Food,100.0,171.8,82.13,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0170,Aashirvaad Pulses 500 g,Grocery,500.0,1006.68,66.47,Low,Low,Low,365,Bag,LDPE Plastic,False,False,False
+PRD0171,Betadine Cream 50 g,Healthcare,50.0,107.51,188.19,Medium,Medium,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0172,Lakmé Lipstick 5 g v2,Cosmetics,5.0,9.34,633.88,Low,Low,Medium,1095,Box,Paperboard (Folding Carton),True,True,False
+PRD0173,Sprite Soda 250 ml,Beverages,250.0,257.58,22.78,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0174,Head & Shoulders Lotion 100 ml,Personal Care,100.0,107.78,69.06,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0175,Himalaya Conditioner 90 ml v2,Personal Care,90.0,101.61,44.9,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0176,Rajdhani Pickle 1000 g,Grocery,1000.0,1350.96,201.76,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0177,Mamaearth Serum 50 ml,Cosmetics,50.0,100.43,932.05,Low,Low,Medium,730,Bottle,HDPE Plastic,False,False,False
+PRD0178,India Gate Sugar 1000 g,Grocery,1000.0,1673.5,46.91,Low,Low,Low,365,Bag,PP Plastic,False,False,False
+PRD0179,Everest Pickle 500 g,Grocery,500.0,775.97,101.04,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0180,Saffola Flour 2000 g,Grocery,2000.0,4843.08,108.65,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0181,Odonil Toilet Cleaner 500 ml,Home Care,500.0,525.16,75.61,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0182,Dolo Capsules 30 tablets,Healthcare,23.87,39.56,180.44,Medium,Medium,Medium,730,Blister,Paperboard (Folding Carton),False,False,False
+PRD0183,Cadbury Pasta 500 g,Food,500.0,1097.71,93.5,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0184,Milky Mist Buttermilk 1000 ml,Dairy,1000.0,1117.13,44.37,Medium,High,High,7,Pouch,HDPE Plastic,False,False,False
+PRD0185,Sugar Cosmetics Perfume 50 ml,Cosmetics,50.0,53.91,878.66,Medium,Low,Medium,1095,Box,Paperboard (Folding Carton),False,False,False
+PRD0186,Ariel Air Freshener 150 g,Home Care,150.0,240.79,37.29,Low,Low,Low,720,Can,Aluminum (Primary),False,False,False
+PRD0187,Clinic Plus Lotion 100 ml v2,Personal Care,100.0,103.61,73.86,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0188,Colin Toilet Cleaner 1000 ml,Home Care,1000.0,1043.67,145.73,Low,Low,Low,720,Pouch,LDPE Plastic,False,False,False
+PRD0189,Britannia Pasta 500 g,Food,500.0,799.84,103.08,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0190,Red Bull Iced Tea 1000 ml,Beverages,1000.0,1106.54,97.94,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0191,Himalaya Toothpaste 150 g v2,Personal Care,150.0,185.22,75.64,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0192,Odonil Dishwash Liquid 1000 ml,Home Care,1000.0,1092.87,177.56,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0193,Nestlé Pasta 1000 g,Food,1000.0,1777.35,193.71,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0194,HP Smartphone Midrange,Electronics,189.77,452.16,24999.0,High,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0195,Maybelline Gel 50 g,Cosmetics,50.0,83.87,51.03,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0196,Britannia Dairy Buttermilk 1000 ml,Dairy,1000.0,1062.94,41.66,Medium,High,High,7,Pouch,HDPE Plastic,False,False,False
+PRD0197,Heritage Yogurt 85 g,Dairy,85.0,116.14,10.0,Medium,High,High,20,Cup,Paperboard (Folding Carton),False,False,False
+PRD0198,Rajdhani Salt 500 g,Grocery,500.0,994.32,14.69,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0199,Fortune Pulses 2000 g,Grocery,2000.0,4061.11,243.22,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0200,Cadbury Dry Fruits 200 g,Food,200.0,351.39,192.81,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0201,Himalaya Toothpaste 150 g,Personal Care,150.0,205.0,83.41,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0202,Maaza Iced Tea 1000 ml,Beverages,1000.0,1092.0,85.3,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0203,Kissan Cereal 1000 g,Food,1000.0,1406.83,351.76,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0204,Nestlé Biscuits 500 g v2,Food,500.0,892.09,61.54,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0205,Dove Body Wash 200 ml v2,Personal Care,200.0,215.45,109.87,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0206,Britannia Dairy Lassi 1000 ml,Dairy,1000.0,1110.98,40.71,Medium,High,High,10,Bottle,LDPE Plastic,False,False,False
+PRD0207,JBL Earphones TWS,Electronics,67.46,109.73,1699.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0208,Dove Lotion 200 ml,Personal Care,200.0,229.34,137.88,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0209,Everest Tea 250 g,Grocery,250.0,328.45,125.93,Low,Low,High,365,Bag,Kraft Paper (Unbleached),False,False,False
+PRD0210,Lizol Surface Cleaner 500 ml,Home Care,500.0,525.17,77.38,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0211,Everest Flour 5000 g,Grocery,5000.0,11928.95,269.2,Low,Low,Low,365,Bag,PP Plastic,False,True,False
+PRD0212,HP Laptop 15-inch,Electronics,1283.66,4634.65,64999.0,High,Low,Low,365,Box,Corrugated Cardboard,False,False,True
+PRD0213,Fortune Sugar 5000 g,Grocery,5000.0,12359.05,230.73,Low,Low,Low,365,Bag,PP Plastic,False,True,False
+PRD0214,Red Bull Mineral Water 1000 ml,Beverages,1000.0,1108.02,43.81,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0215,Saffola Spices 50 g v3,Grocery,50.0,93.05,29.3,Low,Low,High,365,Bag,LDPE Plastic,False,False,False
+PRD0216,Mother Dairy Curd 1000 ml,Dairy,1000.0,1129.66,38.57,Medium,High,High,7,Bottle,HDPE Plastic,False,False,False
+PRD0217,Patanjali Flour 5000 g,Grocery,5000.0,9208.66,300.17,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0218,Nandini Butter 500 g,Dairy,500.0,1025.88,141.92,Medium,High,High,180,Box,LDPE Plastic,False,False,False
+PRD0219,Nestlé Sauce 200 g,Food,200.0,284.09,37.7,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0220,Sprite Tea 500 g,Beverages,500.0,683.89,231.4,Medium,Medium,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0221,Colin Toilet Cleaner 500 ml,Home Care,500.0,545.05,80.05,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0222,Cadbury Chocolate 80 g,Food,80.0,159.5,72.96,Low,Medium,High,365,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0223,Lizol Toilet Cleaner 1000 ml,Home Care,1000.0,1145.98,148.46,Low,Low,Low,720,Pouch,LDPE Plastic,False,False,False
+PRD0224,Maaza Soda 250 ml,Beverages,250.0,262.48,21.98,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0225,L'Oréal Serum 50 ml,Cosmetics,50.0,108.61,1095.35,Low,Low,Medium,730,Tube,Glass (Soda-Lime),False,False,False
+PRD0226,Coca-Cola Mineral Water 1000 ml,Beverages,1000.0,1109.38,36.69,Medium,Medium,Low,365,Can,Steel (Carbon Steel),False,False,False
+PRD0227,Nandini Cheese 500 g,Dairy,500.0,1094.21,192.17,Medium,High,High,180,Box,Paperboard (Folding Carton),False,False,False
+PRD0228,Plum Sunscreen 100 g,Cosmetics,100.0,173.37,247.45,Low,Low,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0229,Soframycin Bandage 5 roll,Healthcare,212.63,375.38,63.25,Medium,Medium,Medium,1095,Bottle,HDPE Plastic,False,False,False
+PRD0230,Dettol Lotion 400 ml,Personal Care,400.0,444.44,290.4,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0231,Bisleri Energy Drink 250 ml,Beverages,250.0,282.17,55.58,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0232,Lifebuoy Face Wash 50 g v2,Personal Care,50.0,84.91,46.29,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0233,Bingo Pasta 250 g,Food,250.0,451.67,44.13,Low,Low,Medium,240,Box,Cellulose Film,False,False,False
+PRD0234,Cadbury Chips 200 g,Food,200.0,371.95,68.2,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0235,Cadbury Namkeen 200 g,Food,200.0,433.74,54.33,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0236,Heritage Curd 400 ml,Dairy,400.0,436.11,16.76,Medium,High,High,7,Pouch,LDPE Plastic,False,False,False
+PRD0237,Bisleri Juice 500 ml,Beverages,500.0,547.67,63.71,Medium,Medium,Low,120,Bottle,PET Plastic,False,False,False
+PRD0238,Aashirvaad Coffee 500 g,Grocery,500.0,761.06,374.83,Low,Low,High,365,Bag,PP Plastic,False,False,False
+PRD0239,24 Mantra Oil 5000 g,Grocery,5000.0,6360.38,892.35,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0240,MDH Pulses 1000 g,Grocery,1000.0,2347.3,120.79,Low,Low,Low,365,Bag,PP Plastic,False,False,False
+PRD0241,Kissan Namkeen 1000 g,Food,1000.0,1606.08,288.19,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0242,Realme Bluetooth Speaker Standard,Electronics,1037.08,793.71,3499.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0243,Head & Shoulders Lotion 100 ml v2,Personal Care,100.0,106.83,66.08,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0244,Harpic Toilet Cleaner 1000 ml,Home Care,1000.0,1045.9,132.56,Low,Low,Low,720,Pouch,HDPE Plastic,False,False,False
+PRD0245,Mamaearth Sunscreen 50 g,Cosmetics,50.0,86.41,123.81,Low,Low,Medium,540,Bottle,HDPE Plastic,False,False,False
+PRD0246,Colgate Toothpaste 200 g,Personal Care,200.0,292.93,104.8,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0247,Odonil Floor Cleaner 500 ml,Home Care,500.0,568.96,62.45,Low,Low,Low,720,Bottle,LDPE Plastic,False,False,False
+PRD0248,OnePlus Smartphone Budget,Electronics,190.4,475.71,15999.0,High,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0249,Real Iced Tea 1000 ml,Beverages,1000.0,1082.53,94.46,Medium,Medium,Low,180,Can,Steel (Carbon Steel),False,False,False
+PRD0250,Heritage Curd 400 ml v2,Dairy,400.0,434.54,18.28,Medium,High,High,7,Pouch,LDPE Plastic,False,False,False
+PRD0251,Colin Insect Repellent 60 g,Home Care,60.0,96.83,32.84,Low,Low,Low,720,Can,HDPE Plastic,False,False,False
+PRD0252,Clinic Plus Lotion 100 ml,Personal Care,100.0,108.44,69.69,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0253,Dhara Salt 500 g,Grocery,500.0,747.9,15.36,Low,Low,Low,365,Bag,PP Plastic,False,False,False
+PRD0254,Everest Salt 1000 g,Grocery,1000.0,1969.44,30.65,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0255,Real Mineral Water 500 ml,Beverages,500.0,523.14,20.31,Medium,Medium,Low,365,Can,Steel (Carbon Steel),False,False,False
+PRD0256,Ariel Air Freshener 60 g,Home Care,60.0,102.96,25.95,Low,Low,Low,720,Box,Aluminum (Primary),False,False,False
+PRD0257,India Gate Honey 250 g,Grocery,250.0,445.68,105.23,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0258,Paper Boat Coffee 500 g v2,Beverages,500.0,773.98,216.33,Medium,Medium,Low,365,Jar,LDPE Plastic,False,False,False
+PRD0259,Good Knight Air Freshener 100 g,Home Care,100.0,150.28,24.08,Low,Low,Low,720,Can,Paperboard (Folding Carton),False,False,False
+PRD0260,Lifebuoy Face Wash 50 g,Personal Care,50.0,71.84,46.06,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0261,Odonil Air Freshener 100 g,Home Care,100.0,173.22,25.07,Low,Low,Low,720,Can,Aluminum (Primary),False,False,False
+PRD0262,Sugar Cosmetics Gel 50 g v2,Cosmetics,50.0,79.83,43.19,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0263,Volini Sanitizer 500 ml,Healthcare,500.0,557.28,135.74,Medium,Medium,Medium,730,Bottle,Paperboard (Folding Carton),False,False,False
+PRD0264,The Body Shop Compact 6 g,Cosmetics,6.0,11.54,529.02,Medium,Low,Medium,1095,Bottle,Glass (Soda-Lime),False,False,False
+PRD0265,Lux Lotion 400 ml,Personal Care,400.0,454.14,284.72,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0266,Lux Conditioner 340 ml,Personal Care,340.0,350.58,194.85,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0267,Coca-Cola Mineral Water 2000 ml,Beverages,2000.0,2172.66,80.81,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0268,Patanjali Salt 1000 g,Grocery,1000.0,1465.37,26.09,Low,Low,Low,365,Bag,PP Plastic,False,False,False
+PRD0269,Benadryl Antiseptic 100 ml,Healthcare,100.0,112.94,260.7,Medium,Medium,Medium,730,Bottle,Glass (Soda-Lime),False,False,False
+PRD0270,Colgate Conditioner 180 ml,Personal Care,180.0,206.94,98.93,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0271,Clinic Plus Face Wash 100 g,Personal Care,100.0,190.49,96.53,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0272,Mi Earphones TWS,Electronics,23.47,90.35,1599.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0273,The Body Shop Compact 6 g v2,Cosmetics,6.0,7.91,566.68,Medium,Low,Medium,1095,Box,Glass (Soda-Lime),False,True,False
+PRD0274,Patanjali Salt 1000 g v2,Grocery,1000.0,1424.54,27.43,Low,Low,Low,365,Bag,LDPE Plastic,False,False,False
+PRD0275,Lux Toothpaste 200 g,Personal Care,200.0,299.96,121.43,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0276,Milky Mist Yogurt 150 g v2,Dairy,150.0,300.63,10.0,Medium,High,High,20,Cup,Paperboard (Folding Carton),False,False,False
+PRD0277,Coca-Cola Tea 100 g,Beverages,100.0,169.84,59.35,Medium,Medium,Low,365,Box,Glass (Soda-Lime),False,False,False
+PRD0278,Tata Pickle 200 g,Grocery,200.0,372.39,44.94,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0279,Lux Conditioner 90 ml,Personal Care,90.0,97.58,55.67,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0280,Aashirvaad Salt 1000 g,Grocery,1000.0,1614.9,27.98,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0281,Maaza Soft Drink 500 ml,Beverages,500.0,548.48,45.18,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0282,Paper Boat Tea 250 g,Beverages,250.0,372.03,106.77,Medium,Medium,Low,365,Jar,Glass (Soda-Lime),False,False,False
+PRD0283,Dettol Syrup 500 ml,Healthcare,500.0,562.09,154.19,Medium,Medium,Medium,540,Bottle,HDPE Plastic,False,False,False
+PRD0284,MDH Oil 5000 g,Grocery,5000.0,10381.96,843.61,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0285,Odonil Dishwash Liquid 500 ml,Home Care,500.0,540.91,85.59,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0286,JBL Bluetooth Speaker Standard,Electronics,1112.43,1414.01,2999.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0287,Paper Boat Mineral Water 2000 ml,Beverages,2000.0,2198.3,87.26,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0288,Himalaya Handwash 200 ml,Personal Care,200.0,207.76,45.15,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0289,Odonil Surface Cleaner 500 ml v2,Home Care,500.0,523.13,72.14,Low,Low,Low,720,Pouch,HDPE Plastic,False,False,False
+PRD0290,Slice Energy Drink 500 ml,Beverages,500.0,533.4,114.92,Medium,Medium,Low,365,Bottle,PET Plastic,False,False,False
+PRD0291,Sugar Cosmetics Gel 50 g,Cosmetics,50.0,75.04,48.46,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0292,Lux Face Wash 150 g,Personal Care,150.0,289.11,145.32,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0293,Slice Tea 500 g v2,Beverages,500.0,701.78,228.21,Medium,Medium,Low,365,Pouch,Glass (Soda-Lime),False,False,False
+PRD0294,Lakmé Gel 50 g,Cosmetics,50.0,63.36,47.18,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0295,Britannia Chips 200 g,Food,200.0,293.04,68.0,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0296,Benadryl Sanitizer 500 ml,Healthcare,500.0,527.14,156.88,Medium,Medium,Medium,730,Box,HDPE Plastic,False,False,False
+PRD0297,Kellogg's Cereal 250 g,Food,250.0,426.78,93.34,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0298,Lux Body Wash 200 ml,Personal Care,200.0,209.21,96.61,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0299,Bisleri Coffee 100 g,Beverages,100.0,218.07,56.84,Medium,Medium,Low,365,Pouch,Glass (Soda-Lime),False,False,False
+PRD0300,India Gate Pickle 200 g,Grocery,200.0,248.87,45.61,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0301,Dhara Tea 250 g,Grocery,250.0,384.73,126.67,Low,Low,High,365,Bag,LDPE Plastic,False,False,False
+PRD0302,Heritage Yogurt 400 g,Dairy,400.0,844.25,15.21,Medium,High,High,20,Cup,PP Plastic,False,False,False
+PRD0303,Kellogg's Cereal 375 g,Food,375.0,598.36,148.13,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0304,Kissan Biscuits 200 g,Food,200.0,437.06,23.19,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0305,Britannia Biscuits 500 g,Food,500.0,719.0,64.03,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0306,Milky Mist Milk 500 ml,Dairy,500.0,538.32,29.78,Medium,High,High,5,Pouch,LDPE Plastic,False,False,False
+PRD0307,Mother Dairy Cheese 200 g,Dairy,200.0,411.2,70.19,Medium,High,High,180,Box,LDPE Plastic,False,False,False
+PRD0308,Ariel Detergent 2000 g,Home Care,2000.0,3910.67,342.62,Low,Low,Low,720,Bottle,LDPE Plastic,False,False,False
+PRD0309,Soframycin Antiseptic 100 ml,Healthcare,100.0,104.68,204.24,Medium,Medium,Medium,730,Bottle,HDPE Plastic,False,False,False
+PRD0310,24 Mantra Pickle 500 g,Grocery,500.0,923.01,110.64,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0311,Bisleri Juice 200 ml,Beverages,200.0,226.41,25.2,Medium,Medium,Low,120,Can,Steel (Carbon Steel),False,False,False
+PRD0312,Kissan Jam 200 g,Food,200.0,429.01,55.78,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0313,MDH Spices 50 g,Grocery,50.0,103.67,27.33,Low,Low,High,365,Bag,LDPE Plastic,False,False,False
+PRD0314,L'Oréal Compact 6 g v2,Cosmetics,6.0,9.18,451.09,Medium,Low,Medium,1095,Bottle,Paperboard (Folding Carton),False,True,False
+PRD0315,Dell Power Bank 20000mAh,Electronics,527.51,522.68,2499.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0316,Saffola Sugar 1000 g,Grocery,1000.0,2366.45,46.65,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0317,Kellogg's Chips 150 g,Food,150.0,264.78,44.06,Low,Low,Medium,240,Wrapper,Cellulose Film,False,False,False
+PRD0318,Surf Excel Surface Cleaner 1000 ml,Home Care,1000.0,1032.06,176.53,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0319,24 Mantra Oil 500 g v2,Grocery,500.0,972.9,76.43,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0320,Lifebuoy Conditioner 340 ml,Personal Care,340.0,352.26,191.44,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0321,Head & Shoulders Body Wash 400 ml,Personal Care,400.0,444.59,227.44,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0322,Good Knight Floor Cleaner 2000 ml,Home Care,2000.0,2165.65,241.84,Low,Low,Low,720,Pouch,LDPE Plastic,False,False,False
+PRD0323,Lay's Chips 30 g,Food,30.0,46.77,10.0,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0324,Lifebuoy Shampoo 90 ml,Personal Care,90.0,98.29,45.7,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0325,Dolo Sanitizer 50 ml,Healthcare,50.0,56.36,178.44,Medium,Medium,Medium,730,Box,Paperboard (Folding Carton),False,False,False
+PRD0326,Paper Boat Iced Tea 500 ml,Beverages,500.0,564.84,41.47,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0327,Fortune Coffee 50 g,Grocery,50.0,93.82,38.38,Low,Low,High,365,Pouch,LDPE Plastic,False,False,False
+PRD0328,Lizol Toilet Cleaner 1000 ml v2,Home Care,1000.0,1122.68,146.6,Low,Low,Low,720,Pouch,LDPE Plastic,False,False,False
+PRD0329,Aashirvaad Honey 1000 g,Grocery,1000.0,1780.33,512.35,Medium,Low,Low,540,Jar,Glass (Soda-Lime),False,False,False
+PRD0330,Heritage Cheese 500 g,Dairy,500.0,927.46,193.97,Medium,High,High,180,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0331,Slice Tea 500 g,Beverages,500.0,688.07,226.7,Medium,Medium,Low,365,Jar,LDPE Plastic,False,False,False
+PRD0332,Head & Shoulders Body Wash 200 ml,Personal Care,200.0,225.12,108.13,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0333,Tata Coffee 50 g,Grocery,50.0,64.22,42.46,Low,Low,High,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0334,Bingo Biscuits 100 g,Food,100.0,154.57,13.16,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0335,Sunfeast Pasta 250 g,Food,250.0,438.31,43.56,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0336,Haldiram Noodles 140 g,Food,140.0,187.63,26.48,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0337,Himalaya Conditioner 90 ml,Personal Care,90.0,101.68,50.96,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0338,Lakmé Cream 50 g,Cosmetics,50.0,61.59,60.13,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0339,Rajdhani Flour 1000 g,Grocery,1000.0,2267.35,60.01,Low,Low,Low,365,Bag,LDPE Plastic,False,False,False
+PRD0340,Dolo Capsules 20 tablets,Healthcare,21.12,34.67,170.97,Medium,Medium,Medium,730,Box,PVC Plastic,False,False,False
+PRD0341,Haldiram Sauce 200 g,Food,200.0,381.57,32.93,Medium,Low,Low,540,Bottle,PET Plastic,False,False,False
+PRD0342,Benadryl Bandage 2 roll,Healthcare,108.07,182.28,67.52,Medium,Medium,Medium,1095,Box,HDPE Plastic,False,False,False
+PRD0343,Saffola Flour 10000 g,Grocery,10000.0,22114.01,565.94,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),True,True,False
+PRD0344,Clinic Plus Face Wash 50 g,Personal Care,50.0,95.59,50.93,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0345,Colgate Shampoo 90 ml,Personal Care,90.0,101.38,41.71,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0346,Britannia Dairy Buttermilk 500 ml,Dairy,500.0,534.6,20.08,Medium,High,High,7,Pouch,HDPE Plastic,False,False,False
+PRD0347,Ariel Detergent 500 g,Home Care,500.0,1056.34,93.67,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0348,Britannia Dairy Curd 400 ml,Dairy,400.0,453.47,15.5,Medium,High,High,7,Pouch,LDPE Plastic,False,False,False
+PRD0349,Kissan Sauce 1000 g,Food,1000.0,2099.5,170.55,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0350,Sprite Soda 1000 ml,Beverages,1000.0,1096.27,83.1,Medium,Medium,Low,180,Can,Aluminum (Primary),False,False,False
+PRD0351,Fanta Tea 500 g,Beverages,500.0,1058.04,207.98,Medium,Medium,Low,365,Box,LDPE Plastic,False,False,False
+PRD0352,OnePlus Smartwatch Wearable,Electronics,43.28,241.21,4999.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0353,Cadbury Cereal 375 g,Food,375.0,528.57,126.89,Low,Low,Medium,240,Box,Paperboard (Folding Carton),False,False,False
+PRD0354,Lakmé Serum 30 ml,Cosmetics,30.0,48.71,723.67,Low,Low,Medium,730,Bottle,Glass (Soda-Lime),False,False,False
+PRD0355,Soframycin Capsules 10 tablets,Healthcare,6.06,11.48,147.97,Medium,Medium,Medium,730,Blister,Paperboard (Folding Carton),False,False,False
+PRD0356,ITC Noodles 280 g,Food,280.0,601.68,63.29,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0357,Clinic Plus Handwash 500 ml,Personal Care,500.0,531.74,107.21,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0358,Kellogg's Dry Fruits 500 g,Food,500.0,709.66,517.22,Low,Low,Medium,240,Box,Paperboard (Folding Carton),False,False,False
+PRD0359,Nandini Cheese 500 g v2,Dairy,500.0,1022.65,166.22,Medium,High,High,180,Box,Paperboard (Folding Carton),False,False,False
+PRD0360,Britannia Noodles 560 g,Food,560.0,809.88,117.45,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0361,Benadryl Sanitizer 200 ml,Healthcare,200.0,208.39,162.73,Medium,Medium,Medium,730,Box,Paperboard (Folding Carton),False,False,False
+PRD0362,Good Knight Detergent 2000 g,Home Care,2000.0,3164.08,337.88,Low,Low,Low,720,Pouch,HDPE Plastic,False,False,False
+PRD0363,Tata Salt 1000 g,Grocery,1000.0,1722.75,26.31,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0364,Himalaya Lotion 100 ml,Personal Care,100.0,114.21,70.22,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0365,Colin Surface Cleaner 1000 ml,Home Care,1000.0,1125.73,169.19,Low,Low,Low,720,Pouch,HDPE Plastic,False,False,False
+PRD0366,Nykaa Cream 100 g,Cosmetics,100.0,214.85,134.39,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0367,Fortune Oil 5000 g,Grocery,5000.0,9880.86,767.53,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0368,Fortune Rice 10000 g,Grocery,10000.0,24059.23,592.41,Low,Low,Low,365,Bag,Kraft Paper (Unbleached),True,True,False
+PRD0369,Everest Coffee 50 g,Grocery,50.0,101.58,36.77,Low,Low,High,365,Bag,LDPE Plastic,False,False,False
+PRD0370,Himalaya Toothpaste 100 g,Personal Care,100.0,139.08,55.56,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0371,Dolo Sanitizer 200 ml,Healthcare,200.0,211.23,199.12,Medium,Medium,Medium,730,Box,HDPE Plastic,False,False,False
+PRD0372,Lux Shampoo 340 ml,Personal Care,340.0,376.29,167.97,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0373,Sony Charger 65W,Electronics,142.51,213.78,1799.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0374,Soframycin Ointment 30 g,Healthcare,30.0,60.85,155.52,Medium,Medium,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0375,Dove Lotion 200 ml v2,Personal Care,200.0,212.97,126.35,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0376,Vim Detergent 1000 g,Home Care,1000.0,1696.19,172.35,Low,Low,Low,720,Bag,LDPE Plastic,False,False,False
+PRD0377,Clinic Plus Face Wash 50 g v2,Personal Care,50.0,72.53,47.64,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0378,Saffola Spices 50 g,Grocery,50.0,97.35,28.32,Low,Low,High,365,Bag,LDPE Plastic,False,False,False
+PRD0379,Nandini Cheese 200 g,Dairy,200.0,301.79,70.71,Medium,High,High,180,Wrapper,LDPE Plastic,False,False,False
+PRD0380,Bingo Chocolate 150 g,Food,150.0,248.74,137.95,Low,Medium,High,365,Pouch,LDPE Plastic,False,False,False
+PRD0381,Patanjali Pulses 1000 g,Grocery,1000.0,1552.37,126.93,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0382,24 Mantra Flour 5000 g,Grocery,5000.0,10037.06,258.14,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0383,Dabur Toothpaste 200 g,Personal Care,200.0,286.44,119.31,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0384,Lux Shampoo 340 ml v2,Personal Care,340.0,372.64,148.81,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0385,Tropicana Tea 100 g,Beverages,100.0,142.16,59.01,Medium,Medium,Low,365,Jar,LDPE Plastic,False,False,False
+PRD0386,Lay's Biscuits 500 g,Food,500.0,724.76,55.54,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0387,Britannia Jam 200 g,Food,200.0,245.96,49.64,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0388,JBL Smartphone Midrange,Electronics,178.56,498.34,24999.0,High,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0389,Cadbury Pasta 250 g,Food,250.0,405.89,43.61,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0390,Sunfeast Noodles 560 g,Food,560.0,1067.59,102.6,Low,Low,Medium,240,Wrapper,LDPE Plastic,False,False,False
+PRD0391,Patanjali Sugar 5000 g,Grocery,5000.0,8029.32,252.23,Low,Low,Low,365,Pouch,PP Plastic,False,False,False
+PRD0392,Nestlé Biscuits 100 g,Food,100.0,160.64,12.24,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0393,Head & Shoulders Handwash 750 ml,Personal Care,750.0,844.83,171.26,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0394,Good Knight Detergent 1000 g,Home Care,1000.0,2349.44,192.47,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0395,Fanta Juice 200 ml,Beverages,200.0,222.07,24.98,Medium,Medium,Low,120,Bottle,PET Plastic,False,False,False
+PRD0396,Plum Serum 50 ml,Cosmetics,50.0,74.99,869.79,Low,Low,Medium,730,Tube,Glass (Soda-Lime),False,False,False
+PRD0397,OnePlus Bluetooth Speaker Standard,Electronics,792.87,1584.74,2999.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0398,Sunfeast Jam 200 g,Food,200.0,325.96,47.34,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0399,Plum Lipstick 4 g,Cosmetics,4.0,8.65,542.27,Low,Low,Medium,1095,Box,Paperboard (Folding Carton),True,True,False
+PRD0400,Himalaya Shampoo 90 ml,Personal Care,90.0,103.5,43.73,Low,Low,Medium,720,Pouch,LDPE Plastic,False,False,False
+PRD0401,24 Mantra Spices 200 g,Grocery,200.0,397.7,118.34,Low,Low,High,365,Bag,LDPE Plastic,False,False,False
+PRD0402,Cadbury Namkeen 400 g,Food,400.0,778.0,107.61,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0403,Nykaa Perfume 50 ml,Cosmetics,50.0,56.46,828.59,Medium,Low,Medium,1095,Box,Glass (Soda-Lime),False,False,False
+PRD0404,Real Iced Tea 500 ml,Beverages,500.0,565.09,45.79,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0405,Vim Air Freshener 100 g v2,Home Care,100.0,164.91,26.24,Low,Low,Low,720,Bottle,Aluminum (Primary),False,False,False
+PRD0406,Himalaya Lotion 400 ml,Personal Care,400.0,454.67,269.46,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0407,Nandini Butter 100 g,Dairy,100.0,187.28,54.47,Medium,High,High,180,Box,Paperboard (Folding Carton),False,False,False
+PRD0408,L'Oréal Sunscreen 100 g,Cosmetics,100.0,164.85,282.32,Low,Low,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0409,Realme Power Bank 10000mAh,Electronics,256.13,436.89,1599.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0410,Maaza Tea 500 g,Beverages,500.0,614.43,232.65,Medium,Medium,Low,365,Pouch,Glass (Soda-Lime),False,False,False
+PRD0411,Lifebuoy Conditioner 90 ml,Personal Care,90.0,93.27,49.66,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0412,Realme Laptop 15-inch,Electronics,1529.8,7171.47,64999.0,High,Low,Low,365,Box,Corrugated Cardboard,False,False,True
+PRD0413,The Body Shop Serum 50 ml,Cosmetics,50.0,78.38,762.87,Low,Low,Medium,730,Bottle,HDPE Plastic,False,False,False
+PRD0414,India Gate Sugar 5000 g,Grocery,5000.0,8174.26,269.75,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0415,Nestlé Dry Fruits 500 g,Food,500.0,1062.88,431.63,Low,Low,Medium,240,Wrapper,LDPE Plastic,False,False,False
+PRD0416,Colin Surface Cleaner 500 ml,Home Care,500.0,528.79,90.03,Low,Low,Low,720,Bag,HDPE Plastic,False,False,False
+PRD0417,Parle Cereal 375 g,Food,375.0,510.59,132.62,Low,Low,Medium,240,Wrapper,Paperboard (Folding Carton),False,False,False
+PRD0418,Heritage Buttermilk 500 ml v2,Dairy,500.0,526.39,18.61,Medium,High,High,7,Bottle,HDPE Plastic,False,False,False
+PRD0419,Fortune Oil 500 g,Grocery,500.0,805.4,89.47,Medium,Low,Low,540,Jar,PET Plastic,False,False,False
+PRD0420,Samsung Earphones Wired,Electronics,53.83,116.47,699.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0421,24 Mantra Rice 5000 g,Grocery,5000.0,9371.51,281.45,Low,Low,Low,365,Pouch,LDPE Plastic,False,False,False
+PRD0422,Heritage Buttermilk 1000 ml,Dairy,1000.0,1035.44,36.37,Medium,High,High,7,Pouch,LDPE Plastic,False,False,False
+PRD0423,Haldiram Noodles 70 g,Food,70.0,111.89,13.58,Low,Low,Medium,240,Wrapper,LDPE Plastic,False,False,False
+PRD0424,Kellogg's Noodles 280 g,Food,280.0,513.59,54.1,Low,Low,Medium,240,Pouch,Cellulose Film,False,False,False
+PRD0425,Nykaa Compact 6 g,Cosmetics,6.0,12.03,457.91,Medium,Low,Medium,1095,Box,Paperboard (Folding Carton),False,False,False
+PRD0426,Everest Sugar 5000 g,Grocery,5000.0,7896.13,241.0,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0427,Colgate Shampoo 650 ml,Personal Care,650.0,743.82,273.69,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0428,Nestlé Biscuits 500 g,Food,500.0,655.93,59.44,Low,Low,Medium,240,Box,LDPE Plastic,False,False,False
+PRD0429,Dove Lotion 200 ml v3,Personal Care,200.0,213.94,140.76,Low,Low,Medium,720,Bottle,HDPE Plastic,False,False,False
+PRD0430,Nandini Yogurt 85 g,Dairy,85.0,120.62,10.0,Medium,High,High,20,Cup,Paperboard (Folding Carton),False,False,False
+PRD0431,Head & Shoulders Face Wash 150 g,Personal Care,150.0,227.9,154.85,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0432,Everest Salt 500 g,Grocery,500.0,783.78,15.27,Low,Low,Low,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0433,Odonil Insect Repellent 60 g,Home Care,60.0,121.14,32.97,Low,Low,Low,720,Box,Aluminum (Primary),False,False,False
+PRD0434,Colgate Handwash 500 ml,Personal Care,500.0,558.28,115.05,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0435,Himalaya Ointment 15 g,Healthcare,15.0,22.85,145.85,Medium,Medium,Medium,540,Tube,HDPE Plastic,False,False,False
+PRD0436,Plum Cream 100 g,Cosmetics,100.0,192.46,113.71,Low,Low,Medium,720,Tube,HDPE Plastic,False,False,False
+PRD0437,Dabur Body Wash 400 ml,Personal Care,400.0,459.83,194.28,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0438,Lux Lotion 400 ml v2,Personal Care,400.0,427.42,275.98,Low,Low,Medium,720,Bottle,LDPE Plastic,False,False,False
+PRD0439,Heritage Buttermilk 500 ml,Dairy,500.0,573.7,21.8,Medium,High,High,7,Pouch,HDPE Plastic,False,False,False
+PRD0440,Bisleri Soft Drink 500 ml,Beverages,500.0,539.7,46.07,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0441,Amul Milk 1000 ml,Dairy,1000.0,1073.02,60.46,Medium,High,High,5,Pouch,HDPE Plastic,False,False,False
+PRD0442,Harpic Insect Repellent 60 g,Home Care,60.0,76.74,34.19,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0443,Bisleri Iced Tea 1000 ml,Beverages,1000.0,1085.78,99.58,Medium,Medium,Low,180,Can,Steel (Carbon Steel),False,False,False
+PRD0444,Vim Air Freshener 100 g,Home Care,100.0,130.66,22.53,Low,Low,Low,720,Bottle,HDPE Plastic,False,False,False
+PRD0445,Pepsi Iced Tea 500 ml,Beverages,500.0,527.7,44.18,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0446,Mamaearth Sunscreen 50 g v2,Cosmetics,50.0,83.15,134.97,Low,Low,Medium,540,Bottle,HDPE Plastic,False,False,False
+PRD0447,Tata Coffee 100 g,Grocery,100.0,167.56,75.02,Low,Low,High,365,Pouch,Kraft Paper (Unbleached),False,False,False
+PRD0448,Tropicana Soft Drink 500 ml,Beverages,500.0,562.27,47.53,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False
+PRD0449,Samsung Power Bank 20000mAh,Electronics,635.3,350.51,2299.0,Medium,Low,Low,365,Box,Corrugated Cardboard,False,False,False
+PRD0450,Bingo Jam 200 g,Food,200.0,392.5,53.81,Medium,Low,Low,540,Bottle,Glass (Soda-Lime),False,False,False
+PRD0451,Everest Rice 1000 g,Grocery,1000.0,2244.59,59.59,Low,Low,Low,365,Bag,PP Plastic,False,False,False
+PRD0452,Haldiram Pasta 250 g,Food,250.0,306.11,43.25,Low,Low,Medium,240,Pouch,LDPE Plastic,False,False,False
+PRD0453,Maaza Energy Drink 500 ml,Beverages,500.0,540.53,130.38,Medium,Medium,Low,365,Can,Steel (Carbon Steel),False,False,False
+PRD0454,Dove Body Wash 200 ml,Personal Care,200.0,218.06,94.22,Low,Low,Medium,720,Pouch,HDPE Plastic,False,False,False
+PRD0455,Nykaa Lipstick 5 g,Cosmetics,5.0,10.01,707.67,Low,Low,Medium,1095,Bottle,Paperboard (Folding Carton),True,False,False
+PRD0456,Sony Charger 18W,Electronics,179.85,153.45,699.0,Medium,Low,Low,365,Box,Paperboard (Folding Carton),False,False,False
+PRD0457,Slice Soda 2000 ml,Beverages,2000.0,2145.16,173.63,Medium,Medium,Low,180,Bottle,PET Plastic,False,False,False

@@ -1,0 +1,23 @@
+material_id,material_type,strength_mpa,weight_capacity,co2_emission_per_kg,biodegradability_score,recyclability_pct,cost_inr_per_kg,material_category
+MAT001,HDPE Plastic,26,0.95,1.9,0,90,105,Plastic
+MAT002,LDPE Plastic,12,0.92,2.0,0,70,110,Plastic
+MAT003,LLDPE Plastic,20,0.92,2.0,0,70,112,Plastic
+MAT004,PET Plastic,55,1.38,2.4,0,85,115,Plastic
+MAT005,PP Plastic,35,0.91,1.8,0,80,102,Plastic
+MAT006,PVC Plastic,45,1.4,2.7,0,60,125,Plastic
+MAT007,Polystyrene (PS),45,1.05,3.0,0,55,120,Plastic
+MAT008,Expanded Polystyrene (EPS),1,0.03,3.2,0,30,140,Plastic
+MAT009,Corrugated Cardboard,5,0.69,0.9,1,85,45,Paper
+MAT010,Paperboard (Folding Carton),4,0.8,1.0,1,80,50,Paper
+MAT011,Kraft Paper (Unbleached),6,0.65,0.8,1,85,48,Paper
+MAT012,Molded Pulp,3,0.6,0.7,1,75,55,Paper
+MAT013,Glass (Soda-Lime),70,2.5,1.2,0,100,22,Glass
+MAT014,Aluminum (Primary),95,2.7,11.7,0,95,255,Metal
+MAT015,Steel (Carbon Steel),250,7.85,2.1,0,98,68,Metal
+MAT016,PLA Bioplastic,60,1.24,1.6,1,70,320,Biopolymer
+MAT017,PHA Bioplastic,40,1.25,1.8,1,65,420,Biopolymer
+MAT018,Cellulose Film,80,1.5,1.4,1,60,280,Biopolymer
+MAT019,Starch-based Film Blend,15,1.3,1.2,1,50,240,Biopolymer
+MAT020,Jute Fiber,400,1.3,0.4,1,60,35,Natural Fiber
+MAT021,Bamboo Fiber,500,1.1,0.3,1,70,40,Natural Fiber
+MAT022,Cotton Fiber,400,1.54,0.5,1,65,55,Natural Fiber
