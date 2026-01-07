@@ -1,0 +1,27 @@
+EcoPackAI - Sustainable Packaging Products Database,,,,,,,,,,,,,
+Product ID,Product Name,Product Type,Industry Category,Fragility Level,Weight (kg),Dimensions (cm),Packaging Requirements,Recommended Materials 1st,Recommended Materials 2nd,Recommended Materials 3rd,Sustainability Score,Cost Level,Shipping Type
+PRD_ELT_01,Smartphone,Electronic,Electronics,High,0.2,15x7x1,Anti-static bag + rigid box,Mycelium,Recycled PET,Molded Pulp,9,Medium,Air
+PRD_ELT_02,Laptop,Electronic,Electronics,Very High,1.5,35x25x2,Foam inserts + rigid box,Honeycomb Paper,Cornstarch Foam,Cornstarch Foam,8,Medium,Air
+PRD_FAB_03,Fresh Fruits,Perishable,Food & Beverages,Low,0.5,20x15x10,Ventilated crate,Seaweed Packaging,Sugarcane Bagasse,Corrugated Cardboard,9,Low,Refrigerated
+PRD_FAB_04,Cereal Box,Dry Goods,Food & Beverages,Low,0.4,25x10x35,Moisture barrier liner,PLA,Recycled Fiberboard,Recycled Paper Pulp,9,Low,Ground
+PRD_CAB_05,Lipstick,Cosmetic,Cosmetics & Beauty,Medium,0.05,10x2x2,Tamper-evident tube,Recycled PET,Glassine Paper,Recycled Fiberboard,8,Medium,Air
+PRD_PCR_06,Shampoo Bottle,Liquid,Personal Care,Low,0.4,20x6x6,Leak-proof pump dispenser,PBAT,Water-Based Coatings,Algae-Based Plastics,9,Low,Ground
+PRD_PRM_07,Medicine Bottle,Tablet,Pharmaceuticals,Medium,0.1,8x4x10,Child-resistant cap,Lightweight Glass,Recycled PET,Recycled Paper Pulp,9,Low,Ground
+PRD_BRG_08,Fruit Juice Bottle,Liquid,Beverages,Very High,1.2,30x8x8,Partitioned divider,Recycled Aluminum,Lightweight Glass,Recycled Glass,7,Medium,Refrigerated
+PRD_APR_09,T-Shirt,Textile,Apparel,Low,0.3,30x20x1,Dust-proof polybag,Recycled Paper Pulp,Recycled Polyester Textiles,Seaweed Packaging,9,Low,Air
+PRD_APR_10,Sneakers,Footwear,Apparel,Medium,0.8,30x20x15,Tissue wrap + box,Honeycomb Paper,Recycled Fiberboard,Sugarcane Bagasse,8,Low,Air
+PRD_ECM_11,Book,Paper,E-commerce,Low,0.8,25x18x3,Cushioned cardboard box,Corrugated Cardboard,Recycled Fiberboard,Sugarcane Bagasse,9,Low,Ground
+PRD_ECM_12,Kitchenware Set,Ceramic/Metal,E-commerce,Medium,1.2,25x20x10,Cushioning inserts + protective padding,Molded Pulp,Bamboo Fiber,Seaweed Packaging,9,Medium,Ground
+PRD_ATM_13,Car Battery,Chemical,Automotive,High,15,30x20x25,Vibration-proof casing,Recycled HIPS,VCI Pouches,Recycled PET,6,High,Truck
+PRD_CHM_14,Paint Can,Chemical,Chemicals,High,4,25x25x20,Hazardous material safe container,Recycled PET,Recycled HIPS,Recycled Fiberboard,7,Medium,Truck
+PRD_HSH_15,Detergent Bottle,Liquid,Household,Low,1,25x12x12,Handle grip + spill-proof,Recycled PET,PBAT,Water-Based Coatings,8,Low,Ground
+PRD_PCR_16,Toothpaste Tube,Paste,Personal Care,Low,0.15,18x4x3,Squeezable tube with cap,PBAT,Algae-Based Plastics,Water-Based Coatings,9,Low,Ground
+PRD_ELT_17,Smartwatch,Electronic,Electronics,High,0.1,10x5x1,Anti-static protective case,Mycelium,Recycled PET,Molded Pulp,9,Medium,Air
+PRD_CAB_18,Perfume Bottle,Liquid,Cosmetics & Beauty,Medium,0.2,12x5x5,Tamper-evident spray bottle,Recycled Aluminum,Lightweight Glass,Recycled Aluminum,7,Medium,Air
+PRD_PRM_19,Vitamin Pills,Tablet,Pharmaceuticals,Medium,0.05,8x4x6,Blister pack + outer box,Recycled PET,PLA,Recycled Paper Pulp,9,Low,Ground
+PRD_BRG_20,Carbonated Soft Drink Cans,Beverage,Beverages,Low,0.35,12x6x6,6-pack ring holder,Recycled Aluminum,Recycled Aluminum,Stone Paper,7,Low,Refrigerated
+PRD_FAB_21,Chocolate Box,Confectionery,Food & Beverages,Medium,0.5,20x15x5,Cardboard sleeve + foam,Corrugated Cardboard,Sugarcane Bagasse,Recycled Paper Pulp,8,Low,Ground
+PRD_ELT_22,Phone Charger,Electronic,Electronics,Medium,0.25,15x10x3,Static protective pouch,Mycelium,Recycled Paper Pulp,Recycled HIPS,8,Medium,Air
+PRD_FAB_23,Coffee Beans,Dry Goods,Food & Beverages,Low,1,20x20x20,Moisture-sealed bag,Sugarcane Bagasse,Cornstarch Foam,Glassine Paper,9,Low,Ground
+PRD_LGD_24,Jewelry Box,Precious,Luxury Goods,Very High,0.3,15x10x8,Cushioned box with tissue,Honeycomb Paper,Glassine Paper,Corrugated Cardboard,8,High,Air
+PRD_FAB_25,Egg Carton,Fragile,Food & Beverages,Very High,0.6,30x10x8,Compartmented egg tray,Molded Pulp,Honeycomb Paper,Recycled Fiberboard,9,Low,Ground
