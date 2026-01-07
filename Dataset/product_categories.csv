@@ -1,0 +1,311 @@
+product_id,product_name,category,sub_category,product_weight_kg,dimensions_cm,fragile,food_grade_required,moisture_sensitive,temperature_sensitive,preferred_material_type,max_packaging_cost,sustainability_priority
+1001,iPhone 15 Pro,Electronics,Mobile Devices,0.19,15x7x1,TRUE,FALSE,TRUE,TRUE,Paper-Based,2.5,High
+1002,MacBook Air M2,Electronics,Computers,1.24,30x21x1,TRUE,FALSE,TRUE,TRUE,Pulp-Based,5.0,High
+1003,Organic Almonds 500g,Food,Snacks,0.5,20x15x5,FALSE,TRUE,TRUE,FALSE,Plant-Based Polymer,1.5,High
+1004,Glass Wine Bottle 750ml,Beverages,Alcohol,1.2,30x8x8,TRUE,TRUE,FALSE,TRUE,Corrugated Cardboard,3.0,Medium
+1005,Ceramic Dinner Set,Home,Kitchenware,4.5,40x40x25,TRUE,TRUE,FALSE,FALSE,Mushroom-Based,8.5,High
+1006,Industrial Drill Bit,Industrial,Tools,0.8,15x5x5,FALSE,FALSE,TRUE,FALSE,Recycled Plastic,1.2,Low
+1007,Cotton T-Shirt,Apparel,Clothing,0.2,25x20x2,FALSE,FALSE,TRUE,FALSE,Compostable Polybag,0.5,High
+1008,Face Serum 30ml,Cosmetics,Skincare,0.1,10x4x4,TRUE,FALSE,FALSE,TRUE,Glass,2.2,Medium
+1009,LED Smart Bulb,Electronics,Lighting,0.15,12x6x6,TRUE,FALSE,FALSE,FALSE,Recycled Cardboard,0.8,High
+1010,Frozen Pizza,Food,Frozen,0.4,30x30x3,FALSE,TRUE,TRUE,TRUE,Insulated Paper,1.1,Medium
+1011,Yoga Mat,Sports,Fitness,1.1,65x12x12,FALSE,FALSE,TRUE,FALSE,Paper Wrap,1.8,High
+1012,Mechanical Keyboard,Electronics,Accessories,1.3,45x15x4,TRUE,FALSE,TRUE,FALSE,Cardboard,2.0,Medium
+1013,Luxury Watch,Fashion,Accessories,0.3,12x12x10,TRUE,FALSE,FALSE,FALSE,Wood,12.0,Medium
+1014,Hand Sanitizer 500ml,Health,Personal Care,0.55,18x8x8,FALSE,FALSE,FALSE,FALSE,Recycled PET,0.9,Medium
+1015,Electric Guitar,Instruments,Music,3.5,105x40x10,TRUE,FALSE,TRUE,TRUE,Heavy Duty Cardboard,15.0,High
+1016,Protein Powder 2kg,Health,Supplements,2.2,30x20x20,FALSE,TRUE,TRUE,FALSE,Paper Pouch,3.5,High
+1017,Running Shoes,Apparel,Footwear,0.8,32x20x12,FALSE,FALSE,TRUE,FALSE,Recycled Box,2.0,High
+1018,Fresh Strawberries 250g,Food,Produce,0.3,15x15x6,TRUE,TRUE,TRUE,TRUE,Pulp Tray,0.7,High
+1019,Brake Pads Set,Industrial,Automotive,2.5,20x12x8,FALSE,FALSE,TRUE,FALSE,Corrugated Box,2.5,Low
+1020,Scented Candle,Home,Decor,0.4,10x10x12,TRUE,FALSE,FALSE,TRUE,Glass,2.5,Medium
+1021,Tablet 10-inch,Electronics,Mobile Devices,0.48,25x17x1,TRUE,FALSE,TRUE,TRUE,Paper-Based,3.2,High
+1022,Headphones (Over-Ear),Electronics,Audio,0.35,20x18x8,TRUE,FALSE,TRUE,FALSE,Recycled Plastic,2.8,Medium
+1023,Dark Chocolate Bar,Food,Confectionery,0.1,15x7x1,FALSE,TRUE,TRUE,TRUE,Foil-lined Paper,0.6,High
+1024,Stainless Steel Kettle,Home,Kitchenware,1.1,22x18x25,FALSE,TRUE,FALSE,FALSE,Cardboard,2.5,High
+1025,Essential Oil 10ml,Cosmetics,Aromatherapy,0.05,8x3x3,TRUE,FALSE,FALSE,TRUE,Glass,1.5,High
+1026,External Hard Drive,Electronics,Storage,0.2,12x8x2,TRUE,FALSE,TRUE,FALSE,Padded Mailer,1.2,Medium
+1027,Woolen Sweater,Apparel,Clothing,0.5,35x28x5,FALSE,FALSE,TRUE,FALSE,Compostable Bag,0.8,High
+1028,Skateboard,Sports,Equipment,2.5,80x20x12,FALSE,FALSE,FALSE,FALSE,Shrink Wrap,4.0,Medium
+1029,Liquid Detergent 2L,Household,Cleaning,2.2,30x15x10,FALSE,FALSE,FALSE,FALSE,Recycled HDPE,1.5,Medium
+1030,Coffee Beans 1kg,Food,Beverages,1.05,25x15x10,FALSE,TRUE,TRUE,FALSE,Valve Paper Bag,1.8,High
+1031,Solar Power Bank,Electronics,Accessories,0.4,18x9x3,FALSE,FALSE,TRUE,TRUE,Recycled Plastic,2.0,High
+1032,Sunscreen SPF50,Cosmetics,Skincare,0.2,15x5x5,FALSE,FALSE,FALSE,TRUE,Bio-Plastic,1.3,High
+1033,Dumbbell 5kg,Sports,Fitness,5.0,25x12x12,FALSE,FALSE,FALSE,FALSE,Reinforced Box,3.0,Low
+1034,Perfume 100ml,Cosmetics,Fragrance,0.35,12x8x8,TRUE,FALSE,FALSE,FALSE,Glass/Cardboard,4.5,Medium
+1035,Baby Wipes 80pcs,Health,Baby Care,0.5,22x12x6,FALSE,FALSE,TRUE,FALSE,Recyclable Film,0.6,Medium
+1036,Desktop Monitor 24in,Electronics,Computers,4.2,60x40x15,TRUE,FALSE,TRUE,FALSE,Honeycomb Paper,10.0,High
+1037,Honey Jar 500g,Food,Pantry,0.8,12x8x8,TRUE,TRUE,FALSE,FALSE,Glass,2.2,High
+1038,Drill Machine,Industrial,Power Tools,2.1,30x25x10,FALSE,FALSE,TRUE,FALSE,Hard Case,5.0,Low
+1039,Outdoor Tent,Sports,Camping,3.8,55x18x18,FALSE,FALSE,TRUE,FALSE,Duffel Bag,7.5,Medium
+1040,Hydrating Mask,Cosmetics,Skincare,0.05,15x12x1,FALSE,FALSE,TRUE,TRUE,Sachet,0.4,Medium
+1041,Electric Toothbrush,Health,Personal Care,0.3,20x5x5,TRUE,FALSE,TRUE,FALSE,Paper Box,1.8,Medium
+1042,Organic Tea Bags,Food,Beverages,0.1,15x10x8,FALSE,TRUE,TRUE,FALSE,Cardboard Box,0.9,High
+1043,Action Camera,Electronics,Cameras,0.15,8x6x4,TRUE,FALSE,TRUE,FALSE,Retail Box,2.5,Medium
+1044,Leather Belt,Apparel,Accessories,0.2,15x15x5,FALSE,FALSE,TRUE,FALSE,Paper Box,1.0,Medium
+1045,Canned Soup,Food,Pantry,0.45,12x8x8,FALSE,TRUE,FALSE,FALSE,Metal,0.5,Low
+1046,Smart Thermostat,Electronics,Home Automation,0.5,15x15x5,TRUE,FALSE,TRUE,TRUE,Pulp-Based,3.5,High
+1047,Shampoo Bar,Cosmetics,Haircare,0.1,8x8x3,FALSE,FALSE,TRUE,FALSE,Paper Wrap,0.3,High
+1048,Pickle Jar,Food,Pantry,0.9,15x10x10,TRUE,TRUE,FALSE,FALSE,Glass,2.0,Medium
+1049,Bicycle Helmet,Sports,Safety,0.4,30x22x18,TRUE,FALSE,FALSE,FALSE,Cardboard,3.0,High
+1050,Wrench Set,Industrial,Tools,1.5,35x15x5,FALSE,FALSE,TRUE,FALSE,Canvas Roll,2.5,Low
+1051,Digital Stethoscope,Medical,Diagnostics,0.42,15x10x5,TRUE,FALSE,TRUE,FALSE,Recycled Plastic,4.5,High
+1052,Sterile Syringe Pack 100ct,Medical,Disposables,0.85,25x15x10,FALSE,FALSE,TRUE,FALSE,Medical-Grade Paper,2.2,Medium
+1053,Insulin Pen (Cooler Pack),Medical,Pharma,0.15,10x5x3,TRUE,FALSE,TRUE,TRUE,Insulated Foam,6.0,High
+1054,Home Blood Pressure Monitor,Medical,Diagnostics,0.65,18x12x10,TRUE,FALSE,TRUE,FALSE,Pulp-Based,3.8,High
+1055,Surgical Scalpels Set,Medical,Surgical,0.25,12x6x2,TRUE,FALSE,TRUE,FALSE,Puncture-Resistant Film,2.5,Medium
+1056,Wound Care Dressing 50ct,Medical,First Aid,0.3,15x15x8,FALSE,FALSE,TRUE,FALSE,Recyclable Paper,1.2,High
+1057,Portable Nebulizer,Medical,Respiratory,0.55,14x10x8,TRUE,FALSE,TRUE,FALSE,Recycled Plastic,4.0,Medium
+1058,Wheelchair Replacement Wheel,Medical,Mobility,2.1,60x60x10,FALSE,FALSE,FALSE,FALSE,Heavy-Duty Cardboard,7.5,Low
+1059,CPAP Mask & Tubing,Medical,Respiratory,0.45,22x18x12,FALSE,FALSE,TRUE,FALSE,Poly-Compostable Bag,2.0,High
+1060,Dental Impression Kit,Medical,Dentistry,0.7,15x15x15,FALSE,FALSE,TRUE,FALSE,Cardboard Box,2.8,Medium
+1061,Lab Microscope Slide Set,Medical,Laboratory,0.35,10x8x5,TRUE,FALSE,TRUE,FALSE,Pulp Tray,3.2,High
+1062,Infrared Forehead Thermometer,Medical,Diagnostics,0.2,16x6x4,TRUE,FALSE,TRUE,FALSE,Paper-Based,1.5,High
+1063,Orthopedic Knee Brace,Medical,Support,0.9,30x15x10,FALSE,FALSE,TRUE,FALSE,Recycled Box,2.5,Medium
+1064,Sterile Gauze Rolls 10ct,Medical,First Aid,0.12,12x8x8,FALSE,FALSE,TRUE,FALSE,Paper Wrap,0.8,High
+1065,Pulse Oximeter,Medical,Diagnostics,0.08,8x5x4,TRUE,FALSE,TRUE,FALSE,Recycled Cardboard,1.2,High
+1066,Synthetic Engine Oil 5L,Automotive,Fluids,4.6,35x20x15,FALSE,FALSE,FALSE,FALSE,Recycled HDPE,1.8,Medium
+1067,Brake Rotors (Pair),Automotive,Brakes,12.5,32x32x15,FALSE,FALSE,TRUE,FALSE,Reinforced Cardboard,10.0,Low
+1068,Spark Plugs Set 4ct,Automotive,Engine,0.3,12x8x4,TRUE,FALSE,TRUE,FALSE,Paper-Based,1.5,Medium
+1069,Car Windshield Wipers,Automotive,Exterior,0.5,65x5x5,FALSE,FALSE,FALSE,FALSE,Cardboard Tube,2.2,Medium
+1070,Lead-Acid Car Battery,Automotive,Electrical,15.0,25x18x20,TRUE,FALSE,FALSE,TRUE,Acid-Resistant Plastic,12.0,Low
+1071,Dash Camera 4K,Automotive,Electronics,0.35,12x10x6,TRUE,FALSE,TRUE,TRUE,Pulp-Based,3.5,High
+1072,Microfiber Wash Mitts,Automotive,Cleaning,0.2,25x18x5,FALSE,FALSE,TRUE,FALSE,Compostable Pouch,0.5,High
+1073,Alloy Wheel Rim,Automotive,Wheels,9.5,45x45x25,TRUE,FALSE,FALSE,FALSE,Heavy-Duty Cardboard,15.0,Medium
+1074,Oil Filter (Spin-On),Automotive,Filters,0.4,12x10x10,FALSE,FALSE,TRUE,FALSE,Recycled Cardboard,0.9,High
+1075,OBD2 Diagnostic Scanner,Automotive,Tools,0.28,15x8x4,TRUE,FALSE,TRUE,FALSE,Hard Case Box,4.0,Medium
+1076,HID Headlight Bulbs,Automotive,Lighting,0.15,10x10x5,TRUE,FALSE,FALSE,FALSE,Padded Box,2.5,High
+1077,Car Carpet Mats Set,Automotive,Interior,3.2,75x50x5,FALSE,FALSE,TRUE,FALSE,Plastic Wrap,4.5,Low
+1078,Fuel Injector Set,Automotive,Engine,0.6,18x12x8,TRUE,FALSE,TRUE,FALSE,Custom Foam Insert,5.5,Medium
+1079,Roof Rack Crossbars,Automotive,Exterior,6.0,120x15x15,FALSE,FALSE,FALSE,FALSE,Cardboard Tube,12.0,Medium
+1080,Portable Jump Starter,Automotive,Electrical,1.2,22x12x8,TRUE,FALSE,TRUE,TRUE,Retail Box,5.0,High
+1081,Wooden Building Blocks,Toys,Educational,2.5,30x20x15,FALSE,FALSE,TRUE,FALSE,Cotton Bag/Box,3.5,High
+1082,Remote Control Drone,Toys,Gadgets,0.8,35x35x12,TRUE,FALSE,TRUE,FALSE,Mushroom-Based,8.5,High
+1083,Stuffed Plush Animal,Toys,Soft Toys,0.3,25x15x15,FALSE,FALSE,TRUE,FALSE,Paper Bag,0.8,High
+1084,Strategy Board Game,Toys,Tabletop,1.5,30x30x8,FALSE,FALSE,TRUE,FALSE,Shrink-Wrap Paper,2.5,Medium
+1085,Collectible Action Figure,Toys,Collectibles,0.4,22x15x8,TRUE,FALSE,FALSE,FALSE,Window Box,3.0,Medium
+1086,Kids Tricycle,Toys,Outdoor,4.8,60x40x30,FALSE,FALSE,FALSE,FALSE,Large Cardboard,8.0,Medium
+1087,Science Experiment Kit,Toys,Educational,1.2,28x22x10,TRUE,FALSE,TRUE,FALSE,Divided Cardboard,3.5,High
+1088,Puzzel 1000 Pieces,Toys,Puzzles,0.9,25x25x6,FALSE,FALSE,TRUE,FALSE,Recycled Box,1.5,High
+1089,Magnetic Tiles Set,Toys,Educational,2.0,32x24x8,FALSE,FALSE,FALSE,FALSE,Plastic-Free Box,4.0,High
+1090,Electronic Pet Toy,Toys,Gadgets,0.25,12x12x10,TRUE,FALSE,TRUE,FALSE,Paper-Based,2.2,Medium
+1091,Baby Bath Ducks 4ct,Toys,Baby,0.15,15x15x6,FALSE,TRUE,TRUE,FALSE,Net Bag,0.9,High
+1092,Model Airplane Kit,Toys,Hobby,0.6,40x25x5,TRUE,FALSE,TRUE,FALSE,Flat Cardboard,2.8,Medium
+1093,Slime Making Kit,Toys,Crafts,1.1,20x15x10,FALSE,FALSE,TRUE,FALSE,Leak-Proof Tub,3.0,Medium
+1094,Skateboarding Pads Set,Toys,Sports,0.5,25x15x12,FALSE,FALSE,FALSE,FALSE,Mesh Bag,1.5,Medium
+1095,Dollhouse Furniture Set,Toys,Accessories,0.7,18x12x10,TRUE,FALSE,TRUE,FALSE,Pulp Tray,2.5,High
+1096,A4 Copy Paper 500 Sheets,Office,Supplies,2.3,30x21x5,FALSE,FALSE,TRUE,FALSE,Paper Wrap,1.2,High
+1097,Ink Cartridges Multipack,Office,Printing,0.2,15x10x5,FALSE,FALSE,TRUE,TRUE,Padded Mailer,2.5,Medium
+1098,Ergonomic Mesh Chair,Office,Furniture,12.0,65x60x30,TRUE,FALSE,FALSE,FALSE,Honeycomb Paper,15.0,High
+1099,Whiteboard 90x60cm,Office,Supplies,3.5,95x65x5,TRUE,FALSE,FALSE,FALSE,Edge Protectors,10.0,Medium
+1100,Fountain Pen Set,Office,Stationery,0.3,18x8x4,TRUE,FALSE,FALSE,FALSE,Wooden Box,5.5,High
+1101,Desk LED Lamp,Office,Lighting,0.9,40x15x15,TRUE,FALSE,FALSE,FALSE,Recycled Box,3.0,High
+1102,Stapler & Pins Kit,Office,Supplies,0.45,15x10x6,FALSE,FALSE,FALSE,FALSE,Cardboard,0.8,Medium
+1103,External SSD 1TB,Office,Electronics,0.1,10x8x2,TRUE,FALSE,TRUE,FALSE,Recycled Plastic,1.8,High
+1104,Spiral Notebooks 5ct,Office,Supplies,1.5,30x22x8,FALSE,FALSE,TRUE,FALSE,Paper Wrap,1.0,High
+1105,Shredder (Cross-Cut),Office,Machines,5.2,40x35x25,TRUE,FALSE,FALSE,FALSE,Corrugated Box,12.0,Medium
+1106,Gel Pens 24ct,Office,Stationery,0.25,20x12x2,FALSE,FALSE,FALSE,FALSE,Recycled Plastic,0.9,High
+1107,Wireless Laser Mouse,Office,Electronics,0.15,12x8x5,TRUE,FALSE,TRUE,FALSE,Paper-Based,1.5,High
+1108,Hardcover Planner 2026,Office,Stationery,0.6,22x16x3,FALSE,FALSE,TRUE,FALSE,Cardboard Mailer,1.2,High
+1109,Presentation Clicker,Office,Electronics,0.05,10x4x2,TRUE,FALSE,TRUE,FALSE,Small Box,1.0,Medium
+1110,File Folders 100ct,Office,Supplies,2.8,32x25x10,FALSE,FALSE,TRUE,FALSE,Cardboard Box,2.0,High
+1111,Extra Virgin Olive Oil 1L,Grocery,Pantry,1.6,30x10x10,TRUE,TRUE,FALSE,TRUE,Glass/Pulp,3.5,High
+1112,Whole Wheat Pasta 500g,Grocery,Pantry,0.51,25x12x5,FALSE,TRUE,TRUE,FALSE,Paper Pouch,0.5,High
+1113,Himalayan Pink Salt 1kg,Grocery,Pantry,1.02,15x10x5,FALSE,TRUE,TRUE,FALSE,Cardboard Tube,1.2,High
+1114,Manuka Honey Jar,Grocery,Pantry,0.45,12x8x8,TRUE,TRUE,FALSE,FALSE,Glass,2.5,High
+1115,Instant Coffee Refill,Grocery,Beverages,0.3,22x14x6,FALSE,TRUE,TRUE,FALSE,Compostable Pouch,0.8,High
+1116,Organic Quinoa 1kg,Grocery,Pantry,1.0,20x15x5,FALSE,TRUE,TRUE,FALSE,Paper Bag,1.0,High
+1117,Sparkling Water 6-Pack,Grocery,Beverages,3.5,30x20x25,TRUE,TRUE,FALSE,FALSE,Recycled Plastic,2.2,Medium
+1118,Ground Turmeric 100g,Grocery,Spices,0.12,12x8x2,FALSE,TRUE,TRUE,FALSE,Tin/Paper,0.6,High
+1119,Almond Flour 500g,Grocery,Baking,0.5,22x15x4,FALSE,TRUE,TRUE,TRUE,Resealable Paper,1.5,High
+1120,Dark Maple Syrup 500ml,Grocery,Pantry,0.9,20x8x8,TRUE,TRUE,FALSE,FALSE,Glass,2.0,High
+1121,Sun-Dried Tomatoes Jar,Grocery,Pantry,0.6,12x10x10,TRUE,TRUE,FALSE,TRUE,Glass,1.8,Medium
+1122,Peanut Butter (Crunchy),Grocery,Pantry,0.5,12x10x10,FALSE,TRUE,FALSE,FALSE,Glass,1.5,High
+1123,Loose Leaf Green Tea,Grocery,Beverages,0.2,18x10x10,FALSE,TRUE,TRUE,FALSE,Tin Can,1.2,High
+1124,Basmati Rice 5kg,Grocery,Pantry,5.05,45x25x10,FALSE,TRUE,TRUE,FALSE,Jute/Fabric,4.0,High
+1125,Frozen Mixed Berries,Grocery,Frozen,0.4,20x18x5,FALSE,TRUE,TRUE,TRUE,Insulated Paper,1.1,High
+1126,Canned Chickpeas 400g,Grocery,Pantry,0.45,11x8x8,FALSE,TRUE,FALSE,FALSE,Metal,0.4,Low
+1127,Agave Nectar 250ml,Grocery,Pantry,0.4,15x6x6,FALSE,TRUE,FALSE,FALSE,Recycled PET,1.0,Medium
+1128,Whole Black Peppercorns,Grocery,Spices,0.1,10x5x5,FALSE,TRUE,TRUE,FALSE,Glass Grinder,1.5,Medium
+1129,Red Wine Vinegar 500ml,Grocery,Pantry,0.85,25x7x7,TRUE,TRUE,FALSE,FALSE,Glass,1.8,High
+1130,Granola Clusters 400g,Grocery,Pantry,0.42,22x15x6,FALSE,TRUE,TRUE,FALSE,Cardboard Box,1.2,High
+1131,Running Leggings,Apparel,Activewear,0.25,25x20x2,FALSE,FALSE,TRUE,FALSE,Paper Mailer,0.8,High
+1132,Canvas Tote Bag,Apparel,Accessories,0.15,35x30x1,FALSE,FALSE,FALSE,FALSE,No Outer Pack,0.2,High
+1133,Waterproof Rain Jacket,Apparel,Outerwear,0.55,30x25x5,FALSE,FALSE,TRUE,FALSE,Recycled Polybag,1.2,Medium
+1134,Leather Chelsea Boots,Apparel,Footwear,1.4,35x25x12,FALSE,FALSE,TRUE,FALSE,Premium Box,5.0,Medium
+1135,Cashmere Scarf,Apparel,Accessories,0.18,20x15x3,FALSE,FALSE,TRUE,FALSE,Tissue/Box,3.5,High
+1136,Men's Cotton Polo,Apparel,Clothing,0.3,25x20x3,FALSE,FALSE,TRUE,FALSE,Compostable Bag,0.7,High
+1137,Polarized Sunglasses,Apparel,Accessories,0.08,18x8x6,TRUE,FALSE,FALSE,FALSE,Hard Case Box,2.8,High
+1138,Denim Jeans (Regular),Apparel,Clothing,0.7,35x28x5,FALSE,FALSE,FALSE,FALSE,Paper Wrap,1.0,High
+1139,Yoga Sports Bra,Apparel,Activewear,0.12,20x15x1,FALSE,FALSE,TRUE,FALSE,Small Mailer,0.5,High
+1140,Woolen Winter Hat,Apparel,Accessories,0.1,20x20x2,FALSE,FALSE,TRUE,FALSE,Paper Pouch,0.4,High
+1141,Leather Wallet (RFID),Apparel,Accessories,0.12,12x10x2,FALSE,FALSE,TRUE,FALSE,Gift Box,2.0,Medium
+1142,Hiking Backpack 30L,Apparel,Outdoor,1.1,50x30x10,FALSE,FALSE,TRUE,FALSE,Cardboard,3.0,Medium
+1143,Silk Necktie,Apparel,Accessories,0.06,10x10x4,FALSE,FALSE,TRUE,FALSE,Small Paper Box,1.5,High
+1144,Compression Socks 3-Pack,Apparel,Activewear,0.2,15x12x5,FALSE,FALSE,TRUE,FALSE,Cardboard Sleeve,0.8,High
+1145,Kids Rain Boots,Apparel,Footwear,0.85,25x20x15,FALSE,FALSE,FALSE,FALSE,Recycled Box,2.0,Medium
+1146,Linen Summer Dress,Apparel,Clothing,0.4,30x25x2,FALSE,FALSE,TRUE,FALSE,Compostable Bag,1.0,High
+1147,Leather Belt (Brown),Apparel,Accessories,0.22,15x15x5,FALSE,FALSE,FALSE,FALSE,Paper Box,1.1,Medium
+1148,Athletic Training Shorts,Apparel,Activewear,0.18,20x20x2,FALSE,FALSE,TRUE,FALSE,Paper Mailer,0.5,High
+1149,Formal Suit Jacket,Apparel,Clothing,1.2,50x40x10,TRUE,FALSE,TRUE,FALSE,Garment Bag/Box,8.5,Medium
+1150,Bamboo Socks 5-Pack,Apparel,Clothing,0.25,18x12x6,FALSE,FALSE,TRUE,FALSE,Recycled Cardboard,1.0,High
+1151,Organic Sourdough Loaf,Food,Bakery,0.6,25x15x10,FALSE,TRUE,TRUE,FALSE,Perforated Paper,0.6,High
+1152,Gourmet Cupcakes 6-Pack,Food,Bakery,0.45,20x15x8,TRUE,TRUE,TRUE,TRUE,Recycled Cardboard,1.5,Medium
+1153,Whole Wheat Bagels,Food,Bakery,0.4,15x15x10,FALSE,TRUE,TRUE,FALSE,Compostable Film,0.5,High
+1154,Almond Croissants 4ct,Food,Bakery,0.3,18x12x6,TRUE,TRUE,TRUE,FALSE,Paper Box,0.8,High
+1155,Gluten-Free Sandwich Bread,Food,Bakery,0.55,22x10x10,FALSE,TRUE,TRUE,FALSE,Recyclable Plastic,0.7,Medium
+1156,Frozen Beef Patties 1kg,Food,Meat,1.05,20x15x8,FALSE,TRUE,TRUE,TRUE,Insulated Cardboard,2.5,Medium
+1157,Fresh Chicken Breasts,Food,Meat,0.8,22x14x5,FALSE,TRUE,TRUE,TRUE,Pulp Tray,1.2,High
+1158,Smoked Salmon 200g,Food,Seafood,0.22,25x15x1,FALSE,TRUE,TRUE,TRUE,Vacuum Foil,1.8,Medium
+1159,Frozen Shrimps 500g,Food,Seafood,0.55,18x12x5,FALSE,TRUE,TRUE,TRUE,Insulated Pouch,1.5,High
+1160,Lamb Chops 500g,Food,Meat,0.52,18x15x6,FALSE,TRUE,TRUE,TRUE,Bio-Plastic Tray,2.0,High
+1161,Greek Yogurt 1kg,Food,Dairy,1.05,12x12x15,FALSE,TRUE,FALSE,TRUE,Recycled HDPE,0.8,Medium
+1162,Cheddar Cheese Block,Food,Dairy,0.4,12x8x5,FALSE,TRUE,TRUE,TRUE,Wax Paper,0.6,High
+1163,Oat Milk 1L (Carton),Food,Dairy Alternative,1.08,7x7x22,FALSE,TRUE,TRUE,TRUE,Aseptic Cardboard,0.4,High
+1164,Salted Butter 250g,Food,Dairy,0.26,10x6x4,FALSE,TRUE,TRUE,TRUE,Foil Wrap,0.3,Medium
+1165,Mozzarella Pearls,Food,Dairy,0.2,10x10x8,FALSE,TRUE,FALSE,TRUE,Plastic Tub,0.7,Low
+1166,Fresh Spinach 200g,Food,Produce,0.22,25x20x10,FALSE,TRUE,TRUE,TRUE,Compostable Bag,0.4,High
+1167,Cherry Tomatoes 250g,Food,Produce,0.27,12x12x6,TRUE,TRUE,TRUE,TRUE,Pulp Punnet,0.6,High
+1168,Organic Bananas (Bunch),Food,Produce,1.2,25x15x10,TRUE,TRUE,FALSE,FALSE,No Outer Pack,0.1,High
+1169,Red Apples 1kg Bag,Food,Produce,1.05,30x20x10,FALSE,TRUE,FALSE,FALSE,Paper Mesh Bag,0.5,High
+1170,Avocados 3ct,Food,Produce,0.6,20x10x8,TRUE,TRUE,FALSE,FALSE,Molded Pulp,0.7,High
+1171,Spaghetti 500g,Food,Pantry,0.52,28x8x3,FALSE,TRUE,TRUE,FALSE,Paper Box,0.4,High
+1172,Red Lentils 1kg,Food,Pantry,1.02,20x12x5,FALSE,TRUE,TRUE,FALSE,Paper Bag,0.6,High
+1173,Basmati Rice 2kg,Food,Pantry,2.05,30x18x8,FALSE,TRUE,TRUE,FALSE,Jute Bag,1.5,High
+1174,Canned Black Beans,Food,Pantry,0.48,11x8x8,FALSE,TRUE,FALSE,FALSE,Recyclable Metal,0.3,Low
+1175,Tomato Puree 500g,Food,Pantry,0.55,15x8x8,FALSE,TRUE,FALSE,FALSE,Glass Jar,0.8,Medium
+1176,Extra Virgin Olive Oil,Food,Condiments,0.95,30x8x8,TRUE,TRUE,FALSE,TRUE,Glass Bottle,2.2,High
+1177,Balsamic Vinegar,Food,Condiments,0.5,22x6x6,TRUE,TRUE,FALSE,FALSE,Glass Bottle,1.8,Medium
+1178,Mayonnaise Jar 400g,Food,Condiments,0.6,12x8x8,TRUE,TRUE,FALSE,TRUE,Glass Jar,1.2,Medium
+1179,Organic Honey 250g,Food,Pantry,0.4,10x6x6,TRUE,TRUE,FALSE,FALSE,Glass Jar,1.5,High
+1180,Dior Sea Salt 500g,Food,Pantry,0.55,12x8x8,FALSE,TRUE,TRUE,FALSE,Cardboard Tube,1.0,High
+1181,Potato Chips (Large),Food,Snacks,0.2,35x25x10,TRUE,TRUE,TRUE,FALSE,Foil-lined Paper,0.9,Medium
+1182,Roasted Cashews 200g,Food,Snacks,0.22,18x12x4,FALSE,TRUE,TRUE,FALSE,Stand-up Pouch,0.7,High
+1183,Dark Chocolate 70%,Food,Confectionery,0.11,16x8x1,FALSE,TRUE,TRUE,TRUE,Aluminium/Paper,0.5,High
+1184,Fruit Gummies 150g,Food,Confectionery,0.16,15x10x3,FALSE,TRUE,TRUE,TRUE,Compostable Film,0.4,High
+1185,Rice Crackers,Food,Snacks,0.15,20x10x10,TRUE,TRUE,TRUE,FALSE,Recyclable Plastic,0.6,Medium
+1186,Cold Brew Coffee 250ml,Food,Beverages,0.45,15x6x6,TRUE,TRUE,FALSE,TRUE,Glass Bottle,1.2,High
+1187,Sparkling Apple Juice,Food,Beverages,1.1,28x8x8,TRUE,TRUE,FALSE,FALSE,Glass Bottle,1.5,Medium
+1188,Earl Grey Tea 50ct,Food,Beverages,0.15,15x12x8,FALSE,TRUE,TRUE,FALSE,Cardboard Box,0.8,High
+1189,Ground Espresso 250g,Food,Beverages,0.28,15x10x6,FALSE,TRUE,TRUE,FALSE,Valve Bag,1.0,High
+1190,Alkaline Water 1.5L,Food,Beverages,1.55,32x9x9,FALSE,TRUE,FALSE,FALSE,Recycled PET,0.5,Medium
+1191,Instant Noodles 12pk,Food,Pantry,1.2,30x20x15,FALSE,TRUE,TRUE,FALSE,Cardboard Box,1.8,Low
+1192,Peanut Butter (Smooth),Food,Pantry,0.5,12x8x8,FALSE,TRUE,FALSE,FALSE,Recycled PET,0.9,Medium
+1193,Strawberry Jam 300g,Food,Pantry,0.55,10x8x8,TRUE,TRUE,FALSE,FALSE,Glass Jar,1.1,Medium
+1194,Quinoa Salad Box,Food,Ready Meal,0.35,15x15x6,FALSE,TRUE,TRUE,TRUE,Pulp Bowl,1.2,High
+1195,Frozen Peas 500g,Food,Frozen,0.52,22x15x5,FALSE,TRUE,TRUE,TRUE,Paper Pouch,0.6,High
+1196,Maple Syrup 250ml,Food,Pantry,0.45,18x8x5,TRUE,TRUE,FALSE,FALSE,Glass Bottle,1.8,High
+1197,Sriracha Sauce 500ml,Food,Condiments,0.6,22x7x7,FALSE,TRUE,FALSE,FALSE,Recycled PET,0.8,Medium
+1198,Pistachios In-Shell,Food,Snacks,0.4,22x15x6,FALSE,TRUE,TRUE,FALSE,Paper Bag,1.2,High
+1199,Veggie Burger Patties,Food,Frozen,0.4,15x15x5,FALSE,TRUE,TRUE,TRUE,Cardboard Box,1.0,High
+1200,Fresh Blueberries,Food,Produce,0.15,10x10x5,TRUE,TRUE,TRUE,TRUE,Pulp Punnet,0.5,High
+1201,Rye Flour 1kg,Food,Baking,1.02,20x10x10,FALSE,TRUE,TRUE,FALSE,Paper Bag,0.8,High
+1202,Baking Powder 200g,Food,Baking,0.22,10x6x6,FALSE,TRUE,TRUE,FALSE,Metal Tin,0.7,Medium
+1203,Pure Vanilla Extract,Food,Baking,0.1,12x4x4,TRUE,TRUE,FALSE,TRUE,Amber Glass,2.5,High
+1204,Milk Chocolate Bar,Food,Confectionery,0.1,15x7x1,FALSE,TRUE,TRUE,TRUE,Paper Wrap,0.4,Medium
+1205,Coconut Flour 500g,Food,Baking,0.52,18x12x5,FALSE,TRUE,TRUE,FALSE,Paper Pouch,1.1,High
+1206,Canned Pineapple,Food,Pantry,0.45,11x8x8,FALSE,TRUE,FALSE,FALSE,Metal Can,0.4,Low
+1207,Dill Pickles Jar,Food,Pantry,0.8,15x10x10,TRUE,TRUE,FALSE,FALSE,Glass Jar,1.3,Medium
+1208,Soy Sauce 250ml,Food,Condiments,0.5,18x6x6,TRUE,TRUE,FALSE,FALSE,Glass Bottle,1.2,Medium
+1209,Granola Bars 6ct,Food,Snacks,0.25,15x10x5,FALSE,TRUE,TRUE,FALSE,Cardboard Box,0.9,High
+1210,Dried Mango Slices,Food,Snacks,0.15,20x14x3,FALSE,TRUE,TRUE,FALSE,Compostable Pouch,1.2,High
+1211,Ravioli (Fresh),Food,Dairy,0.3,18x12x4,FALSE,TRUE,TRUE,TRUE,Pulp Tray,1.5,High
+1212,Feta Cheese 200g,Food,Dairy,0.25,12x8x5,FALSE,TRUE,FALSE,TRUE,Plastic Tub,0.8,Low
+1213,Orange Juice 1L,Food,Beverages,1.08,7x7x22,FALSE,TRUE,FALSE,TRUE,Carton,0.6,Medium
+1214,Green Olives Jar,Food,Pantry,0.4,12x6x6,TRUE,TRUE,FALSE,FALSE,Glass Jar,1.0,Medium
+1215,Mixed Peppercorns,Food,Pantry,0.1,12x5x5,TRUE,TRUE,TRUE,FALSE,Glass Grinder,1.8,High
+1216,Frozen Spinach 400g,Food,Frozen,0.42,15x12x5,FALSE,TRUE,TRUE,TRUE,Paper Box,0.7,High
+1217,Chicken Stock 1L,Food,Pantry,1.05,7x7x22,FALSE,TRUE,FALSE,FALSE,Carton,0.8,Medium
+1218,Dijon Mustard 200g,Food,Condiments,0.35,10x6x6,TRUE,TRUE,FALSE,TRUE,Glass Jar,1.2,High
+1219,Microwave Popcorn 3pk,Food,Snacks,0.3,18x12x6,FALSE,TRUE,TRUE,FALSE,Cardboard,0.6,Medium
+1220,Hummus Dip 200g,Food,Dairy,0.22,12x12x4,FALSE,TRUE,FALSE,TRUE,Recycled Plastic,0.8,Medium
+1221,Tofu (Extra Firm),Food,Dairy Alternative,0.4,12x8x5,FALSE,TRUE,TRUE,TRUE,Plastic Wrap,0.7,Medium
+1222,Agave Syrup 300ml,Food,Pantry,0.45,15x7x7,FALSE,TRUE,FALSE,FALSE,Recycled PET,1.1,High
+1223,Cornflakes Cereal,Food,Bakery,0.5,30x20x10,FALSE,TRUE,TRUE,FALSE,Cardboard Box,1.0,High
+1224,Red Wine 750ml,Food,Beverages,1.25,30x8x8,TRUE,TRUE,FALSE,TRUE,Glass Bottle,2.5,Medium
+1225,Craft IPA 4-Pack,Food,Beverages,2.2,14x14x15,TRUE,TRUE,FALSE,TRUE,Cardboard Carrier,2.0,High
+1226,Chickpea Flour 1kg,Food,Baking,1.02,20x12x6,FALSE,TRUE,TRUE,FALSE,Paper Bag,0.9,High
+1227,Sun-Dried Tomatoes,Food,Pantry,0.25,12x12x3,FALSE,TRUE,TRUE,FALSE,Vacuum Pack,1.2,High
+1228,Frozen Mango Chunks,Food,Frozen,0.5,22x18x5,FALSE,TRUE,TRUE,TRUE,Paper Pouch,0.8,High
+1229,Gnocchi (Dry),Food,Pantry,0.5,18x12x6,FALSE,TRUE,TRUE,FALSE,Paper Box,0.7,High
+1230,Capers in Brine,Food,Pantry,0.2,10x5x5,TRUE,TRUE,FALSE,FALSE,Glass Jar,0.9,Medium
+1231,Matcha Powder 50g,Food,Beverages,0.08,8x8x8,FALSE,TRUE,TRUE,TRUE,Metal Tin,2.5,High
+1232,Kombucha 330ml,Food,Beverages,0.6,20x6x6,TRUE,TRUE,FALSE,TRUE,Glass Bottle,1.4,High
+1233,Protein Bar (Single),Food,Snacks,0.06,12x4x2,FALSE,TRUE,TRUE,TRUE,Foil Wrap,0.2,Medium
+1234,Beef Jerky 100g,Food,Snacks,0.11,18x14x2,FALSE,TRUE,TRUE,FALSE,Plastic Pouch,1.5,Low
+1235,Chia Seeds 250g,Food,Pantry,0.26,15x10x4,FALSE,TRUE,TRUE,FALSE,Paper Pouch,1.0,High
+1236,Coconut Water 500ml,Food,Beverages,0.55,18x6x6,FALSE,TRUE,FALSE,FALSE,Carton,0.7,High
+1237,Lentil Chips,Food,Snacks,0.1,25x18x8,TRUE,TRUE,TRUE,FALSE,Recyclable Film,0.8,High
+1238,Almond Butter,Food,Pantry,0.3,10x8x8,TRUE,TRUE,FALSE,FALSE,Glass Jar,1.8,High
+1239,Miso Paste 200g,Food,Pantry,0.22,10x10x5,FALSE,TRUE,TRUE,TRUE,Plastic Tub,1.2,Medium
+1240,Frozen Edamame,Food,Frozen,0.4,20x15x5,FALSE,TRUE,TRUE,TRUE,Paper Pouch,0.9,High
+1241,Seaweed Snacks,Food,Snacks,0.05,15x10x5,TRUE,TRUE,TRUE,FALSE,Plastic Tray/Film,0.6,Low
+1242,Buckwheat Grains 1kg,Food,Pantry,1.02,20x12x5,FALSE,TRUE,TRUE,FALSE,Paper Bag,0.8,High
+1243,Pesto Sauce 190g,Food,Condiments,0.35,10x7x7,TRUE,TRUE,FALSE,TRUE,Glass Jar,1.4,Medium
+1244,Rye Crispbread,Food,Snacks,0.25,20x12x8,TRUE,TRUE,TRUE,FALSE,Paper Wrap,0.7,High
+1245,Apple Cider Vinegar,Food,Condiments,0.8,25x8x8,TRUE,TRUE,FALSE,FALSE,Glass Bottle,1.6,High
+1246,Frozen Broccoli,Food,Frozen,0.5,25x20x5,FALSE,TRUE,TRUE,TRUE,Paper Pouch,0.7,High
+1247,Dried Cranberries,Food,Snacks,0.2,18x12x4,FALSE,TRUE,TRUE,FALSE,Stand-up Pouch,1.0,High
+1248,Whole Nutmeg 3ct,Food,Pantry,0.04,10x5x2,FALSE,TRUE,TRUE,FALSE,Glass Jar,1.5,Medium
+1249,Soba Noodles,Food,Pantry,0.3,25x8x2,FALSE,TRUE,TRUE,FALSE,Paper Wrap,0.8,High
+1250,Cold Pressed Carrot Juice,Food,Beverages,0.55,20x6x6,FALSE,TRUE,FALSE,TRUE,Recycled PET,1.5,High
+1251,Frozen Margherita Pizza,Food,Frozen,0.45,25x25x3,FALSE,TRUE,TRUE,TRUE,Recycled Cardboard,1.2,Medium
+1252,Organic Baby Spinach,Food,Produce,0.15,20x15x8,TRUE,TRUE,TRUE,TRUE,Compostable Bag,0.4,High
+1253,Whole Bean Coffee 500g,Food,Beverages,0.52,15x10x20,FALSE,TRUE,TRUE,FALSE,Valve Pouch,1.1,High
+1254,Cold Pressed Olive Oil 1L,Food,Pantry,0.92,8x8x28,TRUE,TRUE,FALSE,FALSE,Glass Bottle,2.5,Medium
+1255,Gluten-Free Penne 500g,Food,Pantry,0.51,12x6x20,FALSE,TRUE,TRUE,FALSE,Paper Box,0.6,High
+1256,Frozen Atlantic Salmon,Food,Seafood,0.6,20x15x5,FALSE,TRUE,TRUE,TRUE,Vacuum Seal,1.8,Medium
+1257,Greek Feta Cheese 200g,Food,Dairy,0.22,12x10x4,FALSE,TRUE,FALSE,TRUE,Plastic Tub,0.9,Low
+1258,Himalayan Pink Salt 1kg,Food,Pantry,1.05,10x10x15,FALSE,TRUE,TRUE,FALSE,Paper Bag,0.8,High
+1259,Sparkling Water 6pk,Food,Beverages,3.2,25x18x15,TRUE,TRUE,FALSE,FALSE,Aluminium Can,1.5,High
+1260,Dark Chocolate Truffles,Food,Confectionery,0.2,15x15x5,TRUE,TRUE,TRUE,TRUE,Paper Box,2.0,High
+1261,Almond Milk 1L,Food,Dairy Alternative,1.05,7x7x22,FALSE,TRUE,TRUE,TRUE,Aseptic Carton,0.6,Medium
+1262,Frozen Mixed Berries 1kg,Food,Frozen,1.02,25x20x6,FALSE,TRUE,TRUE,TRUE,Paper Pouch,0.9,High
+1263,Arugula Baby Leaves 100g,Food,Produce,0.12,15x12x6,TRUE,TRUE,TRUE,TRUE,Pulp Punnet,0.5,High
+1264,Basmati Rice 5kg,Food,Pantry,5.1,40x25x10,FALSE,TRUE,TRUE,FALSE,Jute Bag,2.2,High
+1265,Raw Walnuts 250g,Food,Snacks,0.27,15x10x5,FALSE,TRUE,TRUE,FALSE,Compostable Pouch,1.0,High
+1266,Canned Chickpeas 400g,Food,Pantry,0.45,8x8x11,FALSE,TRUE,FALSE,FALSE,Tin Can,0.3,Low
+1267,Manuka Honey 250g,Food,Pantry,0.35,8x8x10,TRUE,TRUE,FALSE,FALSE,Glass Jar,2.8,High
+1268,Organic Tofu (Firm),Food,Dairy Alternative,0.4,12x10x4,FALSE,TRUE,TRUE,TRUE,Plastic Wrap,0.7,Medium
+1269,Fresh Blueberries 125g,Food,Produce,0.14,10x10x4,TRUE,TRUE,TRUE,TRUE,Pulp Punnet,0.4,High
+1270,Red Wine Vinegar 500ml,Food,Condiments,0.7,7x7x22,TRUE,TRUE,FALSE,FALSE,Glass Bottle,1.4,Medium
+1541,Vanilla Bean Paste 60g,Food,Baking,0.15,5x5x10,TRUE,TRUE,FALSE,TRUE,Glass Jar,1.9,High
+1542,Frozen Pork Dumplings,Food,Frozen,0.5,22x18x4,FALSE,TRUE,TRUE,TRUE,Paper Pouch,1.1,High
+1543,Matcha Tea Powder 30g,Food,Beverages,0.05,6x6x6,FALSE,TRUE,TRUE,TRUE,Metal Tin,2.2,High
+1544,Seaweed Snacks 5g,Food,Snacks,0.02,15x10x2,TRUE,TRUE,TRUE,FALSE,Plastic/Foil,0.4,Low
+1545,Organic Quinoa 1kg,Food,Pantry,1.05,18x12x6,FALSE,TRUE,TRUE,FALSE,Paper Bag,0.9,High
+1546,Balsamic Glaze 250ml,Food,Condiments,0.35,6x6x18,FALSE,TRUE,FALSE,FALSE,PET Bottle,1.2,Medium
+1547,Frozen Edamame Beans,Food,Frozen,0.4,20x15x5,FALSE,TRUE,TRUE,TRUE,Paper Pouch,0.8,High
+1548,Artisanal Crackers,Food,Snacks,0.15,18x10x5,TRUE,TRUE,TRUE,FALSE,Cardboard,1.0,Medium
+1549,Coconut Oil 500ml,Food,Pantry,0.6,10x10x12,TRUE,TRUE,FALSE,FALSE,Glass Jar,1.5,High
+1550,Fresh Ginger Root 250g,Food,Produce,0.26,15x10x8,FALSE,TRUE,FALSE,FALSE,Net Bag,0.3,High
+1551,Ergonomic Office Chair,Home & Garden,Furniture,12.5,65x65x120,FALSE,FALSE,FALSE,FALSE,Heavy Duty Cardboard,8.5,Medium
+1552,Ceramic Indoor Planter,Home & Garden,Garden,1.2,20x20x18,TRUE,FALSE,FALSE,FALSE,Molded Pulp,1.5,High
+1553,LED Smart Bulb 4pk,Home & Garden,Smart Home,0.3,12x12x15,TRUE,FALSE,TRUE,FALSE,Recycled Cardboard,0.8,High
+1554,Teak Garden Bench,Home & Garden,Furniture,18.0,120x45x90,FALSE,FALSE,TRUE,FALSE,Protective Wrap,12.0,High
+1555,Stainless Steel Spade,Home & Garden,Garden,1.8,100x15x5,FALSE,FALSE,FALSE,FALSE,Kraft Paper Sleeve,1.2,High
+1556,Velvet Throw Pillow,Home & Garden,Decor,0.4,45x45x10,FALSE,FALSE,TRUE,FALSE,Compostable Poly-Bag,0.5,High
+1557,Glass Table Lamp,Home & Garden,Lighting,2.1,30x30x50,TRUE,FALSE,FALSE,FALSE,Expanded Polypropylene,4.5,Medium
+1558,Smart Thermostat,Home & Garden,Smart Home,0.5,10x10x3,FALSE,FALSE,TRUE,FALSE,Paper Box,1.2,High
+1559,Solar Path Lights 6pk,Home & Garden,Garden,1.5,40x15x15,TRUE,FALSE,TRUE,FALSE,Recycled Cardboard,2.5,High
+1560,Memory Foam Mattress (Queen),Home & Garden,Furniture,25.0,150x200x25,FALSE,FALSE,TRUE,FALSE,Reinforced Plastic,15.0,Low
+1561,Abstract Canvas Print,Home & Garden,Decor,1.1,60x90x3,TRUE,FALSE,TRUE,FALSE,Cardboard Corner Protectors,3.0,Medium
+1562,Ironing Board,Home & Garden,Household,4.5,140x40x5,FALSE,FALSE,FALSE,FALSE,Shrink Wrap,2.0,Low
+1563,Bamboo Bath Mat,Home & Garden,Decor,0.8,60x40x1,FALSE,FALSE,TRUE,FALSE,Paper Band,0.6,High
+1564,Electric Lawn Mower,Home & Garden,Garden,14.5,80x50x45,FALSE,FALSE,FALSE,FALSE,Corrugated Box,10.0,Medium
+1565,Wool Area Rug 5x7,Home & Garden,Decor,6.8,150x210x2,FALSE,FALSE,TRUE,FALSE,Burlap Wrap,5.0,High
+1566,Cast Iron Skillet,Home & Garden,Kitchen,2.5,30x30x5,FALSE,FALSE,TRUE,FALSE,Corrugated Cardboard,1.5,Medium
+1567,Smart Indoor Camera,Home & Garden,Smart Home,0.25,8x8x12,TRUE,FALSE,TRUE,FALSE,Paper Box,1.1,High
+1568,Picket Fence Panel 4ft,Home & Garden,Garden,5.2,120x90x5,FALSE,FALSE,FALSE,FALSE,No Outer Pack,0.5,High
+1569,Scented Soy Candle,Home & Garden,Decor,0.4,8x8x10,TRUE,FALSE,FALSE,TRUE,Recycled Glass/Paper,1.2,High
+1570,Electric Leaf Blower,Home & Garden,Garden,3.2,45x20x30,FALSE,FALSE,FALSE,FALSE,Cardboard Box,3.5,Medium
+1841,Microfiber Mop Set,Home & Garden,Household,1.2,120x15x10,FALSE,FALSE,FALSE,FALSE,Cardboard Sleeve,1.5,High
+1842,Outdoor Dining Table,Home & Garden,Furniture,22.0,150x90x75,FALSE,FALSE,TRUE,FALSE,Heavy Duty Wrap,14.0,Medium
+1843,Rechargeable Hedge Trimmer,Home & Garden,Garden,2.8,90x20x15,FALSE,FALSE,FALSE,FALSE,Corrugated Box,4.0,Medium
+1844,Set of 4 Wine Glasses,Home & Garden,Kitchen,0.8,25x25x25,TRUE,FALSE,FALSE,FALSE,Corrugated Insert,2.2,High
+1845,Blackout Curtains 2pk,Home & Garden,Decor,1.5,30x25x8,FALSE,FALSE,TRUE,FALSE,Recycled Poly-Bag,0.9,High
+1846,Automatic Pet Feeder,Home & Garden,Smart Home,1.8,20x20x35,FALSE,FALSE,TRUE,FALSE,Cardboard Box,2.5,Medium
+1847,Composite Decking Tiles,Home & Garden,Garden,8.5,30x30x20,FALSE,FALSE,FALSE,FALSE,Paper Wrap,3.0,High
+1848,Faux Silk Bedding Set,Home & Garden,Decor,2.2,40x30x15,FALSE,FALSE,TRUE,FALSE,Fabric Bag,2.0,High
+1849,Steel Tool Chest,Home & Garden,Workshop,15.5,60x30x40,FALSE,FALSE,FALSE,FALSE,Padded Cardboard,9.0,Medium
+1850,Organic Potting Soil 20L,Home & Garden,Garden,9.0,50x30x15,FALSE,FALSE,TRUE,FALSE,Heavy Recycled Plastic,1.0,High
