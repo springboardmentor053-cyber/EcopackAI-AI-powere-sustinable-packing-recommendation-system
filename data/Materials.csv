@@ -1,0 +1,28 @@
+,EcoPackAI - Sustainable Packaging Materials Database,,,,,,,,,,,,,,
+Material ID,Name Of The Materials,Nature,Flexibility (Rigid/Flexible),Compostable (Home/Industrial/No),Strength (Scale 1-10),Weight Capacity (kg),Biodegradability Score (%),CO2 Footprint (relative),Recyclability,Cost Level,"Oxygen Barrier (OTR cc/m²/day, low=good)","Moisture Barrier (WVTR g/m²/day, low=good)",Light Barrier (Yes/Partial/No),Water Resistance (Scale 1-10),Renewable Source (%)
+MAT_PLN_01,Corrugated Cardboard,Plant-based,Rigid,Industrial,7,50,80,Low,Yes,Low,500,20,Partial,4,100
+MAT_PLN_02,Bioplastics (PLA),Plant-based (corn),Flexible,Home,6,20,95,Low-Medium,Compost,Medium,100,10,Partial,6,100
+MAT_PLN_03,Molded Pulp/Bagasse,Plant-based (sugarcane),Rigid,Home,5,30,98,Low,Compost,Low,300,15,No,3,100
+MAT_PTR_04,Recycled PET,Petroleum-derived (recycled),Flexible,No,8,40,20,Medium,Yes,Low-Medium,50,5,Yes,9,50
+MAT_PLN_05,Cornstarch Foam,Plant-based,Rigid,Home,4,15,100,Low,Compost,Low,400,25,No,2,100
+MAT_MNR_06,Glass,Mineral,Rigid,No,9,100,10,Medium-High,Yes,High,1,2,Yes,10,0
+MAT_MNR_07,Aluminum,Mineral,Flexible,No,8,50,5,Medium,Yes,Medium,0.1,1,Yes,10,20
+MAT_FNG_08,Mycelium (Mushroom),Fungal,Rigid,Home,6,25,100,Very Low,Compost,Medium-High,200,12,No,5,100
+MAT_ALG_09,Algae-Based Plastics,Algae-based,Flexible,Home,5,20,99,Negative,Compost,High,150,8,Partial,7,100
+MAT_PLN_10,Recycled Paper Pulp,Plant-based,Flexible,Home,4,20,95,Low,Compost,Low,600,30,No,3,100
+MAT_PLN_11,Bamboo Fiber,Plant-based,Rigid,Industrial,7,40,90,Low,Yes,Low-Medium,250,18,Partial,6,100
+MAT_MRN_12,Seaweed Packaging,Marine-based,Flexible,Home,3,10,100,Low,Compost,Medium,80,5,No,4,100
+MAT_PLN_13,Sugarcane Bagasse,Plant-based (sugarcane),Rigid,Home,6,25,98,Low,Compost,Low,250,12,No,4,100
+MAT_PLN_14,Recycled Fiberboard,Plant-based,Rigid,Industrial,8,60,85,Low,Yes,Low,400,25,Partial,3,100
+MAT_PLN_15,Honeycomb Paper,Plant-based,Rigid,Industrial,9,80,90,Low,Yes,Low-Medium,350,20,No,4,100
+MAT_MNR_16,Stone Paper,Mineral (limestone),Flexible,No,5,15,40,Low-Medium,Yes,Medium,120,8,Partial,8,80
+MAT_PLN_17,Glassine Paper,Plant-based,Flexible,Home,3,5,95,Low,Compost,Low,600,30,Partial,2,100
+MAT_PLN_18,PLA,Plant-based (starch),Flexible,Industrial,6,20,95,Low-Medium,Compost,Medium,100,10,Partial,6,100
+MAT_BIO_19,PBAT,Bio-based polymer,Flexible,Industrial,5,15,90,Low,Compost,Medium-High,120,15,No,5,70
+MAT_PTR_20,Recycled HIPS,Petroleum-derived (recycled),Rigid,No,7,30,10,Medium,Yes,Low-Medium,80,6,Yes,9,60
+MAT_ALG_21,Algae-Based Inks/Coatings,Algae-based,Flexible,Home,2,1,99,Negative,Compost,High,0,5,No,3,100
+MAT_WTR_22,Water-Based Coatings,Water-based,Flexible,Home,1,0,95,Low,Compost,Low,0,8,Partial,7,90
+MAT_CHM_23,VCI Pouches,Chemical additive,Flexible,No,4,10,20,Medium,Yes,Medium,10,3,Yes,8,30
+MAT_MNR_24,Lightweight Glass,Mineral,Rigid,No,9,100,10,Medium-High,Yes,Medium,1,2,Yes,10,0
+MAT_MNR_25,Recycled Aluminum,Mineral,Flexible,No,9,60,5,Low (recycled),Yes,Medium,0.1,1,Yes,10,20
+MAT_PTR_26,Recycled Polyester Textiles,Petroleum-derived (recycled),Flexible,No,7,30,15,Medium,Yes,Low-Medium,200,15,Partial,7,50
