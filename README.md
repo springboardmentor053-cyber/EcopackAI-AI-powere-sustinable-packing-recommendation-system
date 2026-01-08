@@ -6,25 +6,6 @@
 
 ---
 
-## 📑 Table of Contents
-
-- [Introduction](#-introduction)
-- [Project Objectives](#-project-objectives)
-- [System Architecture Overview](#-system-architecture-overview)
-- [Database Design](#-database-design)
-- [Table Schema Design](#-table-schema-design)
-- [Entity-Relationship (ER) Diagram](#-entity-relationship-er-diagram)
-- [Data Engineering Process](#-data-engineering-process)
-- [Data Validation](#-data-validation-module-2--stage-21)
-- [Data Cleaning](#-data-cleaning-module-2--stage-22)
-- [Feature Engineering](#-feature-engineering-module-2--stage-23)
-- [Project Folder Structure](#-project-folder-structure)
-- [Current Project Status](#-current-project-status)
-- [Future Scope](#-future-scope)
-- [Contributors](#-contributors)
-- [License](#-license)
-
----
 
 ## 🎯 Project Objectives
 
@@ -116,7 +97,7 @@ Captures product-specific packaging needs.
 
 ## 🧩 Entity-Relationship (ER) Diagram
 
-> _Insert ER Diagram here_
+(screenshots/er_diagram.png)
 
 **Relationship:**
 - One material → many products  
@@ -142,7 +123,7 @@ This ensures minimal redundancy and scalable recommendations.
 
 ---
 
-## ✅ Data Validation (Module 2 – Stage 2.1)
+## ✅ Data Validation
 
 Performed prior to transformation to ensure raw data quality:
 
@@ -156,7 +137,7 @@ Performed prior to transformation to ensure raw data quality:
 
 ---
 
-## 🧹 Data Cleaning (Module 2 – Stage 2.2)
+## 🧹 Data Cleaning
 
 Focused on preserving integrity while correcting inconsistencies.
 
@@ -177,7 +158,7 @@ Outliers were **flagged, not removed** using:
 
 ---
 
-## 🛠️ Feature Engineering (Module 2 – Stage 2.3)
+## 🛠️ Feature Engineering
 
 ### Key Engineered Features:
 
@@ -194,6 +175,7 @@ These metrics enable objective, scalable recommendations.
 
 ## 📁 Project Folder Structure
 
+```bash
 EcoPackAI/
 │
 ├── data/
@@ -203,7 +185,7 @@ EcoPackAI/
 ├── notebooks/ # EDA, cleaning, feature engineering
 ├── src/ # Reusable pipeline logic and API modules
 ├── sql/ # SQL schemas and data ingestion scripts
-├── dashboard/ # Tableau / Power BI visualization files
+├── dashboard/
 
 ```
 
@@ -228,4 +210,3 @@ EcoPackAI/
 - Build REST API for real-time recommendations
 - Create user-centric dashboards
 - Optimize scoring via feedback loops or ML tuning
-
