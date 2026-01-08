@@ -1,0 +1,231 @@
+# 📦 EcoPackAI: AI-Powered Sustainable Packaging Recommendation System
+
+## 📘 Introduction
+
+**EcoPackAI** is a data-driven system designed to optimize packaging material choices by balancing environmental sustainability, cost-efficiency, and material suitability. In contrast to traditional heuristic-based approaches, EcoPackAI leverages structured data, engineered features, and composite scoring to recommend the most effective and eco-friendly packaging materials for diverse products.
+
+---
+
+## 📑 Table of Contents
+
+- [Introduction](#-introduction)
+- [Project Objectives](#-project-objectives)
+- [System Architecture Overview](#-system-architecture-overview)
+- [Database Design](#-database-design)
+- [Table Schema Design](#-table-schema-design)
+- [Entity-Relationship (ER) Diagram](#-entity-relationship-er-diagram)
+- [Data Engineering Process](#-data-engineering-process)
+- [Data Validation](#-data-validation-module-2--stage-21)
+- [Data Cleaning](#-data-cleaning-module-2--stage-22)
+- [Feature Engineering](#-feature-engineering-module-2--stage-23)
+- [Project Folder Structure](#-project-folder-structure)
+- [Current Project Status](#-current-project-status)
+- [Future Scope](#-future-scope)
+- [Contributors](#-contributors)
+- [License](#-license)
+
+---
+
+## 🎯 Project Objectives
+
+- Design a validated, production-ready relational database
+- Engineer sustainability and cost-related features
+- Compute composite indices:
+  - CO₂ Impact Index
+  - Cost Efficiency Index
+  - Material Suitability Score
+- Enable future ML model and dashboard integration
+- Maintain real-world alignment and scalability
+
+---
+
+## 🧱 System Architecture Overview
+
+The pipeline is modular and production-focused:
+
+1. Raw data ingestion (CSV → PostgreSQL)
+2. Schema validation & referential integrity checks
+3. Data validation & cleaning
+4. Feature engineering & scoring
+5. Recommendation logic (planned)
+6. Dashboard visualization (Tableau / Power BI)
+
+---
+
+## 🗃️ Database Design
+
+- **Database:** PostgreSQL  
+- **Name:** `ecopack_ai`
+
+Key principles:
+- Schema enforcement
+- Data integrity via constraints and foreign keys
+- Clean joins and production-grade readiness
+
+---
+
+## 📋 Table Schema Design
+
+### 🔹 `materials` Table
+
+Stores physical, environmental, and economic attributes of packaging materials.
+
+- **Primary Key:** `material_id`
+- **Columns:**
+  - `material_type`
+  - `strength_mpa`
+  - `weight_capacity`
+  - `co2_emission_per_kg`
+  - `biodegradability_score`
+  - `recyclability_pct`
+  - `cost_inr_per_kg`
+  - `material_category`
+
+**Constraints:**
+- Numeric range checks
+- Binary biodegradability
+- Recyclability: 0–100
+- Unique material identifiers
+
+---
+
+### 🔹 `products` Table
+
+Captures product-specific packaging needs.
+
+- **Primary Key:** `product_id`
+- **Foreign Key:** `current_packaging_material → materials.material_type`
+- **Columns:**
+  - `product_name`
+  - `product_category`
+  - `product_weight_g`
+  - `product_volume_cm3`
+  - `price_inr`
+  - `fragility_level` (Low/Medium/High)
+  - `temperature_sensitivity` (Low/Medium/High)
+  - `moisture_sensitivity` (Low/Medium/High)
+  - `shelf_life_days`
+  - `packaging_format`
+
+**Constraints:**
+- Categorical value control
+- Positive numeric enforcement
+- Referential integrity
+
+---
+
+## 🧩 Entity-Relationship (ER) Diagram
+
+> _Insert ER Diagram here_
+
+**Relationship:**
+- One material → many products  
+- Each product uses one material  
+**Type:** One-to-Many (1:N)
+
+This ensures minimal redundancy and scalable recommendations.
+
+---
+
+## 🔄 Data Engineering Process
+
+### 📂 Data Sources
+
+- Material properties inspired by real-world data
+- Product attributes aligned with market categories
+
+### 📈 Data Flow
+
+- CSV ingestion → PostgreSQL via `COPY`
+- Schema and referential checks at DB level
+- Exported for Python-based processing
+
+---
+
+## ✅ Data Validation (Module 2 – Stage 2.1)
+
+Performed prior to transformation to ensure raw data quality:
+
+- Row & column shape checks
+- Type verification
+- Null & duplicate checks (0 found)
+- Range sanity checks
+- Foreign key validation
+
+**Result:** Passed all checks and marked ready for cleaning.
+
+---
+
+## 🧹 Data Cleaning (Module 2 – Stage 2.2)
+
+Focused on preserving integrity while correcting inconsistencies.
+
+### Cleaning Steps:
+
+- String normalization (trim, case)
+- Type enforcement
+- Categorical constraints
+- Logical range checks
+- Outlier flagging (1%–99%)
+
+### Outlier Handling:
+
+Outliers were **flagged, not removed** using:
+- `flag_weight_outlier`
+- `flag_volume_outlier`
+- `flag_price_outlier`
+
+---
+
+## 🛠️ Feature Engineering (Module 2 – Stage 2.3)
+
+### Key Engineered Features:
+
+- **Strength Level:** Categorized from `strength_mpa` (Low/Med/High)
+- **Emission Score:** Inverted, normalized CO₂ emissions
+- **Recyclability Index:** `recyclability_pct / 100`
+- **CO₂ Impact Index:** Weighted score from emission, recyclability, biodegradability
+- **Cost Efficiency Index:** Inverse cost × normalized strength
+- **Material Suitability Score:** Composite of all indices for final ranking
+
+These metrics enable objective, scalable recommendations.
+
+---
+
+## 📁 Project Folder Structure
+
+EcoPackAI/
+│
+├── data/
+│ ├── raw/ # Original datasets
+│ └── processed/ # Cleaned and feature-engineered data
+│
+├── notebooks/ # EDA, cleaning, feature engineering
+├── src/ # Reusable pipeline logic and API modules
+├── sql/ # SQL schemas and data ingestion scripts
+├── dashboard/ # Tableau / Power BI visualization files
+
+```
+
+---
+
+## 🚦 Current Project Status
+
+- ✅ Database schema finalized  
+- ✅ ER diagram created  
+- ✅ Data validated and cleaned  
+- ✅ Feature engineering complete  
+- 🔜 Post-feature validation  
+- 🔜 Recommendation logic module  
+- 🔜 Dashboard visualization & deployment  
+
+---
+
+## 🔮 Future Scope
+
+- Integrate ML for dynamic, personalized packaging suggestions
+- Automate PostgreSQL → Python pipeline with ETL tools
+- Build REST API for real-time recommendations
+- Create user-centric dashboards
+- Optimize scoring via feedback loops or ML tuning
+
