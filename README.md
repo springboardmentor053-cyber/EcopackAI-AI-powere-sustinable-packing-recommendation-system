@@ -97,7 +97,7 @@ Captures product-specific packaging needs.
 
 ## 🧩 Entity-Relationship (ER) Diagram
 
-(screenshots/er_diagram.png)
+![ER Diagram](screenshots/er_diagram.png)
 
 **Relationship:**
 - One material → many products  
@@ -179,13 +179,53 @@ These metrics enable objective, scalable recommendations.
 EcoPackAI/
 │
 ├── data/
-│ ├── raw/ # Original datasets
-│ └── processed/ # Cleaned and feature-engineered data
+│   ├── raw/
+│   │   ├── materials.csv              # Original materials dataset
+│   │   └── products.csv               # Original products dataset 
+│   │
+│   └── processed/
+│       ├── materials_cleaned.csv      # Cleaned materials dataset
+│       ├── products_cleaned.csv       # Cleaned products dataset
+│       └── materials_featured.csv     # Featured dataset
 │
-├── notebooks/ # EDA, cleaning, feature engineering
-├── src/ # Reusable pipeline logic and API modules
-├── sql/ # SQL schemas and data ingestion scripts
+├── notebooks/
+│   ├── 01_data_validation.ipynb        # Sanity checks, schema validation
+│   ├── 02_data_cleaning.ipynb          # Cleaning, unit fixes, encoding prep
+│   ├── 03_feature_engineering.ipynb    # CO₂, cost, suitability Indexes
+│   └── 04_summary_validation.ipynb     # Post-FE stats & checks
+│
+├── models/
+│   ├── baseline/                       # Baseline ML models 
+│
+├── src/
+│   ├── pipelines/
+│   │   ├── __init__.py
+│   │   ├── data_preprocessing.py       # Reusable cleaning logic
+│   │   ├── feature_engineering.py      # Index calculations
+│   │   └── model_training.py           # Recommendation / ML logic
+│   │
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── recommend.py                # Packaging recommendation API
+│   │
+│   └── utils/
+│       ├── constants.py                # Category lists, mappings, weights
+│       └── validators.py               # Data validation helpers
+│
+├── sql/
+│   └── EcoPackAI_Database.sql          # PostgreSQL schema (materials + products)
+├── screenshots/
 ├── dashboard/
+│   ├── EcoPackAI_Dashboard.twbx        # Tableau OR Power BI file
+│   └── screenshots/                    # Dashboard images for README
+│
+├── app.py                              # Flask app entry point
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── deployment/                         # Render / Heroku configs
+
+
 
 ```
 
