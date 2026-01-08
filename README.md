@@ -97,7 +97,7 @@ Captures product-specific packaging needs.
 
 ## 🧩 Entity-Relationship (ER) Diagram
 
-(screenshots/er_diagram.png)
+![ER Diagram](screenshots/er_diagram.png)
 
 **Relationship:**
 - One material → many products  
