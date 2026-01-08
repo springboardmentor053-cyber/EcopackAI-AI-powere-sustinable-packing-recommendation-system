@@ -64,16 +64,21 @@ ESAKKI RAJA SALAIKUMAR
 (from Group 5)
 
 ECOPACKAI PROJECT
-|--DATA
-|    |--material.csv
-|    |--module2_feature_engineered_materials.csv
-|    |--product.csv
-|--PYTHON_FILE
-|    |--data_cleaning.ipynb
-|    |--feature_engineering.ipynb
-|--SCREENSHOTS
-|    |--data_cleaning_screenshots
-|    |--feature_engineering_screenshots
-|--SQL
-|     |--module1_tables.sql
-|--Readme.md    
+│
+├── DATA
+│   ├── material.csv
+│   ├── module2_feature_engineered_materials.csv
+│   └── product.csv
+│
+├── PYTHON_FILE
+│   ├── data_cleaning.ipynb
+│   └── feature_engineering.ipynb
+│
+├── SCREENSHOTS
+│   ├── data_cleaning_screenshots
+│   └── feature_engineering_screenshots
+│
+├── SQL
+│   └── module1_tables.sql
+│
+└── Readme.md
