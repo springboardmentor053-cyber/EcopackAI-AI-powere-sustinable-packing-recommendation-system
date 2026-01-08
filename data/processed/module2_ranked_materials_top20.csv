@@ -1,0 +1,12 @@
+material_id,material_name,strength_score,weight_capacity_kg,biodegradability_score,co2_emission_kg,recyclability_percent,cost_per_unit_inr,product_category,used_for_products
+M004,Kraft linerboard,7,12,9,1.5,90,50,Food,Outer cartons
+M001,Single-wall corrugated cardboard,8,15,9,1.6,92,55,Electronics,Shipping boxes
+M019,Kenaf fiber board,7,10,9,1.6,80,88,Industrial,Boards
+M016,Jute fiber sheet,7,12,9,1.7,80,95,Agriculture,Produce sacks
+M005,Test linerboard,7,10,8,1.8,85,48,Retail,Packaging cartons
+M112,Corrugated mailers,7,10,9,1.8,90,75,E-commerce,Book shipping
+M025,Honeycomb paperboard,8,18,9,1.8,90,90,Industrial,Pallets
+M008,Folding boxboard (FBB),7,9,8,2.0,88,65,Pharma,Medicine cartons
+M002,Double-wall corrugated cardboard,9,20,8,2.0,90,75,Electronics,Heavy-duty boxes
+M007,Solid unbleached board (SUB),8,12,7,2.2,85,70,Food,Dry food boxes
+M003,Triple-wall corrugated cardboard,10,30,7,2.5,88,95,Industrial,Machinery packaging

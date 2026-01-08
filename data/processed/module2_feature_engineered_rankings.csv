@@ -1,0 +1,12 @@
+material_id,material_name,strength_score,weight_capacity_kg,biodegradability_score,co2_emission_kg,recyclability_percent,cost_per_unit_inr,product_category,used_for_products,strength_score_norm,recyclability_score,biodegradability_score_norm,co2_score,cost_score,strength_margin,weight_fit_score,sustainability_score,material_suitability_score
+M001,Single-wall corrugated cardboard,8,15,9,1.6,92,55,Electronics,Shipping boxes,0.8,0.92,0.9,0.36,0.42105263157894735,1,1,0.7440000000000001,0.7402105263157897
+M002,Double-wall corrugated cardboard,9,20,8,2.0,90,75,Electronics,Heavy-duty boxes,0.9,0.9,0.8,0.19999999999999996,0.21052631578947367,2,1,0.65,0.7146052631578947
+M004,Kraft linerboard,7,12,9,1.5,90,50,Food,Outer cartons,0.7,0.9,0.9,0.4,0.4736842105263158,0,1,0.7500000000000001,0.7122368421052632
+M005,Test linerboard,7,10,8,1.8,85,48,Retail,Packaging cartons,0.7,0.85,0.8,0.28,0.49473684210526314,0,1,0.659,0.6936973684210526
+M003,Triple-wall corrugated cardboard,10,30,7,2.5,88,95,Industrial,Machinery packaging,1.0,0.88,0.7,0.0,0.0,3,1,0.544,0.6859999999999999
+M007,Solid unbleached board (SUB),8,12,7,2.2,85,70,Food,Dry food boxes,0.8,0.85,0.7,0.11999999999999988,0.26315789473684215,1,1,0.5709999999999998,0.6653815789473683
+M025,Honeycomb paperboard,8,18,9,1.8,90,90,Industrial,Pallets,0.8,0.9,0.9,0.28,0.052631578947368474,1,1,0.7140000000000001,0.6590263157894738
+M008,Folding boxboard (FBB),7,9,8,2.0,88,65,Pharma,Medicine cartons,0.7,0.88,0.8,0.19999999999999996,0.3157894736842105,0,1,0.644,0.654157894736842
+M112,Corrugated mailers,7,10,9,1.8,90,75,E-commerce,Book shipping,0.7,0.9,0.9,0.28,0.21052631578947367,0,1,0.7140000000000001,0.6506052631578947
+M019,Kenaf fiber board,7,10,9,1.6,80,88,Industrial,Boards,0.7,0.8,0.9,0.36,0.0736842105263158,0,1,0.7080000000000001,0.6217368421052631
+M016,Jute fiber sheet,7,12,9,1.7,80,95,Agriculture,Produce sacks,0.7,0.8,0.9,0.32000000000000006,0.0,0,1,0.6960000000000001,0.604
