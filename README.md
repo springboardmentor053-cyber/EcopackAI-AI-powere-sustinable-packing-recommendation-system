@@ -55,13 +55,15 @@ Tools Used:
 
     3.Jupyter Notebook (VS Code)
 
-Output:
+Project Output:
 
 module2_feature_engineered_materials.csv
 
-Author
-ESAKKI RAJA SALAIKUMAR 
-(from Group 5)
+Author:
+
+ESAKKI RAJA SALAIKUMAR (Group 5)
+
+Project File Structure
 
 ECOPACKAI PROJECT
 │
@@ -81,4 +83,4 @@ ECOPACKAI PROJECT
 ├── SQL
 │   └── module1_tables.sql
 │
-└── Readme.md
+└── README.md
