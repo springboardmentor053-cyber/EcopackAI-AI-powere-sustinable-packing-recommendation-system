@@ -8,3 +8,4 @@
 -->I prepared a dataset for the products that are ordered online with the attributes such as 
    Product name, product category, product weight, product volume, price, fragility level, temperature 
    sensitivity, moisture sensitivity, self life in days, packaging format and the current packing material
+vng
