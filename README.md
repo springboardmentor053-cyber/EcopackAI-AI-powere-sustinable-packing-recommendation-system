@@ -237,9 +237,14 @@ EcoPackAI/
 - ✅ ER diagram created  
 - ✅ Data validated and cleaned  
 - ✅ Feature engineering complete  
-- 🔜 Post-feature validation  
-- 🔜 Recommendation logic module  
-- 🔜 Dashboard visualization & deployment  
+- ✅ Post-feature validation  
+- 🔜 ML Dataset Preparation
+- 🔜 AI Recommendation Model
+- 🔜 Flask Backend API Integration
+- 🔜 Frontent UI
+- 🔜 Dashboard visualization
+- 🔜 Deployment
+- 🔜 Documentation
 
 ---
 
