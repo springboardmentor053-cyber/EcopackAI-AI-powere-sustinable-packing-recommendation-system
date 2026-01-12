@@ -1,0 +1,8 @@
+material_id,material_type,strength,weight_capacity_kg,biodegradability_score,co2_emission_score,recyclability_percent,cost_per_unit_inr,water_resistance,recycle_time_days,manufacturing_place,co2_impact_index,cost_efficiency_index,material_suitability_score,sustainability_score
+MAT027,Bagasse Foam,7,13,94,1.8,92,32,False,70,India,23.4,0.40625,65.321875,93.0
+MAT014,Palm Leaf Packaging,6,8,96,1.5,93,19,False,50,India,12.0,0.4210526315789473,66.42631578947369,94.5
+MAT025,Areca Leaf Packaging,5,6,97,1.3,95,17,False,40,India,7.800000000000001,0.3529411764705882,67.40588235294119,96.0
+MAT022,Wheat Straw Packaging,6,7,95,1.4,94,18,False,60,India,9.8,0.3888888888888889,66.31666666666666,94.5
+MAT016,Recycled Carton,7,10,80,2.6,87,21,False,95,India,26.0,0.4761904761904761,58.24285714285714,83.5
+MAT030,Natural Fiber Blend,8,16,90,2.2,88,36,True,140,India,35.2,0.4444444444444444,62.53333333333333,89.0
+MAT020,Coconut Husk,7,12,94,1.8,92,29,False,90,India,21.6,0.4137931034482758,65.32413793103449,93.0

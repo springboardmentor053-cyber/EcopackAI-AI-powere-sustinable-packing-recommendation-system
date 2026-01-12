@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+flask
+flask-cors
+psycopg2-binary
+google-generativeai
+python-dotenv

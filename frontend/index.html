@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPackAI | Intelligent Sustainable Packaging</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fa-solid fa-leaf me-2 text-success"></i>
+                <span class="fw-bold tracking-wide">EcoPack<span class="text-success">AI</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#requirements">Get Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                </ul>
+                <button class="btn btn-outline-success ms-lg-3 rounded-pill px-4"
+                    onclick="scrollToSection('requirements')">Try Details</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content fade-in-up">
+                    <span class="badge bg-success-soft text-success mb-3 px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-robot me-1"></i> AI-Powered Sustainability
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4">
+                        Smart Packaging for a <span class="text-gradient">Greener Future</span>
+                    </h1>
+                    <p class="lead text-muted mb-5">
+                        Optimize your supply chain with AI-driven recommendations.
+                        Balance cost, durability, and environmental impact instantly.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg rounded-pill px-5 shadow-lg btn-glow"
+                            onclick="scrollToSection('requirements')">
+                            Start Optimizing <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </button>
+                        <button class="btn btn-outline-dark btn-lg rounded-pill px-5"
+                            onclick="scrollToSection('why-us')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <!-- Abstract 3D/Illustration Placeholder -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="hero-visual float-animation">
+                        <div class="blob blob-1"></div>
+                        <div class="blob blob-2"></div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/9321/9321929.png" alt="Eco Packaging"
+                            class="img-fluid position-relative z-2 drop-shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </section>
+
+    <!-- Features / Why Us (Brief) -->
+    <section id="why-us" class="py-5 bg-light-subtle">
+        <div class="container py-5">
+            <div class="row g-4 justify-content-center text-center">
+                <div class="col-md-4 wow fade-in" data-delay="0.1s">
+                    <div class="feature-card p-4 h-100">
+                        <div class="icon-box bg-green-100 mb-4 text-success">
+                            <i class="fa-solid fa-leaf fa-2x"></i>
+                        </div>
+                        <h4>Eco-First</h4>
+                        <p class="text-muted">Prioritizing biodegradability and recyclability in every suggestion.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fade-in" data-delay="0.2s">
+                    <div class="feature-card p-4 h-100">
+                        <div class="icon-box bg-blue-100 mb-4 text-primary">
+                            <i class="fa-solid fa-brain fa-2x"></i>
+                        </div>
+                        <h4>AI-Driven</h4>
+                        <p class="text-muted">Machine learning models predict cost and CO₂ footprint with high accuracy.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fade-in" data-delay="0.3s">
+                    <div class="feature-card p-4 h-100">
+                        <div class="icon-box bg-purple-100 mb-4 text-purple">
+                            <i class="fa-solid fa-chart-line fa-2x"></i>
+                        </div>
+                        <h4>Cost Effective</h4>
+                        <p class="text-muted">Balance your budget while minimizing environmental impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Input Section -->
+    <section id="requirements" class="py-huge position-relative overflow-hidden">
+        <div class="container position-relative z-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="glass-card p-5 fade-in-up">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold">Tell us about your product</h2>
+                            <p class="text-muted">Our AI needs a few details to find the perfect match.</p>
+                        </div>
+
+                        <form id="recommendationDetailParam">
+                            <div class="row g-4">
+                                <!-- Weight -->
+                                <div class="col-md-6">
+                                    <div class="form-floating input-group-hover">
+                                        <input type="number" class="form-control" id="weight" placeholder="5" step="0.1"
+                                            value="5" required>
+                                        <label for="weight"><i class="fa-solid fa-weight-hanging me-2"></i>Weight
+                                            Capacity (kg)</label>
+                                    </div>
+                                </div>
+
+                                <!-- Strength -->
+                                <div class="col-md-6">
+                                    <div class="form-floating input-group-hover">
+                                        <input type="number" class="form-control" id="strength" placeholder="50"
+                                            step="1" value="50" required>
+                                        <label for="strength"><i class="fa-solid fa-shield-halved me-2"></i>Min Strength
+                                            Score</label>
+                                    </div>
+                                </div>
+
+                                <!-- Category (Visual Selector) -->
+                                <div class="col-12">
+                                    <label class="form-label mb-3 fw-semibold">Product Category</label>
+                                    <div class="row g-3 category-selector">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="category" id="cat1" checked>
+                                            <label
+                                                class="btn btn-outline-light w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3"
+                                                for="cat1">
+                                                <i class="fa-solid fa-box-open mb-2 text-warning"></i> General
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="category" id="cat2">
+                                            <label
+                                                class="btn btn-outline-light w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3"
+                                                for="cat2">
+                                                <i class="fa-solid fa-utensils mb-2 text-danger"></i> Food
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="category" id="cat3">
+                                            <label
+                                                class="btn btn-outline-light w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3"
+                                                for="cat3">
+                                                <i class="fa-solid fa-laptop mb-2 text-info"></i> Electronics
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="category" id="cat4">
+                                            <label
+                                                class="btn btn-outline-light w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3"
+                                                for="cat4">
+                                                <i class="fa-solid fa-shirt mb-2 text-primary"></i> Fashion
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Water Resistance -->
+                                <div class="col-12">
+                                    <div
+                                        class="form-check form-switch custom-switch p-3 bg-light-subtle rounded d-flex justify-content-between align-items-center border">
+                                        <label class="form-check-label fw-semibold" for="waterResistant">
+                                            <i class="fa-solid fa-droplet me-2 text-primary"></i> Requires Water
+                                            Resistance?
+                                        </label>
+                                        <input class="form-check-input ms-3" type="checkbox" role="switch"
+                                            id="waterResistant">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit"
+                                        class="btn btn-success btn-lg w-100 rounded-pill shadow btn-glow position-relative overflow-hidden"
+                                        id="submitBtn">
+                                        <span class="btn-text">Find Best Packaging</span>
+                                        <div class="spinner-border spinner-border-sm text-white ms-2 d-none"
+                                            role="status" id="loadingSpinner"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-huge bg-light-subtle d-none">
+        <div class="container">
+            <div class="text-center mb-5 fade-in-up">
+                <h2 class="fw-bold">Recommended Materials</h2>
+                <div id="aiInsightBox" class="alert alert-success d-none mx-auto mt-3 shadow-sm"
+                    style="max-width: 800px;">
+                    <i class="fa-solid fa-wand-magic-sparkles me-2"></i> <span id="aiInsightText"></span>
+                </div>
+                <p class="text-muted mt-2">Ranked by our AI for best balance of cost, CO₂, and sustainability.</p>
+                <div class="badge bg-white text-dark shadow-sm px-3 py-2 rounded-pill mt-2 border">
+                    <span id="resultCount">0</span> Matches Found
+                </div>
+            </div>
+
+            <div class="row g-4" id="resultsGrid">
+                <!-- Cards will be injected here via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0 text-white-50 small">&copy; 2026 EcoPackAI. Built for Sustainability.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

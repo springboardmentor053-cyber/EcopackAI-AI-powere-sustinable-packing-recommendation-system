@@ -1,0 +1,86 @@
+material_id,eco_alternative,category,weight_capacity_upto
+MAT002,Molded Pulp,Skincare,1
+MAT002,Molded Pulp,Face Care,1
+MAT012,Hemp Fiber,Cosmetics,2
+MAT012,Hemp Fiber,Premium Beauty,2
+MAT034,Starch-Based Film,Toiletries,1
+MAT034,Starch-Based Film,Travel Kits,1
+MAT017,Paper Foam,Soaps,1
+MAT017,Paper Foam,Bath Products,1
+MAT008,PLA Plastic,Creams & Lotions,1
+MAT008,PLA Plastic,Cosmetic Containers,1
+MAT021,Recycled Molded Fiber,FMCG Products,2
+MAT021,Recycled Molded Fiber,Household Care,2
+MAT033,Recycled Paper Foam,Perfumes,1
+MAT033,Recycled Paper Foam,Gift Sets,1
+MAT026,Paper Honeycomb,Bulk FMCG,5
+MAT001,Corrugated Cardboard,Clothing,1
+MAT001,Corrugated Cardboard,Accessories,1
+MAT007,Recycled Paperboard,Electronics,4
+MAT007,Recycled Paperboard,Gadgets,5
+MAT016,Recycled Carton,Home Essentials,3
+MAT016,Recycled Carton,Stationery,2
+MAT021,Recycled Molded Fiber,Beauty Products,2
+MAT021,Recycled Molded Fiber,Personal Care,2
+MAT010,Sugarcane Bagasse,Toys,2
+MAT010,Sugarcane Bagasse,Eco Gifts,2
+MAT004,Kraft Paper,Books,1
+MAT004,Kraft Paper,Documents,1
+MAT009,Cornstarch Packaging,Gift Items,2
+MAT009,Cornstarch Packaging,Promotional Kits,2
+MAT033,Recycled Paper Foam,Fragile Items,3
+MAT033,Recycled Paper Foam,Handcrafted Items,3
+MAT029,Recycled Kraft Board,Subscription Boxes,4
+MAT029,Recycled Kraft Board,Monthly Kits,4
+MAT025,Areca Leaf Packaging,Eco Hampers,3
+MAT025,Areca Leaf Packaging,Sustainable Products,3
+MAT003,Biodegradable Plastic,Mobile Devices,2
+MAT003,Biodegradable Plastic,Chargers,2
+MAT006,Mushroom Packaging,Fragile Electronics,3
+MAT006,Mushroom Packaging,Glass Devices,3
+MAT011,Recycled PET,Appliances,8
+MAT011,Recycled PET,Heavy Electronics,8
+MAT018,Bio-Composite,Large Electronics,10
+MAT018,Bio-Composite,Industrial Electronics,12
+MAT026,Paper Honeycomb,Laptops,10
+MAT026,Paper Honeycomb,Monitors,10
+MAT028,Bio-Foam Sheet,Glass Items,5
+MAT028,Bio-Foam Sheet,Screens,5
+MAT031,Agro Waste Composite,Industrial Components,12
+MAT031,Agro Waste Composite,Machinery Parts,15
+MAT033,Recycled Paper Foam,Delicate Sensors,3
+MAT014,Palm Leaf Packaging,Meals,2
+MAT014,Palm Leaf Packaging,Lunch Boxes,2
+MAT015,Seaweed Packaging,Ready-to-Eat,1
+MAT015,Seaweed Packaging,Instant Foods,1
+MAT022,Wheat Straw Packaging,Snacks,1
+MAT022,Wheat Straw Packaging,Dry Foods,1
+MAT032,Cellulose Fiber Mold,Bakery Items,2
+MAT032,Cellulose Fiber Mold,Cakes,2
+MAT009,Cornstarch Packaging,Takeaway Meals,2
+MAT009,Cornstarch Packaging,Restaurant Orders,2
+MAT027,Bagasse Foam,Fast Food,2
+MAT027,Bagasse Foam,Combo Meals,2
+MAT020,Coconut Husk,Organic Meals,3
+MAT020,Coconut Husk,Traditional Food,3
+MAT024,Rice Husk Packaging,Street Food,2
+MAT024,Rice Husk Packaging,Local Snacks,2
+MAT010,Sugarcane Bagasse,Meal Trays,3
+MAT010,Sugarcane Bagasse,Food Combos,3
+MAT034,Starch-Based Film,Liquid Foods,1
+MAT034,Starch-Based Film,Sauce Packs,1
+MAT013,Jute Packaging,Clothing,5
+MAT013,Jute Packaging,Apparel,5
+MAT005,Bamboo Fiber,Lifestyle Products,6
+MAT005,Bamboo Fiber,Premium Shopping Bags,6
+MAT030,Natural Fiber Blend,Apparel,6
+MAT030,Natural Fiber Blend,Fashion Accessories,5
+MAT023,Banana Fiber,Organic Products,4
+MAT023,Banana Fiber,Handloom Items,4
+MAT014,Palm Leaf Packaging,Groceries,4
+MAT014,Palm Leaf Packaging,Organic Stores,4
+MAT019,Wood Wool,Decorative Items,3
+MAT019,Wood Wool,Gift Packaging,3
+MAT022,Wheat Straw Packaging,Retail Food Packs,2
+MAT022,Wheat Straw Packaging,Eco Retail,2
+MAT032,Cellulose Fiber Mold,Lightweight Goods,2
