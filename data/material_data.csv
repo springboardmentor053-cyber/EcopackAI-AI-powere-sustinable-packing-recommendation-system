@@ -1,0 +1,36 @@
+material_id,material_type,strength,weight_capacity_kg,biodegradability_score,co2_emission_score,recyclability_percent,cost_per_unit_inr,water_resistance,recycle_time_days,manufacturing_place
+1,Corrugated Cardboard,7,12,85,2.1,90,18,0,90,India
+2,Molded Pulp,6,8,92,1.8,88,15,0,60,India
+3,Biodegradable Plastic,8,15,65,3.9,60,28,1,180,China
+4,Kraft Paper,5,6,88,2,85,12,0,75,India
+5,Bamboo Fiber,9,18,95,1.6,92,35,1,120,Vietnam
+6,Mushroom Packaging,6,7,98,1.2,96,40,0,30,USA
+7,Recycled Paperboard,7,10,82,2.3,89,20,0,100,India
+8,PLA Plastic,8,14,70,3.4,65,30,1,160,Germany
+9,Cornstarch Packaging,6,9,90,2.5,80,22,0,110,India
+10,Sugarcane Bagasse,7,11,93,1.9,91,26,0,85,India
+11,Recycled PET,9,20,55,4.8,75,45,1,300,China
+12,Hemp Fiber,8,16,94,1.7,90,38,1,140,Nepal
+13,Jute Packaging,7,14,91,2.2,88,24,0,130,India
+14,Palm Leaf Packaging,6,8,96,1.5,93,19,0,50,India
+15,Seaweed Packaging,5,6,99,1.1,97,42,0,20,Indonesia
+16,Recycled Carton,7,10,80,2.6,87,21,0,95,India
+17,Paper Foam,6,9,86,2.4,84,23,0,100,India
+18,Bio-Composite,9,22,72,3.8,70,55,1,210,Japan
+19,Wood Wool,6,8,89,2.1,85,27,0,120,India
+20,Coconut Husk,7,12,94,1.8,92,29,0,90,India
+21,Recycled Molded Fiber,8,13,87,2,90,31,0,80,India
+22,Wheat Straw Packaging,6,7,95,1.4,94,18,0,60,India
+23,Banana Fiber,7,11,93,1.9,91,26,0,100,India
+24,Rice Husk Packaging,6,9,92,2,89,24,0,90,India
+25,Areca Leaf Packaging,5,6,97,1.3,95,17,0,40,India
+26,Paper Honeycomb,8,17,84,2.7,88,34,0,110,India
+27,Bagasse Foam,7,13,94,1.8,92,32,0,70,India
+28,Bio-Foam Sheet,6,10,78,3,82,28,1,150,Germany
+29,Recycled Kraft Board,7,14,83,2.4,89,27,0,120,India
+30,Natural Fiber Blend,8,16,90,2.2,88,36,1,140,India
+31,Agro Waste Composite,9,21,88,2.9,86,48,1,190,India
+32,Cellulose Fiber Mold,6,8,96,1.6,93,22,0,55,India
+33,Recycled Paper Foam,7,11,85,2.5,90,25,0,95,India
+34,Starch-Based Film,5,6,91,2.8,84,20,1,170,Thailand
+35,Natural Leaf Composite,6,9,97,1.7,95,28,0,65,India
