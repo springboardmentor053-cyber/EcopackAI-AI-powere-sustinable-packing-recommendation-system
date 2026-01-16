@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPackAI - BI Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --accent-color: #81c784;
+            --dark-bg: #1e1e1e;
+            --card-bg: #2d2d2d;
+            --text-color: #f1f8e9;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #121212 0%, #0d1f14 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(46, 125, 50, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(129, 199, 132, 0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            color: var(--accent-color) !important;
+        }
+
+        .dashboard-header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .chart-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">🌿 EcoPackAI</a>
+            <div class="d-flex">
+                <a href="/" class="btn btn-outline-success btn-sm me-2">Recommendation Engine</a>
+                <a href="/dashboard" class="btn btn-success btn-sm">Analytics Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-header">
+            <h2>Sustainability Analytics Dashboard</h2>
+            <p class="text-secondary">Data-driven insights into packaging sustainability and efficiency</p>
+        </div>
+
+        <div class="row">
+            <!-- CO2 Chart -->
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <h4 class="chart-title">Avg. CO₂ Emissions by Material</h4>
+                    <div id="co2Chart"></div>
+                </div>
+            </div>
+
+            <!-- Cost Chart -->
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <h4 class="chart-title">Cost per Unit Analysis</h4>
+                    <div id="costChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sustainability Distribution -->
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <h4 class="chart-title">Sustainability Score Distribution</h4>
+                    <div id="sustChart"></div>
+                </div>
+            </div>
+
+            <!-- Category Distribution -->
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <h4 class="chart-title">Materials per Product Category</h4>
+                    <div id="catChart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', fetchAnalyticsData);
+
+        async function fetchAnalyticsData() {
+            try {
+                const response = await fetch('/api/analytics/data');
+                const data = await response.json();
+
+                renderCo2Chart(data.co2_emissions);
+                renderCostChart(data.cost_data);
+                renderSustChart(data.sustainability_scores);
+                renderCatChart(data.category_counts);
+
+            } catch (error) {
+                console.error("Error loading dashboard data:", error);
+            }
+        }
+
+        // 1. CO2 Bar Chart
+        function renderCo2Chart(data) {
+            const materials = data.map(d => d.material_type);
+            const co2 = data.map(d => d.avg_co2);
+
+            const trace = {
+                x: materials,
+                y: co2,
+                type: 'bar',
+                marker: { color: '#81c784' }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#f1f8e9' },
+                xaxis: { title: 'Material Type', tickangle: -45 },
+                yaxis: { title: 'Avg CO₂ Score' },
+                margin: { b: 100 }
+            };
+
+            Plotly.newPlot('co2Chart', [trace], layout);
+        }
+
+        // 2. Cost Scatter/Bar Chart
+        function renderCostChart(data) {
+            const materials = data.map(d => d.material_type);
+            const costs = data.map(d => d.cost_per_unit_inr);
+
+            const trace = {
+                x: materials,
+                y: costs,
+                type: 'bar',
+                marker: { color: '#4db6ac' }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#f1f8e9' },
+                xaxis: { title: 'Material', tickangle: -45 },
+                yaxis: { title: 'Cost (INR)' },
+                margin: { b: 100 }
+            };
+
+            Plotly.newPlot('costChart', [trace], layout);
+        }
+
+        // 3. Sustainability Histogram
+        function renderSustChart(scores) {
+            const trace = {
+                x: scores,
+                type: 'histogram',
+                marker: { color: '#ffb74d' },
+                opacity: 0.7
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#f1f8e9' },
+                xaxis: { title: 'Sustainability Score' },
+                yaxis: { title: 'Count' }
+            };
+
+            Plotly.newPlot('sustChart', [trace], layout);
+        }
+
+        // 4. Category Pie Chart
+        function renderCatChart(data) {
+            const categories = data.map(d => d.category);
+            const counts = data.map(d => d.material_count);
+
+            const trace = {
+                labels: categories,
+                values: counts,
+                type: 'pie',
+                textinfo: 'label+percent',
+                marker: {
+                    colors: ['#2e7d32', '#388e3c', '#43a047', '#4caf50', '#66bb6a', '#81c784']
+                }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#f1f8e9' },
+                showlegend: false
+            };
+
+            Plotly.newPlot('catChart', [trace], layout);
+        }
+    </script>
+</body>
+
+</html>
