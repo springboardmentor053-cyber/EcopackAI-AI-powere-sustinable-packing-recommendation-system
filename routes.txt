@@ -1,0 +1,6 @@
+Map([<Rule '/static/<filename>' (HEAD, OPTIONS, GET) -> static>,
+ <Rule '/' (HEAD, OPTIONS, GET) -> main.home>,
+ <Rule '/dashboard' (HEAD, OPTIONS, GET) -> analytics.dashboard>,
+ <Rule '/api/analytics/data' (HEAD, OPTIONS, GET) -> analytics.get_analytics_data>,
+ <Rule '/api/health' (HEAD, OPTIONS, GET) -> api.health_check>,
+ <Rule '/api/recommend' (POST, OPTIONS) -> api.recommend_materials>])

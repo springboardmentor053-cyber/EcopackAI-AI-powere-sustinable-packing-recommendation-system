@@ -117,9 +117,25 @@
         document.addEventListener('DOMContentLoaded', fetchAnalyticsData);
 
         async function fetchAnalyticsData() {
+            if (typeof Plotly === 'undefined') {
+                document.querySelector('.dashboard-header').innerHTML += `<div class="alert alert-warning mt-3">⚠️ Error: Plotly charting library could not load. Please check your internet connection.</div>`;
+                return;
+            }
+
             try {
                 const response = await fetch('/api/analytics/data');
                 const data = await response.json();
+
+                if (data.error) {
+                    console.error("API Error:", data.error);
+                    document.querySelector('.dashboard-header').innerHTML += `<div class="alert alert-danger mt-3">Error loading data: ${data.error}</div>`;
+                    return;
+                }
+
+                if (!data.co2_emissions) {
+                    console.error("Invalid data format received");
+                    return;
+                }
 
                 renderCo2Chart(data.co2_emissions);
                 renderCostChart(data.cost_data);
@@ -128,6 +144,7 @@
 
             } catch (error) {
                 console.error("Error loading dashboard data:", error);
+                document.querySelector('.dashboard-header').innerHTML += `<div class="alert alert-danger mt-3">Connection Error: ${error.message}</div>`;
             }
         }
 
