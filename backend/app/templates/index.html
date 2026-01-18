@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPackAI - Sustainable Packaging Intelligence</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <span class="brand-icon">🌿</span>
+                EcoPack<span class="brand-highlight">AI</span>
+            </a>
+            <div class="d-flex align-items-center">
+                <button id="themeToggle" class="btn btn-sm" aria-label="Toggle Theme">
+                    🌙
+                </button>
+                <a href="/dashboard" class="btn btn-outline-theme btn-sm rounded-pill px-4">
+                    Analytics Dashboard
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+
+        <!-- Hero Header -->
+        <div class="text-center">
+            <h1 class="hero-title">Intelligent Sustainable<br>Packaging</h1>
+            <p class="hero-subtitle">
+                Optimize your supply chain with AI-driven material recommendations that balance cost efficiency with
+                environmental impact.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="row g-4 justify-content-center mb-5 fade-in-up">
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card text-center">
+                    <div class="feature-icon">🌱</div>
+                    <h5>Eco-Conscious</h5>
+                    <p class="small text-muted">Prioritizes biodegradable & recyclable options to lower carbon
+                        footprint.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card text-center">
+                    <div class="feature-icon">💰</div>
+                    <h5>Cost Effective</h5>
+                    <p class="small text-muted">Balances sustainability with manufacturing & shipping costs.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card text-center">
+                    <div class="feature-icon">🧠</div>
+                    <h5>AI Powered</h5>
+                    <p class="small text-muted">Smart algorithms match material properties to your product needs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card-header-label text-center mb-3">🚀 Start Your Optimization</div>
+
+                <!-- Input Card -->
+                <div class="main-card form-container">
+                    <form id="recommendationForm">
+                        <div class="mb-4">
+                            <label for="category" class="form-label">
+                                Product Category <span class="text-accent">*</span>
+                            </label>
+                            <select class="form-select" id="category" required data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Select the closest category for your item">
+                                <option value="" disabled selected>Select category...</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Food">Food / Perishable</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Furniture">Furniture</option>
+                                <option value="Gadgets">Gadgets</option>
+                                <option value="Home Essentials">Home Essentials</option>
+                                <option value="Toys">Toys</option>
+                                <option value="Personal Care">Personal Care</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="weight" class="form-label">Weight (kg) <span
+                                        class="text-accent">*</span></label>
+                                <input type="number" class="form-control" id="weight" step="0.1" min="0.1"
+                                    placeholder="0.0" required data-bs-toggle="tooltip"
+                                    title="Total weight of the individual product">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fragility" class="form-label">Fragility <span
+                                        class="text-accent">*</span></label>
+                                <select class="form-select" id="fragility" required data-bs-toggle="tooltip"
+                                    title="High fragility filters for stronger materials">
+                                    <option value="Low">Low</option>
+                                    <option value="Medium" selected>Medium</option>
+                                    <option value="High">High</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-5 p-3 rounded bg-highlight">
+                            <div class="form-check d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input" id="waterResistant">
+                                <label class="form-check-label ms-3 fw-bold" for="waterResistant">
+                                    Requires Water Resistance
+                                </label>
+                            </div>
+                            <div class="small text-muted mt-1 ms-4 ps-2">Check this if the package needs to withstand
+                                moisture or rain.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary shadow-lg py-3" id="submitBtn">
+                            <span class="fs-5">✨ Get Recommendations</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-container" id="loadingSpinner">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="loading-text">Analyzing material properties &amp; CO₂ impact...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="row justify-content-center results-section" id="resultsSection">
+            <div class="col-lg-10">
+                <div class="d-flex justify-content-between align-items-center mb-4 px-2">
+                    <h3 class="mb-0 text-white">Top Recommendations</h3>
+                    <button class="btn btn-sm btn-outline-light rounded-pill" onclick="resetForm()">
+                        Clear &amp; New Search
+                    </button>
+                </div>
+
+                <div class="main-card p-0 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table-custom mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Material</th>
+                                    <th>Suitability</th>
+                                    <th>Est. Cost</th>
+                                    <th>Impact</th>
+                                    <th>Origin</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsTableBody">
+                                <!-- JS Injection -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <p class="text-center text-muted mt-4 small">
+                    * Scores are calculated based on weighted averages of biodegradability, recyclability, and cost
+                    efficiency.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

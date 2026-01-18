@@ -1,0 +1,86 @@
+material_id,eco_alternative,category,weight_capacity_upto
+1,Corrugated Cardboard,Clothing,1
+1,Corrugated Cardboard,Accessories,1
+7,Recycled Paperboard,Electronics,4
+7,Recycled Paperboard,Gadgets,5
+16,Recycled Carton,Home Essentials,3
+16,Recycled Carton,Stationery,2
+21,Recycled Molded Fiber,Beauty Products,2
+21,Recycled Molded Fiber,Personal Care,2
+10,Sugarcane Bagasse,Toys,2
+10,Sugarcane Bagasse,Eco Gifts,2
+4,Kraft Paper,Books,1
+4,Kraft Paper,Documents,1
+9,Cornstarch Packaging,Gift Items,2
+9,Cornstarch Packaging,Promotional Kits,2
+33,Recycled Paper Foam,Fragile Items,3
+33,Recycled Paper Foam,Handcrafted Items,3
+29,Recycled Kraft Board,Subscription Boxes,4
+29,Recycled Kraft Board,Monthly Kits,4
+25,Areca Leaf Packaging,Eco Hampers,3
+25,Areca Leaf Packaging,Sustainable Products,3
+2,Molded Pulp,Skincare,1
+2,Molded Pulp,Face Care,1
+12,Hemp Fiber,Cosmetics,2
+12,Hemp Fiber,Premium Beauty,2
+34,Starch-Based Film,Toiletries,1
+34,Starch-Based Film,Travel Kits,1
+17,Paper Foam,Soaps,1
+17,Paper Foam,Bath Products,1
+8,PLA Plastic,Creams & Lotions,1
+8,PLA Plastic,Cosmetic Containers,1
+21,Recycled Molded Fiber,FMCG Products,2
+21,Recycled Molded Fiber,Household Care,2
+33,Recycled Paper Foam,Perfumes,1
+33,Recycled Paper Foam,Gift Sets,1
+26,Paper Honeycomb,Bulk FMCG,5
+3,Biodegradable Plastic,Mobile Devices,2
+3,Biodegradable Plastic,Chargers,2
+6,Mushroom Packaging,Fragile Electronics,3
+6,Mushroom Packaging,Glass Devices,3
+11,Recycled PET,Appliances,8
+11,Recycled PET,Heavy Electronics,8
+18,Bio-Composite,Large Electronics,10
+18,Bio-Composite,Industrial Electronics,12
+26,Paper Honeycomb,Laptops,10
+26,Paper Honeycomb,Monitors,10
+28,Bio-Foam Sheet,Glass Items,5
+28,Bio-Foam Sheet,Screens,5
+31,Agro Waste Composite,Industrial Components,12
+31,Agro Waste Composite,Machinery Parts,15
+33,Recycled Paper Foam,Delicate Sensors,3
+14,Palm Leaf Packaging,Meals,2
+14,Palm Leaf Packaging,Lunch Boxes,2
+15,Seaweed Packaging,Ready-to-Eat,1
+15,Seaweed Packaging,Instant Foods,1
+22,Wheat Straw Packaging,Snacks,1
+22,Wheat Straw Packaging,Dry Foods,1
+32,Cellulose Fiber Mold,Bakery Items,2
+32,Cellulose Fiber Mold,Cakes,2
+9,Cornstarch Packaging,Takeaway Meals,2
+9,Cornstarch Packaging,Restaurant Orders,2
+27,Bagasse Foam,Fast Food,2
+27,Bagasse Foam,Combo Meals,2
+20,Coconut Husk,Organic Meals,3
+20,Coconut Husk,Traditional Food,3
+24,Rice Husk Packaging,Street Food,2
+24,Rice Husk Packaging,Local Snacks,2
+10,Sugarcane Bagasse,Meal Trays,3
+10,Sugarcane Bagasse,Food Combos,3
+34,Starch-Based Film,Liquid Foods,1
+34,Starch-Based Film,Sauce Packs,1
+13,Jute Packaging,Clothing,5
+13,Jute Packaging,Apparel,5
+5,Bamboo Fiber,Lifestyle Products,6
+5,Bamboo Fiber,Premium Shopping Bags,6
+30,Natural Fiber Blend,Apparel,6
+30,Natural Fiber Blend,Fashion Accessories,5
+23,Banana Fiber,Organic Products,4
+23,Banana Fiber,Handloom Items,4
+14,Palm Leaf Packaging,Groceries,4
+14,Palm Leaf Packaging,Organic Stores,4
+19,Wood Wool,Decorative Items,3
+19,Wood Wool,Gift Packaging,3
+22,Wheat Straw Packaging,Retail Food Packs,2
+22,Wheat Straw Packaging,Eco Retail,2
+32,Cellulose Fiber Mold,Lightweight Goods,2
