@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
     // Theme Toggle Logic
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;

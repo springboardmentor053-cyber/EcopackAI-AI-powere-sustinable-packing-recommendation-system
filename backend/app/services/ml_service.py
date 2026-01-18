@@ -65,37 +65,22 @@ class MLService:
         # 1.5 Filter Initial Candidates
         candidates_filtered = candidates_df.copy()
 
-        # Filter by Water Resistance (Initial Check)
+        # Debug: Print found candidates
+        print(f"🔍 Candidates for '{product_category}': {len(candidates_df)} found in DB.")
+
+        # Filter by Water Resistance
         if water_resistant and not candidates_filtered.empty:
              candidates_filtered = candidates_filtered[candidates_filtered['water_resistance'] >= 1]
+             print(f"   Shape after water_resistance filter: {candidates_filtered.shape}")
 
-        # Filter by Fragility (Initial Check)
+        # Filter by Fragility
         if fragility == 'High' and not candidates_filtered.empty:
              candidates_filtered = candidates_filtered[candidates_filtered['strength'] >= 7]
+             print(f"   Shape after fragility filter: {candidates_filtered.shape}")
 
-        # If filtering reduced candidates to zero, OR if original query was empty, trigger fallback
-        if candidates_filtered.empty:
-            print(f"⚠️ No exact matches found for category '{product_category}' with specific constraints. Switching to broad search...")
-            query_fallback = f"""
-            SELECT 
-                material_id, 
-                material_type, 
-                strength, 
-                weight_capacity_kg, 
-                biodegradability_score, 
-                recyclability_percent, 
-                water_resistance,
-                manufacturing_place
-            FROM features_engineering
-            WHERE weight_capacity_kg >= {product_weight_kg}
-            """
-            try:
-                candidates_df = pd.read_sql(query_fallback, engine)
-            except Exception as e:
-                print(f"❌ Error fetching fallback candidates: {e}")
-                return pd.DataFrame()
-        else:
-            candidates_df = candidates_filtered
+        # Strict Category Enforcement: Do NOT fallback to broad search if category yields results.
+        # Only if the database has absolutely NO mapping for this category should we potentially warn or return empty.
+        candidates_df = candidates_filtered
 
         if candidates_df.empty:
             return pd.DataFrame()

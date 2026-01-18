@@ -46,15 +46,46 @@
             </p>
         </div>
 
+        <!-- Features Grid -->
+        <div class="row g-4 justify-content-center mb-5 fade-in-up">
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card text-center">
+                    <div class="feature-icon">🌱</div>
+                    <h5>Eco-Conscious</h5>
+                    <p class="small text-muted">Prioritizes biodegradable & recyclable options to lower carbon
+                        footprint.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card text-center">
+                    <div class="feature-icon">💰</div>
+                    <h5>Cost Effective</h5>
+                    <p class="small text-muted">Balances sustainability with manufacturing & shipping costs.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="feature-card text-center">
+                    <div class="feature-icon">🧠</div>
+                    <h5>AI Powered</h5>
+                    <p class="small text-muted">Smart algorithms match material properties to your product needs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
         <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
+            <div class="col-lg-8">
+                <div class="card-header-label text-center mb-3">🚀 Start Your Optimization</div>
 
                 <!-- Input Card -->
-                <div class="main-card">
+                <div class="main-card form-container">
                     <form id="recommendationForm">
                         <div class="mb-4">
-                            <label for="category" class="form-label">Product Category</label>
-                            <select class="form-select" id="category" required>
+                            <label for="category" class="form-label">
+                                Product Category <span class="text-accent">*</span>
+                            </label>
+                            <select class="form-select" id="category" required data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Select the closest category for your item">
                                 <option value="" disabled selected>Select category...</option>
                                 <option value="Electronics">Electronics</option>
                                 <option value="Food">Food / Perishable</option>
@@ -69,14 +100,18 @@
                         </div>
 
                         <div class="row mb-4">
-                            <div class="col-6">
-                                <label for="weight" class="form-label">Weight (kg)</label>
+                            <div class="col-md-6">
+                                <label for="weight" class="form-label">Weight (kg) <span
+                                        class="text-accent">*</span></label>
                                 <input type="number" class="form-control" id="weight" step="0.1" min="0.1"
-                                    placeholder="0.0" required>
+                                    placeholder="0.0" required data-bs-toggle="tooltip"
+                                    title="Total weight of the individual product">
                             </div>
-                            <div class="col-6">
-                                <label for="fragility" class="form-label">Fragility</label>
-                                <select class="form-select" id="fragility" required>
+                            <div class="col-md-6">
+                                <label for="fragility" class="form-label">Fragility <span
+                                        class="text-accent">*</span></label>
+                                <select class="form-select" id="fragility" required data-bs-toggle="tooltip"
+                                    title="High fragility filters for stronger materials">
                                     <option value="Low">Low</option>
                                     <option value="Medium" selected>Medium</option>
                                     <option value="High">High</option>
@@ -84,17 +119,19 @@
                             </div>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-5 p-3 rounded bg-highlight">
                             <div class="form-check d-flex align-items-center">
                                 <input type="checkbox" class="form-check-input" id="waterResistant">
-                                <label class="form-check-label ms-2" for="waterResistant">
+                                <label class="form-check-label ms-3 fw-bold" for="waterResistant">
                                     Requires Water Resistance
                                 </label>
                             </div>
+                            <div class="small text-muted mt-1 ms-4 ps-2">Check this if the package needs to withstand
+                                moisture or rain.</div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary shadow-lg" id="submitBtn">
-                            Get Recommendations
+                        <button type="submit" class="btn btn-primary shadow-lg py-3" id="submitBtn">
+                            <span class="fs-5">✨ Get Recommendations</span>
                         </button>
                     </form>
                 </div>

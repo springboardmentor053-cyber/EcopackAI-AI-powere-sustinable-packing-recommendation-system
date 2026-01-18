@@ -30,11 +30,15 @@ def get_analytics_data():
         df_cost = analytics_service.get_cost_distribution()
         cost_data = df_cost.to_dict(orient='records')
 
+        # 5. Summary KPIs
+        kpis = analytics_service.get_summary_kpis()
+
         return jsonify({
             "co2_emissions": co2_data,
             "category_counts": category_data,
             "sustainability_scores": sust_scores,
-            "cost_data": cost_data
+            "cost_data": cost_data,
+            "kpis": kpis
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
