@@ -4,211 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPackAI - Sustainable Packaging Recommender</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>EcoPackAI - Sustainable Packaging Intelligence</title>
+
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2e7d32;
-            --accent-color: #81c784;
-            --dark-bg: #1e1e1e;
-            --card-bg: #2d2d2d;
-            --text-color: #f1f8e9;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #121212 0%, #0d1f14 100%);
-            color: var(--text-color);
-            min-height: 100vh;
-        }
-
-        .navbar {
-            background-color: rgba(46, 125, 50, 0.1);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(129, 199, 132, 0.2);
-        }
-
-        .navbar-brand {
-            font-weight: 600;
-            color: var(--accent-color) !important;
-            font-size: 1.5rem;
-        }
-
-        .hero-section {
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            background: linear-gradient(90deg, #A5D6A7, #E8F5E9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .main-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-label {
-            color: #b0bec5;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-control,
-        .form-select {
-            background-color: #3d3d3d;
-            border: 1px solid #555;
-            color: white;
-            border-radius: 8px;
-            padding: 0.75rem;
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            background-color: #454545;
-            border-color: var(--accent-color);
-            color: white;
-            box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), #43a047);
-            border: none;
-            padding: 0.8rem;
-            font-weight: 600;
-            border-radius: 8px;
-            width: 100%;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(67, 160, 71, 0.4);
-            background: linear-gradient(135deg, #1b5e20, #2e7d32);
-        }
-
-        .results-section {
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .table-custom {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 8px;
-        }
-
-        .table-custom th {
-            color: #9e9e9e;
-            font-weight: 500;
-            padding: 1rem;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .result-row {
-            background-color: #373737;
-            transition: transform 0.2s;
-        }
-
-        .result-row:hover {
-            transform: scale(1.01);
-            background-color: #424242;
-        }
-
-        .result-row td {
-            padding: 1rem;
-            color: white;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .result-row td:first-child {
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-            border-left: 1px solid rgba(255, 255, 255, 0.05);
-            font-weight: 600;
-            color: var(--accent-color);
-        }
-
-        .result-row td:last-child {
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .score-badge {
-            background-color: rgba(129, 199, 132, 0.2);
-            color: var(--accent-color);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .loading-spinner {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-            color: var(--accent-color);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                🌿 EcoPackAI
+            <a class="navbar-brand" href="/">
+                <span class="brand-icon">🌿</span>
+                EcoPack<span class="brand-highlight">AI</span>
             </a>
-            <span class="navbar-text text-light opacity-75">
-                AI-Powered Sustainable Packaging
-            </span>
+            <div class="d-flex align-items-center">
+                <button id="themeToggle" class="btn btn-sm" aria-label="Toggle Theme">
+                    🌙
+                </button>
+                <a href="/dashboard" class="btn btn-outline-theme btn-sm rounded-pill px-4">
+                    Analytics Dashboard
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container py-5">
 
-        <div class="hero-section">
-            <h1 class="hero-title">Find the Perfect Sustainable Packaging</h1>
-            <p class="text-light opacity-75">Get AI-driven recommendations based on cost efficiency and CO₂ impact.</p>
+        <!-- Hero Header -->
+        <div class="text-center">
+            <h1 class="hero-title">Intelligent Sustainable<br>Packaging</h1>
+            <p class="hero-subtitle">
+                Optimize your supply chain with AI-driven material recommendations that balance cost efficiency with
+                environmental impact.
+            </p>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
-                <!-- Input Form -->
+                <!-- Input Card -->
                 <div class="main-card">
-                    <form id="recommendationForm" onsubmit="handleFormSubmit(event)">
-                        <div class="mb-3">
+                    <form id="recommendationForm">
+                        <div class="mb-4">
                             <label for="category" class="form-label">Product Category</label>
                             <select class="form-select" id="category" required>
                                 <option value="" disabled selected>Select category...</option>
@@ -224,22 +68,32 @@
                             </select>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="weight" class="form-label">Product Weight (kg)</label>
-                            <input type="number" class="form-control" id="weight" step="0.1" min="0.1"
-                                placeholder="e.g. 2.5" required>
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <label for="weight" class="form-label">Weight (kg)</label>
+                                <input type="number" class="form-control" id="weight" step="0.1" min="0.1"
+                                    placeholder="0.0" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="fragility" class="form-label">Fragility</label>
+                                <select class="form-select" id="fragility" required>
+                                    <option value="Low">Low</option>
+                                    <option value="Medium" selected>Medium</option>
+                                    <option value="High">High</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="fragility" class="form-label">Fragility Level</label>
-                            <select class="form-select" id="fragility" required>
-                                <option value="Low">Low</option>
-                                <option value="Medium" selected>Medium</option>
-                                <option value="High">High</option>
-                            </select>
+                        <div class="mb-5">
+                            <div class="form-check d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input" id="waterResistant">
+                                <label class="form-check-label ms-2" for="waterResistant">
+                                    Requires Water Resistance
+                                </label>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <button type="submit" class="btn btn-primary shadow-lg" id="submitBtn">
                             Get Recommendations
                         </button>
                     </form>
@@ -249,128 +103,55 @@
         </div>
 
         <!-- Loading State -->
-        <div class="loading-spinner" id="loadingSpinner">
-            <div class="spinner-border text-success" role="status">
+        <div class="loading-container" id="loadingSpinner">
+            <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-            <p class="mt-3">Analyzing sustainable materials...</p>
+            <p class="loading-text">Analyzing material properties &amp; CO₂ impact...</p>
         </div>
 
         <!-- Results Section -->
-        <div class="row justify-content-center results-section" id="resultsSection" style="display:none;">
-            <div class="col-md-10">
-                <h3 class="text-center mb-4" style="color: var(--accent-color);">Top Recommendations</h3>
-
-                <div class="table-responsive">
-                    <table class="table-custom">
-                        <thead>
-                            <tr>
-                                <th>Material Type</th>
-                                <th>Suitability Score</th>
-                                <th>Predicted Cost (INR)</th>
-                                <th>CO₂ Impact Score</th>
-                                <th>Max Weight (kg)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="resultsTableBody">
-                            <!-- Rows will be injected here -->
-                        </tbody>
-                    </table>
+        <div class="row justify-content-center results-section" id="resultsSection">
+            <div class="col-lg-10">
+                <div class="d-flex justify-content-between align-items-center mb-4 px-2">
+                    <h3 class="mb-0 text-white">Top Recommendations</h3>
+                    <button class="btn btn-sm btn-outline-light rounded-pill" onclick="resetForm()">
+                        Clear &amp; New Search
+                    </button>
                 </div>
 
-                <div class="text-center mt-4">
-                    <button class="btn btn-outline-light btn-sm" onclick="resetForm()">Check Another Product</button>
+                <div class="main-card p-0 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table-custom mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Material</th>
+                                    <th>Suitability</th>
+                                    <th>Est. Cost</th>
+                                    <th>Impact</th>
+                                    <th>Origin</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsTableBody">
+                                <!-- JS Injection -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
+                <p class="text-center text-muted mt-4 small">
+                    * Scores are calculated based on weighted averages of biodegradability, recyclability, and cost
+                    efficiency.
+                </p>
             </div>
         </div>
 
     </div>
 
-    <!-- Bootstrap Bundle JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-
-            // UI State
-            const submitBtn = document.getElementById('submitBtn');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const resultsSection = document.getElementById('resultsSection');
-
-            submitBtn.disabled = true;
-            resultsSection.style.display = 'none';
-            loadingSpinner.style.display = 'block';
-
-            // Get Data
-            const category = document.getElementById('category').value;
-            const weight = document.getElementById('weight').value;
-            const fragility = document.getElementById('fragility').value;
-
-            try {
-                const response = await fetch('/api/recommend', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        product_category: category,
-                        weight_kg: weight,
-                        fragility: fragility
-                    })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.recommendations && data.recommendations.length > 0) {
-                    renderResults(data.recommendations);
-                } else {
-                    alert(data.message || "No recommendations found. Try different criteria.");
-                }
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert("Failed to connect to the server. Please try again.");
-            } finally {
-                loadingSpinner.style.display = 'none';
-                submitBtn.disabled = false;
-            }
-        }
-
-        function renderResults(recommendations) {
-            const tbody = document.getElementById('resultsTableBody');
-            tbody.innerHTML = '';
-            const resultsSection = document.getElementById('resultsSection');
-
-            recommendations.forEach(item => {
-                const row = document.createElement('tr');
-                row.className = 'result-row';
-
-                // Format numbers
-                const score = parseFloat(item.final_rank_score).toFixed(2);
-                const cost = parseFloat(item.predicted_cost_inr).toFixed(2);
-                const co2 = parseFloat(item.predicted_co2_score).toFixed(2);
-
-                row.innerHTML = `
-                    <td>${item.material_type}</td>
-                    <td><span class="score-badge">${score}</span></td>
-                    <td>₹${cost}</td>
-                    <td>${co2}</td>
-                    <td>${item.weight_capacity_kg} kg</td>
-                `;
-                tbody.appendChild(row);
-            });
-
-            resultsSection.style.display = 'block';
-            resultsSection.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function resetForm() {
-            document.getElementById('recommendationForm').reset();
-            document.getElementById('resultsSection').style.display = 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>

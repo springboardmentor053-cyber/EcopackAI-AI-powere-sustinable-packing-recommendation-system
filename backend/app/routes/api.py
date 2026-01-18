@@ -24,13 +24,15 @@ def recommend_materials():
         weight_kg = float(data.get('weight_kg'))
         category = data.get('product_category', 'General')
         fragility = data.get('fragility', 'Medium')
+        water_resistant = data.get('water_resistant', False)
         
-        logger.info(f"Request: Weight={weight_kg}, Category={category}")
+        logger.info(f"Request: Weight={weight_kg}, Category={category}, WaterResist={water_resistant}")
         
         recommendations = ml_service.get_recommendations(
             product_weight_kg=weight_kg, 
             product_category=category,
-            fragility=fragility
+            fragility=fragility,
+            water_resistant=water_resistant
         )
         
         if recommendations.empty:

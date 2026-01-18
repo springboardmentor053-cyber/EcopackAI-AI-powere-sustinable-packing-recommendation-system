@@ -27,7 +27,8 @@ def feature_engineering():
             co2_emission_score,
             recyclability_percent,
             cost_per_unit_inr,
-            water_resistance
+            water_resistance,
+            manufacturing_place
         FROM public.materials;
         """
         

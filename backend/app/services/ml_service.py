@@ -32,7 +32,7 @@ class MLService:
         except Exception as e:
             print(f"❌ Error loading ML models: {e}")
 
-    def get_recommendations(self, product_weight_kg, product_category, fragility='Medium', top_n=5):
+    def get_recommendations(self, product_weight_kg, product_category, fragility='Medium', water_resistant=False, top_n=5):
         """Recommend materials based on product constraints and ML predictions."""
         engine = db_service.get_engine()
         if engine is None:
@@ -48,7 +48,8 @@ class MLService:
             fe.weight_capacity_kg, 
             fe.biodegradability_score, 
             fe.recyclability_percent, 
-            fe.water_resistance
+            fe.water_resistance,
+            fe.manufacturing_place
         FROM features_engineering fe
         JOIN product_material pm ON fe.material_id = pm.material_id
         WHERE pm.category = '{product_category}' 
@@ -61,9 +62,20 @@ class MLService:
             print(f"❌ Error fetching candidates: {e}")
             return pd.DataFrame()
 
-        # Fallback: If no category-specific materials found, search all compatible materials
-        if candidates_df.empty:
-            print(f"⚠️ No exact matches for category '{product_category}'. broad search...")
+        # 1.5 Filter Initial Candidates
+        candidates_filtered = candidates_df.copy()
+
+        # Filter by Water Resistance (Initial Check)
+        if water_resistant and not candidates_filtered.empty:
+             candidates_filtered = candidates_filtered[candidates_filtered['water_resistance'] >= 1]
+
+        # Filter by Fragility (Initial Check)
+        if fragility == 'High' and not candidates_filtered.empty:
+             candidates_filtered = candidates_filtered[candidates_filtered['strength'] >= 7]
+
+        # If filtering reduced candidates to zero, OR if original query was empty, trigger fallback
+        if candidates_filtered.empty:
+            print(f"⚠️ No exact matches found for category '{product_category}' with specific constraints. Switching to broad search...")
             query_fallback = f"""
             SELECT 
                 material_id, 
@@ -72,7 +84,8 @@ class MLService:
                 weight_capacity_kg, 
                 biodegradability_score, 
                 recyclability_percent, 
-                water_resistance
+                water_resistance,
+                manufacturing_place
             FROM features_engineering
             WHERE weight_capacity_kg >= {product_weight_kg}
             """
@@ -81,17 +94,24 @@ class MLService:
             except Exception as e:
                 print(f"❌ Error fetching fallback candidates: {e}")
                 return pd.DataFrame()
+        else:
+            candidates_df = candidates_filtered
 
         if candidates_df.empty:
             return pd.DataFrame()
             
-        # 1.5 Filter by Fragility
+        # Re-apply filters to the (potentially new) fallback dataset
+        if water_resistant:
+            candidates_df = candidates_df[candidates_df['water_resistance'] >= 1]
+            if candidates_df.empty:
+                 print("⚠️ No materials found with water resistance even in broad search.")
+                 return pd.DataFrame()
+
         if fragility == 'High':
-            # Require high strength for fragile items
             candidates_df = candidates_df[candidates_df['strength'] >= 7]
             if candidates_df.empty:
-                print("⚠️ No materials found with sufficient strength for High fragility.")
-                return pd.DataFrame()
+                 print("⚠️ No materials found with high strength even in broad search.")
+                 return pd.DataFrame()
 
         # 2. Prepare Features for Prediction
         X = candidates_df[[
