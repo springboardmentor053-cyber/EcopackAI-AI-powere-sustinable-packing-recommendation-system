@@ -15,29 +15,30 @@
         .intro-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            /* Increased padding */
+            border-radius: 20px;
+            padding: 3rem;
+            /* Further Increased padding */
             height: 100%;
             transition: transform 0.3s;
         }
 
         .intro-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--accent-color);
         }
 
         .step-number {
-            font-size: 3rem;
-            /* Increased from 2rem */
-            font-weight: 700;
+            font-size: 4rem;
+            /* Massive step numbers */
+            font-weight: 800;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .concept-icon {
-            font-size: 3rem;
-            /* Increased form 2.5rem */
+            font-size: 4rem;
+            /* Massive icons */
             margin-bottom: 1.5rem;
         }
     </style>
@@ -45,15 +46,16 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top p-3">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <span class="brand-icon" style="font-size: 1.8rem;">🌿</span>
-                <span style="font-size: 1.5rem;">EcoPack<span class="brand-highlight">AI</span></span>
+                <span class="brand-icon" style="font-size: 2.5rem;">🌿</span>
+                <span style="font-size: 2rem; font-weight: 700;">EcoPack<span class="brand-highlight">AI</span></span>
             </a>
             <div class="d-flex align-items-center">
-                <button id="themeToggle" class="btn btn-sm me-2" aria-label="Toggle Theme">🌙</button>
-                <a href="/dashboard" class="btn btn-outline-theme btn-sm rounded-pill px-4 fs-6">
+                <button id="themeToggle" class="btn btn-lg me-3" style="font-size: 1.5rem;"
+                    aria-label="Toggle Theme">🌙</button>
+                <a href="/dashboard" class="btn btn-outline-theme rounded-pill px-5 fs-5 fw-bold">
                     Analytics
                 </a>
             </div>
@@ -63,82 +65,83 @@
     <div class="container py-5">
 
         <!-- Hero Section -->
-        <div class="text-center mb-5 pb-5 fade-in-up">
-            <h1 class="hero-title" style="font-size: 5rem;">Sustainable Packaging Intelligence</h1>
-            <p class="hero-subtitle mx-auto fs-3 text-muted" style="max-width: 800px;">
+        <div class="text-center mb-5 pb-5 fade-in-up" style="margin-top: 3rem;">
+            <h1 class="hero-title" style="font-size: 6rem; line-height: 1.1;">Sustainable Packaging Intelligence</h1>
+            <p class="hero-subtitle mx-auto text-muted mt-4" style="max-width: 900px; font-size: 1.75rem;">
                 AI-driven recommendations to minimize carbon footprint and optimize costs for your product packaging.
             </p>
             <a href="/recommendation"
-                class="btn btn-primary d-inline-flex align-items-center px-5 py-4 rounded-pill mt-4 shadow-lg">
-                <span class="fs-4 me-2">🚀</span> <span class="fs-4 fw-bold">Get Started</span>
+                class="btn btn-primary d-inline-flex align-items-center px-5 py-4 rounded-pill mt-5 shadow-lg">
+                <span class="me-3" style="font-size: 2rem;">🚀</span> <span class="fw-bold"
+                    style="font-size: 1.8rem;">Get Started</span>
             </a>
         </div>
 
         <!-- Concepts Grid -->
-        <div class="row g-4 mb-5 pb-5">
+        <div class="row g-5 mb-5 pb-5">
             <div class="col-12 text-center mb-4">
-                <h2 class="text-white fw-bold display-5">Why EcoPackAI?</h2>
-                <p class="text-muted fs-4">Balancing environmental responsibility with business efficiency.</p>
+                <h2 class="text-white fw-bold display-4">Why EcoPackAI?</h2>
+                <p class="text-muted fs-3">Balancing environmental responsibility with business efficiency.</p>
             </div>
 
             <div class="col-md-4">
                 <div class="intro-card text-center">
                     <div class="concept-icon">🌍</div>
-                    <h4>CO₂ Reduction</h4>
-                    <p class="text-muted fs-5">We analyze the carbon footprint of materials from manufacturing to
+                    <h3 class="fw-bold mb-3">CO₂ Reduction</h3>
+                    <p class="text-muted fs-4">We analyze the carbon footprint of materials from manufacturing to
                         disposal, helping you choose options that reduce global warming potential.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="intro-card text-center">
                     <div class="concept-icon">♻️</div>
-                    <h4>Circular Economy</h4>
-                    <p class="text-muted fs-5">Prioritizing biodegradability and recyclability. Move away from
+                    <h3 class="fw-bold mb-3">Circular Economy</h3>
+                    <p class="text-muted fs-4">Prioritizing biodegradability and recyclability. Move away from
                         single-use plastics to regenerative material cycles.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="intro-card text-center">
                     <div class="concept-icon">📉</div>
-                    <h4>Cost Efficiency</h4>
-                    <p class="text-muted fs-5">Sustainability shouldn't break the bank. Our Machine Learning models
+                    <h3 class="fw-bold mb-3">Cost Efficiency</h3>
+                    <p class="text-muted fs-4">Sustainability shouldn't break the bank. Our Machine Learning models
                         predict cost per unit to find the sweet spot between Green and Lean.</p>
                 </div>
             </div>
         </div>
 
         <!-- How It Works -->
-        <div class="row g-4 justify-content-center">
+        <div class="row g-5 justify-content-center">
             <div class="col-12 text-center mb-4">
-                <h2 class="text-white fw-bold display-5">How It Works</h2>
+                <h2 class="text-white fw-bold display-4">How It Works</h2>
             </div>
 
             <div class="col-md-3">
-                <div class="p-3">
+                <div class="p-4">
                     <div class="step-number">01</div>
-                    <h5 class="fw-bold fs-4">Input Details</h5>
+                    <h4 class="fw-bold fs-3">Input Details</h4>
                     <p class="text-muted fs-5">Enter your product's weight, category, and fragility requirements.</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-3">
+                <div class="p-4">
                     <div class="step-number">02</div>
-                    <h5 class="fw-bold fs-4">AI Analysis</h5>
+                    <h4 class="fw-bold fs-3">AI Analysis</h4>
                     <p class="text-muted fs-5">Our algorithms filter suitable materials and predict their cost &
                         eco-impact.</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-3">
+                <div class="p-4">
                     <div class="step-number">03</div>
-                    <h5 class="fw-bold fs-4">Recommendation</h5>
+                    <h4 class="fw-bold fs-3">Recommendation</h4>
                     <p class="text-muted fs-5">Review the ranked list of materials and choose the best fit.</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-3">
+                <div class="p-4">
                     <div class="step-number">04</div>
-                    <h5 class="fw-bold fs-4">Dashboard</h5>
+                    <h4 class="fw-bold fs-3">Dashboard</h4>
                     <p class="text-muted fs-5">Track overall sustainability metrics on the Analytics Dashboard.</p>
                 </div>
             </div>
