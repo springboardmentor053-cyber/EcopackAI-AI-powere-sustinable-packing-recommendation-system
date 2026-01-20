@@ -14,9 +14,11 @@ def create_app(config_name='dev'):
     from .routes.api import api_bp
     from .routes.main import main_bp
     from .routes.analytics import analytics_bp
+    from .routes.learning import learning_bp
     
     app.register_blueprint(main_bp)
-    app.register_blueprint(analytics_bp) # analytics routes start with /dashboard and /api/analytics
+    app.register_blueprint(analytics_bp) 
+    app.register_blueprint(learning_bp)
     app.register_blueprint(api_bp, url_prefix='/api')
     
     return app
