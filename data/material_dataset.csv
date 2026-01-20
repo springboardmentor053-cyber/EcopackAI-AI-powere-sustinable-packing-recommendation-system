@@ -1,0 +1,101 @@
+material_id,material_name,material_type,strength,weight_capacity,biodegradability_score,co2_emission_score,recyclability_percent,cost_per_unit,durability_score
+1,Paper,Paper-based,Medium,5,8,3,85,12,6
+2,Cardboard,Paper-based,High,10,7,4,90,18,8
+3,Bioplastic,Plastic-based,Medium,6,6,5,70,25,7
+4,Molded Pulp,Paper-based,Medium,7,9,2,88,20,7
+5,Glass,Metal-based,High,15,2,7,60,30,9
+6,Aluminum,Metal-based,High,12,3,6,95,28,9
+7,Steel,Metal-based,High,20,1,8,92,35,10
+8,Bagasse,Paper-based,Medium,6,9,2,80,22,6
+9,Mycelium,Paper-based,Low,4,10,1,75,24,5
+10,Kraft Paper,Paper-based,Medium,5,8,3,82,15,6
+11,Recycled Plastic,Plastic-based,High,10,4,6,85,20,8
+12,LDPE,Plastic-based,Medium,7,3,6,78,18,7
+13,Paperboard,Paper-based,Medium,6,7,3,88,16,6
+14,Corrugated Box,Paper-based,High,12,7,4,92,19,8
+15,PLA Plastic,Plastic-based,Medium,6,6,5,72,23,7
+16,Fiber Pulp,Paper-based,Medium,7,9,2,86,21,7
+17,Glass Bottle,Metal-based,High,14,2,7,62,32,9
+18,Aluminum Foil,Metal-based,Medium,5,3,6,90,14,6
+19,Steel Drum,Metal-based,High,25,1,8,94,40,10
+20,Bagasse Plate,Paper-based,Low,4,9,2,78,12,5
+21,Mycelium Cushion,Paper-based,Low,3,10,1,74,26,5
+22,Kraft Box,Paper-based,High,9,8,3,85,18,7
+23,HDPE,Plastic-based,High,15,4,6,88,30,9
+24,Plastic Wrap,Plastic-based,Low,3,3,6,76,10,4
+25,Paper Wrap,Paper-based,Low,2,9,2,80,8,4
+26,Corrugated Carton,Paper-based,High,14,7,4,93,22,8
+27,PLA Container,Plastic-based,Medium,8,6,5,70,24,7
+28,Fiber Tray,Paper-based,Medium,6,9,2,87,19,6
+29,Glass Jar,Metal-based,High,12,2,7,64,28,9
+30,Aluminum Can,Metal-based,Medium,6,3,6,96,16,7
+31,Paper Tube,Paper-based,Medium,4,8,3,84,14,6
+32,Corrugated Sheet,Paper-based,High,12,7,4,91,20,8
+33,PLA Cup,Plastic-based,Medium,5,6,5,71,18,7
+34,Molded Cushion,Paper-based,Medium,6,9,2,86,21,7
+35,Glass Container,Metal-based,High,14,2,7,62,32,9
+36,Aluminum Tray,Metal-based,Medium,7,3,6,92,19,8
+37,Steel Box,Metal-based,High,18,1,8,94,38,10
+38,Bagasse Bowl,Paper-based,Low,4,9,2,79,15,5
+39,Mycelium Insert,Paper-based,Low,3,10,1,76,26,5
+40,Kraft Envelope,Paper-based,Medium,5,8,3,83,16,6
+41,HDPE Container,Plastic-based,High,12,4,6,88,30,9
+42,LDPE Pouch,Plastic-based,Medium,6,3,6,77,12,7
+43,Paper Sleeve,Paper-based,Medium,4,7,3,85,14,6
+44,Corrugated Tray,Paper-based,High,10,7,4,90,18,8
+45,PLA Bottle,Plastic-based,Medium,6,6,5,72,24,7
+46,Fiber Mold,Paper-based,Medium,7,9,2,87,20,7
+47,Glass Vial,Metal-based,High,5,2,7,61,28,9
+48,Aluminum Jar,Metal-based,Medium,6,3,6,89,22,8
+49,Steel Frame,Metal-based,High,20,1,8,95,40,10
+50,Bagasse Box,Paper-based,Medium,6,9,2,80,18,7
+51,Mycelium Pad,Paper-based,Low,4,10,1,75,25,5
+52,Kraft Carton,Paper-based,High,9,8,3,84,17,7
+53,HDPE Crate,Plastic-based,High,15,4,6,90,32,9
+54,Plastic Film,Plastic-based,Low,3,3,6,76,10,4
+55,Paper Wrapper,Paper-based,Low,2,9,2,81,9,4
+56,Corrugated Pallet,Paper-based,High,14,7,4,93,22,8
+57,PLA Bowl,Plastic-based,Medium,5,6,5,70,23,7
+58,Fiber Plate,Paper-based,Medium,6,9,2,86,19,6
+59,Glass Tube,Metal-based,High,6,2,7,64,29,9
+60,Aluminum Canister,Metal-based,High,10,3,6,96,16,8
+61,Steel Cabinet,Metal-based,High,22,1,8,92,42,10
+62,Bagasse Plate,Paper-based,Low,4,9,2,78,13,5
+63,Mycelium Shell,Paper-based,Low,3,10,1,74,27,5
+64,Kraft Folder,Paper-based,Medium,5,8,3,82,15,6
+65,HDPE Drum,Plastic-based,High,18,4,6,88,34,9
+66,LDPE Sheet,Plastic-based,Medium,6,3,6,79,18,7
+67,Paper Canister,Paper-based,Medium,5,7,3,83,16,6
+68,Corrugated Divider,Paper-based,High,10,7,4,91,21,8
+69,PLA Lid,Plastic-based,Low,3,6,5,73,11,5
+70,Fiber Tray,Paper-based,Medium,6,9,2,87,20,7
+71,Glass Jar,Metal-based,High,14,2,7,63,31,9
+72,Aluminum Cup,Metal-based,Medium,5,3,6,94,17,6
+73,Steel Rack,Metal-based,High,20,1,8,80,39,10
+74,Bagasse Tray,Paper-based,Low,4,9,2,75,14,5
+75,Mycelium Cushion,Paper-based,Low,3,10,1,85,26,5
+76,Kraft Box,Paper-based,High,9,8,3,89,19,7
+77,HDPE Jar,Plastic-based,Medium,12,8,6,78,33,9
+78,LDPE Roll,Plastic-based,Medium,6,7,6,82,18,7
+79,Paper Bowl,Paper-based,Low,3,6,5,76,12,4
+80,Corrugated Box,Paper-based,High,10,4,7,92,21,8
+81,Paper Box,Paper-based,Medium,6,8,3,85,18,7
+82,Corrugated Carton,Paper-based,High,14,7,4,92,22,8
+83,PLA Straw,Plastic-based,Low,2,6,5,73,10,4
+84,Molded Insert,Paper-based,Medium,5,9,2,87,19,7
+85,Glass Bottle,Metal-based,High,12,2,7,64,28,9
+86,Aluminum Container,Metal-based,High,10,3,6,94,26,9
+87,Steel Crate,Metal-based,High,18,1,8,96,40,10
+88,Bagasse Cup,Paper-based,Low,3,9,2,78,12,5
+89,Mycelium Pad,Paper-based,Low,4,10,1,76,25,5
+90,Kraft Sleeve,Paper-based,Medium,5,8,3,84,17,6
+91,HDPE Bottle,Plastic-based,High,8,4,6,88,24,8
+92,LDPE Bag,Plastic-based,Low,3,3,6,75,9,4
+93,Paper Tray,Paper-based,Medium,6,7,3,86,16,6
+94,Corrugated Box,Paper-based,High,15,7,4,93,23,8
+95,PLA Container,Plastic-based,Medium,7,6,5,71,21,7
+96,Fiber Cushion,Paper-based,Medium,6,9,2,88,20,7
+97,Glass Jar,Metal-based,High,10,2,7,65,29,9
+98,Aluminum Foil Pack,Metal-based,Medium,5,3,6,90,14,6
+99,Steel Container,Metal-based,High,20,1,8,97,42,10
+100,Bagasse Plate,Paper-based,Low,4,9,2,80,13,5

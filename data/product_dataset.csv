@@ -1,0 +1,101 @@
+product_id,product_name,product_category,product_weight,fragility,cost_limit
+1,Smartphone,Electronics,0.4,High,120
+2,Laptop,Electronics,1.5,High,200
+3,LED TV,Electronics,8,High,350
+4,Bluetooth Speaker,Electronics,0.6,Medium,100
+5,Power Bank,Electronics,0.3,Low,80
+6,Chocolate Box,Food,1,Low,60
+7,Frozen Peas Pack,Food,2,Medium,70
+8,Milk Packet,Food,1,Low,40
+9,Juice Bottle,Food,1.2,Medium,65
+10,Snack Chips,Food,0.5,Low,35
+11,Face Cream,Cosmetics,0.2,Low,90
+12,Lipstick,Cosmetics,0.1,Low,70
+13,Perfume Bottle,Cosmetics,0.3,High,150
+14,Shampoo Bottle,Cosmetics,0.4,Low,85
+15,Soap Bar,Cosmetics,0.15,Low,30
+16,Tablet Medicine,Pharmaceuticals,0.05,Low,50
+17,Syrup Bottle,Pharmaceuticals,0.25,Medium,60
+18,Vitamin Capsules,Pharmaceuticals,0.1,Low,55
+19,Medical Kit,Pharmaceuticals,1,Medium,120
+20,Injection Pack,Pharmaceuticals,0.3,High,100
+21,Glass Vase,Home Decor,2.5,High,200
+22,Ceramic Plate,Home Decor,1.8,High,180
+23,Wall Clock,Home Decor,0.7,Medium,90
+24,Table Lamp,Home Decor,1.2,Medium,110
+25,Headphones,Electronics,0.4,Medium,100
+26,Camera,Electronics,0.6,High,250
+27,Rice Bag,Food,5,Low,80
+28,Wheat Flour Pack,Food,5,Low,75
+29,Sugar Packet,Food,2,Low,50
+30,Salt Packet,Food,1,Low,45
+31,Cooking Oil Bottle,Food,1,Medium,70
+32,Honey Jar,Food,0.8,Medium,85
+33,Pickle Jar,Food,0.9,Medium,90
+34,Biscuits Pack,Food,0.4,Low,40
+35,Cereal Box,Food,0.5,Low,45
+36,Instant Noodles,Food,0.6,Low,35
+37,Notebook,Stationery,0.3,Low,30
+38,Textbook,Stationery,1,Low,60
+39,Stationery Kit,Stationery,0.8,Low,55
+40,Printer,Electronics,6,High,300
+41,Keyboard,Electronics,0.5,Low,40
+42,Mouse,Electronics,0.2,Low,25
+43,Hard Disk,Electronics,0.15,Low,20
+44,Router,Electronics,0.3,Low,50
+45,Mobile Charger,Electronics,0.1,Low,30
+46,Electric Kettle,Home Appliances,0.9,Medium,150
+47,Mixer Grinder,Home Appliances,2.5,Medium,200
+48,Water Bottle,Home Appliances,3,Medium,180
+49,Lunch Box,Household,0.7,Low,60
+50,Thermos Flask,Household,1.2,Medium,90
+51,Smart Watch,Electronics,0.2,Medium,150
+52,Fitness Band,Electronics,0.1,Low,120
+53,Tablet,Electronics,0.6,High,220
+54,E-Reader,Electronics,0.4,Medium,180
+55,Game Console,Electronics,3,Medium,400
+56,Bread Pack,Food,0.4,Low,35
+57,Butter Pack,Food,0.5,Low,50
+58,Cheese Block,Food,0.6,Medium,90
+59,Yogurt Cup,Food,0.2,Low,30
+60,Ice Cream Box,Food,1,Medium,120
+61,Hair Oil Bottle,Cosmetics,0.3,Low,70
+62,Body Lotion,Cosmetics,0.4,Low,90
+63,Face Wash,Cosmetics,0.25,Low,80
+64,Hair Gel,Cosmetics,0.15,Low,60
+65,Hand Cream,Cosmetics,0.1,Low,50
+66,Cough Syrup,Pharmaceuticals,0.3,Medium,65
+67,Pain Relief Spray,Pharmaceuticals,0.5,Medium,110
+68,First Aid Box,Pharmaceuticals,0.8,Low,140
+69,Thermometer,Pharmaceuticals,0.2,High,90
+70,Medical Gloves,Pharmaceuticals,0.1,Low,75
+71,Flower Vase,Home Decor,2,High,250
+72,Photo Frame,Home Decor,0.8,Medium,120
+73,Mirror,Home Decor,3,High,300
+74,Wall Painting,Home Decor,1.5,High,280
+75,Decor Lamp,Home Decor,1.2,Medium,160
+76,Camera Lens,Electronics,0.3,High,350
+77,Drone,Electronics,0.9,High,600
+78,Mobile Phone Box,Electronics,0.2,Low,40
+79,SIM Card Pack,Electronics,0.05,Low,25
+80,Earbuds Case,Electronics,0.1,Low,80
+81,Spice Packet,Food,0.2,Low,40
+82,Tea Powder Pack,Food,0.5,Low,90
+83,Coffee Jar,Food,0.4,Low,100
+84,Dry Fruits Box,Food,0.6,Medium,120
+85,Sugar Jar,Food,1,Low,60
+86,Salt Jar,Food,1,Low,45
+87,Flour Container,Food,2,Low,150
+88,Pen Box,Stationery,0.4,Low,30
+89,Pencil Pack,Stationery,0.3,Low,25
+90,Eraser Set,Stationery,0.2,Low,20
+91,Ink Bottle,Stationery,0.1,Low,60
+92,USB Drive,Electronics,0.05,Low,70
+93,SD Card,Electronics,0.02,Low,50
+94,Power Adapter,Electronics,0.4,Low,100
+95,Extension Board,Electronics,0.8,Medium,180
+96,Rice Cooker,Home Appliances,3,Medium,350
+97,Induction Stove,Home Appliances,4,Medium,400
+98,Toaster,Home Appliances,2,Low,220
+99,Steel Tiffin Box,Household,1.5,Low,180
+100,Plastic Storage Box,Household,2,Low,160

@@ -1,0 +1,101 @@
+product_id,product_name,product_weight,fragility,cost_limit,product_category_Electronics,product_category_Food,product_category_Home Appliances,product_category_Home Decor,product_category_Household,product_category_Pharmaceuticals,product_category_Stationery
+1,Smartphone,0.4,High,120,True,False,False,False,False,False,False
+2,Laptop,1.5,High,200,True,False,False,False,False,False,False
+3,LED TV,8.0,High,350,True,False,False,False,False,False,False
+4,Bluetooth Speaker,0.6,Medium,100,True,False,False,False,False,False,False
+5,Power Bank,0.3,Low,80,True,False,False,False,False,False,False
+6,Chocolate Box,1.0,Low,60,False,True,False,False,False,False,False
+7,Frozen Peas Pack,2.0,Medium,70,False,True,False,False,False,False,False
+8,Milk Packet,1.0,Low,40,False,True,False,False,False,False,False
+9,Juice Bottle,1.2,Medium,65,False,True,False,False,False,False,False
+10,Snack Chips,0.5,Low,35,False,True,False,False,False,False,False
+11,Face Cream,0.2,Low,90,False,False,False,False,False,False,False
+12,Lipstick,0.1,Low,70,False,False,False,False,False,False,False
+13,Perfume Bottle,0.3,High,150,False,False,False,False,False,False,False
+14,Shampoo Bottle,0.4,Low,85,False,False,False,False,False,False,False
+15,Soap Bar,0.15,Low,30,False,False,False,False,False,False,False
+16,Tablet Medicine,0.05,Low,50,False,False,False,False,False,True,False
+17,Syrup Bottle,0.25,Medium,60,False,False,False,False,False,True,False
+18,Vitamin Capsules,0.1,Low,55,False,False,False,False,False,True,False
+19,Medical Kit,1.0,Medium,120,False,False,False,False,False,True,False
+20,Injection Pack,0.3,High,100,False,False,False,False,False,True,False
+21,Glass Vase,2.5,High,200,False,False,False,True,False,False,False
+22,Ceramic Plate,1.8,High,180,False,False,False,True,False,False,False
+23,Wall Clock,0.7,Medium,90,False,False,False,True,False,False,False
+24,Table Lamp,1.2,Medium,110,False,False,False,True,False,False,False
+25,Headphones,0.4,Medium,100,True,False,False,False,False,False,False
+26,Camera,0.6,High,250,True,False,False,False,False,False,False
+27,Rice Bag,5.0,Low,80,False,True,False,False,False,False,False
+28,Wheat Flour Pack,5.0,Low,75,False,True,False,False,False,False,False
+29,Sugar Packet,2.0,Low,50,False,True,False,False,False,False,False
+30,Salt Packet,1.0,Low,45,False,True,False,False,False,False,False
+31,Cooking Oil Bottle,1.0,Medium,70,False,True,False,False,False,False,False
+32,Honey Jar,0.8,Medium,85,False,True,False,False,False,False,False
+33,Pickle Jar,0.9,Medium,90,False,True,False,False,False,False,False
+34,Biscuits Pack,0.4,Low,40,False,True,False,False,False,False,False
+35,Cereal Box,0.5,Low,45,False,True,False,False,False,False,False
+36,Instant Noodles,0.6,Low,35,False,True,False,False,False,False,False
+37,Notebook,0.3,Low,30,False,False,False,False,False,False,True
+38,Textbook,1.0,Low,60,False,False,False,False,False,False,True
+39,Stationery Kit,0.8,Low,55,False,False,False,False,False,False,True
+40,Printer,6.0,High,300,True,False,False,False,False,False,False
+41,Keyboard,0.5,Low,40,True,False,False,False,False,False,False
+42,Mouse,0.2,Low,25,True,False,False,False,False,False,False
+43,Hard Disk,0.15,Low,20,True,False,False,False,False,False,False
+44,Router,0.3,Low,50,True,False,False,False,False,False,False
+45,Mobile Charger,0.1,Low,30,True,False,False,False,False,False,False
+46,Electric Kettle,0.9,Medium,150,False,False,True,False,False,False,False
+47,Mixer Grinder,2.5,Medium,200,False,False,True,False,False,False,False
+48,Water Bottle,3.0,Medium,180,False,False,True,False,False,False,False
+49,Lunch Box,0.7,Low,60,False,False,False,False,True,False,False
+50,Thermos Flask,1.2,Medium,90,False,False,False,False,True,False,False
+51,Smart Watch,0.2,Medium,150,True,False,False,False,False,False,False
+52,Fitness Band,0.1,Low,120,True,False,False,False,False,False,False
+53,Tablet,0.6,High,220,True,False,False,False,False,False,False
+54,E-Reader,0.4,Medium,180,True,False,False,False,False,False,False
+55,Game Console,3.0,Medium,400,True,False,False,False,False,False,False
+56,Bread Pack,0.4,Low,35,False,True,False,False,False,False,False
+57,Butter Pack,0.5,Low,50,False,True,False,False,False,False,False
+58,Cheese Block,0.6,Medium,90,False,True,False,False,False,False,False
+59,Yogurt Cup,0.2,Low,30,False,True,False,False,False,False,False
+60,Ice Cream Box,1.0,Medium,120,False,True,False,False,False,False,False
+61,Hair Oil Bottle,0.3,Low,70,False,False,False,False,False,False,False
+62,Body Lotion,0.4,Low,90,False,False,False,False,False,False,False
+63,Face Wash,0.25,Low,80,False,False,False,False,False,False,False
+64,Hair Gel,0.15,Low,60,False,False,False,False,False,False,False
+65,Hand Cream,0.1,Low,50,False,False,False,False,False,False,False
+66,Cough Syrup,0.3,Medium,65,False,False,False,False,False,True,False
+67,Pain Relief Spray,0.5,Medium,110,False,False,False,False,False,True,False
+68,First Aid Box,0.8,Low,140,False,False,False,False,False,True,False
+69,Thermometer,0.2,High,90,False,False,False,False,False,True,False
+70,Medical Gloves,0.1,Low,75,False,False,False,False,False,True,False
+71,Flower Vase,2.0,High,250,False,False,False,True,False,False,False
+72,Photo Frame,0.8,Medium,120,False,False,False,True,False,False,False
+73,Mirror,3.0,High,300,False,False,False,True,False,False,False
+74,Wall Painting,1.5,High,280,False,False,False,True,False,False,False
+75,Decor Lamp,1.2,Medium,160,False,False,False,True,False,False,False
+76,Camera Lens,0.3,High,350,True,False,False,False,False,False,False
+77,Drone,0.9,High,600,True,False,False,False,False,False,False
+78,Mobile Phone Box,0.2,Low,40,True,False,False,False,False,False,False
+79,SIM Card Pack,0.05,Low,25,True,False,False,False,False,False,False
+80,Earbuds Case,0.1,Low,80,True,False,False,False,False,False,False
+81,Spice Packet,0.2,Low,40,False,True,False,False,False,False,False
+82,Tea Powder Pack,0.5,Low,90,False,True,False,False,False,False,False
+83,Coffee Jar,0.4,Low,100,False,True,False,False,False,False,False
+84,Dry Fruits Box,0.6,Medium,120,False,True,False,False,False,False,False
+85,Sugar Jar,1.0,Low,60,False,True,False,False,False,False,False
+86,Salt Jar,1.0,Low,45,False,True,False,False,False,False,False
+87,Flour Container,2.0,Low,150,False,True,False,False,False,False,False
+88,Pen Box,0.4,Low,30,False,False,False,False,False,False,True
+89,Pencil Pack,0.3,Low,25,False,False,False,False,False,False,True
+90,Eraser Set,0.2,Low,20,False,False,False,False,False,False,True
+91,Ink Bottle,0.1,Low,60,False,False,False,False,False,False,True
+92,USB Drive,0.05,Low,70,True,False,False,False,False,False,False
+93,SD Card,0.02,Low,50,True,False,False,False,False,False,False
+94,Power Adapter,0.4,Low,100,True,False,False,False,False,False,False
+95,Extension Board,0.8,Medium,180,True,False,False,False,False,False,False
+96,Rice Cooker,3.0,Medium,350,False,False,True,False,False,False,False
+97,Induction Stove,4.0,Medium,400,False,False,True,False,False,False,False
+98,Toaster,2.0,Low,220,False,False,True,False,False,False,False
+99,Steel Tiffin Box,1.5,Low,180,False,False,False,False,True,False,False
+100,Plastic Storage Box,2.0,Low,160,False,False,False,False,True,False,False
