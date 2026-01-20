@@ -1,22 +1,25 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import joblib
 import pandas as pd
 
-# Initialize Flask app
 app = Flask(__name__)
 
-# Load trained models
-cost_model = joblib.load("E:/Data Science/EcoPackAI/models/cost_model.pkl")
-co2_model = joblib.load("E:/Data Science/EcoPackAI/models/co2_model.pkl")
+
+cost_model = joblib.load("models/cost_model.pkl")
+co2_model = joblib.load("models/co2_model.pkl")
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.json
 
-    # Convert input JSON to DataFrame
     input_df = pd.DataFrame([data])
 
-    # Predictions
     predicted_cost = cost_model.predict(input_df)[0]
     predicted_co2 = co2_model.predict(input_df)[0]
 

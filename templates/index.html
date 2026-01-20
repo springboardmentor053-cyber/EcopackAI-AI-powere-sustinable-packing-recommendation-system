@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoPackAI – Sustainable Packaging Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="hero">
+        <h1>EcoPackAI</h1>
+        <p>
+            Intelligent packaging insights to balance cost efficiency and environmental impact
+        </p>
+    </header>
+
+    <main class="app">
+        <section class="card input-card">
+            <h2>Packaging Parameters</h2>
+
+            <label>Material Strength</label>
+            <select id="strength_encoded">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+                <option value="4">Very High</option>
+            </select>
+
+            <label>Weight Capacity (kg)</label>
+            <input type="number" id="weight_capacity" step="0.1" placeholder="e.g. 5">
+
+            <label>Biodegradability Score (0–10)</label>
+            <input type="range" id="biodegradability_score" min="0" max="10" value="5">
+            <span id="bioVal">5</span>
+
+            <label>Recyclability (%)</label>
+            <input type="range" id="recyclability_percent" min="0" max="100" value="50">
+            <span id="recycleVal">50%</span>
+
+            <label>Cost Efficiency (0–1)</label>
+            <input type="number" id="cost_efficiency_score" step="0.01" placeholder="e.g. 0.75">
+
+            <button onclick="predict()">Analyze Impact</button>
+        </section>
+
+        <section class="card output-card">
+            <h2>Predicted Impact</h2>
+
+            <div class="metrics">
+                <div class="metric">
+                    <h3>Estimated Cost</h3>
+                    <p id="cost">—</p>
+                </div>
+
+                <div class="metric">
+                    <h3>CO₂ Emissions</h3>
+                    <p id="co2">—</p>
+                </div>
+            </div>
+
+            <div id="status" class="status"></div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
