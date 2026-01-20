@@ -167,9 +167,10 @@ body {
     }
 }
 
+
 /* Hero Section */
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1rem;
@@ -180,9 +181,9 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto 3rem;
 }
 
@@ -193,7 +194,7 @@ body {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 3rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -205,11 +206,11 @@ body {
 /* Form Elements */
 .form-label {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
 }
 
 .form-control,
@@ -218,8 +219,8 @@ body {
     border: 1px solid var(--border-color);
     color: var(--text-primary);
     border-radius: 12px;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
     transition: all 0.2s;
 }
 
@@ -236,6 +237,7 @@ body {
     background-color: #0a0a0a;
     /* Dark bg for dark mode */
     color: #f1f8e9;
+    font-size: 1.1rem;
 }
 
 [data-theme="light"] .form-select option {
@@ -247,8 +249,8 @@ body {
 .form-check-input {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.6em;
+    height: 1.6em;
     margin-top: 0;
     cursor: pointer;
 }
@@ -260,9 +262,9 @@ body {
 }
 
 .form-check-label {
-    margin-left: 0.5rem;
+    margin-left: 0.8rem;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: var(--text-primary);
 }
 
@@ -270,7 +272,8 @@ body {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color) 0%, #43a047 100%);
     border: none;
-    padding: 1rem;
+    padding: 1.2rem;
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     border-radius: 12px;
@@ -294,6 +297,7 @@ body {
 .btn-outline-light {
     border-color: var(--border-color);
     color: var(--text-secondary);
+    font-size: 1rem;
 }
 
 .btn-outline-light:hover {
@@ -310,16 +314,16 @@ body {
 }
 
 .spinner-border {
-    width: 3rem;
-    height: 3rem;
-    border-width: 0.2rem;
+    width: 4rem;
+    height: 4rem;
+    border-width: 0.3rem;
     color: var(--accent-color);
 }
 
 .loading-text {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
     animation: pulse 1.5s infinite;
 }
@@ -360,17 +364,17 @@ body {
 .table-custom {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 8px;
+    border-spacing: 0 12px;
     /* Spacing between rows */
 }
 
 .table-custom th {
     color: var(--text-secondary);
-    font-size: 0.75rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 600;
-    padding: 0 1rem 1rem;
+    padding: 0 1.5rem 1.5rem;
 }
 
 .result-row {
@@ -388,11 +392,12 @@ body {
 }
 
 .result-row td {
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1.2rem;
     vertical-align: middle;
     color: var(--text-primary);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
+    font-size: 1.1rem;
 }
 
 .result-row td:first-child {
@@ -400,7 +405,7 @@ body {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--text-primary);
 }
 
@@ -411,6 +416,7 @@ body {
     text-align: right;
     font-family: monospace;
     color: var(--text-secondary);
+    font-size: 1.1rem;
 }
 
 /* Suitability Badge */
@@ -418,9 +424,9 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.35rem 0.75rem;
+    padding: 0.5rem 1rem;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 700;
     background: rgba(0, 230, 118, 0.15);
     color: var(--accent-color);

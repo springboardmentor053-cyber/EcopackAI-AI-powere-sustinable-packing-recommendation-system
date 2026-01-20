@@ -60,7 +60,7 @@
         .kpi-card {
             background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
             border-radius: 16px;
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
             height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -73,24 +73,27 @@
         }
 
         .kpi-value {
-            font-size: 2.5rem;
+            font-size: 4rem;
+            /* Increased from 2.5rem */
             font-weight: 700;
             color: var(--primary-green);
-            margin: 0.5rem 0;
+            margin: 0.8rem 0;
         }
 
         .kpi-label {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 1.2rem;
+            /* Increased from 0.9rem */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         /* Charts */
         .chart-container {
             background-color: var(--card-bg);
             border-radius: 16px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -126,8 +129,8 @@
 
         <!-- Header -->
         <div class="dashboard-header">
-            <h1 class="display-5 fw-bold">Sustainability Impact Dashboard</h1>
-            <p class="text-muted lead">Real-time insights on cost, carbon footprint, and material efficiency.</p>
+            <h1 class="display-3 fw-bold">Sustainability Impact Dashboard</h1>
+            <p class="text-muted fs-3 lead">Real-time insights on cost, carbon footprint, and material efficiency.</p>
         </div>
 
         <!-- KPI Section -->
@@ -136,21 +139,21 @@
                 <div class="kpi-card">
                     <div class="kpi-label">Avg. CO₂ Reduction</div>
                     <div class="kpi-value" id="kpi-co2">--%</div>
-                    <small class="text-muted">vs. High-Impact Materials</small>
+                    <small class="text-muted fs-5">vs. High-Impact Materials</small>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="kpi-card">
                     <div class="kpi-label">Potential Cost Savings</div>
                     <div class="kpi-value" id="kpi-cost">--%</div>
-                    <small class="text-muted">vs. Most Expensive Options</small>
+                    <small class="text-muted fs-5">vs. Most Expensive Options</small>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="kpi-card">
                     <div class="kpi-label">Best Eco Material</div>
-                    <div class="kpi-value fs-3" id="kpi-best">--</div>
-                    <small class="text-muted">Lowest Carbon Footprint</small>
+                    <div class="kpi-value fs-1" id="kpi-best">--</div>
+                    <small class="text-muted fs-5">Lowest Carbon Footprint</small>
                 </div>
             </div>
         </div>
@@ -160,12 +163,12 @@
             <div class="col-lg-6">
                 <div class="chart-container h-100">
                     <div class="d-flex align-items-center mb-3">
-                        <h4 class="mb-0">🌍 CO₂ Emission Analysis</h4>
-                        <span class="chart-tooltip-icon"
+                        <h3 class="mb-0">🌍 CO₂ Emission Analysis</h3>
+                        <span class="chart-tooltip-icon fs-5"
                             title="Average CO2 impact score for each material type based on manufacturing and transport. Lower is better.">ℹ️</span>
                     </div>
                     <div id="co2Chart"></div>
-                    <p class="small text-muted mt-3">
+                    <p class="text-muted mt-3 fs-5">
                         <strong class="text-success">Insight:</strong> <span id="co2Insight">Loading...</span>
                     </p>
                 </div>
@@ -173,12 +176,12 @@
             <div class="col-lg-6">
                 <div class="chart-container h-100">
                     <div class="d-flex align-items-center mb-3">
-                        <h4 class="mb-0">💰 Cost Efficiency</h4>
-                        <span class="chart-tooltip-icon"
+                        <h3 class="mb-0">💰 Cost Efficiency</h3>
+                        <span class="chart-tooltip-icon fs-5"
                             title="Comparison of unit cost for different materials. Use this to identify budget-friendly eco options.">ℹ️</span>
                     </div>
                     <div id="costChart"></div>
-                    <p class="small text-muted mt-3">
+                    <p class="text-muted mt-3 fs-5">
                         <strong class="text-success">Insight:</strong> <span id="costInsight">Loading...</span>
                     </p>
                 </div>
@@ -189,9 +192,9 @@
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="chart-container h-100">
-                    <h4 class="mb-3">📊 Sustainability Score Distribution</h4>
+                    <h3 class="mb-3">📊 Sustainability Score Distribution</h3>
                     <div id="sustChart"></div>
-                    <div class="alert alert-dark mt-3 small text-muted border-0">
+                    <div class="alert alert-dark mt-3 text-muted border-0 fs-5">
                         Shows how many materials fall into different "Eco-Friendliness" tiers. Most materials should
                         ideally be in the 70-100 range.
                     </div>
@@ -199,7 +202,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="chart-container h-100">
-                    <h4 class="mb-3">📦 Material Inventory by Category</h4>
+                    <h3 class="mb-3">📦 Material Inventory by Category</h3>
                     <div id="catChart"></div>
                 </div>
             </div>

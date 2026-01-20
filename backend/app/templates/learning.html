@@ -49,8 +49,8 @@
     <div class="container py-5">
 
         <div class="text-center mb-5">
-            <h1 class="hero-title" style="font-size: 2.5rem;">Adaptive Learning & Data Enhancement</h1>
-            <p class="hero-subtitle">
+            <h1 class="hero-title" style="font-size: 4.5rem;">Adaptive Learning & Data Enhancement</h1>
+            <p class="hero-subtitle fs-4">
                 Enhance the AI's intelligence by continuously updating the knowledge base.
                 <br>Data inserted here helps the system learn and improve accuracy.
             </p>
@@ -61,23 +61,24 @@
 
                 <!-- System Status / Retrain -->
                 <div class="form-section text-center">
-                    <h4>🔄 System Intelligence Update</h4>
-                    <p class="text-secondary mb-4">After updating data below, run this process to recalculate features
+                    <h3 class="fw-bold">🔄 System Intelligence Update</h3>
+                    <p class="text-secondary mb-4 fs-5">After updating data below, run this process to recalculate
+                        features
                         and retrain ML models.</p>
-                    <button id="retrainBtn" class="btn btn-primary px-5">
+                    <button id="retrainBtn" class="btn btn-primary px-5 fs-5">
                         Run Feature Engineering & Retrain Models
                     </button>
-                    <div id="retrainStatus" class="mt-3 fw-bold"></div>
+                    <div id="retrainStatus" class="mt-3 fw-bold fs-5"></div>
                 </div>
 
                 <!-- Material Data Form -->
                 <div class="form-section">
                     <div class="form-header d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">📦 Update Material Data</h4>
-                        <span class="badge bg-secondary">Table: materials</span>
+                        <h3 class="mb-0">📦 Update Material Data</h3>
+                        <span class="badge bg-secondary fs-6">Table: materials</span>
                     </div>
                     <form id="materialForm">
-                        <div class="row g-3">
+                        <div class="row g-4">
                             <div class="col-md-3">
                                 <label class="form-label">Material ID (Auto)</label>
                                 <input type="number" name="material_id" class="form-control" required
@@ -133,7 +134,7 @@
                             </div>
                         </div>
                         <div class="mt-4 text-end">
-                            <button type="submit" class="btn btn-success">Save Material Record</button>
+                            <button type="submit" class="btn btn-success fs-5 px-4">Save Material Record</button>
                         </div>
                     </form>
                 </div>
@@ -141,11 +142,11 @@
                 <!-- Product Mapping Form -->
                 <div class="form-section">
                     <div class="form-header d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">🔗 Map Product Category</h4>
-                        <span class="badge bg-secondary">Table: product_material</span>
+                        <h3 class="mb-0">🔗 Map Product Category</h3>
+                        <span class="badge bg-secondary fs-6">Table: product_material</span>
                     </div>
                     <form id="productForm">
-                        <div class="row g-3">
+                        <div class="row g-4">
                             <div class="col-md-4">
                                 <label class="form-label">Material ID (Auto)</label>
                                 <input type="number" name="material_id" class="form-control" required
@@ -181,7 +182,7 @@
                             </div>
                         </div>
                         <div class="mt-4 text-end">
-                            <button type="submit" class="btn btn-success">Save Mapping</button>
+                            <button type="submit" class="btn btn-success fs-5 px-4">Save Mapping</button>
                         </div>
                     </form>
                 </div>

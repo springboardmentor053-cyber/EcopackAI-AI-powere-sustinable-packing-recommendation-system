@@ -55,23 +55,23 @@
             <div class="col-md-4 col-sm-6">
                 <div class="feature-card text-center">
                     <div class="feature-icon">🌱</div>
-                    <h5>Eco-Conscious</h5>
-                    <p class="small text-muted">Prioritizes biodegradable & recyclable options to lower carbon
+                    <h4>Eco-Conscious</h4>
+                    <p class="text-muted fs-5">Prioritizes biodegradable & recyclable options to lower carbon
                         footprint.</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="feature-card text-center">
                     <div class="feature-icon">💰</div>
-                    <h5>Cost Effective</h5>
-                    <p class="small text-muted">Balances sustainability with manufacturing & shipping costs.</p>
+                    <h4>Cost Effective</h4>
+                    <p class="text-muted fs-5">Balances sustainability with manufacturing & shipping costs.</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="feature-card text-center">
                     <div class="feature-icon">🧠</div>
-                    <h5>AI Powered</h5>
-                    <p class="small text-muted">Smart algorithms match material properties to your product needs.</p>
+                    <h4>AI Powered</h4>
+                    <p class="text-muted fs-5">Smart algorithms match material properties to your product needs.</p>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
         <!-- Input Section -->
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card-header-label text-center mb-3">🚀 Start Your Optimization</div>
+                <div class="card-header-label text-center mb-4 fs-3 fw-bold">🚀 Start Your Optimization</div>
 
                 <!-- Input Card -->
                 <div class="main-card form-container">
@@ -103,7 +103,7 @@
                             </select>
                         </div>
 
-                        <div class="row mb-4">
+                        <div class="row mb-5">
                             <div class="col-md-6">
                                 <label for="weight" class="form-label">Weight (kg) <span
                                         class="text-accent">*</span></label>
@@ -123,19 +123,19 @@
                             </div>
                         </div>
 
-                        <div class="mb-5 p-3 rounded bg-highlight">
+                        <div class="mb-5 p-4 rounded bg-highlight">
                             <div class="form-check d-flex align-items-center">
                                 <input type="checkbox" class="form-check-input" id="waterResistant">
-                                <label class="form-check-label ms-3 fw-bold" for="waterResistant">
+                                <label class="form-check-label ms-3 fw-bold fs-5" for="waterResistant">
                                     Requires Water Resistance
                                 </label>
                             </div>
-                            <div class="small text-muted mt-1 ms-4 ps-2">Check this if the package needs to withstand
+                            <div class="text-muted mt-2 ms-5 ps-1 fs-6">Check this if the package needs to withstand
                                 moisture or rain.</div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary shadow-lg py-3" id="submitBtn">
-                            <span class="fs-5">✨ Get Recommendations</span>
+                        <button type="submit" class="btn btn-primary shadow-lg py-4" id="submitBtn">
+                            <span class="fs-4">✨ Get Recommendations</span>
                         </button>
                     </form>
                 </div>
@@ -148,15 +148,15 @@
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-            <p class="loading-text">Analyzing material properties &amp; CO₂ impact...</p>
+            <p class="loading-text fs-4">Analyzing material properties &amp; CO₂ impact...</p>
         </div>
 
         <!-- Results Section -->
         <div class="row justify-content-center results-section" id="resultsSection">
             <div class="col-lg-10">
                 <div class="d-flex justify-content-between align-items-center mb-4 px-2">
-                    <h3 class="mb-0 text-white">Top Recommendations</h3>
-                    <button class="btn btn-sm btn-outline-light rounded-pill" onclick="resetForm()">
+                    <h2 class="mb-0 text-white">Top Recommendations</h2>
+                    <button class="btn btn-outline-light rounded-pill px-4 py-2" onclick="resetForm()">
                         Clear &amp; New Search
                     </button>
                 </div>
@@ -181,7 +181,7 @@
                     </div>
                 </div>
 
-                <p class="text-center text-muted mt-4 small">
+                <p class="text-center text-muted mt-4 fs-6">
                     * Scores are calculated based on weighted averages of biodegradability, recyclability, and cost
                     efficiency.
                 </p>
