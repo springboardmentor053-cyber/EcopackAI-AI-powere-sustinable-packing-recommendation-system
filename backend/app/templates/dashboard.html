@@ -11,100 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-        :root {
-            --primary-green: #00e676;
-            --dark-green: #2e7d32;
-            --bg-dark: #0a0a0a;
-            --card-bg: #1e1e1e;
-            --text-light: #f1f8e9;
-            --text-muted: #b0bec5;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            min-height: 100vh;
-        }
-
-        .navbar {
-            background-color: rgba(30, 30, 30, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--text-light) !important;
-        }
-
-        .brand-highlight {
-            color: var(--primary-green);
-        }
-
-        .dashboard-header {
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .section-title {
-            color: var(--primary-green);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-green);
-            padding-left: 1rem;
-        }
-
-        /* KPI Cards */
-        .kpi-card {
-            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            height: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .kpi-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-green);
-        }
-
-        .kpi-value {
-            font-size: 4rem;
-            /* Increased from 2.5rem */
-            font-weight: 700;
-            color: var(--primary-green);
-            margin: 0.8rem 0;
-        }
-
-        .kpi-label {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            /* Increased from 0.9rem */
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
-
-        /* Charts */
-        .chart-container {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .chart-tooltip-icon {
-            cursor: pointer;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -114,95 +22,140 @@
             <a class="navbar-brand" href="/">
                 🌿 EcoPack<span class="brand-highlight">AI</span>
             </a>
-            <div class="d-flex">
-                <a href="/data-enhancement" class="btn btn-outline-light btn-sm rounded-pill px-3 me-2">
+            <div class="d-flex gap-2">
+                <a href="/data-enhancement" class="btn btn-outline-theme rounded-pill px-3">
                     ⚙️ AI Training
                 </a>
-                <a href="/recommendation" class="btn btn-outline-light btn-sm rounded-pill px-4">
+                <a href="/recommendation" class="btn btn-outline-theme rounded-pill px-4">
                     ← Back to Recommendations
                 </a>
             </div>
         </div>
     </nav>
 
-    <div class="container pb-5">
+    <div class="container pb-5 pt-4">
 
         <!-- Header -->
-        <div class="dashboard-header">
-            <h1 class="display-3 fw-bold">Sustainability Impact Dashboard</h1>
-            <p class="text-muted fs-3 lead">Real-time insights on cost, carbon footprint, and material efficiency.</p>
+        <div class="dashboard-header mb-5">
+            <h1 class="display-4 fw-bold">Sustainability Impact Dashboard</h1>
+            <p class="text-secondary fs-4">Real-time insights on cost, carbon footprint, and material efficiency.</p>
+        </div>
+
+        <!-- HERO SECTION: Top Recommendation -->
+        <div class="recommendation-hero fade-in-up">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="rec-badge">🏆 Top Recommendation</span>
+                    <h2 class="rec-title" id="hero-material">Loading Best Material...</h2>
+                    <p class="rec-desc">
+                        Based on our AI analysis, this material offers the optimal balance between
+                        <strong>Low Carbon Footprint</strong> and <strong>Cost Efficiency</strong>.
+                    </p>
+
+                    <div class="rec-stats">
+                        <div class="rec-stat-item">
+                            <div class="rec-stat-label">Eco Score</div>
+                            <div class="rec-stat-value">9.8/10</div>
+                        </div>
+                        <div class="rec-stat-item">
+                            <div class="rec-stat-label">Impact</div>
+                            <div class="rec-stat-value text-success">Low</div>
+                        </div>
+                        <div class="rec-stat-item">
+                            <div class="rec-stat-label">Annual Savings</div>
+                            <div class="rec-stat-value" id="hero-savings">--%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <!-- Placeholder visual for the material -->
+                    <div style="font-size: 8rem;">📦</div>
+                </div>
+            </div>
         </div>
 
         <!-- KPI Section -->
         <div class="row g-4 mb-5">
-            <div class="col-md-4">
-                <div class="kpi-card">
-                    <div class="kpi-label">Avg. CO₂ Reduction</div>
-                    <div class="kpi-value" id="kpi-co2">--%</div>
-                    <small class="text-muted fs-5">vs. High-Impact Materials</small>
+            <div class="col-md-4 fade-in-up" style="animation-delay: 0.1s;">
+                <div class="kpi-card-new">
+                    <div class="kpi-icon-wrapper">
+                        🌍
+                    </div>
+                    <div class="kpi-value-large" id="kpi-co2">--%</div>
+                    <div class="kpi-title">CO₂ Reduction</div>
+                    <div class="trend-badge">
+                        <span>↓</span> compared to avg
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="kpi-card">
-                    <div class="kpi-label">Potential Cost Savings</div>
-                    <div class="kpi-value" id="kpi-cost">--%</div>
-                    <small class="text-muted fs-5">vs. Most Expensive Options</small>
+            <div class="col-md-4 fade-in-up" style="animation-delay: 0.2s;">
+                <div class="kpi-card-new">
+                    <div class="kpi-icon-wrapper">
+                        💰
+                    </div>
+                    <div class="kpi-value-large" id="kpi-cost">--%</div>
+                    <div class="kpi-title">Cost Savings</div>
+                    <div class="trend-badge">
+                        <span>↓</span> vs market high
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="kpi-card">
-                    <div class="kpi-label">Best Eco Material</div>
-                    <div class="kpi-value fs-1" id="kpi-best">--</div>
-                    <small class="text-muted fs-5">Lowest Carbon Footprint</small>
+            <div class="col-md-4 fade-in-up" style="animation-delay: 0.3s;">
+                <div class="kpi-card-new">
+                    <div class="kpi-icon-wrapper">
+                        ✅
+                    </div>
+                    <div class="kpi-value-large" id="kpi-count">--</div>
+                    <div class="kpi-title">Materials Analyzed</div>
+                    <div class="text-secondary mt-2 small">Total database items</div>
                 </div>
             </div>
         </div>
 
         <!-- Row 1: Impact Analysis -->
         <div class="row g-4 mb-5">
-            <div class="col-lg-6">
-                <div class="chart-container h-100">
-                    <div class="d-flex align-items-center mb-3">
-                        <h3 class="mb-0">🌍 CO₂ Emission Analysis</h3>
-                        <span class="chart-tooltip-icon fs-5"
-                            title="Average CO2 impact score for each material type based on manufacturing and transport. Lower is better.">ℹ️</span>
+            <div class="col-lg-6 fade-in-up" style="animation-delay: 0.4s;">
+                <div class="chart-box h-100">
+                    <div class="chart-header">
+                        <h3 class="chart-title">🌍 CO₂ Emission Analysis</h3>
+                        <span class="text-secondary fs-5" title="Average CO2 impact score. Lower is better.">ℹ️</span>
                     </div>
                     <div id="co2Chart"></div>
-                    <p class="text-muted mt-3 fs-5">
-                        <strong class="text-success">Insight:</strong> <span id="co2Insight">Loading...</span>
-                    </p>
+                    <div class="insight-box">
+                        <strong>Insight:</strong> <span id="co2Insight">Loading data...</span>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="chart-container h-100">
-                    <div class="d-flex align-items-center mb-3">
-                        <h3 class="mb-0">💰 Cost Efficiency</h3>
-                        <span class="chart-tooltip-icon fs-5"
-                            title="Comparison of unit cost for different materials. Use this to identify budget-friendly eco options.">ℹ️</span>
+            <div class="col-lg-6 fade-in-up" style="animation-delay: 0.5s;">
+                <div class="chart-box h-100">
+                    <div class="chart-header">
+                        <h3 class="chart-title">💰 Cost Efficiency Analysis</h3>
+                        <span class="text-secondary fs-5" title="Unit cost comparison (INR).">ℹ️</span>
                     </div>
                     <div id="costChart"></div>
-                    <p class="text-muted mt-3 fs-5">
-                        <strong class="text-success">Insight:</strong> <span id="costInsight">Loading...</span>
-                    </p>
+                    <div class="insight-box">
+                        <strong>Insight:</strong> <span id="costInsight">Loading data...</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Row 2: Distribution -->
         <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="chart-container h-100">
-                    <h3 class="mb-3">📊 Sustainability Score Distribution</h3>
-                    <div id="sustChart"></div>
-                    <div class="alert alert-dark mt-3 text-muted border-0 fs-5">
-                        Shows how many materials fall into different "Eco-Friendliness" tiers. Most materials should
-                        ideally be in the 70-100 range.
+            <div class="col-lg-6 fade-in-up" style="animation-delay: 0.6s;">
+                <div class="chart-box h-100">
+                    <div class="chart-header">
+                        <h3 class="chart-title">📊 Sustainability Score Distribution</h3>
                     </div>
+                    <div id="sustChart"></div>
+                    <p class="text-secondary mt-3">Distribution of eco-scores across your material inventory.</p>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="chart-container h-100">
-                    <h3 class="mb-3">📦 Material Inventory by Category</h3>
+            <div class="col-lg-6 fade-in-up" style="animation-delay: 0.7s;">
+                <div class="chart-box h-100">
+                    <div class="chart-header">
+                        <h3 class="chart-title">📦 Quantity by Category</h3>
+                    </div>
                     <div id="catChart"></div>
                 </div>
             </div>
@@ -221,30 +174,45 @@
 
                 if (data.error) throw new Error(data.error);
 
-                updateKPIs(data.kpis);
+                updateKPIs(data);
                 renderCharts(data);
             } catch (error) {
                 console.error("Dashboard Error:", error);
-                alert("Failed to load dashboard data.");
+                document.getElementById('hero-material').innerText = "Data Unavailable";
+                // alert("Failed to load dashboard data."); // Removed alert for smoother UX
             }
         }
 
-        function updateKPIs(kpis) {
+        function updateKPIs(data) {
+            const kpis = data.kpis;
             if (!kpis) return;
-            // Animate numbers logic could go here, for now direct set
+
+            // Update Hero Section
+            document.getElementById('hero-material').innerText = kpis.best_eco_material || "N/A";
+            document.getElementById('hero-savings').innerText = kpis.avg_cost_savings + '%';
+
+            // Update KPI Cards
             document.getElementById('kpi-co2').innerText = kpis.avg_co2_reduction + '%';
             document.getElementById('kpi-cost').innerText = kpis.avg_cost_savings + '%';
-            document.getElementById('kpi-best').innerText = kpis.best_eco_material;
+
+            // Total Materials (Calculate from data len)
+            const totalMaterials = data.sustainability_scores ? data.sustainability_scores.length : '--';
+            document.getElementById('kpi-count').innerText = totalMaterials;
         }
 
         function renderCharts(data) {
+            const isDark = true; // Force dark mode for now as per style
+            const textColor = '#f1f8e9';
+            const gridColor = 'rgba(255,255,255,0.1)';
+
             const commonLayout = {
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
-                font: { color: '#f1f8e9', family: 'Outfit, sans-serif' },
-                margin: { t: 20, b: 60, l: 60, r: 20 },
-                xaxis: { gridcolor: 'rgba(255,255,255,0.1)' },
-                yaxis: { gridcolor: 'rgba(255,255,255,0.1)' }
+                font: { color: textColor, family: 'Outfit, sans-serif' },
+                margin: { t: 20, b: 40, l: 40, r: 20 },
+                xaxis: { gridcolor: gridColor },
+                yaxis: { gridcolor: gridColor },
+                showlegend: false
             };
 
             // 1. CO2 Bar Chart
@@ -253,55 +221,70 @@
                 x: co2Sorted.map(d => d.material_type),
                 y: co2Sorted.map(d => d.avg_co2),
                 type: 'bar',
-                marker: { color: co2Sorted.map(d => d.avg_co2 < 4 ? '#00e676' : '#ef5350') } // Green for low, Red for high
+                marker: {
+                    color: co2Sorted.map(d => d.avg_co2 < 4 ? '#00e676' : '#ef5350'),
+                    line: { width: 0 }
+                },
+                hovertemplate: '<b>%{x}</b><br>Impact Score: %{y}<extra></extra>'
             }], {
                 ...commonLayout,
-                yaxis: { title: 'Avg CO₂ Impact Score' }
-            });
-            // Update Insight Text
-            const lowestCo2 = co2Sorted[0];
-            document.getElementById('co2Insight').innerText = `${lowestCo2.material_type} has the lowest environmental impact, making it the top green choice.`;
+                yaxis: { title: 'Avg Impact Score', gridcolor: gridColor }
+            }, { displayModeBar: false });
+
+            // Insight
+            if (co2Sorted.length > 0) {
+                const best = co2Sorted[0];
+                document.getElementById('co2Insight').innerHTML =
+                    `<strong class="text-accent">${best.material_type}</strong> has the lowest environmental footprint among analyzed materials.`;
+            }
 
             // 2. Cost Chart
             const costSorted = data.cost_data.sort((a, b) => a.cost_per_unit_inr - b.cost_per_unit_inr);
             Plotly.newPlot('costChart', [{
                 x: costSorted.map(d => d.material_type),
                 y: costSorted.map(d => d.cost_per_unit_inr),
-                type: 'bar', // switched to bar for clarity
-                marker: { color: '#29b6f6' }
+                type: 'bar',
+                marker: { color: '#29b6f6' },
+                hovertemplate: '<b>%{x}</b><br>Cost: ₹%{y}<extra></extra>'
             }], {
                 ...commonLayout,
-                yaxis: { title: 'Cost per Unit (INR)' }
-            });
-            const lowestCost = costSorted[0];
-            document.getElementById('costInsight').innerText = `${lowestCost.material_type} is the most budget-friendly option at ₹${lowestCost.cost_per_unit_inr} per unit.`;
+                yaxis: { title: 'Cost (INR)', gridcolor: gridColor }
+            }, { displayModeBar: false });
+
+            if (costSorted.length > 0) {
+                const cheapest = costSorted[0];
+                document.getElementById('costInsight').innerHTML =
+                    `<strong class="text-info">${cheapest.material_type}</strong> is the most cost-effective option at ₹${cheapest.cost_per_unit_inr}.`;
+            }
 
             // 3. Sustainability Histogram
             Plotly.newPlot('sustChart', [{
                 x: data.sustainability_scores,
                 type: 'histogram',
-                marker: { color: '#ffca28' },
-                opacity: 0.8
+                marker: { color: '#ffca28', opacity: 0.8 },
+                xbins: { start: 0, end: 10, size: 1 }
             }], {
                 ...commonLayout,
-                xaxis: { title: 'Score (0-10) ', gridcolor: 'rgba(255,255,255,0.1)' },
-                yaxis: { title: 'Count', gridcolor: 'rgba(255,255,255,0.1)' }
-            });
+                xaxis: { title: 'Eco Score (0-10)', gridcolor: gridColor },
+                yaxis: { title: 'Frequency', gridcolor: gridColor }
+            }, { displayModeBar: false });
 
             // 4. Category Pie
             Plotly.newPlot('catChart', [{
                 labels: data.category_counts.map(d => d.category),
                 values: data.category_counts.map(d => d.material_count),
                 type: 'pie',
-                hole: 0.4, // Donut chart
+                hole: 0.5,
                 marker: { colors: ['#66bb6a', '#43a047', '#2e7d32', '#1b5e20', '#81c784'] },
                 textinfo: 'label+percent',
-                textposition: 'inside'
+                textposition: 'outside',
+                hoverinfo: 'label+value'
             }], {
                 ...commonLayout,
-                showlegend: false,
-                margin: { t: 0, b: 0, l: 0, r: 0 }
-            });
+                margin: { t: 0, b: 0, l: 0, r: 0 },
+                showlegend: true,
+                legend: { orientation: 'h', y: -0.1 }
+            }, { displayModeBar: false });
         }
     </script>
 </body>

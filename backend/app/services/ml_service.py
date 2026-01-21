@@ -78,25 +78,35 @@ class MLService:
              candidates_filtered = candidates_filtered[candidates_filtered['strength'] >= 7]
              print(f"   Shape after fragility filter: {candidates_filtered.shape}")
 
-        # Strict Category Enforcement: Do NOT fallback to broad search if category yields results.
-        # Only if the database has absolutely NO mapping for this category should we potentially warn or return empty.
-        candidates_df = candidates_filtered
-
-        if candidates_df.empty:
-            return pd.DataFrame()
+        # LOGIC UPDATE: Fallback Mechanism
+        # If strict category filtering leaves us with nothing, try finding ANY material that fits the physical specs
+        if candidates_filtered.empty:
+            print(f"⚠️ No exact category matches found for '{product_category}' with constraints. Attempting broad search...")
             
-        # Re-apply filters to the (potentially new) fallback dataset
-        if water_resistant:
-            candidates_df = candidates_df[candidates_df['water_resistance'] >= 1]
-            if candidates_df.empty:
-                 print("⚠️ No materials found with water resistance even in broad search.")
-                 return pd.DataFrame()
-
-        if fragility == 'High':
-            candidates_df = candidates_df[candidates_df['strength'] >= 7]
-            if candidates_df.empty:
-                 print("⚠️ No materials found with high strength even in broad search.")
-                 return pd.DataFrame()
+            # Construct broad query based on physical constraints
+            broad_conditions = [f"weight_capacity_kg >= {product_weight_kg}"]
+            
+            if water_resistant:
+                broad_conditions.append("water_resistance >= 1")
+            
+            if fragility == 'High':
+                broad_conditions.append("strength >= 7")
+                
+            where_clause = " AND ".join(broad_conditions)
+            
+            broad_query = f"""
+            SELECT * FROM features_engineering 
+            WHERE {where_clause}
+            """
+            
+            try:
+                candidates_df = pd.read_sql(broad_query, engine)
+                print(f"   Broad search found {len(candidates_df)} candidates.")
+            except Exception as e:
+                print(f"❌ Error in broad search: {e}")
+                return pd.DataFrame()
+        else:
+            candidates_df = candidates_filtered
 
         # 2. Prepare Features for Prediction
         X = candidates_df[[
