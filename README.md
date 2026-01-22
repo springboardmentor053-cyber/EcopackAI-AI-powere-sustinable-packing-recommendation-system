@@ -31,30 +31,33 @@ EcoPackAI solves this using **machine learning–driven decision intelligence**.
 
 ##  Project Structure
 
+
+```text
 EcopackAI/
 ├── assets/
-│ └── ER-Diagram.png
+│   └── ER-Diagram.png
 ├── data/
-│ ├── raw/
-│ └── processed/
+│   ├── raw/
+│   └── processed/
 ├── notebooks/
-│ ├── 01_data_cleaning.ipynb
-│ ├── 02_data_processing.ipynb
-│ ├── 03_feature_engineering.ipynb
-│ ├── 05_ml_data_preparation.ipynb
-│ ├── 06_rf_cost_model.ipynb
-│ ├── 07_xgb_co2_model.ipynb
-│ └── 08_recommendation_logic.ipynb
+│   ├── 01_data_cleaning.ipynb
+│   ├── 02_data_processing.ipynb
+│   ├── 03_feature_engineering.ipynb
+│   ├── 05_ml_data_preparation.ipynb
+│   ├── 06_rf_cost_model.ipynb
+│   ├── 07_xgb_co2_model.ipynb
+│   └── 08_recommendation_logic.ipynb
 ├── src/
-│ ├── data_loader.py
-│ ├── preprocessing.py
-│ ├── feature_engineering.py
-│ └── recommendation.py
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   └── recommendation.py
 ├── models/
-│ ├── rf_cost_model.pkl
-│ └── xgb_co2_model.pkl
+│   ├── rf_cost_model.pkl
+│   └── xgb_co2_model.pkl
 ├── requirements.txt
 └── README.md
+```
 
 
 ---
