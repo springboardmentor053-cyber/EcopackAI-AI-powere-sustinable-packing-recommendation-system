@@ -5,8 +5,8 @@ import pandas as pd
 app = Flask(__name__)
 
 
-cost_model = joblib.load("models/cost_model.pkl")
-co2_model = joblib.load("models/co2_model.pkl")
+cost_model = joblib.load("E:/Data Science/EcoPackAI/models/cost_model_clean.pkl")
+co2_model = joblib.load("E:/Data Science/EcoPackAI/models/cost_model_clean.pkl")
 
 
 @app.route("/")
