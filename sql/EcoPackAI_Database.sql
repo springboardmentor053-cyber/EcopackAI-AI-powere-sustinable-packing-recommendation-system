@@ -29,6 +29,3 @@ ALTER TABLE products
 ADD CONSTRAINT fk_material_type
 FOREIGN KEY (current_packaging_material)
 REFERENCES materials(material_type);
-
-
-
