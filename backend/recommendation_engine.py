@@ -11,11 +11,19 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, '..', 'models')
 
 # Database Config
-DB_USER = "postgres"
-DB_PASSWORD = "123456"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "ecopackai_db"
+from dotenv import load_dotenv
+
+# Load environment variables from .env_db file
+# Assuming .env_db is in the project root (one directory up from backend)
+dotenv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env_db')
+load_dotenv(dotenv_path)
+
+# Database Config
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "123456")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_NAME = os.getenv("DB_NAME", "ecopackai_db")
 
 class MaterialRecommender:
     def __init__(self):

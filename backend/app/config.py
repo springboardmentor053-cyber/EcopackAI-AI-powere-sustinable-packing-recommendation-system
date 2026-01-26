@@ -1,5 +1,11 @@
 
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env_db file
+# Root is two levels up from backend/app
+basedir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+load_dotenv(os.path.join(basedir, '.env_db'))
 
 class Config:
     """Base configuration."""

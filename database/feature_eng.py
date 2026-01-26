@@ -3,11 +3,20 @@ from sqlalchemy import create_engine, exc
 import numpy as np
 
 # ---------------- DATABASE CONFIG ----------------
-DB_USER = "postgres"
-DB_PASSWORD = "123456"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "ecopackai_db"
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env_db file
+# Root is one level up from database/
+basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(basedir, '.env_db'))
+
+# ---------------- DATABASE CONFIG ----------------
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "123456")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_NAME = os.getenv("DB_NAME", "ecopackai_db")
 
 def feature_engineering():
     try:
