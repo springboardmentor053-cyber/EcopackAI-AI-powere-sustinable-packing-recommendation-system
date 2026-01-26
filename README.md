@@ -231,27 +231,123 @@ EcoPackAI/
 
 ---
 
-## 🚦 Current Project Status
+## 📊 Dataset
 
-- ✅ Database schema finalized  
-- ✅ ER diagram created  
-- ✅ Data validated and cleaned  
-- ✅ Feature engineering complete  
-- ✅ Post-feature validation  
-- 🔜 ML Dataset Preparation
-- 🔜 AI Recommendation Model
-- 🔜 Flask Backend API Integration
-- 🔜 Frontent UI
-- 🔜 Dashboard visualization
-- 🔜 Deployment
-- 🔜 Documentation
+EcoPackAI is trained on an **engineered materials dataset** that contains physical, sustainability, and economic attributes for packaging materials.
+
+The ML layer is designed to be **material-centric**, meaning it predicts outcomes for materials directly rather than relying on product IDs or product tables.
 
 ---
 
-## 🔮 Future Scope
+## 🧩 ML Features
 
-- Integrate ML for dynamic, personalized packaging suggestions
-- Automate PostgreSQL → Python pipeline with ETL tools
-- Build REST API for real-time recommendations
-- Create user-centric dashboards
-- Optimize scoring via feedback loops or ML tuning
+The model uses a compact, decision-oriented feature set aligned with real packaging trade-offs:
+
+- **`strength_encoded`**  
+  Encoded strength requirement (e.g., Low/Medium/High mapped to ordinal values)
+
+- **`weight_capacity`**  
+  Load-bearing capability used to ensure feasibility for shipping/handling needs
+
+- **`biodegradability_score`**  
+  Sustainability measure representing how biodegradable the material is
+
+- **`recyclability_pct`**  
+  Recyclability percentage used as a circular-economy indicator
+
+- **`cost_efficiency_index`**  
+  Engineered score representing cost-performance preference for decision-making
+
+All features are numeric and ML-ready after preprocessing. This feature set is intentionally kept small to remain explainable and stable on a limited dataset.
+
+---
+
+## 🎯 Prediction Targets
+
+EcoPackAI models two independent numeric targets:
+
+- **Cost Prediction**  
+  A continuous cost value (e.g., cost per unit mass / cost score depending on dataset)
+
+- **CO₂ Impact Prediction**  
+  A continuous environmental impact value (e.g., CO₂ footprint / emission score depending on dataset)
+
+Targets are trained separately to keep predictions interpretable and to reflect that cost and CO₂ are influenced differently.
+
+---
+
+## 🔄 Modeling Pipeline
+
+A reproducible pipeline is used to ensure consistency between training and inference:
+
+- Train/test split
+- Preprocessing pipeline (scaling / transformations)
+- Model training (two independent regressors)
+- Evaluation on held-out test data
+- Saving artifacts for reuse in APIs/UI workflows
+
+### 📈 Evaluation Metrics
+
+- **MAE (Mean Absolute Error)** – average magnitude of prediction error  
+- **RMSE (Root Mean Squared Error)** – penalizes larger errors more strongly  
+- **R² Score (Coefficient of Determination)** – explained variance (interpreted cautiously for small datasets)
+
+---
+
+## 🤖 Machine Learning Models
+
+EcoPackAI trains two baseline models:
+
+### 1) Random Forest Regressor — Cost Prediction
+- Robust for non-linear relationships
+- Stable on small structured datasets
+- Low tuning overhead for a reliable baseline
+
+### 2) XGBoost Regressor — CO₂ Impact Prediction
+- Strong for complex patterns and noisy targets
+- Boosting learns residual errors iteratively
+- Regularization helps generalization
+
+Hyperparameters are kept near standard defaults to prioritize reproducibility and reduce overfitting risk.
+
+---
+
+## 🏆 From Predictions to Recommendations
+
+Model outputs are converted into actionable recommendations:
+
+1. Predict cost and CO₂ impact for candidate materials
+2. Rank materials based on:
+   - lower predicted cost
+   - lower predicted CO₂ impact
+3. Combine rankings into a suitability score to recommend top materials
+
+This approach avoids rigid thresholds and supports real-world trade-offs.
+
+---
+
+## 🧠 Design Considerations & Limitations
+
+- The current dataset is small, so the focus is on building a **correct end-to-end ML workflow**
+- Model performance metrics are informative but not treated as production-grade benchmarks
+- The system is structured to scale naturally as more materials data becomes available
+
+Future improvements can include:
+- larger datasets
+- more detailed lifecycle CO₂ information
+- user-controlled weighting between cost vs sustainability
+
+---
+
+## ✅ Current Status
+
+EcoPackAI currently includes:
+
+- ✅ engineered ML-ready dataset for materials  
+- ✅ preprocessing + training pipeline  
+- ✅ cost prediction model (Random Forest)  
+- ✅ CO₂ prediction model (XGBoost)  
+- ✅ ranking-based recommendation logic  
+- ✅ artifacts saved for backend/frontend integration  
+
+---
