@@ -1,0 +1,135 @@
+product_id,product_name,sector,main_packaging_material,strength_score,weight_capacity_score,barrier_score ,biodegradability_score,co2_emission_score,recyclability_percent,cost_score,reuse_potential_score,co2_impact_index,performance_index,material_suitability_score
+1,Smartphone box,Electronics,Recycled cardboard box + molded pulp tray,3,3,3,85,70,72,3,2,0.37279999999999996,3.0,1.4367800000000002
+2,Laptop shipping pack,Electronics,Heavy corrugated cardboard + paper padding,3,4,3,88,70,73,3,2,0.3752,3.4,1.64252
+3,Earbuds/headphones retail box,Electronics,Folding boxboard + paper insert,3,3,3,85,70,75,3,2,0.38000000000000006,3.0,1.4405000000000001
+4,Fragile gadget shipper with loose fill,Electronics,Cardboard box + starch‑based packing peanuts,3,3,3,90,78,55,3,2,0.17200000000000001,3.0,1.4072000000000002
+5,Snack bar wrapper,Food,Compostable PLA/cellulose multilayer film,3,3,4,80,75,28,4,1,0.16719999999999996,3.0,1.3647200000000004
+6,Chips / dry snacks bag,Food,High‑barrier bio‑based or PE film with coating,3,3,5,65,55,20,3,1,0.5479999999999999,3.0,1.3723
+7,Ready‑meal tray + lid,Food,Bagasse tray + PLA or cellulose lid film,3,3,4,85,80,45,3,1,0.10800000000000001,3.0,1.3833
+8,Beverage can,Food,Aluminium can,5,5,5,0,55,85,3,2,0.704,5.0,2.1553999999999998
+9,Sauce or jam jar,Food,Glass jar + metal lid,4,3,5,0,50,82,3,4,0.7968000000000001,3.6,1.5616800000000002
+10,Dairy in paper‑based cup,Food,Coated paper cup + bioplastic or PE lining,3,3,4,60,60,40,3,1,0.49600000000000005,3.0,1.3796000000000004
+11,Premium chocolate box,Food,Rigid paperboard box + paper tray,3,3,3,85,70,75,4,3,0.38000000000000006,3.0,1.4405000000000001
+12,Glass skincare jar,Cosmetics,Glass jar + aluminium / PCR plastic cap,4,3,5,10,52,80,3,4,0.752,3.6,1.5702
+13,PCR PET skincare bottle,Cosmetics,PCR PET bottle + plastic pump,4,4,4,0,55,58,2,3,0.6391999999999999,4.0,1.7219200000000001
+14,Bamboo‑cased lipstick / compact,Cosmetics,Bamboo outer + plastic/metal insert,4,4,4,70,80,45,4,4,0.10800000000000001,4.0,1.7608
+15,Aluminium cosmetic tin,Cosmetics,Aluminium screw‑top tin,5,5,5,0,55,85,3,4,0.704,5.0,2.1553999999999998
+16,Refillable foundation bottle,Cosmetics,Reusable glass/aluminium outer + refill cartridge,4,4,5,40,60,60,5,5,0.544,4.0,1.7744000000000002
+17,Refillable aluminium body‑wash bottle,Cosmetics,Aluminium bottle + concentrate refills,5,5,5,80,80,85,4,5,0.20400000000000001,5.0,2.2254
+18,Blister pack for tablets ,Pharmaceuticals,PCR PET/foil blister + paperboard card,4,3,5,5,50,30,2,1,0.672,3.6,1.5047000000000001
+19,Cough syrup bottle ,Pharmaceuticals,Glass or PCR PET bottle + child‑proof cap,4,3,5,2,52,70,3,3,0.728,3.6,1.5458
+20,Soda PET bottle ,Beverages,PCR PET bottle + PCR cap,4,4,5,0,55,60,2,4,0.6439999999999999,4.0,1.7244000000000002
+21,Premium glass water ,Beverages,Glass bottle + metal cap,4,3,5,0,50,82,3,5,0.7968000000000001,3.6,1.5616800000000002
+22,T‑shirt shipping envelope ,Textiles/Apparel,Recycled paper/poly mailer or compostable film,3,3,3,80,65,60,2,2,0.444,3.0,1.4244000000000003
+23,Jeans retail box ,Textiles/Apparel,Recycled cardboard box + paper band,3,3,3,85,70,75,3,3,0.38000000000000006,3.0,1.4405000000000001
+24,Shampoo refill pouch ,Personal Care/Home,Recycled plastic or compostable pouch,3,3,4,70,65,40,2,4,0.396,3.0,1.3846000000000003
+25,Detergent pod tray ,Personal Care/Home,Paperboard tray + bioplastic pods,3,3,4,75,72,65,3,2,0.316,3.0,1.4091000000000002
+26,Electric kettle box,Household Appliances,Heavy corrugated box + molded pulp inserts,4,4,3,85,70,75,3,2,0.38000000000000006,4.0,1.8405
+27,Microwave oven shipper,Household Appliances,Reinforced corrugated fiberboard + foam corners,5,5,3,65,55,50,3,1,0.62,5.0,2.2095
+28,Blender packaging,Household Appliances,Cardboard box + molded paper trays,4,4,3,88,70,73,3,2,0.3752,4.0,1.8425200000000002
+29,Refrigerator outer box,Household Appliances,Heavy-duty corrugated cardboard + paper edge protectors,5,5,3,80,72,70,4,2,0.32799999999999996,5.0,2.2228
+30,Vacuum cleaner pack,Household Appliances,Corrugated board + paper pulp inserts,4,4,3,85,70,75,3,2,0.38000000000000006,4.0,1.8405
+31,Ceiling fan box,Household Appliances,Recycled cardboard box + paper cushioning,4,4,3,85,70,72,3,2,0.37279999999999996,4.0,1.83678
+32,Iron packaging,Household Appliances,Folding boxboard + paper pulp tray,3,3,3,88,70,75,3,2,0.38000000000000006,3.0,1.4450000000000003
+33,Air purifier box,Household Appliances,Corrugated cardboard + recyclable foam pads,4,4,4,75,65,70,3,2,0.46799999999999997,4.0,1.8293000000000001
+34,Coffee maker box,Household Appliances,Printed paperboard + recycled pulp,3,3,3,85,68,70,3,2,0.408,3.0,1.4383000000000001
+35,Toaster packaging,Household Appliances,Recycled cardboard + molded pulp liner,3,3,3,85,70,75,3,2,0.38000000000000006,3.0,1.4405000000000001
+36,Dining chair carton,Furniture,Corrugated board + stretch film,4,5,3,70,65,50,3,2,0.42,4.4,1.997
+37,Table flat pack,Furniture,Recycled cardboard + paper corner pads,5,5,3,75,68,68,4,2,0.4032,5.0,2.22082
+38,Cushion packaging,Furniture,Compostable bag + tissue wrapping,3,3,2,90,78,60,3,3,0.18399999999999997,3.0,1.4134000000000002
+39,Mattress roll wrap,Furniture,Recyclable PE film + paper sleeve,4,4,3,60,55,55,3,2,0.632,4.0,1.8082
+40,Lamp box,Furniture,Corrugated box + molded pulp,3,3,3,85,70,75,3,3,0.38000000000000006,3.0,1.4405000000000001
+41,Kids’ toy box,Toys,Folding carton + paper insert,3,3,3,85,70,70,3,2,0.36799999999999994,3.0,1.4343000000000001
+42,Building blocks tub,Toys,PCR PP tub + paper sleeve,4,4,4,20,55,60,2,3,0.6439999999999999,4.0,1.7544000000000002
+43,Soft toy bag,Toys,Biodegradable PLA film + paper tag,3,3,2,80,70,40,3,2,0.29600000000000004,3.0,1.3896000000000004
+44,Educational kit box,Toys,Paperboard box + pulp tray,3,3,3,85,70,75,3,3,0.38000000000000006,3.0,1.4405000000000001
+45,Doll packaging,Toys,Recycled PET window + paperboard shell,3,3,3,65,60,55,3,2,0.532,3.0,1.4057
+46,Baby bottle pack,Baby Care,PCR PET clamshell + cardboard sleeve,4,4,4,25,55,60,3,3,0.6439999999999999,4.0,1.7619000000000002
+47,Baby lotion bottle,Baby Care,HDPE bottle + paper label,4,4,4,0,55,55,2,3,0.632,4.0,1.7182
+48,Diaper bag pack,Baby Care,Recyclable PE or compostable film,3,3,3,70,65,45,3,2,0.40800000000000003,3.0,1.3908
+49,Baby food pouch,Baby Care,Multi-layer biofilm with PLA,3,3,4,75,70,30,3,1,0.272,3.0,1.3697000000000004
+50,Baby wipes packet,Baby Care,Recyclable film + paper label,3,3,3,60,60,50,3,2,0.52,3.0,1.3920000000000003
+51,Motor oil bottle,Industrial/Automotive,PCR HDPE bottle + tamper seal,5,5,5,0,55,55,3,2,0.632,5.0,2.1182000000000003
+52,Brake fluid can,Industrial/Automotive,Metal can + plastic cap,5,5,5,0,50,75,3,3,0.78,5.0,2.153
+53,Car part box,Industrial/Automotive,Heavy corrugated box + paper fillers,4,5,3,70,60,60,3,2,0.544,4.4,2.0194
+54,Lubricant pouch,Industrial/Automotive,Refill pouch with barrier film,4,4,4,50,55,45,2,3,0.608,4.0,1.7808
+55,Battery packaging,Industrial/Automotive,Recyclable PET clamshell + board backing,4,4,4,10,52,55,3,1,0.692,4.0,1.7391999999999999
+56,Medical syringe pack,Healthcare/Medical Devices,Sterilized blister + paper lid,4,3,5,5,50,30,3,1,0.672,3.6,1.5047000000000001
+57,Diagnostic test kit,Healthcare/Medical Devices,Paperboard box + plastic tray,3,3,4,40,60,50,3,2,0.52,3.0,1.3620000000000003
+58,Surgical gloves box,Healthcare/Medical Devices,Paperboard dispenser box,3,3,3,85,72,75,3,3,0.34,3.0,1.4365
+59,Bandage pouch,Healthcare/Medical Devices,Paper‑foil laminate,3,3,4,20,55,40,3,1,0.596,3.0,1.3296000000000003
+60,Thermometer box,Healthcare/Medical Devices,Folding boxboard + internal paper tray,3,3,3,88,70,75,3,2,0.38000000000000006,3.0,1.4450000000000003
+61,Notebook pack,Stationery,Paper wrapper or kraft band,3,3,2,95,80,80,2,3,0.19200000000000003,3.0,1.4417000000000004
+62,Pen blister card,Stationery,PET blister + paper backing,3,3,3,10,52,55,2,1,0.692,3.0,1.3392
+63,Printer cartridge box,Stationery,Cardboard box + pulp insert,3,3,3,80,70,70,3,2,0.36799999999999994,3.0,1.4268000000000003
+64,Marker set pouch,Stationery,Recyclable film + paper header,3,3,3,70,65,50,2,2,0.42,3.0,1.3970000000000002
+65,Stapler pack,Stationery,Paperboard box + paper wrap,3,3,3,88,72,80,3,2,0.35200000000000004,3.0,1.4472000000000003
+66,Water bottle (sports),Sports & Outdoor,Aluminium bottle + paper tag,5,5,5,0,55,85,3,5,0.704,5.0,2.1553999999999998
+67,Energy gel pouch,Sports & Outdoor,High‑barrier bio‑film,3,3,4,70,65,30,3,1,0.372,3.0,1.3722
+68,Tennis ball can,Sports & Outdoor,Aluminium‑plastic composite can,5,5,5,0,55,60,3,3,0.6439999999999999,5.0,2.1244
+69,Sleeping bag sack,Sports & Outdoor,Recycled nylon bag,4,4,3,30,55,50,3,4,0.62,4.0,1.7570000000000001
+70,Fitness band box,Sports & Outdoor,Paperboard box + pulp tray,3,3,3,85,72,75,3,2,0.34,3.0,1.4365
+71,Camping stove box,Sports & Outdoor,Corrugated box + molded pulp,4,4,3,85,70,75,3,3,0.38000000000000006,4.0,1.8405
+72,Helmet box,Sports & Outdoor,Corrugated cardboard with pulp insert,4,5,3,85,70,70,4,2,0.36799999999999994,4.4,2.0343
+73,Yoga mat sleeve,Sports & Outdoor,Recycled kraft paper sleeve,3,3,2,90,75,80,2,3,0.292,3.0,1.4442000000000002
+74,Instant tent bag,Sports & Outdoor,Recyclable polyester bag,4,4,3,20,50,45,3,4,0.708,4.0,1.7458
+75,Torchlight blister,Sports & Outdoor,PET clamshell + paper card,4,4,4,10,52,55,3,2,0.692,4.0,1.7391999999999999
+76,Hand warmer pouch,Sports & Outdoor,Bio‑film with paper label,3,3,3,75,70,50,3,1,0.32000000000000006,3.0,1.3945000000000003
+77,Vacuum-sealed coffee pack,Food,Multi‑layer compostable PLA and paper film,3,3,4,75,70,35,3,1,0.28400000000000003,3.0,1.3759000000000001
+78,Protein powder tub,Food,PCR PET jar + paper label,4,4,5,20,55,60,3,3,0.6439999999999999,4.0,1.7544000000000002
+79,Pet food pouch,Food,Recyclable polyethylene film,4,4,4,60,65,55,3,2,0.432,4.0,1.7882
+80,Ice cream pint,Food,Coated paper tub + lid,3,3,4,65,60,40,3,2,0.49600000000000005,3.0,1.3871000000000002
+81,Non‑stick pan box,Household Appliances,Recycled cardboard box + corrugated insert,4,4,3,85,70,70,3,3,0.36799999999999994,4.0,1.8343
+82,Wall clock box,Household Appliances,Folding carton + molded pulp tray,3,3,3,88,72,75,3,2,0.34,3.0,1.4410000000000003
+83,Yoga resistance band pouch,Sports & Outdoor,Compostable PLA zip pouch,3,3,3,85,75,40,3,2,0.19599999999999998,3.0,1.3871000000000002
+84,Camping lantern box,Sports & Outdoor,Rigid paperboard with cardboard insert,4,4,3,85,72,72,3,3,0.3328,4.0,1.83278
+85,Baby shampoo bottle,Baby Care,PCR PET bottle + paper label,4,4,4,0,55,58,3,3,0.6391999999999999,4.0,1.7219200000000001
+86,Baby formula tin,Baby Care,Metal tin + paper label,5,5,5,0,50,80,3,4,0.792,5.0,2.1592000000000002
+87,Office file folder wrap,Stationery,Kraft paper wrap,3,3,2,95,80,85,2,3,0.20400000000000001,3.0,1.4479000000000002
+88,Mechanical pencil pack,Stationery,Recyclable PET sleeve + paper backing,3,3,3,10,52,55,2,1,0.692,3.0,1.3392
+89,Wrench set box,Industrial/Automotive,Corrugated cardboard box with paper edge guards,4,5,3,75,68,65,4,2,0.396,4.4,2.0171
+90,Engine filter box,Industrial/Automotive,Recycled cardboard box + paper pad,4,4,3,85,70,70,3,2,0.36799999999999994,4.0,1.8343
+91,Hospital gloves pouch,Healthcare/Medical Devices,Compostable PLA film + paper label,3,3,4,80,70,45,3,1,0.30800000000000005,3.0,1.3958000000000002
+92,Dishwasher box,Household Appliances,Corrugated cardboard + molded fiber supports,5,5,3,80,68,72,4,2,0.41279999999999994,5.0,2.23328
+93,Mixer grinder set,Household Appliances,Rigid carton + paper pulp trays,4,4,3,85,70,75,3,2,0.38000000000000006,4.0,1.8405
+94,Induction cooktop box,Household Appliances,Laminated paperboard + molded pulp insert,4,4,3,78,68,68,3,2,0.4032,4.0,1.82532
+95,Electric fan heater box,Household Appliances,Recycled cardboard + paper side supports,4,4,3,85,70,75,3,2,0.38000000000000006,4.0,1.8405
+96,LED projector pack,Electronics,Folding boxboard + molded pulp tray,3,3,3,85,70,70,3,2,0.36799999999999994,3.0,1.4343000000000001
+97,Gaming console packaging,Electronics,Corrugated box + paper tray inserts,5,5,3,75,65,65,4,2,0.45599999999999996,5.0,2.2230999999999996
+98,Smart speaker box,Electronics,Paperboard box + molded paper tray,3,3,3,88,72,75,3,2,0.34,3.0,1.4410000000000003
+99,Power bank pack,Electronics,Recycled PET blister + paper backing,4,4,4,20,55,52,3,1,0.6248,4.0,1.7444800000000003
+100,External hard drive box,Electronics,Rigid paperboard box + foam buffer,4,4,4,75,65,55,3,1,0.432,4.0,1.8107
+101,Wireless charger box,Electronics,Paperboard + mycelium insert,3,3,3,92,80,70,4,2,0.16799999999999998,3.0,1.4248
+102,Gaming keyboard box,Electronics,Cardboard box + pulp tray,4,4,3,88,70,75,3,2,0.38000000000000006,4.0,1.8450000000000002
+103,Office printer box,Electronics,Heavy corrugated board + paper padding,5,5,3,75,65,65,3,2,0.45599999999999996,5.0,2.2230999999999996
+104,Keyboard + mouse combo pack,Electronics,Recycled cardboard + molded paper tray,4,4,3,85,70,70,3,2,0.36799999999999994,4.0,1.8343
+105,Refrigerated yogurt cup,Food,Coated paper cup + foil lid,3,3,4,60,60,38,3,1,0.4912,3.0,1.3771200000000003
+106,Soup cup (instant),Food,Paper cup + compostable PLA lid,3,3,4,70,65,45,3,2,0.40800000000000003,3.0,1.3908
+107,Bakery pastry box,Food,Recycled kraft board with cellulose window,3,3,3,85,72,75,3,2,0.34,3.0,1.4365
+108,Frozen peas pouch,Food,Compostable multilayer PLA film,3,3,4,80,72,40,3,1,0.25600000000000006,3.0,1.3856000000000004
+109,Cooking oil pouch,Food,Recyclable barrier polyethylene,4,4,5,60,55,50,3,2,0.62,4.0,1.8020000000000003
+110,Honey jar,Food,Glass jar + metal lid,4,3,5,0,50,82,3,4,0.7968000000000001,3.6,1.5616800000000002
+111,Jam refill pouch,Food,Compostable film refill pouch,3,3,4,70,70,35,3,1,0.28400000000000003,3.0,1.3684
+112,Cosmetic serum bottle,Cosmetics,Frosted glass bottle + metal cap,4,4,5,0,52,80,3,4,0.752,4.0,1.7552
+113,Shampoo bar box,Cosmetics,Recycled cardboard + paper wrap,3,3,3,90,78,80,3,3,0.232,3.0,1.4382000000000004
+114,Perfume gift set,Cosmetics,Paperboard box + molded pulp trays,3,3,4,85,72,75,4,3,0.34,3.0,1.4365
+115,Hair oil bottle,Cosmetics,PCR PET bottle + aluminium cap,4,4,4,0,55,60,3,3,0.6439999999999999,4.0,1.7244000000000002
+116,Compact powder tin,Cosmetics,Aluminium round tin,5,5,5,0,55,85,3,4,0.704,5.0,2.1553999999999998
+117,Deodorant can,Cosmetics,Aluminium aerosol can,5,5,5,0,55,80,3,3,0.692,5.0,2.1492
+118,Makeup refill pouch,Cosmetics,Compostable or recyclable mono‑film,3,3,4,70,70,40,3,2,0.29600000000000004,3.0,1.3746000000000003
+119,Travel cosmetic kit,Cosmetics,Recycled PP pouch,3,3,3,50,58,55,3,4,0.572,3.0,1.3872
+120,Pain relief spray can,Pharmaceuticals,Aluminium can + actuator,5,5,5,0,55,80,3,3,0.692,5.0,2.1492
+121,Thermal patch pack,Pharmaceuticals,Foil‑paper laminate sachet,3,3,5,10,55,40,3,1,0.596,3.0,1.3146000000000002
+122,Bandage roll wrap,Healthcare,Compostable cellulose film + paper label,3,3,3,85,72,58,3,2,0.2992,3.0,1.4154200000000001
+123,Cotton swab box,Healthcare,Paperboard box + cellulose film window,3,3,3,90,75,70,3,3,0.26799999999999996,3.0,1.4318000000000002
+124,Safety gloves pack,Industrial,Compostable pouch + paper label,3,3,3,80,70,55,3,2,0.3320000000000001,3.0,1.4082000000000003
+125,Bike part kit,Automotive,Heavy corrugated box + paper padding,4,5,3,70,60,60,3,3,0.544,4.4,2.0194
+126,Tool organizer box,Industrial Tools,Recycled PP box + paper sleeve,5,5,4,15,50,65,3,4,0.756,5.0,2.1631
+127,Paint can,Industrial,Metal can + lid,5,5,5,0,50,85,3,3,0.804,5.0,2.1654
+128,Office paper ream wrapper,Stationery,Paper wrap + starch‑based glue,3,3,2,95,78,85,2,3,0.244,3.0,1.4519000000000002
+129,Fine art brush set pack,Stationery,Kraft paperboard + paper sleeve,3,3,3,90,75,75,3,3,0.27999999999999997,3.0,1.4380000000000002
+130,Sports shoe box,Textiles/Apparel,Recycled cardboard shoe box,4,4,3,85,70,80,3,3,0.39200000000000007,4.0,1.8467000000000002
+131,Jacket mailer,Textiles/Apparel,Compostable film + paper tape,3,3,3,80,70,60,2,3,0.34400000000000003,3.0,1.4144000000000003
+132,Laundry detergent powder pack,Personal Care/Home,Paper bag with starch liner,3,3,4,80,75,70,3,2,0.26799999999999996,3.0,1.4168000000000003
+133,Scented candle jar,Home Decor,Glass jar + aluminium lid,4,4,5,0,50,80,3,4,0.792,4.0,1.7592
+134,Curtain set sleeve,Home Decor,Recycled kraft paper wrap,3,3,2,95,80,80,2,3,0.19200000000000003,3.0,1.4417000000000004
