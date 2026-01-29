@@ -1,13 +1,26 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import joblib
 import pandas as pd
 import numpy as np
+import os
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
 
-#
-cost_model = joblib.load("D:\EcoPack AI\models\cost_model.pkl")
-co2_model = joblib.load("D:\EcoPack AI\models\co2_model.pkl")
+cost_model = joblib.load("models/cost_model.pkl")
+co2_model = joblib.load("models/co2_model.pkl")
+
+FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "frontend")
+
+def get_db_connection():
+    return psycopg2.connect(
+        dbname="EcoPackAI_Database",
+        user="postgres",
+        password="Gaurav@123",
+        host="localhost",
+        port="5432"
+    )
 
 def strength_to_encoded(mpa):
     if mpa < 20:
@@ -16,6 +29,40 @@ def strength_to_encoded(mpa):
         return 1
     else:
         return 2
+
+@app.route("/")
+def home():
+    return send_from_directory(FRONTEND_DIR, "index.html")
+
+@app.route("/style.css")
+def css():
+    return send_from_directory(FRONTEND_DIR, "style.css")
+
+@app.route("/app.js")
+def js():
+    return send_from_directory(FRONTEND_DIR, "app.js")
+
+@app.route("/materials")
+def materials_page():
+    return send_from_directory(FRONTEND_DIR, "materials.html")
+
+@app.route("/api/materials")
+def api_materials():
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+
+        cur.execute("SELECT * FROM materials ORDER BY material_id;")
+        rows = cur.fetchall()
+
+        cur.close()
+        conn.close()
+
+        return jsonify({"materials": rows})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -28,7 +75,6 @@ def predict():
 
     required_cols = list(cost_model.feature_names_in_)
     X = df.reindex(columns=required_cols, fill_value=0)
-
     X = X.replace([np.inf, -np.inf], 0)
 
     predicted_cost = cost_model.predict(X)[0]

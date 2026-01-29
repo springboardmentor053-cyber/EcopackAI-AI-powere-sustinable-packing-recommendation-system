@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPackAI Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">📦</div>
+        <div class="brand-text">
+          <h2>EcoPackAI</h2>
+          <p>AI Packaging</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+  <a class="nav-item active" href="/">🏠 Dashboard</a>
+  <a class="nav-item" href="/materials">📦 Materials DB</a>
+</nav>
+
+      <div class="sidebar-footer">
+        <p>Eco-friendly Decision Tool</p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Recommend</h1>
+          <p class="subtitle">AI Recommendation</p>
+        </div>
+
+        <div class="topbar-right">
+          <span class="user-pill">User • Gaurav</span>
+        </div>
+      </div>
+
+      <div class="content">
+
+        <!-- Left Card (Form) -->
+        <section class="card form-card">
+          <h3>✅ Product Attributes</h3>
+
+          <form id="predictForm" class="form">
+
+            <label>Category</label>
+            <select id="category" title="Product category selection">
+              <option value="Electronics">Electronics</option>
+              <option value="Food">Food</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Fragile">Fragile</option>
+            </select>
+
+            <div class="grid">
+              <div class="field">
+                <label>Strength (MPa)</label>
+                <input type="number" step="0.01" id="strength_mpa" placeholder="e.g. 45" required>
+              </div>
+
+              <div class="field">
+                <label>Cost (INR/kg)</label>
+                <input type="number" step="0.01" id="cost_inr_per_kg" placeholder="e.g. 12" required>
+              </div>
+
+              <div class="field">
+                <label>Weight Capacity</label>
+                <input type="number" step="0.01" id="weight_capacity" placeholder="e.g. 5" required>
+              </div>
+
+              <div class="field">
+                <label>Recyclability (%)</label>
+                <input type="number" step="0.01" id="recyclability_pct" placeholder="e.g. 85" required>
+              </div>
+
+              <div class="field full">
+                <label>Biodegradability (0–10)</label>
+                <input type="number" step="1" id="biodegradability_score" placeholder="e.g. 9" required>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn primary" type="submit">🚀 Run AI Engine</button>
+              <button class="btn secondary" type="button" id="resetBtn">↩ Reset</button>
+            </div>
+
+          </form>
+
+          <div class="loader" id="loaderBox">
+            <div class="spinner"></div>
+            <p>Predicting...</p>
+          </div>
+
+          <div class="error" id="errorBox">
+            <p id="errorText">Something went wrong</p>
+          </div>
+        </section>
+
+        <!-- Right Card (Output) -->
+        <section class="card output-card">
+          <h3>📌 Recommendations</h3>
+
+          <div class="empty" id="emptyBox">
+            <p class="empty-title">No Recommendations Yet</p>
+            <p class="empty-sub">
+              Add product parameters and run the AI engine to generate predictions.
+            </p>
+          </div>
+
+          <div class="result" id="resultBox">
+            <div class="result-item">
+              <div class="badge">💰</div>
+              <div>
+                <p class="label">Predicted Cost</p>
+                <p class="value">₹ <span id="predCost">--</span> / kg</p>
+              </div>
+            </div>
+
+            <div class="result-item">
+              <div class="badge">🌍</div>
+              <div>
+                <p class="label">Predicted CO₂</p>
+                <p class="value"><span id="predCO2">--</span> kg/kg</p>
+              </div>
+            </div>
+
+            <div class="hint" id="hintBox">
+              <p><b>Tip:</b> Higher recyclability & biodegradability improves sustainability.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPackAI • Materials</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">📦</div>
+        <div class="brand-text">
+          <h2>EcoPackAI</h2>
+          <p>AI Packaging</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item" href="/">🏠 Dashboard</a>
+        <a class="nav-item active" href="/materials">📦 Materials DB</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Eco-friendly Decision Tool</p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Materials Database</h1>
+          <p class="subtitle">View stored materials and sustainability attributes</p>
+        </div>
+
+        <div class="topbar-right">
+          <button class="btn secondary" id="refreshBtn">🔄 Refresh</button>
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="table-top">
+          <input class="search" id="searchInput" placeholder="Search material type..." />
+          <span class="pill" id="rowCount">Rows: --</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="materialsTable">
+            <thead>
+              <tr>
+                <th>Material ID</th>
+                <th>Material Type</th>
+                <th>Strength (MPa)</th>
+                <th>Weight Capacity</th>
+                <th>CO₂ (kg/kg)</th>
+                <th>Biodegradability</th>
+                <th>Recyclability (%)</th>
+                <th>Cost (INR/kg)</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody id="materialsBody"></tbody>
+          </table>
+        </div>
+
+        <div class="loader" id="loaderBox">
+          <div class="spinner"></div>
+          <p>Loading materials...</p>
+        </div>
+
+        <div class="error" id="errorBox">
+          <p id="errorText">Error loading materials</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Built by <b>EcoPackAI</b> • Flask + PostgreSQL</p>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
