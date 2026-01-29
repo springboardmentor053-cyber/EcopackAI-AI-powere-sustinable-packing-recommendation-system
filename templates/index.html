@@ -17,20 +17,19 @@
     <p>AI-Driven Sustainable Packaging Material Recommendation</p>
   </header>
 
-  <!-- INPUT PANEL -->
-  <section class="input-section">
+  <!-- INPUT SECTION -->
+  <section class="section input-section">
     <h2>Material Requirement Inputs</h2>
 
     <div class="form-grid">
       <div>
-        <label>Required Strength Level</label>
+        <label>Strength Level</label>
         <select id="strength_level">
-        <option value="">Select</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
+          <option value="">Select</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </select>
-
       </div>
 
       <div>
@@ -41,37 +40,64 @@
       <div>
         <label>Biodegradability Score (1–10)</label>
         <input type="number" id="biodegradability_score" min="1" max="10">
-
       </div>
 
       <div>
         <label>Recyclability (%)</label>
-        <input type="number" id="recyclability_pct" placeholder="0 – 100">
+        <input type="number" id="recyclability_pct" min="0" max="100">
       </div>
     </div>
 
     <button onclick="getRecommendations()">Run Recommendation Engine</button>
   </section>
 
-  <!-- RESULTS -->
-  <section class="results-section">
+  <!-- RECOMMENDATIONS -->
+  <section class="section">
     <h2>Recommended Materials</h2>
     <div id="cards" class="card-container"></div>
   </section>
 
   <!-- ANALYTICS -->
-  <section class="analytics-section">
+  <section class="section">
     <h2>Recommendation Analytics</h2>
 
-    <div class="charts">
+    <div class="kpi-row">
+      <div class="kpi">
+        <p>Lowest Cost</p>
+        <h3 id="kpiLowestCost">—</h3>
+      </div>
+      <div class="kpi">
+        <p>Lowest CO₂ Impact</p>
+        <h3 id="kpiLowestCO2">—</h3>
+      </div>
+      <div class="kpi">
+        <p>Best Overall Choice</p>
+        <h3 id="kpiBestOverall">—</h3>
+      </div>
+    </div>
+
+    <div class="chart-wrapper">
       <canvas id="costCo2Chart"></canvas>
-      <canvas id="sustainabilityChart"></canvas>
     </div>
   </section>
 
-  <footer>
-    <p>EcoPackAI – Internship Prototype</p>
-  </footer>
+  <section class="section">
+    <h2>Material Comparison Summary</h2>
+
+    <div class="table-wrapper">
+      <table id="comparisonTable">
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Cost (INR/kg)</th>
+            <th>CO₂ Impact</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

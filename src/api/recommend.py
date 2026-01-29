@@ -1,81 +1,84 @@
-import numpy as np
 import pandas as pd
 
-STRENGTH_MAPPING = {"Low": 1, "Medium": 2, "High": 3}
+STRENGTH_MAP = {
+    "Low": 1,
+    "Medium": 2,
+    "High": 3
+}
 
-def _required_strength_from_fragility(fragility_level: str) -> str:
-    # Simple rule: fragility drives minimum strength
-    frag = (fragility_level or "Low").strip().title()
-    if frag not in STRENGTH_MAPPING:
-        frag = "Low"
-    return frag
+def rank_materials(materials_df, product, co2_model, cost_model, top_k=3):
+    df = materials_df.copy()
 
-def rank_materials(materials_df: pd.DataFrame,
-                   product: dict,
-                   co2_model,
-                   cost_model,
-                   top_k: int = 5) -> list[dict]:
 
-    # 1) basic constraints
-    required_strength = _required_strength_from_fragility(product.get("fragility_level"))
-    req_strength_val = STRENGTH_MAPPING[required_strength]
+    required_strength = STRENGTH_MAP[product["strength_level"]]
+    product_weight_kg = float(product["product_weight_g"]) / 1000.0
+    user_bio = float(product["biodegradability_score"])       
+    user_recy = float(product["recyclability_pct"])         
 
-    # product weight in kg
-    w_g = float(product.get("product_weight_g", 0) or 0)
-    w_kg = w_g / 1000.0
 
-    candidates = materials_df.copy()
+    if "strength_encoded" not in df.columns:
+        if "strength_level" not in df.columns:
+            raise KeyError("materials_df missing both 'strength_encoded' and 'strength_level'")
+        df["strength_encoded"] = df["strength_level"].map(STRENGTH_MAP)
 
-    # must have strength_level >= required
-    candidates["strength_encoded"] = candidates["strength_level"].map(STRENGTH_MAPPING).fillna(1).astype(int)
-    candidates = candidates[candidates["strength_encoded"] >= req_strength_val]
 
-    # must have weight_capacity >= product weight (basic)
-    # (If your weight_capacity is not kg, adjust here. But don’t guess silently.)
-    candidates = candidates[candidates["weight_capacity"] >= w_kg]
+    filtered = df[
+        (df["strength_encoded"] >= required_strength) &
+        (df["weight_capacity"] >= product_weight_kg * 0.7)  
+    ]
 
-    if candidates.empty:
-        return []
+ 
+    if filtered.empty:
+        filtered = df.copy()
+        
 
-    # 2) model features
-    X = candidates[[
+    if "cost_efficiency_index" not in filtered.columns:
+        raise KeyError("cost_efficiency_index missing from materials data")
+
+
+
+    feature_cols = [
         "strength_encoded",
         "weight_capacity",
         "biodegradability_score",
         "recyclability_pct",
         "cost_efficiency_index"
-    ]].copy()
+    ]
 
-    # 3) predictions
-    pred_co2 = co2_model.predict(X)
-    pred_cost = cost_model.predict(X)
 
-    candidates["predicted_co2_impact"] = pred_co2
-    candidates["predicted_cost_inr_per_kg"] = pred_cost
+    X = filtered[feature_cols]
 
-    # 4) scoring (normalize within candidate set)
-    def minmax(s):
-        s = s.astype(float)
-        return (s - s.min()) / (s.max() - s.min() + 1e-9)
+    filtered["predicted_cost_inr_per_kg"] = cost_model.predict(X)
+    filtered["predicted_co2_impact"] = co2_model.predict(X)
 
-    co2_n = minmax(candidates["predicted_co2_impact"])
-    cost_n = minmax(candidates["predicted_cost_inr_per_kg"])
 
-    # lower is better for both, so invert
-    candidates["final_score"] = (
-        0.45 * (1 - co2_n) +
-        0.35 * (1 - cost_n) +
-        0.20 * candidates["material_suitability_score"].astype(float)
+    def normalize(s):
+        return (s - s.min()) / (s.max() - s.min() + 1e-6)
+
+    filtered["cost_score"] = 1 - normalize(filtered["predicted_cost_inr_per_kg"])
+    filtered["co2_score"] = 1 - normalize(filtered["predicted_co2_impact"])
+
+    filtered["bio_penalty"] = (filtered["biodegradability_score"] - user_bio).abs() / 10.0
+    filtered["recy_penalty"] = (filtered["recyclability_pct"] - user_recy).abs() / 100.0
+
+
+    filtered["final_score"] = (
+        0.30 * filtered["cost_score"] +
+        0.30 * filtered["co2_score"] +
+        0.20 * (1 - filtered["bio_penalty"]) +
+        0.20 * (1 - filtered["recy_penalty"])
     )
 
-    out = (
-        candidates.sort_values("final_score", ascending=False)
-        .head(int(top_k))
-        [[
-            "material_id", "material_type", "material_category", "strength_level",
-            "weight_capacity", "recyclability_pct", "biodegradability_score",
-            "predicted_cost_inr_per_kg", "predicted_co2_impact", "final_score"
-        ]]
-        .to_dict(orient="records")
-    )
-    return out
+    result = filtered.sort_values("final_score", ascending=False).head(top_k)
+
+    return result[[
+        "material_id",
+        "material_type",
+        "material_category",
+        "predicted_cost_inr_per_kg",
+        "predicted_co2_impact",
+        "biodegradability_score",
+        "recyclability_pct",
+        "weight_capacity",
+        "final_score"
+    ]].to_dict(orient="records")
