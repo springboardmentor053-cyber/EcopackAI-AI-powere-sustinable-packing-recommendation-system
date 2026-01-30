@@ -29,22 +29,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form Handling
     const form = document.getElementById('recommendationForm');
     if (form) {
-        form.addEventListener('submit', handleFormSubmit);
+        form.addEventListener('submit', (e) => handleFormSubmit(e, false));
+    }
+
+    const aiBtn = document.getElementById('aiSubmitBtn');
+    if (aiBtn) {
+        aiBtn.addEventListener('click', (e) => handleFormSubmit(e, true));
     }
 });
 
-async function handleFormSubmit(event) {
-    event.preventDefault();
+async function handleFormSubmit(event, forceAI = false) {
+    if (event) event.preventDefault();
 
     // UI Elements
     const submitBtn = document.getElementById('submitBtn');
+    const aiBtn = document.getElementById('aiSubmitBtn');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const resultsSection = document.getElementById('resultsSection');
     const tbody = document.getElementById('resultsTableBody');
+    const loadingText = loadingSpinner.querySelector('.loading-text');
 
     // Reset UI
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Analyzing...';
+    if (aiBtn) aiBtn.disabled = true;
+
+    if (forceAI) {
+        if (aiBtn) aiBtn.innerHTML = '🤖 Thinking...';
+        loadingText.innerText = 'Consulting Gemini AI for sustainable options...';
+    } else {
+        submitBtn.innerHTML = 'Analyzing...';
+        loadingText.innerText = 'Analyzing material properties & CO₂ impact...';
+    }
+
     resultsSection.style.display = 'none';
     loadingSpinner.style.display = 'block';
     tbody.innerHTML = ''; // Clear previous results
@@ -54,6 +70,17 @@ async function handleFormSubmit(event) {
     const weight = document.getElementById('weight').value;
     const fragility = document.getElementById('fragility').value;
     const waterResistant = document.getElementById('waterResistant').checked;
+
+    // Basic Validation
+    if (!category || !weight) {
+        showNotification("Please fill in all required fields.", "warning");
+        loadingSpinner.style.display = 'none';
+        submitBtn.disabled = false;
+        if (aiBtn) aiBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="fs-4">✨ Get Recommendations</span>';
+        if (aiBtn) aiBtn.innerHTML = '<span class="fs-4">🤖 Ask Gemini AI</span>';
+        return;
+    }
 
     try {
         const response = await fetch('/api/recommend', {
@@ -65,14 +92,15 @@ async function handleFormSubmit(event) {
                 product_category: category,
                 weight_kg: weight,
                 fragility: fragility,
-                water_resistant: waterResistant
+                water_resistant: waterResistant,
+                force_gemini: forceAI
             })
         });
 
         const data = await response.json();
 
-        if (response.ok && data.recommendations && data.recommendations.length > 0) {
-            renderResults(data.recommendations);
+        if (response.ok && data.recommended_materials && data.recommended_materials.length > 0) {
+            renderResults(data.recommended_materials);
         } else {
             // Show toast or alert for no results
             showNotification(data.message || "No recommendations found.", "warning");
@@ -84,7 +112,10 @@ async function handleFormSubmit(event) {
     } finally {
         loadingSpinner.style.display = 'none';
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Get Recommendations';
+        if (aiBtn) aiBtn.disabled = false;
+
+        submitBtn.innerHTML = '<span class="fs-4">✨ Get Recommendations</span>';
+        if (aiBtn) aiBtn.innerHTML = '<span class="fs-4">🤖 Ask Gemini AI</span>';
     }
 }
 
@@ -98,9 +129,9 @@ function renderResults(recommendations) {
         row.style.animationDelay = `${index * 100}ms`; // Staggered animation
 
         // Format Numbers
-        const score = parseFloat(item.final_rank_score).toFixed(1);
-        const cost = parseFloat(item.predicted_cost_inr).toFixed(2);
-        const co2 = parseFloat(item.predicted_co2_score).toFixed(2);
+        const score = parseFloat(item.final_rank_score || 0).toFixed(1);
+        const cost = item.estimated_cost; // Already formatted
+        const co2 = item.co2_impact;      // Already formatted text
         const origin = item.manufacturing_place || 'Global';
         const weightCap = item.weight_capacity_kg;
 
@@ -108,7 +139,7 @@ function renderResults(recommendations) {
             <td>
                 <div class="d-flex align-items-center">
                     <span class="material-icon me-2">📦</span>
-                    ${item.material_type}
+                    ${item.material_name}
                 </div>
             </td>
             <td>
@@ -116,8 +147,8 @@ function renderResults(recommendations) {
                    ${score}/100
                 </div>
             </td>
-            <td><span class="metric-value">₹${cost}</span></td>
-            <td><span class="metric-value text-warning">${co2} CO₂</span></td>
+            <td><span class="metric-value">${cost}</span></td>
+            <td><span class="metric-value text-warning">${co2}</span></td>
             <td>${origin}</td>
             <td>${weightCap} kg</td>
         `;
