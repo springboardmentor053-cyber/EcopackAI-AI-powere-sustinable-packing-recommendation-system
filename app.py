@@ -9,11 +9,9 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Load ML models once
 co2_model, cost_model = load_models()
 
-# Load materials data
-materials_df = pd.read_csv("data/processed/materials_featured.csv")
+materials_df = pd.read_sql(fetch_materials(), engine)
 
 
 @app.get("/")
