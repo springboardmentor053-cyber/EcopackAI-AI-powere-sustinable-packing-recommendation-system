@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>EcoPackAI | AI Packaging Dashboard</title>
+<title>EcoPackAI | AI Packaging Intelligence</title>
 
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,100 +16,92 @@
 <style>
 * { font-family: 'Poppins', sans-serif; }
 
-/* ===== GLOBAL ===== */
 body {
-    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-    color: #e0e0e0;
+    background: radial-gradient(circle at top, #0f2a36, #09161e);
+    color: #e0f2f1;
     min-height: 100vh;
 }
 
-/* ===== SIDEBAR ===== */
+/* SIDEBAR */
 .sidebar {
-    background: linear-gradient(180deg, #0b1d26, #102a43);
-    color: #ffffff;
+    background: linear-gradient(180deg, #0b2430, #071821);
     padding: 30px;
     height: 100vh;
-    animation: slideInLeft 1s ease;
+    border-right: 2px solid rgba(38,166,154,0.25);
 }
 
-.sidebar label { color: #b2dfdb; }
-
+/* INPUTS */
 .sidebar input,
 .sidebar select {
-    background-color: #1c2b36;
-    color: #e0e0e0;
-    border: 1px solid #37474f;
+    background-color: #0f2933;
+    border: 1px solid #2a5a61;
+    color: #e0f2f1;
 }
 
 .sidebar input::placeholder {
-    color: #9ea7ad;
+    color: #9fbfc0;
 }
 
-/* ===== BUTTON ===== */
+/* BUTTON */
 .btn-ai {
-    background: linear-gradient(135deg, #26a69a, #2bbbad);
+    background: linear-gradient(135deg,#26a69a,#1de9b6);
     border: none;
-    color: white;
     font-weight: 600;
 }
 
 .btn-ai:hover {
-    background: linear-gradient(135deg, #1de9b6, #00bfa5);
+    box-shadow: 0 0 15px rgba(38,166,154,0.7);
 }
 
-/* ===== DASHBOARD ===== */
+/* DASHBOARD */
 .dashboard {
-    padding: 30px;
-    animation: fadeIn 1s ease;
+    padding: 35px;
 }
 
-/* ===== CARDS ===== */
+/* CARDS */
 .card {
-    background-color: #1c2b36;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-    color: #e0e0e0;
+    background: linear-gradient(160deg,#0f2933,#0a1d26);
+    border-radius: 16px;
+    border: 1px solid rgba(38,166,154,0.25);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.6);
 }
 
-.card h4, .card h5, .card h6 {
-    color: #b2dfdb;
+/* 🔥 FIX: SUMMARY VALUES */
+.card h4 {
+    color: #e0fff9 !important;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(38,166,154,0.6);
 }
 
-/* ===== TABLE ===== */
+.card h6 {
+    color:#7ddfd3;
+    opacity:.9;
+}
+
+/* TABLE */
 .table {
-    color: #e0e0e0;
+    color:#e0f2f1;
 }
 
 .table thead {
-    background-color: #102a43;
+    background:#081821;
 }
 
 .table th {
-    color: #80cbc4;
-    border-color: #37474f;
+    color:#7ddfd3;
+    border-color:#16414a;
 }
 
 .table td {
-    border-color: #37474f;
+    border-color:#16414a;
 }
 
-/* ===== CHARTS ===== */
+/* CHARTS */
 canvas {
-    max-height: 260px;
-    background-color: #1c2b36;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes slideInLeft {
-    from { transform: translateX(-100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    max-height:260px;
+    background:#071821;
+    border-radius:12px;
+    padding:10px;
 }
 </style>
 </head>
@@ -119,102 +111,116 @@ canvas {
 <div class="container-fluid">
 <div class="row">
 
-<!-- ================= LEFT INPUT PANEL ================= -->
+<!-- ================= LEFT PANEL ================= -->
 <div class="col-md-3 sidebar">
-    <h3>🌱 EcoPackAI</h3>
-    <p>AI-Powered Sustainable Packaging</p>
-    <hr>
 
-    <label>Product Name</label>
-    <input type="text" id="product_name" class="form-control mb-2"
-           placeholder="e.g. Snack Packaging">
+<h3>🌿 EcoPackAI</h3>
+<p>AI-Powered Sustainable Packaging</p>
+<hr>
 
-    <label>Quantity</label>
-    <input type="number" id="quantity" class="form-control mb-2" value="1000">
+<label>Product Name</label>
+<input id="product_name" class="form-control mb-2" placeholder="e.g. Electronics Box">
 
-    <label>Strength Requirement</label>
-    <select id="strength" class="form-select mb-2">
-        <option value="3">Low</option>
-        <option value="6">Medium</option>
-        <option value="9">High</option>
-    </select>
+<label>Quantity</label>
+<input id="quantity" type="number" class="form-control mb-2" value="500">
 
-    <label>Weight Capacity</label>
-    <input type="number" id="weight_capacity" class="form-control mb-2" value="5">
+<label>Strength Requirement</label>
+<select id="strength" class="form-select mb-2">
+    <option value="3">Low</option>
+    <option value="6">Medium</option>
+    <option value="9" selected>High</option>
+</select>
 
-    <label>Biodegradability (1–10)</label>
-    <input type="number" id="biodegradability" class="form-control mb-2" value="8">
+<label>Weight Capacity</label>
+<input id="weight_capacity" type="number" class="form-control mb-2" value="10">
 
-    <label>Recyclability (%)</label>
-    <input type="number" id="recyclability" class="form-control mb-2" value="90">
+<label>Biodegradability (1–10)</label>
+<input id="biodegradability" type="number" class="form-control mb-2" value="6">
 
-    <label>Cost Efficiency (0–1)</label>
-    <input type="number" step="0.1" id="cost_efficiency" class="form-control mb-3" value="0.75">
+<label>Recyclability (%)</label>
+<input id="recyclability" type="number" class="form-control mb-2" value="60">
 
-    <button class="btn btn-ai w-100" onclick="getAIRecommendation()">
-        🚀 Get AI Recommendation
-    </button>
+<label>Cost Efficiency (0–1)</label>
+<input id="cost_efficiency" type="number" step="0.1" class="form-control mb-3" value="0.9">
+
+<button class="btn btn-ai w-100" onclick="getAIRecommendation()">🚀 Run AI Analysis</button>
+
 </div>
 
-<!-- ================= RIGHT DASHBOARD ================= -->
+<!-- ================= DASHBOARD ================= -->
 <div class="col-md-9 dashboard">
 
-    <h4 class="mb-4">📊 AI Recommendation Dashboard</h4>
+<h4 class="mb-4">📊 EcoPackAI Recommendation Dashboard</h4>
 
-    <!-- SUMMARY CARDS -->
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card p-3 text-center">
-                <h6>Top Material</h6>
-                <h4 id="topMaterial">–</h4>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card p-3 text-center">
-                <h6>Total Cost</h6>
-                <h4 id="topCost">–</h4>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card p-3 text-center">
-                <h6>AI Score</h6>
-                <h4 id="topScore">–</h4>
-            </div>
-        </div>
-    </div>
+<!-- SUMMARY -->
+<div class="row mb-4">
 
-    <!-- TABLE -->
-    <div class="card p-3 mb-4">
-        <h5>🏆 Recommended Materials</h5>
-        <table class="table table-striped text-center">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Material</th>
-                    <th>Unit Cost</th>
-                    <th>Total Cost</th>
-                    <th>AI Score</th>
-                </tr>
-            </thead>
-            <tbody id="resultTable"></tbody>
-        </table>
-    </div>
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h6>Top Material</h6>
+<h4 id="topMaterial">–</h4>
+</div>
+</div>
 
-    <!-- CHARTS -->
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card p-3">
-                <h6>💰 Cost Comparison</h6>
-                <canvas id="costChart"></canvas>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card p-3">
-                <h6>🤖 AI Score Comparison</h6>
-                <canvas id="scoreChart"></canvas>
-            </div>
-        </div>
-    </div>
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h6>Total Cost</h6>
+<h4 id="topCost">–</h4>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h6>AI Score</h6>
+<h4 id="topScore">–</h4>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<h6>Predicted CO₂</h6>
+<h4 id="co2Value">–</h4>
+</div>
+</div>
+
+</div>
+
+<!-- TABLE -->
+<div class="card p-3 mb-4">
+<h5>🏆 Top Recommended Materials</h5>
+
+<table class="table text-center">
+<thead>
+<tr>
+<th>#</th>
+<th>Material</th>
+<th>Unit Cost</th>
+<th>Total Cost</th>
+<th>AI Score</th>
+</tr>
+</thead>
+<tbody id="resultTable"></tbody>
+</table>
+</div>
+
+<!-- CHARTS -->
+<div class="row">
+
+<div class="col-md-6">
+<div class="card p-3">
+<h6>💰 Cost Comparison</h6>
+<canvas id="costChart"></canvas>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card p-3">
+<h6>🤖 AI Score Comparison</h6>
+<canvas id="scoreChart"></canvas>
+</div>
+</div>
+
+</div>
 
 </div>
 </div>
@@ -225,72 +231,72 @@ let costChart, scoreChart;
 
 function getAIRecommendation() {
 
-    const data = {
-        product_name: product_name.value,
-        quantity: Number(quantity.value),
-        strength_encoded: Number(strength.value),
-        weight_capacity: Number(weight_capacity.value),
-        biodegradability_score: Number(biodegradability.value),
-        recyclability_percent: Number(recyclability.value),
-        cost_efficiency_score: Number(cost_efficiency.value)
-    };
+const payload = {
+    product_name: product_name.value,
+    selected_material: null,
+    quantity: Number(quantity.value),
+    strength_encoded: Number(strength.value),
+    weight_capacity: Number(weight_capacity.value),
+    biodegradability_score: Number(biodegradability.value),
+    recyclability_percent: Number(recyclability.value),
+    cost_efficiency_score: Number(cost_efficiency.value)
+};
 
-    fetch("http://127.0.0.1:5000/recommend", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(result => {
+fetch("http://127.0.0.1:5000/recommend", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify(payload)
+})
+.then(res => res.json())
+.then(result => {
 
-        const recs = result.recommendations;
+console.log("API RESULT:", result);
 
-        topMaterial.innerText = recs[0].material_name;
-        topCost.innerText = recs[0].total_cost.toFixed(2);
-        topScore.innerText = recs[0].ai_recommendation_score.toFixed(2);
+if (!result.recommendations || result.recommendations.length === 0) {
+    alert("No materials matched your criteria.");
+    return;
+}
 
-        resultTable.innerHTML = "";
+const recs = result.recommendations;
 
-        const labels = [];
-        const costs = [];
-        const scores = [];
+topMaterial.innerText = recs[0].material_name;
+topCost.innerText = "₹" + recs[0].total_cost.toFixed(2);
+topScore.innerText = recs[0].ai_recommendation_score.toFixed(2);
+co2Value.innerText = result.predicted_co2;
 
-        recs.forEach((r, i) => {
-            labels.push(r.material_name);
-            costs.push(r.total_cost);
-            scores.push(r.ai_recommendation_score);
+resultTable.innerHTML = "";
 
-            resultTable.innerHTML += `
-                <tr>
-                    <td>${i+1}</td>
-                    <td>${r.material_name}</td>
-                    <td>${r.predicted_unit_cost.toFixed(2)}</td>
-                    <td>${r.total_cost.toFixed(2)}</td>
-                    <td>${r.ai_recommendation_score.toFixed(2)}</td>
-                </tr>
-            `;
-        });
+const labels = [], costs = [], scores = [];
 
-        if (costChart) costChart.destroy();
-        if (scoreChart) scoreChart.destroy();
+recs.forEach((r, i) => {
+labels.push(r.material_name);
+costs.push(r.total_cost);
+scores.push(r.ai_recommendation_score);
 
-        costChart = new Chart(document.getElementById("costChart"), {
-            type: "bar",
-            data: {
-                labels: labels,
-                datasets: [{ label: "Total Cost", data: costs }]
-            }
-        });
+resultTable.innerHTML += `
+<tr>
+<td>${i+1}</td>
+<td>${r.material_name}</td>
+<td>₹${r.predicted_unit_cost.toFixed(2)}</td>
+<td>₹${r.total_cost.toFixed(2)}</td>
+<td>${r.ai_recommendation_score.toFixed(2)}</td>
+</tr>`;
+});
 
-        scoreChart = new Chart(document.getElementById("scoreChart"), {
-            type: "line",
-            data: {
-                labels: labels,
-                datasets: [{ label: "AI Score", data: scores }]
-            }
-        });
+if (costChart) costChart.destroy();
+if (scoreChart) scoreChart.destroy();
 
-    });
+costChart = new Chart(document.getElementById("costChart"), {
+type:"bar",
+data:{labels,datasets:[{label:"Total Cost",data:costs}]}
+});
+
+scoreChart = new Chart(document.getElementById("scoreChart"), {
+type:"line",
+data:{labels,datasets:[{label:"AI Score",data:scores}]}
+});
+
+});
 }
 </script>
 
