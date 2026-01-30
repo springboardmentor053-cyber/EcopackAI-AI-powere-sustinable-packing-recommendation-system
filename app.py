@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 co2_model, cost_model = load_models()
 
-materials_df = pd.read_sql(fetch_materials(), engine)
+materials_df = pd.read_csv("E:/Data Science/EcoPackAI/data/processed/materials_featured.csv")
 
 
 @app.get("/")
