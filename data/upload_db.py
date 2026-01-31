@@ -9,11 +9,11 @@ load_dotenv(os.path.join(basedir, '.env_db'))
 
 # Database connection parameters
 DB_PARAMS = {
-    "host": os.getenv("DB_HOST", "localhost"),
-    "database": os.getenv("DB_NAME", "ecopackai_db"),
-    "user": os.getenv("DB_USER", "postgres"),
-    "password": os.getenv("DB_PASSWORD", "123456"),
-    "port": os.getenv("DB_PORT", "5432")
+    "host": os.getenv("DB_HOST"),
+    "database": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "port": os.getenv("DB_PORT")
 }
 
 def create_tables(cur):
