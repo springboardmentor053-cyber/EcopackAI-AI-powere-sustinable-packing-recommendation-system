@@ -335,7 +335,7 @@ This approach avoids rigid thresholds and supports real-world trade-offs.
 Future improvements can include:
 - larger datasets
 - more detailed lifecycle CO₂ information
-- user-controlled weighting between cost vs sustainability
+- user-controlled weighting between cost vs sustainability 
 
 ---
 
@@ -349,5 +349,6 @@ EcoPackAI currently includes:
 - ✅ CO₂ prediction model (XGBoost)  
 - ✅ ranking-based recommendation logic  
 - ✅ artifacts saved for backend/frontend integration  
+Done
 
 ---
