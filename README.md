@@ -1,396 +1,252 @@
-📦 EcoPackAI: AI-Powered Sustainable Packaging Recommendation System
-
-📘 Introduction
-
-EcoPackAI is an AI-powered sustainable packaging recommendation system that helps businesses choose the best packaging material based on product requirements, material durability, cost efficiency, and environmental impact (CO₂).
-It reduces dependency on non-biodegradable packaging by using a structured database + feature engineering pipeline to support eco-friendly decision-making.
-
-🎯 Project Objectives
-
-Build a structured and validated PostgreSQL database
-
-Store eco-friendly material & product attribute data
-
-Perform data cleaning and ensure integrity
-
-Engineer sustainability-related features:
-
-CO₂ Impact Index
-
-Cost Efficiency Index
-
-Material Suitability Score
-
-Create a foundation for ML-based material ranking & recommendation
-
-Make the project scalable for future dashboard + API deployment
-
-🧱 System Architecture Overview
-
-EcoPackAI follows a modular pipeline:
-
-Raw Data Collection (CSV datasets)
-
-Database Storage (CSV → PostgreSQL)
-
-Schema Validation & Data Integrity
-
-Data Cleaning
-
-Feature Engineering
-
-Recommendation Scoring (Rule/Index-based)
-
-(Future) ML Model Integration + BI Dashboard
-
-🗃️ Database Design
-
-Database: PostgreSQL
-
-Database Name: ecopackai
-
-✅ Key Design Principles
-
-Clean relational schema
-
-Strong constraints (NOT NULL, CHECK, UNIQUE)
-
-Referential integrity via Foreign Keys
-
-Ready for future AI model + dashboard integration
-
-📋 Table Schema Design
-🔹 materials Table
-
-Stores physical, environmental, and economic packaging material attributes.
-
-Primary Key: material_id
-
-Key Columns:
-
-material_type
-
-strength_mpa
-
-weight_capacity
-
-co2_emission_kg_per_kg
-
-biodegradability_score
-
-recyclability_pct
-
-cost_inr_per_kg
-
-material_category
-
-✅ Data Integrity:
-
-Numeric range validation using CHECK
-
-No missing critical values using NOT NULL
-
-Unique material types using UNIQUE
-
-🔹 products Table
-
-Stores product-specific requirements that help match suitable packaging.
-
-Primary Key: product_id
-Foreign Key: current_packaging_material → materials.material_type
-
-Key Columns:
-
-product_name
-
-product_category
-
-product_weight_g
-
-product_volume_cm3
-
-fragility_level (Low/Medium/High)
-
-temperature_sensitivity (Low/Medium/High)
-
-moisture_sensitivity (Low/Medium/High)
-
-shelf_life_days
-
-packaging_format
-
-✅ Ensures product-material linking for recommendation logic.
-
-🔄 Data Engineering Process
-📂 Data Sources
-
-Sustainable packaging material dataset (CSV)
-
-Product attribute dataset (CSV)
-
-📈 Data Flow
-
-CSV files stored in /data/raw
-
-Imported into PostgreSQL database tables
-
-Exported and loaded into Pandas for processing
-
-Cleaned and engineered datasets saved into /data/processed
-
-✅ Data Validation
-
-Validation checks performed before feature engineering:
-
-Dataset shape verification (rows/columns)
-
-Missing value detection
-
-Duplicate record checks
-
-Range validation for CO₂, cost, strength
-
-Referential validation between products & materials
-
-✅ Result: Dataset marked ML-ready
-
-🧹 Data Cleaning
-
-Cleaning was applied to maintain real-world data quality:
-
-Cleaning Steps
-
-Handling missing values (NULL checks)
-
-Duplicate removal
-
-String normalization (trim/case)
-
-Data type fixing (numeric, categorical)
-
-Range checks (CO₂, cost must be valid)
-
-🛠️ Feature Engineering
-
-EcoPackAI generates sustainability and efficiency-based engineered features:
-
-✅ Key Engineered Features
-
-Strength Level
-
-Low / Medium / High based on strength (MPa)
-
-Normalized Metrics
-
-CO₂ normalization
-
-Cost normalization
-
-Strength normalization
-
-Sustainability Score
-
-A composite score combining CO₂, recyclability, and cost
-
-Used for ranking materials in recommendation
-
-📁 Project Folder Structure
-=======
-# EcoPackAI – AI-Powered Sustainable Packaging Recommendation System
-
-EcoPackAI is an AI-powered sustainable packaging recommendation system that helps businesses choose the best packaging material based on **product requirements**, **material durability**, **cost efficiency**, and **environmental impact (CO₂)**.  
-The project is built with a structured **PostgreSQL database**, proper constraints for data integrity, and a modular codebase ready for future AI/ML integration.
+Bhai tension mat le 👍
+Main **tumhare project ke according** README ko **clean, professional aur evaluation-ready** bana ke de raha hoon.
+Tum isko **direct replace** kar sakte ho apni `README.md` file se.
 
 ---
 
-## 🎯 Project Objectives
-- Store eco-friendly packaging materials and product requirements in a structured database
-- Validate and clean data for better consistency
-- Engineer sustainability metrics for ranking and recommendation
-- Build a scalable foundation for ML-based predictions (cost & CO₂)
-- Support sustainable decision-making for greener supply chains
+# 📦 EcoPackAI
+
+### AI-Powered Sustainable Packaging Recommendation System
 
 ---
 
-## 🧱 System Architecture (High-Level)
-1. Raw Data (CSV)
-2. PostgreSQL Database (materials + products)
-3. Data Validation (constraints + checks)
-4. Feature Engineering (sustainability metrics)
-5. Recommendation Logic (ranking)
-6. Future Scope: ML Models + Flask API + Dashboard + Deployment
+## 📘 Overview
+
+**EcoPackAI** is an end-to-end AI-based decision support system that recommends **sustainable and cost-effective packaging materials** for products.
+The system combines **data engineering, feature engineering, machine learning models, and a web dashboard** to balance:
+
+* 🌱 Environmental impact (CO₂ emissions)
+* 💰 Cost efficiency
+* 📦 Material suitability for products
+
+This project focuses on building a **real-world, scalable ML workflow**, not just model accuracy.
 
 ---
 
-## 🗄️ Database Design (PostgreSQL)
+## 🎯 Objectives
 
-### ✅ Tables
-- **materials**  
-  Stores packaging material attributes:
-  - strength_mpa, weight_capacity
-  - co2_emission_kg_per_kg
-  - biodegradability_score
-  - recyclability_pct
-  - cost_inr_per_kg
+* Build a clean and validated **materials & products dataset**
+* Engineer meaningful sustainability and cost features
+* Train ML models to predict:
 
-- **products**  
-  Stores product attributes:
-  - product_name, category
-  - product_weight_g, product_volume_cm3
-  - fragility_level, moisture_sensitivity, temperature_sensitivity
-  - shelf_life_days
-  - current_packaging_material (linked to materials)
+  * Packaging **cost**
+  * **CO₂ impact**
+* Rank materials using a combined decision score
+* Expose predictions through a **Flask API**
+* Visualize results using a **frontend dashboard**
 
-### ✅ Integrity Constraints Used
-- `PRIMARY KEY`
-- `UNIQUE`
-- `NOT NULL`
-- `CHECK` constraints
-- `FOREIGN KEY` relationship (products → materials)
+---
+
+## 🧱 System Architecture
+
+```
+Raw Data → Cleaning → Feature Engineering → ML Models → Flask API → Frontend
+```
+
+### Key Components:
+
+1. Data Validation & Cleaning (Pandas, Jupyter)
+2. Feature Engineering (Sustainability & Cost Indices)
+3. Machine Learning Models
+4. Flask Backend APIs
+5. HTML/CSS/JavaScript Frontend
+
+---
+
+## 🗃️ Dataset Description
+
+### Materials Dataset
+
+Contains physical, environmental, and economic attributes of packaging materials.
+
+**Key Features:**
+
+* `strength_mpa`
+* `weight_capacity`
+* `biodegradability_score`
+* `recyclability_pct`
+* `cost_inr_per_kg`
+* `material_category`
+
+### Products Dataset
+
+Used for recommendation constraints.
+
+**Key Attributes:**
+
+* `product_weight_g`
+* `fragility_level`
+* `product_category`
+* `packaging_requirements`
+
+---
+
+## 🧹 Data Cleaning
+
+Performed before modeling to ensure data quality:
+
+* Removed inconsistencies
+* Normalized text columns
+* Fixed data types
+* Checked missing values
+* Verified logical ranges
+
+No rows were dropped unnecessarily to preserve dataset integrity.
+
+---
+
+## 🛠 Feature Engineering
+
+To make the data ML-ready, several **derived features** were created:
+
+### Engineered Features:
+
+* **Strength Encoding**
+  Converts `strength_mpa` into ordinal levels (Low / Medium / High)
+
+* **Cost Efficiency Index**
+  Combines strength and cost into a single performance score
+
+* **CO₂ Impact Index**
+  Combines emissions, recyclability, and biodegradability
+
+These features allow the model to understand **real trade-offs** instead of raw values.
+
+---
+
+## 🤖 Machine Learning Models
+
+Two **separate regression models** are used:
+
+### 1️⃣ Cost Prediction Model
+
+* **Algorithm:** Random Forest Regressor
+* **Why Random Forest?**
+
+  * Handles non-linear relationships well
+  * Works reliably on small structured datasets
+  * Resistant to overfitting
+
+### 2️⃣ CO₂ Prediction Model
+
+* **Algorithm:** XGBoost Regressor
+* **Why XGBoost?**
+
+  * Strong performance on complex patterns
+  * Boosting reduces prediction errors iteratively
+  * Regularization improves generalization
+
+---
+
+## 🎯 Target Variables
+
+* **Cost Model Target:**
+  `cost_inr_per_kg`
+
+* **CO₂ Model Target:**
+  `co2_emission_kg_per_kg`
+
+Each target is trained **independently** to keep predictions interpretable.
+
+---
+
+## 📊 Model Evaluation
+
+Models are evaluated using:
+
+* MAE (Mean Absolute Error)
+* RMSE (Root Mean Squared Error)
+* R² Score
+
+Train-test split is used to avoid **data leakage** and ensure fair evaluation.
+
+---
+
+## 🔄 Recommendation Logic
+
+1. Filter materials using **rule-based constraints**
+
+   * Weight capacity
+   * Fragility requirements
+2. Predict cost and CO₂ using ML models
+3. Rank materials based on:
+
+   * Lower cost
+   * Lower CO₂ impact
+4. Generate a **final suitability score**
+5. Return **top recommendations**
+
+---
+
+## 🌐 Backend (Flask API)
+
+### Key Endpoints:
+
+* `/predict` → Predict cost & CO₂ for input material
+* `/recommend` → Recommend best materials for a product
+* `/api/materials` → Fetch materials from database
+
+ML models are loaded using `joblib` and reused during inference.
+
+---
+
+## 🎨 Frontend Dashboard
+
+Built using:
+
+* HTML
+* CSS
+* JavaScript
+
+### Features:
+
+* Material input form
+* Real-time predictions
+* Materials database table
+* Search & filter functionality
+* Clean, responsive UI
 
 ---
 
 ## 📁 Project Structure
-```bash
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
+
+```
 EcoPackAI/
 │
 ├── data/
 │   ├── raw/
-<<<<<<< HEAD
-│   │   ├── materials.csv
-│   │   └── products.csv
-│   │
-│   └── processed/
-│       ├── materials_cleaned.csv
-│       ├── products_cleaned.csv
-│       └── materials_feature_engineered.csv
-│
-├── notebooks/
-│   ├── 01_data_validation.ipynb
-│   ├── 02_data_cleaning.ipynb
-│   ├── 03_feature_engineering.ipynb
-│   └── 04_summary_validation.ipynb
-=======
 │   └── processed/
 │
 ├── notebooks/
+│   ├── data_cleaning.ipynb
+│   ├── feature_engineering.ipynb
+│   └── summary_validation.ipynb
 │
-├── screenshots/
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
+├── models/
+│   ├── cost_model.pkl
+│   └── co2_model.pkl
 │
-├── sql/
-│   └── EcoPackAI_Database.sql
+├── api/
+│   └── recommendation.py
 │
-<<<<<<< HEAD
-├── screenshots/
+├── frontend/
+│   ├── index.html
+│   ├── materials.html
+│   ├── style.css
+│   └── app.js
 │
-├── src/
-│   ├── db_connect.py
-│   └── pipelines/
-│
+├── app.py
 ├── requirements.txt
-├── .gitignore
 └── README.md
+```
 
+---
 
-=======
-├── src/
-│
-├── venv/
-│
-└── README.md
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
-🚦 Current Project Status
+## 🚀 Current Status
 
-✅ PostgreSQL database schema created
-
-<<<<<<< HEAD
-✅ Data inserted into tables
-
-✅ Row count + sample queries verified
-
-✅ Python connection using psycopg2
-
-✅ Data loaded into Pandas
-
-✅ Data cleaning completed
-
-✅ Feature engineering completed
-=======
-✅ Tables created (materials, products) with constraints
-
-✅ Sample data inserted into database
-
-✅ Row count & sample queries verified
-
-✅ SQL file added to GitHub repository
-
-🔜 Data cleaning & feature engineering (in progress)
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
-
-🔜 ML model training (RandomForest/XGBoost)
-
-🔜 Flask API integration
-
-<<<<<<< HEAD
-🔜 Frontend UI + Dashboard
-=======
-🔜 Frontend UI development
-
-🔜 BI Dashboard + Sustainability Reports
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
-
-🔜 Deployment & Documentation
-
-🛠️ Tech Stack
-
-Python
-
-<<<<<<< HEAD
-Pandas / NumPy
-
-Scikit-learn
-
-PostgreSQL
-
-psycopg2
-=======
-PostgreSQL
-
-Pandas / NumPy (future)
-
-Scikit-learn / XGBoost (future)
-
-psycopg2 (database connectivity)
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
-
-VS Code
-
-Git & GitHub
-
-## 🚦 Current Project Status
-
-* ✅ PostgreSQL database schema created
-* ✅ Tables created (`materials`, `products`) with constraints
-* ✅ Sample data inserted into database
-* ✅ SQL file added to GitHub repository
-* 🔜 Data cleaning & feature engineering (in progress)
-* 🔜 ML model training (RandomForest/XGBoost)
-* 🔜 Flask API integration
-* 🔜 Frontend UI development
-* 🔜 BI Dashboard + Sustainability Reports
-* 🔜 Deployment & Documentation
-
-🔮 Future Scope
-
-Train ML models for cost + CO₂ prediction
-
-Rank materials using AI-based scoring
-
-Build Flask REST API for recommendations
-
-Integrate BI dashboard (Power BI / Tableau)
-
-Deploy full-stack EcoPackAI on cloud (Render/Heroku)
-=======
+✅ Data cleaning & validation completed
+✅ Feature engineering implemented
+✅ Cost & CO₂ ML models trained
+✅ Flask API working
+✅ Frontend dashboard integrated
+✅ Recommendation logic implemented
