@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌿EcoPackAI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2 class="logo">🌿EcoPackAI</h2>
+  <div class="nav-links">
+    <a href="#recommend">Recommendations</a>
+    <a href="#analytics">Analytics</a>
+    <button class="btn primary" onclick="scrollToRecommend()">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      Smart Packaging<br />
+    </h1>
+    <h2>
+      <span>Sustainable Future</span>
+    </h2>
+    <p>
+      AI-powered packaging recommendations to reduce cost and carbon footprint.
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-card">
+    <h2>92%</h2>
+    <p>Cost Reduction</p>
+  </div>
+  <div class="stat-card">
+    <h2>45%</h2>
+    <p>CO₂ Reduction</p>
+  </div>
+  <div class="stat-card">
+    <h2>1000+</h2>
+    <p>Materials Analyzed</p>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section id="recommend" class="recommend">
+  <div class="form-card">
+    <h2>Find Your Perfect Packaging</h2>
+
+    <label>Product Category</label>
+      <select id="category">
+        <option value="">Select category</option>
+        <option value="electronics">Electronics</option>
+        <option value="food">Food</option>
+        <option value="cosmetics">Cosmetics</option>
+        <option value="Pharmaceuticals">Pharmaceuticals</option>
+        <option value="Beverages">Beverages</option>
+        <option value="Textile/Apparel">Textile/Apparel</option>
+        <option value="Personal Care/Home">Personal Care/Home</option>
+        <option value="Household Appliances">Household Appliances</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Toys">Toys</option>
+        <option value="Baby Care">Baby Care</option>
+        <option value="Industrial/Automotive">Industrial/Automotive</option>
+        <option value="Healthcare/Medical Devices">Healthcare/Medical Devices</option>
+        <option value="Stationary">Stationary</option>
+        <option value="Sports & Outdoor">Sports & Outdoor</option>
+        <option value="Home Decor">Home Decor</option>
+      </select>
+  
+    <label>Strength</label>
+    <input id="strength" placeholder="(1–10)" /> 
+    <label>Weight</label>
+    <input id="weight" placeholder="(kg)" />
+    <label>Biodegradability</label>
+    <input id="bio" placeholder="(%)" />
+    <label>Recyclability</label>
+    <input id="recycle" placeholder="(%)" />
+
+    <button class="btn primary" onclick="getRecommendation()">
+      Get Recommendation
+    </button>
+  </div>
+
+  <div class="result-card" id="result">
+    <h3>AI Recommendation</h3>
+    <p class="placeholder">Fill the form to see results</p>
+  </div>
+</section>
+
+<!-- ANALYTICS -->
+<section id="analytics" class="analytics">
+  <h2>Sustainability Analytics</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span>Total CO₂ Saved</span>
+      <strong>2,847 kg</strong>
+    </div>
+    <div class="card">
+      <span>Cost Savings</span>
+      <strong>₹45,230</strong>
+    </div>
+    <div class="card">
+      <span>Materials Upgraded</span>
+      <strong>156</strong>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-container">
+    <div class="chart-wrapper">
+      <h3>Material Distribution</h3>
+      <canvas id="materialChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>CO₂ vs Cost Savings Trend</h3>
+      <canvas id="trendsChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Recyclability by Material</h3>
+      <canvas id="recycleChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Monthly Impact</h3>
+      <canvas id="monthlyChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 EcoPackAI | AI for Sustainable Packaging
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
