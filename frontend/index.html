@@ -66,7 +66,7 @@ body {
     box-shadow: 0 12px 35px rgba(0,0,0,0.6);
 }
 
-/* 🔥 FIX: SUMMARY VALUES */
+/* SUMMARY VALUES */
 .card h4 {
     color: #e0fff9 !important;
     font-weight: 700;
@@ -111,7 +111,7 @@ canvas {
 <div class="container-fluid">
 <div class="row">
 
-<!-- ================= LEFT PANEL ================= -->
+<!-- LEFT PANEL -->
 <div class="col-md-3 sidebar">
 
 <h3>🌿 EcoPackAI</h3>
@@ -123,6 +123,9 @@ canvas {
 
 <label>Quantity</label>
 <input id="quantity" type="number" class="form-control mb-2" value="500">
+
+<label>Baseline CO₂ (Current Packaging)</label>
+<input id="baseline_co2" type="number" class="form-control mb-2" value="15">
 
 <label>Strength Requirement</label>
 <select id="strength" class="form-select mb-2">
@@ -147,7 +150,7 @@ canvas {
 
 </div>
 
-<!-- ================= DASHBOARD ================= -->
+<!-- DASHBOARD -->
 <div class="col-md-9 dashboard">
 
 <h4 class="mb-4">📊 EcoPackAI Recommendation Dashboard</h4>
@@ -180,6 +183,20 @@ canvas {
 <div class="card p-3 text-center">
 <h6>Predicted CO₂</h6>
 <h4 id="co2Value">–</h4>
+</div>
+</div>
+
+<div class="col-md-3 mt-3">
+<div class="card p-3 text-center">
+<h6>CO₂ Reduction</h6>
+<h4 id="co2Reduction">–</h4>
+</div>
+</div>
+
+<div class="col-md-3 mt-3">
+<div class="card p-3 text-center">
+<h6>Reduction %</h6>
+<h4 id="co2Percent">–</h4>
 </div>
 </div>
 
@@ -234,7 +251,10 @@ function getAIRecommendation() {
 const payload = {
     product_name: product_name.value,
     selected_material: null,
+
     quantity: Number(quantity.value),
+    baseline_co2: Number(baseline_co2.value),
+
     strength_encoded: Number(strength.value),
     weight_capacity: Number(weight_capacity.value),
     biodegradability_score: Number(biodegradability.value),
@@ -252,8 +272,8 @@ fetch("http://127.0.0.1:5000/recommend", {
 
 console.log("API RESULT:", result);
 
-if (!result.recommendations || result.recommendations.length === 0) {
-    alert("No materials matched your criteria.");
+if (result.error) {
+    alert(result.error);
     return;
 }
 
@@ -264,11 +284,15 @@ topCost.innerText = "₹" + recs[0].total_cost.toFixed(2);
 topScore.innerText = recs[0].ai_recommendation_score.toFixed(2);
 co2Value.innerText = result.predicted_co2;
 
+co2Reduction.innerText = result.co2_reduction;
+co2Percent.innerText = result.co2_reduction_percent + "%";
+
 resultTable.innerHTML = "";
 
 const labels = [], costs = [], scores = [];
 
 recs.forEach((r, i) => {
+
 labels.push(r.material_name);
 costs.push(r.total_cost);
 scores.push(r.ai_recommendation_score);
