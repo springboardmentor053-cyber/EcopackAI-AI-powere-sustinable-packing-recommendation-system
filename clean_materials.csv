@@ -1,0 +1,101 @@
+material_id,material_name,material_type,flexibility,strength_mpa,biodegradability_score,co2_emission_score,recyclability_percent,cost_per_unit
+M001,corrugated kraft board – grade 1,glass,low,21,4,3.2,41,5
+M002,recycled paperboard – grade 1,paper,high,15,3,1.46,91,32
+M003,virgin paperboard – grade 1,metal,high,10,3,3.69,90,21
+M004,glass – soda lime – grade 1,paper,medium,25,1,7.35,68,18
+M005,pet plastic – grade 1,glass,medium,13,7,5.62,80,12
+M006,recycled pet – grade 1,paper,high,21,1,1.42,88,17
+M007,hdpe plastic – grade 1,bioplastic,medium,10,2,4.0,94,21
+M008,ldpe plastic – grade 1,glass,low,27,3,6.06,68,8
+M009,pp plastic – grade 1,plastic,high,23,9,5.1,45,49
+M010,pla bioplastic – grade 1,metal,medium,22,8,1.33,95,44
+M011,molded pulp fiber – grade 1,bio-foam,medium,2,8,2.78,74,13
+M012,bagasse fiber – grade 1,bio-foam,high,26,7,6.04,53,15
+M013,bamboo fiber – grade 1,plastic,high,25,7,4.09,71,14
+M014,aluminum foil – grade 1,bio-foam,medium,30,6,7.69,76,33
+M015,tinplate steel – grade 1,bio-foam,high,28,4,5.93,67,27
+M016,stainless steel – grade 1,glass,medium,20,6,1.28,97,34
+M017,eps foam – grade 1,glass,high,2,8,4.96,100,25
+M018,epe foam – grade 1,plastic,high,13,7,2.83,94,13
+M019,bubble wrap – grade 1,glass,medium,26,8,1.89,95,50
+M020,stretch wrap film – grade 1,bio-foam,medium,24,6,5.78,55,42
+M021,thermal insulation foam – grade 1,bioplastic,low,8,8,7.0,78,15
+M022,wax coated paper – grade 1,bioplastic,high,15,7,6.65,48,13
+M023,greaseproof paper – grade 1,glass,medium,22,8,3.71,41,36
+M024,glassine paper – grade 1,paper,low,19,9,1.75,80,49
+M025,metalized pet film – grade 1,paper,high,15,1,4.76,60,30
+M026,rubber sheet – grade 1,paper,medium,9,2,4.93,97,46
+M027,cotton fabric – grade 1,bio-foam,low,5,5,1.05,65,15
+M028,jute fiber cloth – grade 1,bio-foam,high,12,9,6.7,43,25
+M029,nonwoven pp fabric – grade 1,metal,medium,24,5,1.87,80,36
+M030,canvas fabric – grade 1,plastic,medium,15,3,1.39,100,11
+M031,cork sheet – grade 1,metal,low,25,5,3.33,71,19
+M032,particle board – grade 1,glass,medium,25,5,4.49,70,46
+M033,mdf board – grade 1,glass,high,12,1,4.2,44,30
+M034,pvc sheet – grade 1,bio-foam,low,8,2,4.51,59,8
+M035,abs plastic – grade 1,plastic,high,14,1,4.39,100,15
+M036,polycarbonate sheet – grade 1,plastic,medium,29,1,5.35,45,45
+M037,acrylic sheet – grade 1,paper,high,24,8,2.17,97,15
+M038,nylon film – grade 1,paper,low,28,4,2.06,57,44
+M039,polyester fabric – grade 1,paper,low,23,7,5.85,56,5
+M040,carbon fiber sheet – grade 1,bioplastic,medium,12,4,1.8,93,48
+M041,corrugated kraft board – grade 2,plastic,low,8,6,4.72,67,25
+M042,recycled paperboard – grade 2,bio-foam,medium,17,1,4.84,71,36
+M043,virgin paperboard – grade 2,metal,high,4,1,6.79,89,24
+M044,glass – soda lime – grade 2,glass,medium,26,8,3.04,42,6
+M045,pet plastic – grade 2,bioplastic,low,28,7,2.54,87,30
+M046,recycled pet – grade 2,plastic,medium,2,9,7.44,49,27
+M047,hdpe plastic – grade 2,paper,low,16,6,1.11,100,34
+M048,ldpe plastic – grade 2,bioplastic,medium,21,6,1.08,90,14
+M049,pp plastic – grade 2,paper,medium,10,4,4.2,51,26
+M050,pla bioplastic – grade 2,plastic,low,27,7,6.55,75,27
+M051,molded pulp fiber – grade 2,glass,medium,6,6,7.92,47,40
+M052,bagasse fiber – grade 2,metal,low,10,5,4.63,69,36
+M053,bamboo fiber – grade 2,metal,low,8,9,7.49,68,9
+M054,aluminum foil – grade 2,plastic,medium,23,9,5.64,73,48
+M055,tinplate steel – grade 2,plastic,high,6,3,3.16,45,14
+M056,stainless steel – grade 2,bioplastic,low,29,7,2.98,61,12
+M057,eps foam – grade 2,plastic,low,15,1,5.48,59,33
+M058,epe foam – grade 2,plastic,low,7,6,1.6,44,46
+M059,bubble wrap – grade 2,bio-foam,medium,23,1,4.81,63,14
+M060,stretch wrap film – grade 2,glass,medium,2,2,3.15,48,46
+M061,thermal insulation foam – grade 2,bioplastic,low,3,3,3.04,58,42
+M062,wax coated paper – grade 2,plastic,medium,27,5,6.08,55,30
+M063,greaseproof paper – grade 2,paper,medium,26,1,1.29,96,13
+M064,glassine paper – grade 2,metal,low,21,3,2.74,57,18
+M065,metalized pet film – grade 2,plastic,low,9,7,4.28,83,5
+M066,rubber sheet – grade 2,glass,high,11,5,1.75,44,8
+M067,cotton fabric – grade 2,metal,low,10,3,4.99,42,12
+M068,jute fiber cloth – grade 2,glass,medium,9,1,5.74,88,9
+M069,nonwoven pp fabric – grade 2,paper,medium,25,7,6.75,47,49
+M070,canvas fabric – grade 2,plastic,low,11,9,6.15,92,30
+M071,cork sheet – grade 2,plastic,high,5,8,3.75,77,47
+M072,particle board – grade 2,paper,high,24,8,6.83,66,42
+M073,mdf board – grade 2,glass,high,29,9,6.93,62,16
+M074,pvc sheet – grade 2,metal,low,3,8,3.66,52,22
+M075,abs plastic – grade 2,plastic,medium,23,1,3.36,75,28
+M076,polycarbonate sheet – grade 2,metal,low,26,6,1.04,65,28
+M077,acrylic sheet – grade 2,bio-foam,medium,7,7,2.95,96,22
+M078,nylon film – grade 2,paper,high,2,1,4.33,42,50
+M079,polyester fabric – grade 2,metal,medium,18,9,3.42,91,42
+M080,carbon fiber sheet – grade 2,plastic,medium,4,1,1.45,50,14
+M081,corrugated kraft board – grade 3,bio-foam,low,19,6,7.52,92,29
+M082,recycled paperboard – grade 3,glass,medium,9,2,4.51,48,16
+M083,virgin paperboard – grade 3,bio-foam,low,20,3,1.38,82,29
+M084,glass – soda lime – grade 3,paper,low,10,10,6.41,50,35
+M085,pet plastic – grade 3,metal,low,15,6,2.37,63,19
+M086,recycled pet – grade 3,glass,high,16,5,4.19,75,10
+M087,hdpe plastic – grade 3,bio-foam,high,21,6,7.86,93,20
+M088,ldpe plastic – grade 3,glass,high,10,1,7.45,57,34
+M089,pp plastic – grade 3,paper,medium,29,7,1.7,62,30
+M090,pla bioplastic – grade 3,glass,low,16,1,5.49,51,23
+M091,molded pulp fiber – grade 3,paper,low,10,9,3.88,68,43
+M092,bagasse fiber – grade 3,bio-foam,medium,3,4,1.38,62,31
+M093,bamboo fiber – grade 3,plastic,high,18,9,1.67,64,34
+M094,aluminum foil – grade 3,metal,high,14,6,3.22,69,45
+M095,tinplate steel – grade 3,metal,high,6,3,2.52,67,18
+M096,stainless steel – grade 3,glass,high,25,7,2.34,87,47
+M097,eps foam – grade 3,plastic,medium,28,5,7.05,55,13
+M098,epe foam – grade 3,plastic,high,23,6,3.25,71,14
+M099,bubble wrap – grade 3,bioplastic,medium,14,8,4.75,64,49
+M100,stretch wrap film – grade 3,bioplastic,medium,7,5,1.21,91,26

@@ -1,0 +1,101 @@
+product_id,product_name,product_category,weight_kg,fragility_level,moisture_sensitivity,temperature_sensitivity,food_grade_required,shelf_life_days,shape_type,value_category
+P001,organic tomato sauce – variant 1,food,1.45,high,high,low,False,1852,pouch,high
+P002,basmati rice pack – variant 1,medical supplies,3.09,high,high,medium,False,1281,cylindrical,high
+P003,frozen chicken nuggets – variant 1,medical supplies,1.54,high,high,low,True,256,cylindrical,medium
+P004,almond milk carton – variant 1,fmcg,3.75,low,high,high,True,68,foldable,low
+P005,whole wheat bread – variant 1,pharmaceuticals,4.05,high,medium,low,False,1877,cylindrical,high
+P006,olive oil bottle – variant 1,stationery,1.47,high,high,high,True,155,cylindrical,high
+P007,chocolate biscuit pack – variant 1,medical supplies,1.12,high,high,low,False,152,cylindrical,low
+P008,instant noodles cup – variant 1,home goods,2.76,medium,low,medium,False,1537,round,low
+P009,breakfast cereal box – variant 1,medical supplies,2.02,low,medium,low,True,1375,rectangular,low
+P010,honey bottle – variant 1,cosmetics,3.78,high,medium,high,True,1754,rectangular,high
+P011,canned tuna – variant 1,apparel,1.36,high,high,medium,False,845,cylindrical,low
+P012,peanut butter jar – variant 1,apparel,0.35,medium,low,high,True,1540,round,high
+P013,yogurt tub – variant 1,cosmetics,4.78,high,medium,medium,False,1153,foldable,low
+P014,cheddar cheese block – variant 1,cosmetics,1.98,medium,high,low,False,1682,round,high
+P015,butter pack – variant 1,home goods,1.27,high,high,low,True,1698,rectangular,high
+P016,green tea sachets – variant 1,apparel,2.33,medium,high,medium,False,1668,rectangular,medium
+P017,ground coffee pouch – variant 1,fmcg,3.6,high,high,low,True,369,round,medium
+P018,sugar paper bag – variant 1,pharmaceuticals,2.54,medium,high,medium,False,290,foldable,high
+P019,salt shaker – variant 1,electronics,2.65,high,high,low,False,10,rectangular,high
+P020,spice masala box – variant 1,food,1.02,high,high,medium,True,1142,rectangular,high
+P021,pain relief tablets – variant 1,glassware,3.98,low,high,medium,False,1852,rectangular,medium
+P022,vitamin capsules – variant 1,fmcg,2.19,medium,low,high,True,320,round,low
+P023,cough syrup bottle – variant 1,apparel,3.55,low,high,high,True,859,flat,medium
+P024,antibiotic strip – variant 1,cosmetics,4.57,low,high,high,True,1715,flat,medium
+P025,medical face masks – variant 1,stationery,0.9,medium,high,low,False,956,round,medium
+P026,disposable syringes – variant 1,cosmetics,4.01,medium,low,low,True,1527,rectangular,high
+P027,hand sanitizer bottle – variant 1,cosmetics,1.9,medium,low,high,False,152,foldable,high
+P028,latex gloves – variant 1,pharmaceuticals,4.45,low,high,high,True,1070,foldable,high
+P029,digital thermometer – variant 1,electronics,3.21,medium,high,medium,False,365,round,low
+P030,first aid kit – variant 1,cosmetics,2.98,low,high,medium,False,458,flat,low
+P031,liquid detergent bottle – variant 1,home goods,3.03,medium,high,low,True,1271,rectangular,low
+P032,laundry powder pack – variant 1,apparel,1.21,high,high,low,False,365,rectangular,medium
+P033,dishwashing liquid – variant 1,electronics,3.58,low,low,high,False,1809,flat,high
+P034,surface cleaner spray – variant 1,apparel,0.32,medium,high,high,True,77,pouch,medium
+P035,floor cleaner can – variant 1,pharmaceuticals,1.86,high,high,medium,True,1609,foldable,medium
+P036,fabric softener bottle – variant 1,cosmetics,4.5,medium,high,medium,False,1747,round,medium
+P037,bleach liquid can – variant 1,food,4.74,high,medium,high,False,1923,cylindrical,high
+P038,glass cleaner spray – variant 1,fmcg,4.49,medium,low,medium,True,244,flat,low
+P039,toilet cleaner bottle – variant 1,food,4.81,medium,medium,medium,False,717,foldable,high
+P040,air freshener can – variant 1,food,3.32,medium,high,medium,True,1958,cylindrical,high
+P041,shampoo bottle – variant 1,apparel,3.69,high,medium,medium,True,1636,round,low
+P042,hair conditioner – variant 1,apparel,3.45,low,high,high,True,1459,rectangular,medium
+P043,body wash bottle – variant 1,fmcg,3.94,medium,medium,low,False,306,round,high
+P044,hand soap dispenser – variant 1,food,0.68,high,high,medium,True,1876,rectangular,low
+P045,face cream jar – variant 1,food,2.51,high,low,high,False,1108,foldable,high
+P046,sunscreen lotion – variant 1,fmcg,2.89,high,high,low,False,1213,flat,medium
+P047,toothpaste tube – variant 1,pharmaceuticals,4.82,low,medium,high,True,12,rectangular,medium
+P048,mouthwash bottle – variant 1,electronics,4.45,low,low,high,True,964,round,low
+P049,deodorant spray – variant 1,apparel,4.43,medium,low,high,True,801,foldable,low
+P050,perfume bottle – variant 1,pharmaceuticals,3.02,low,low,high,False,76,pouch,high
+P051,smartphone box – variant 1,cosmetics,3.94,medium,medium,medium,False,1806,flat,medium
+P052,organic tomato sauce – variant 2,glassware,0.93,high,medium,low,True,601,rectangular,high
+P053,basmati rice pack – variant 2,food,3.48,low,medium,medium,True,942,round,high
+P054,frozen chicken nuggets – variant 2,electronics,0.96,low,medium,medium,False,1747,cylindrical,high
+P055,almond milk carton – variant 2,home goods,2.69,high,high,medium,True,1488,cylindrical,medium
+P056,whole wheat bread – variant 2,home goods,2.39,low,low,high,True,83,round,low
+P057,olive oil bottle – variant 2,medical supplies,2.53,low,medium,medium,True,1113,cylindrical,high
+P058,chocolate biscuit pack – variant 2,medical supplies,4.59,high,medium,medium,True,1477,round,high
+P059,instant noodles cup – variant 2,pharmaceuticals,3.25,low,low,low,True,999,flat,medium
+P060,breakfast cereal box – variant 2,fmcg,4.28,high,high,low,False,136,flat,medium
+P061,honey bottle – variant 2,apparel,4.24,medium,medium,low,True,413,foldable,high
+P062,canned tuna – variant 2,apparel,0.57,medium,medium,medium,False,995,foldable,medium
+P063,peanut butter jar – variant 2,cosmetics,4.13,medium,high,medium,False,356,cylindrical,high
+P064,yogurt tub – variant 2,glassware,2.83,medium,medium,high,False,1245,flat,medium
+P065,cheddar cheese block – variant 2,food,1.06,medium,medium,medium,True,1613,flat,high
+P066,butter pack – variant 2,cosmetics,0.39,high,medium,low,True,426,cylindrical,low
+P067,green tea sachets – variant 2,fmcg,0.49,medium,low,high,False,660,cylindrical,high
+P068,ground coffee pouch – variant 2,food,1.38,medium,low,medium,False,1283,pouch,medium
+P069,sugar paper bag – variant 2,cosmetics,1.68,low,high,high,False,106,foldable,high
+P070,salt shaker – variant 2,fmcg,1.22,low,low,medium,False,1671,foldable,high
+P071,spice masala box – variant 2,medical supplies,3.68,high,medium,medium,False,1237,foldable,low
+P072,pain relief tablets – variant 2,glassware,0.85,medium,high,low,False,1789,round,medium
+P073,vitamin capsules – variant 2,stationery,3.61,high,medium,medium,True,1279,round,high
+P074,cough syrup bottle – variant 2,fmcg,4.47,medium,low,low,True,1307,cylindrical,high
+P075,antibiotic strip – variant 2,food,0.49,high,high,high,True,911,pouch,low
+P076,medical face masks – variant 2,cosmetics,4.09,low,low,high,False,1385,foldable,low
+P077,disposable syringes – variant 2,glassware,3.67,low,high,low,True,1502,foldable,high
+P078,hand sanitizer bottle – variant 2,apparel,2.36,medium,high,medium,True,1642,round,low
+P079,latex gloves – variant 2,electronics,4.97,medium,medium,low,False,172,flat,low
+P080,digital thermometer – variant 2,cosmetics,3.66,medium,medium,medium,True,1882,flat,low
+P081,first aid kit – variant 2,stationery,4.95,high,medium,medium,False,1881,rectangular,low
+P082,liquid detergent bottle – variant 2,pharmaceuticals,2.72,high,high,high,True,1799,pouch,medium
+P083,laundry powder pack – variant 2,home goods,0.26,low,medium,high,True,1882,cylindrical,medium
+P084,dishwashing liquid – variant 2,fmcg,4.89,medium,high,high,False,708,foldable,medium
+P085,surface cleaner spray – variant 2,home goods,1.66,high,medium,low,True,1810,foldable,low
+P086,floor cleaner can – variant 2,food,1.33,medium,low,medium,False,1482,rectangular,medium
+P087,fabric softener bottle – variant 2,medical supplies,3.38,low,low,medium,False,854,round,low
+P088,bleach liquid can – variant 2,stationery,2.79,low,high,high,False,1425,flat,high
+P089,glass cleaner spray – variant 2,apparel,3.61,medium,high,high,False,1577,flat,high
+P090,toilet cleaner bottle – variant 2,medical supplies,3.35,high,high,medium,True,692,round,medium
+P091,air freshener can – variant 2,electronics,1.55,high,low,medium,True,1669,flat,low
+P092,shampoo bottle – variant 2,medical supplies,0.53,low,medium,high,True,1683,rectangular,low
+P093,hair conditioner – variant 2,home goods,3.65,high,high,low,False,1699,round,high
+P094,body wash bottle – variant 2,home goods,2.41,low,high,low,False,256,pouch,high
+P095,hand soap dispenser – variant 2,food,3.83,high,low,low,False,771,cylindrical,high
+P096,face cream jar – variant 2,medical supplies,2.83,medium,high,low,False,617,rectangular,medium
+P097,sunscreen lotion – variant 2,food,1.33,medium,medium,medium,False,453,rectangular,medium
+P098,toothpaste tube – variant 2,pharmaceuticals,4.33,high,medium,medium,True,452,cylindrical,low
+P099,mouthwash bottle – variant 2,pharmaceuticals,0.21,medium,high,medium,False,482,round,high
+P100,deodorant spray – variant 2,glassware,3.48,high,high,medium,False,1536,cylindrical,high
