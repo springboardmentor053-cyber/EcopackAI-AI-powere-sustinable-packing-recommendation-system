@@ -6,28 +6,35 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import StandardScaler
 from dotenv import load_dotenv
+import psycopg2
 
 
-# LOAD ENV VARIABLES
+# LOAD ENV
+
 
 load_dotenv()
 
-DATASET_PATH = os.getenv("DATASET_PATH")
 CO2_MODEL_PATH = os.getenv("CO2_MODEL_PATH")
 COST_MODEL_PATH = os.getenv("COST_MODEL_PATH")
 LOG_FILE = os.getenv("LOG_FILE", "ecopackai.log")
 
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+
 os.makedirs("logs", exist_ok=True)
 
 
-# LOGGING SETUP
+# LOGGING
 
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
     handlers=[
-        logging.FileHandler(LOG_FILE),
+        logging.FileHandler(LOG_FILE, encoding="utf-8"),
         logging.StreamHandler()
     ]
 )
@@ -35,23 +42,36 @@ logging.basicConfig(
 logger = logging.getLogger("EcoPackAI")
 
 
-# APP SETUP
+# APP
 
 
 app = Flask(__name__)
 CORS(app)
 
 
-# LOAD DATASET
+# LOAD MATERIALS FROM POSTGRESQL
 
 
-try:
-    materials = pd.read_csv(DATASET_PATH)
-    materials["material_name"] = materials["material_name"].str.strip()
-    logger.info("Dataset loaded successfully")
-except Exception as e:
-    logger.critical(f"Dataset load failed: {e}")
-    raise
+def load_materials_from_db():
+
+    conn = psycopg2.connect(
+        host=DB_HOST,
+        port=DB_PORT,
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD
+    )
+
+    df = pd.read_sql("SELECT * FROM materials", conn)
+    conn.close()
+
+    df["material_name"] = df["material_name"].str.strip()
+
+    return df
+
+
+materials = load_materials_from_db()
+logger.info("Materials loaded from PostgreSQL")
 
 
 # FEATURE COLUMNS
@@ -97,12 +117,13 @@ cost_model, use_cost_model = load_model(COST_MODEL_PATH, "Cost")
 def home():
     return jsonify({
         "status": "EcoPackAI backend running",
+        "db_connected": True,
         "co2_model_loaded": use_co2_model,
         "cost_model_loaded": use_cost_model
     })
 
 
-# VALIDATION HELPER
+# VALIDATION
 
 
 def validate_inputs(data, required):
@@ -116,18 +137,18 @@ def validate_inputs(data, required):
 
     try:
         if int(data["quantity"]) <= 0:
-            return "Quantity must be greater than zero"
+            return "Quantity must be > 0"
 
         if float(data["baseline_co2"]) <= 0:
-            return "Baseline CO2 must be positive"
+            return "Baseline CO2 must be > 0"
 
     except:
-        return "Numeric values invalid"
+        return "Numeric fields invalid"
 
     return None
 
 
-# MAIN RECOMMENDATION API
+# MAIN API
 
 
 @app.route("/recommend", methods=["POST"])
@@ -149,11 +170,9 @@ def recommend_material():
 
         error = validate_inputs(data, required_fields)
         if error:
-            logger.warning(f"Validation failed: {error}")
             return jsonify({"error": error}), 400
 
         product_name = data.get("product_name", "Generic Product")
-        selected_material = data.get("selected_material")
         quantity = int(data["quantity"])
         baseline_co2 = float(data["baseline_co2"])
 
@@ -163,12 +182,13 @@ def recommend_material():
         recyclability = float(data["recyclability_percent"])
         cost_efficiency = float(data["cost_efficiency_score"])
 
-        if selected_material:
-            selected_material = selected_material.strip().lower()
+        logger.info(
+            f"Inputs: strength={strength}, weight={weight_capacity}, "
+            f"bio={biodegradability}, recycle={recyclability}, "
+            f"cost_eff={cost_efficiency}"
+        )
 
-        logger.info(f"Recommendation requested for {product_name}")
-
-        #  CO2 PREDICTION 
+        # ---------------- CO2 ----------------
 
         if use_co2_model:
             co2_input = pd.DataFrame([{
@@ -179,86 +199,99 @@ def recommend_material():
                 "recyclability_percent": recyclability
             }])
 
-            co2_scaled = scaler.transform(co2_input)
-            predicted_co2 = float(co2_model.predict(co2_scaled)[0])
+            predicted_co2 = float(
+                co2_model.predict(scaler.transform(co2_input))[0]
+            )
         else:
             predicted_co2 = baseline_co2 * 0.9
-
-        #  CO2 REDUCTION 
 
         reduction = baseline_co2 - predicted_co2
         reduction_percent = (reduction / baseline_co2) * 100
 
-        #  FILTER MATERIALS 
+        # ---------------- FILTERING ----------------
 
-        filtered = materials.drop_duplicates(
+        base = materials.drop_duplicates(
             subset=["material_name"]
         ).copy()
 
-        #  COST PREDICTION 
+        strict = base[
+            (base["weight_capacity"] >= weight_capacity) &
+            (base["strength"] >= strength - 1)
+        ]
 
-        if use_cost_model:
+        relaxed = base[
+            (base["weight_capacity"] >= weight_capacity * 0.7) &
+            (base["strength"] >= strength - 2)
+        ]
 
-            cost_scaled = scaler.transform(
-                filtered[feature_cols]
-            )
+        if not strict.empty:
+            filtered = strict
+            logger.info("Using strict constraints")
 
-            filtered["predicted_unit_cost"] = (
-                cost_model.predict(cost_scaled)
-            )
-
-            max_unit_cost = filtered["predicted_unit_cost"].max()
+        elif not relaxed.empty:
+            filtered = relaxed
+            logger.warning("Using relaxed constraints")
 
         else:
+            filtered = base
+            logger.error("No constraints matched — fallback to all materials")
 
-            filtered["predicted_unit_cost"] = (
-                filtered["cost_per_unit"]
-            )
+        # ---------------- COST ----------------
 
-            max_unit_cost = cost_efficiency * 100
+        cost_scaled = scaler.transform(filtered[feature_cols])
 
-        #  BUDGET CONSTRAINT 
+        filtered["predicted_unit_cost"] = (
+            cost_model.predict(cost_scaled)
+            if use_cost_model
+            else filtered["cost_per_unit"]
+        )
+
+        max_unit_cost = filtered["predicted_unit_cost"].quantile(
+            max(0.1, min(cost_efficiency, 0.95))
+        )
 
         filtered = filtered[
             filtered["predicted_unit_cost"] <= max_unit_cost
         ]
 
-        #  EXCLUDE SELECTED MATERIAL 
+        # ---------------- NORMALIZE COST ----------------
 
-        if selected_material:
-            filtered = filtered[
-                filtered["material_name"]
-                .str.lower() != selected_material
-            ]
-            strategy = "Optimized alternatives to selected material"
-        else:
-            strategy = "Optimized based on product requirements"
+        cmin = filtered["predicted_unit_cost"].min()
+        cmax = filtered["predicted_unit_cost"].max()
 
-        #  AI SCORING 
-
-        filtered["ai_recommendation_score"] = (
-            (10 - abs(filtered["strength"] - strength)) * 0.30 +
-            (10 - abs(filtered["biodegradability_score"] - biodegradability)) * 0.25 +
-            (10 - abs(filtered["recyclability_percent"] - recyclability) / 10) * 0.20 +
-            (10 - filtered["predicted_unit_cost"]) * 0.25
+        filtered["predicted_unit_cost_norm"] = (
+            (filtered["predicted_unit_cost"] - cmin) /
+            (cmax - cmin + 1e-6)
         )
 
-        #  COST TOTAL 
+        # ---------------- SCORE ----------------
+
+        filtered["ai_recommendation_score"] = (
+
+            (10 - abs(filtered["strength"] - strength)) * 0.25 +
+
+            (10 - abs(filtered["weight_capacity"] - weight_capacity)) * 0.20 +
+
+            filtered["biodegradability_score"] * 0.20 +
+
+            filtered["recyclability_percent"] / 10 * 0.15 +
+
+            (1 - filtered["predicted_unit_cost_norm"]) *
+            (0.20 + cost_efficiency)
+        )
+
+        # ---------------- TOTAL COST ----------------
 
         filtered["total_cost"] = (
             filtered["predicted_unit_cost"] * quantity
         )
-
-        #  RANKING 
 
         top_materials = filtered.sort_values(
             by="ai_recommendation_score",
             ascending=False
         ).head(5)
 
-        logger.info("Top materials ranked successfully")
-
-        #  RESPONSE 
+        # ---------------- RESPONSE ----------------
 
         return jsonify({
 
@@ -270,7 +303,7 @@ def recommend_material():
             "co2_reduction": round(reduction, 2),
             "co2_reduction_percent": round(reduction_percent, 2),
 
-            "recommendation_strategy": strategy,
+            "recommendation_strategy": "AI optimized sustainability and cost",
 
             "recommendations": top_materials[
                 [
@@ -285,6 +318,7 @@ def recommend_material():
     except Exception as e:
 
         logger.exception("Recommendation API crashed")
+
         return jsonify({
             "error": "Internal server error",
             "details": str(e)
@@ -292,7 +326,7 @@ def recommend_material():
 
 
 
-# RUN APP
+# RUN
 
 
 if __name__ == "__main__":
