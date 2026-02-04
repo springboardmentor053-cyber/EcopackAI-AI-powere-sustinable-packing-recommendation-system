@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EcoPackAI</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #222;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #0a3d62;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+/* BUTTON */
+.btn {
+  background: #1dd1a1;
+  border: none;
+  padding: 10px 18px;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #1dd1a1, #54a0ff);
+  color: white;
+}
+
+.hero span {
+  color: #0a3d62;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  background: white;
+}
+
+.stats div {
+  text-align: center;
+}
+
+/* RECOMMEND */
+.recommend {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+}
+
+.result {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+/* ANALYTICS */
+.analytics {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 180px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>EcoPackAI</h2>
+  <div>
+    <a href="#recommend">Recommendations</a>
+    <a href="#analytics">Analytics</a>
+    <button class="btn" onclick="scrollToRecommend()">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Smart Packaging,<br><span>Sustainable Future</span></h1>
+  <p>AI-powered recommendations to reduce cost and carbon footprint.</p>
+  <button class="btn" onclick="scrollToRecommend()">Start Free Analysis</button>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div><h2>92%</h2><p>Cost Reduction</p></div>
+  <div><h2>45%</h2><p>CO₂ Reduction</p></div>
+  <div><h2>1000+</h2><p>Materials Analyzed</p></div>
+</section>
+
+<!-- RECOMMENDATION FORM -->
+<section id="recommend" class="recommend">
+
+  <div class="form">
+    <h2>Find Your Perfect Packaging</h2>
+
+    <input id="strength" type="number" placeholder="Strength (1–10)">
+    <input id="weight" type="number" placeholder="Weight Capacity (kg)">
+    <input id="bio" type="number" placeholder="Biodegradability (%)">
+    <input id="recycle" type="number" placeholder="Recyclability (%)">
+
+    <button class="btn" onclick="getRecommendation()">Get Recommendation</button>
+  </div>
+
+  <div class="result" id="result">
+    <h3>Result will appear here</h3>
+  </div>
+
+</section>
+
+<!-- ANALYTICS -->
+<section id="analytics" class="analytics">
+  <h2>Sustainability Analytics</h2>
+
+  <div class="cards">
+    <div class="card">Total CO₂ Saved<br><strong>2,847 kg</strong></div>
+    <div class="card">Cost Savings<br><strong>$45,230</strong></div>
+    <div class="card">Materials Upgraded<br><strong>156</strong></div>
+  </div>
+</section>
+
+<script>
+function scrollToRecommend() {
+  document.getElementById("recommend").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function getRecommendation() {
+  const strength = document.getElementById("strength").value;
+  const weight = document.getElementById("weight").value;
+  const bio = document.getElementById("bio").value;
+  const recycle = document.getElementById("recycle").value;
+
+  if (!strength || !weight || !bio || !recycle) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  let recommendation = "Recycled Cardboard + Molded Pulp";
+
+  if (bio > 80 && recycle > 80) {
+    recommendation = "100% Biodegradable Kraft Paper Packaging";
+  } 
+  else if (weight > 10) {
+    recommendation = "Corrugated Fiberboard Packaging";
+  }
+
+  document.getElementById("result").innerHTML = `
+    <h3>Recommended Packaging</h3>
+    <p><strong>${recommendation}</strong></p>
+    <p>Estimated CO₂ Reduction: ${Math.round(bio / 2)}%</p>
+  `;
+}
+</script>
+
+</body>
+</html>
