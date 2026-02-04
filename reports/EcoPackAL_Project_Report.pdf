@@ -1,0 +1,161 @@
+1. Introduction
+
+Packaging plays a critical role in product safety, cost optimization, and environmental sustainability. Traditional packaging decisions are often heuristic-based and do not systematically evaluate sustainability metrics such as carbon footprint or recyclability.
+
+EcoPackAI addresses this challenge by leveraging machine learning to recommend optimal packaging materials based on product requirements, cost efficiency, and environmental impact.
+
+
+
+2. Problem Statement
+
+Organizations lack an intelligent system that:
+
+Evaluates multiple packaging materials objectively
+
+Balances cost, strength, and sustainability
+
+Provides scalable, data-driven recommendations
+
+
+
+3. Solution Overview
+
+EcoPackAI uses:
+
+Structured datasets for products and materials
+
+Machine learning models for prediction
+
+AI-based ranking to recommend best materials
+
+
+
+4. Module 1 – Data Collection & Database Setup
+
+Created two datasets:
+
+Materials dataset (120 materials)
+
+Products dataset (175 products)
+
+Attributes sourced from industry-realistic ranges
+
+Data stored in PostgreSQL
+
+Ensured schema integrity and data normalization
+
+
+
+5. Module 2 – Data Cleaning & Feature Engineering
+
+Checked for missing values and duplicates
+
+Standardized numerical features
+
+Engineered features such as:
+
+Cost score
+
+CO₂ score
+
+Sustainability score
+
+Material suitability score
+
+Prepared clean datasets for ML usage
+
+
+
+6. Module 3 – Machine Learning Dataset Preparation
+
+Cross-joined products and materials
+
+Generated ~21,000 product-material combinations
+
+Created target variables:
+
+Target Cost (INR)
+
+Target CO₂ Impact (kg)
+
+Selected relevant ML features
+
+Split data into training (80%) and testing (20%)
+
+Applied feature scaling using StandardScaler
+
+
+
+7. Module 4 – AI Recommendation Models
+7.1 Cost Prediction Model
+
+Algorithm: Random Forest Regressor
+
+Achieved high accuracy with R² ≈ 0.999
+
+7.2 CO₂ Prediction Model
+
+Algorithm: XGBoost Regressor
+
+Achieved near-perfect prediction with R² ≈ 1.0
+
+7.3 AI Ranking System
+
+Normalized predicted cost and CO₂ values
+
+Combined with sustainability metrics
+
+Generated ranked list of optimal materials per product
+
+
+
+8. Module 5 – Flask Backend API
+
+This module focuses on building the backend service that connects machine learning models, the database, and the user interface.
+
+A Flask-based REST API was developed to handle product inputs and return AI-driven material recommendations. The backend performs the following steps:
+
+Accepts product input via JSON request
+
+Retrieves product details from PostgreSQL
+
+Filters eligible materials based on constraints
+
+Applies feature engineering logic
+
+Uses trained ML models to predict:
+
+Packaging cost
+
+CO₂ footprint
+
+Ranks materials using an AI suitability score
+
+Returns structured JSON responses to the frontend
+
+The backend ensures modularity, scalability, and real-time inference capability.
+
+9. Module 6 – Frontend UI Development
+
+This module implements a user-friendly interface for interacting with EcoPackAI.
+
+The frontend was developed using HTML, CSS, and Bootstrap and communicates with the Flask backend via REST APIs.
+
+Key features include:
+
+Product input form with validations
+
+Clean layout using Bootstrap cards
+
+Dynamic results table
+
+Display of ranked material recommendations
+
+Comparison metrics for informed decision-making
+
+The UI demonstrates how AI recommendations can be consumed by non-technical users in a real-world scenario.
+
+10. Conclusion 
+
+EcoPackAI successfully delivers an end-to-end AI system—from data ingestion and machine learning to API-driven inference and user interface presentation.
+The project demonstrates strong potential for practical adoption in sustainable packaging decision-making.
