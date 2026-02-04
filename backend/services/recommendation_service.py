@@ -34,13 +34,12 @@ def safe_normalize(series):
 
 def run_recommendation(user_df):
 
-    # All materials available
+    
     materials = [
         "glass", "plastic", "metal",
         "paper", "bagasse", "bamboo", "jute"
     ]
 
-    # Duplicate input for all materials
     expanded_rows = []
     for mat in materials:
         row = user_df.iloc[0].copy()
@@ -51,31 +50,26 @@ def run_recommendation(user_df):
 
     X = df[FEATURES]
 
-    # Encode categorical features
     X = pd.get_dummies(
         X,
         columns=["material_type", "shipping_type"],
         drop_first=True
     )
 
-    # Align columns
+    
     X = X.reindex(columns=rf_model.feature_names_in_, fill_value=0)
 
-    # Predictions
     df["predicted_cost"] = rf_model.predict(X)
     df["predicted_co2"] = xgb_model.predict(X)
 
-    # Safe normalization
     df["cost_norm"] = safe_normalize(df["predicted_cost"])
     df["co2_norm"] = safe_normalize(df["predicted_co2"])
 
-    # Ranking score
     df["rank_score"] = (
         0.5 * (1 - df["cost_norm"]) +
         0.5 * (1 - df["co2_norm"])
     )
 
-    # Clean JSON values
     df = df.replace([np.inf, -np.inf], 0)
     df = df.fillna(0)
 
