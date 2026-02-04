@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoPack AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- jsPDF + AutoTable (for PDF export) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+
+<!-- ================= Loader ================= -->
+<div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <p>Analyzing sustainable materials...</p>
+</div>
+
+<!-- ================= Header ================= -->
+<header>
+    <h1>🌱 EcoPack AI</h1>
+    <p>AI-Driven Sustainable Packaging Recommendation</p>
+    <button id="darkToggle" style="
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 10px;
+    background-color: rgb(5, 73, 37);
+    cursor: pointer;
+">
+    🌙 Dark Mode
+</button>
+
+</header>
+
+<!-- ================= KPI Section ================= -->
+<section class="kpi-section">
+    <div class="kpi-card">
+        <h4>Average Eco Score</h4>
+        <span id="avgEcoScore">0</span>
+    </div>
+
+    <div class="kpi-card">
+        <h4>Average CO₂</h4>
+        <span id="avgCO2">0</span>
+    </div>
+
+    <div class="kpi-card">
+        <h4>Average Cost</h4>
+        <span id="avgCost">0</span>
+    </div>
+</section>
+
+<!-- ================= AI Reasoning ================= -->
+<section class="ai-reason">
+    <h2>🧠 AI Reasoning</h2>
+    <p id="aiText">
+        Enter product requirements to see AI explanation.
+    </p>
+</section>
+
+<!-- ================= Input Section ================= -->
+<section class="input-section">
+    <h2>Enter Product Requirements</h2>
+
+    <input id="category" placeholder="Product Category (Food, Electronics, Toys, Cosmetics...)">
+
+    <label>Strength Score</label>
+    <select id="strength_score">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Weight Capacity (kg)</label>
+    <input id="weight_capacity_kg" type="number">
+
+    <label>Biodegradability</label>
+    <select id="biodegradability_score">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Recyclability (%)</label>
+    <input id="recyclability_percent" type="number">
+
+    <label>Moisture Resistance</label>
+    <select id="moisture_resistance">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Heat Resistance</label>
+    <select id="heat_resistance">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <button onclick="getRecommendations()">Get AI Recommendation</button>
+</section>
+
+<!-- ================= Results Table ================= -->
+<section>
+    <h2>AI Recommended Materials</h2>
+
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Material</th>
+                <th>Eco Score</th>
+                <th>CO₂ Emissions</th>
+                <th>Cost Index</th>
+                <th>Cost Flag</th>
+                <th>CO₂ Flag</th>
+            </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+    </table>
+</section>
+
+<!-- ================= Insights + Chart ================= -->
+<section>
+    <h2>CO₂ vs Cost Comparison</h2>
+
+    <div class="insights">
+        <div class="insight-card eco">
+            <h3>🌱 Lowest CO₂</h3>
+            <p id="insightCO2">—</p>
+        </div>
+
+        <div class="insight-card cost">
+            <h3>💰 Lowest Cost</h3>
+            <p id="insightCost">—</p>
+        </div>
+
+        <div class="insight-card best">
+            <h3>⭐ Best Overall</h3>
+            <p id="insightBest">—</p>
+        </div>
+    </div>
+
+    <canvas id="ecoChart"></canvas>
+</section>
+
+<!-- ================= Export Buttons ================= -->
+<section class="export-section">
+    <button onclick="exportCSV()">Export CSV</button>
+    <button onclick="exportPDF()">Export PDF</button>
+</section>
+
+<!-- ================= Script ================= -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
