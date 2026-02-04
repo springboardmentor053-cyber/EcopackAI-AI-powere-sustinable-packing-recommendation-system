@@ -1,8 +1,15 @@
+import os
 import joblib
 import pandas as pd
 
-rf_model = joblib.load("models/rf_cost_model.pkl")
-xgb_model = joblib.load("models/xgb_co2_model.pkl")
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
+MODEL_DIR = os.path.join(BASE_DIR, "models")
+
+rf_model = joblib.load(os.path.join(MODEL_DIR, "rf_cost_model.pkl"))
+xgb_model = joblib.load(os.path.join(MODEL_DIR, "xgb_co2_model.pkl"))
+
 
 FEATURES = [
     "material_type",
