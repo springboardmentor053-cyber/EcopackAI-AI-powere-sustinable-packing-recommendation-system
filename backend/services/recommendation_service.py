@@ -65,9 +65,11 @@ def run_recommendation(user_df):
     df["cost_norm"] = safe_normalize(df["predicted_cost"])
     df["co2_norm"] = safe_normalize(df["predicted_co2"])
 
+    df["environmental_score"] = 1 - df["co2_norm"]
+
     df["rank_score"] = (
         0.5 * (1 - df["cost_norm"]) +
-        0.5 * (1 - df["co2_norm"])
+        0.5 * df["environmental_score"]
     )
 
     df = df.replace([np.inf, -np.inf], 0)
@@ -77,5 +79,5 @@ def run_recommendation(user_df):
 
     return result[
         ["material_type", "predicted_cost",
-         "predicted_co2", "rank_score"]
+         "predicted_co2", "environmental_score", "rank_score"]
     ].head(5)
