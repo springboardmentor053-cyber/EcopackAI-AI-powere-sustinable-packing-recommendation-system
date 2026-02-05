@@ -1,8 +1,11 @@
-flask
 pandas
 numpy
 scikit-learn
+xgboost
 joblib
-sqlalchemy
 psycopg2-binary
-python-dotenv
+sqlalchemy
+flask
+flask-cors
+matplotlib
+plotly
