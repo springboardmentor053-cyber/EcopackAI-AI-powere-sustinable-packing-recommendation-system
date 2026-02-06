@@ -175,7 +175,6 @@ body {
     <div class="card">Materials Upgraded<br><strong>156</strong></div>
   </div>
 </section>
-
 <script>
 function scrollToRecommend() {
   document.getElementById("recommend").scrollIntoView({
@@ -184,32 +183,55 @@ function scrollToRecommend() {
 }
 
 function getRecommendation() {
-  const strength = document.getElementById("strength").value;
-  const weight = document.getElementById("weight").value;
-  const bio = document.getElementById("bio").value;
-  const recycle = document.getElementById("recycle").value;
+  const strength = Number(document.getElementById("strength").value);
+  const weight = Number(document.getElementById("weight").value);
+  const bio = Number(document.getElementById("bio").value);
+  const recycle = Number(document.getElementById("recycle").value);
 
   if (!strength || !weight || !bio || !recycle) {
     alert("Please fill all fields");
     return;
   }
 
-  let recommendation = "Recycled Cardboard + Molded Pulp";
+  let recommendation = "";
+  let baseCost = 0;
 
+  /* MATERIAL SELECTION + BASE COST */
   if (bio > 80 && recycle > 80) {
     recommendation = "100% Biodegradable Kraft Paper Packaging";
+    baseCost = 8;
   } 
   else if (weight > 10) {
     recommendation = "Corrugated Fiberboard Packaging";
+    baseCost = 12;
+  } 
+  else {
+    recommendation = "Recycled Cardboard + Molded Pulp";
+    baseCost = 6;
   }
+
+  /* COST CALCULATION */
+  let strengthCost = strength * 0.8;
+  let weightCost = weight * 1.2;
+
+  let totalCostPerUnit = baseCost + strengthCost + weightCost;
+  let monthlyCost = totalCostPerUnit * 1000;
 
   document.getElementById("result").innerHTML = `
     <h3>Recommended Packaging</h3>
     <p><strong>${recommendation}</strong></p>
+
+    <hr>
+
+    <p><strong>Cost Estimation</strong></p>
+    <p>Cost per Unit: ₹${totalCostPerUnit.toFixed(2)}</p>
+    <p>Monthly Cost (1000 units): ₹${monthlyCost.toFixed(2)}</p>
+
+    <hr>
+
     <p>Estimated CO₂ Reduction: ${Math.round(bio / 2)}%</p>
   `;
 }
 </script>
-
 </body>
 </html>
