@@ -1,12 +1,27 @@
 import os
+import io
 import logging
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 import pandas as pd
 import joblib
+
+from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS
+
 from sklearn.preprocessing import StandardScaler
+
+from sqlalchemy import create_engine
 from dotenv import load_dotenv
-import psycopg2
+from urllib.parse import quote_plus
+from reportlab.platypus import (
+    SimpleDocTemplate,
+    Paragraph,
+    Table,
+    TableStyle,
+    Spacer,
+)
+from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
 
 
 # LOAD ENV
@@ -14,29 +29,32 @@ import psycopg2
 
 load_dotenv()
 
-CO2_MODEL_PATH = os.getenv("CO2_MODEL_PATH")
-COST_MODEL_PATH = os.getenv("COST_MODEL_PATH")
-LOG_FILE = os.getenv("LOG_FILE", "ecopackai.log")
-
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
+CO2_MODEL_PATH = os.getenv("CO2_MODEL_PATH")
+COST_MODEL_PATH = os.getenv("COST_MODEL_PATH")
+
+LOG_FILE = os.getenv("LOG_FILE", "logs/ecopackai.log")
 os.makedirs("logs", exist_ok=True)
+
+ENCODED_PASSWORD = quote_plus(DB_PASSWORD)
+
+DATABASE_URL = (
+    f"postgresql+psycopg2://{DB_USER}:{ENCODED_PASSWORD}"
+    f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+)
 
 
 # LOGGING
 
-
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding="utf-8"),
-        logging.StreamHandler()
-    ]
+    handlers=[logging.FileHandler(LOG_FILE, encoding="utf-8"), logging.StreamHandler()],
 )
 
 logger = logging.getLogger("EcoPackAI")
@@ -49,32 +67,18 @@ app = Flask(__name__)
 CORS(app)
 
 
-# LOAD MATERIALS FROM POSTGRESQL
+# LOAD DATA FROM POSTGRES
 
 
-def load_materials_from_db():
+engine = create_engine(DATABASE_URL)
 
-    conn = psycopg2.connect(
-        host=DB_HOST,
-        port=DB_PORT,
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD
-    )
+df = pd.read_sql("SELECT * FROM materials", engine)
+df["material_name"] = df["material_name"].str.strip()
 
-    df = pd.read_sql("SELECT * FROM materials", conn)
-    conn.close()
-
-    df["material_name"] = df["material_name"].str.strip()
-
-    return df
-
-
-materials = load_materials_from_db()
 logger.info("Materials loaded from PostgreSQL")
 
 
-# FEATURE COLUMNS
+# FEATURES
 
 
 feature_cols = [
@@ -82,15 +86,11 @@ feature_cols = [
     "weight_capacity",
     "durability_score",
     "biodegradability_score",
-    "recyclability_percent"
+    "recyclability_percent",
 ]
 
-
-# SCALER
-
-
 scaler = StandardScaler()
-scaler.fit(materials[feature_cols])
+scaler.fit(df[feature_cols])
 
 
 # LOAD MODELS
@@ -105,193 +105,103 @@ def load_model(path, name):
         logger.error(f"{name} model load failed: {e}")
         return None, False
 
-
 co2_model, use_co2_model = load_model(CO2_MODEL_PATH, "CO2")
 cost_model, use_cost_model = load_model(COST_MODEL_PATH, "Cost")
 
 
-# HEALTH CHECK
+# HEALTH
 
 
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({
         "status": "EcoPackAI backend running",
-        "db_connected": True,
         "co2_model_loaded": use_co2_model,
-        "cost_model_loaded": use_cost_model
+        "cost_model_loaded": use_cost_model,
     })
 
 
-# VALIDATION
-
-
-def validate_inputs(data, required):
-
-    if not data:
-        return "No input JSON provided"
-
-    for field in required:
-        if field not in data:
-            return f"Missing field: {field}"
-
-    try:
-        if int(data["quantity"]) <= 0:
-            return "Quantity must be > 0"
-
-        if float(data["baseline_co2"]) <= 0:
-            return "Baseline CO2 must be > 0"
-
-    except:
-        return "Numeric fields invalid"
-
-    return None
-
-
-# MAIN API
+# RECOMMEND API
 
 
 @app.route("/recommend", methods=["POST"])
 def recommend_material():
 
     try:
-
         data = request.json
 
-        required_fields = [
-            "strength_encoded",
-            "weight_capacity",
-            "biodegradability_score",
-            "recyclability_percent",
-            "cost_efficiency_score",
-            "quantity",
-            "baseline_co2"
-        ]
-
-        error = validate_inputs(data, required_fields)
-        if error:
-            return jsonify({"error": error}), 400
-
-        product_name = data.get("product_name", "Generic Product")
         quantity = int(data["quantity"])
         baseline_co2 = float(data["baseline_co2"])
 
         strength = float(data["strength_encoded"])
-        weight_capacity = float(data["weight_capacity"])
-        biodegradability = float(data["biodegradability_score"])
-        recyclability = float(data["recyclability_percent"])
-        cost_efficiency = float(data["cost_efficiency_score"])
+        weight = float(data["weight_capacity"])
+        biodeg = float(data["biodegradability_score"])
+        recycle = float(data["recyclability_percent"])
+        cost_eff = float(data["cost_efficiency_score"])
+
+        product_name = data.get("product_name", "Product")
 
         logger.info(
-            f"Inputs: strength={strength}, weight={weight_capacity}, "
-            f"bio={biodegradability}, recycle={recyclability}, "
-            f"cost_eff={cost_efficiency}"
+            f"Inputs: strength={strength}, weight={weight}, "
+            f"bio={biodeg}, recycle={recycle}, cost_eff={cost_eff}"
         )
 
-        # ---------------- CO2 ----------------
+        
+        # CO2 PREDICT
+        
 
         if use_co2_model:
-            co2_input = pd.DataFrame([{
+            X = pd.DataFrame([{
                 "strength": strength,
-                "weight_capacity": weight_capacity,
+                "weight_capacity": weight,
                 "durability_score": 5,
-                "biodegradability_score": biodegradability,
-                "recyclability_percent": recyclability
+                "biodegradability_score": biodeg,
+                "recyclability_percent": recycle,
             }])
 
-            predicted_co2 = float(
-                co2_model.predict(scaler.transform(co2_input))[0]
-            )
+            predicted_co2 = float(co2_model.predict(scaler.transform(X))[0])
         else:
-            predicted_co2 = baseline_co2 * 0.9
+            predicted_co2 = baseline_co2 * 0.85
 
         reduction = baseline_co2 - predicted_co2
-        reduction_percent = (reduction / baseline_co2) * 100
+        reduction_pct = (reduction / baseline_co2) * 100
 
-        # ---------------- FILTERING ----------------
+        
+        # FILTER + SCORE
+        
 
-        base = materials.drop_duplicates(
-            subset=["material_name"]
-        ).copy()
+        working = df.copy()
 
-        strict = base[
-            (base["weight_capacity"] >= weight_capacity) &
-            (base["strength"] >= strength - 1)
-        ]
+        if len(working) == 0:
+            return jsonify({"error": "No materials in database"}), 400
 
-        relaxed = base[
-            (base["weight_capacity"] >= weight_capacity * 0.7) &
-            (base["strength"] >= strength - 2)
-        ]
-
-        if not strict.empty:
-            filtered = strict
-            logger.info("Using strict constraints")
-
-        elif not relaxed.empty:
-            filtered = relaxed
-            logger.warning("Using relaxed constraints")
-
+        if use_cost_model:
+            cost_scaled = scaler.transform(working[feature_cols])
+            working["predicted_unit_cost"] = cost_model.predict(cost_scaled)
         else:
-            filtered = base
-            logger.error("No constraints matched — fallback to all materials")
+            working["predicted_unit_cost"] = working["cost_per_unit"]
 
-        # ---------------- COST ----------------
+        # Soft budget control
+        max_cost = working["predicted_unit_cost"].quantile(0.9)
 
-        cost_scaled = scaler.transform(filtered[feature_cols])
+        working = working[working["predicted_unit_cost"] <= max_cost]
 
-        filtered["predicted_unit_cost"] = (
-            cost_model.predict(cost_scaled)
-            if use_cost_model
-            else filtered["cost_per_unit"]
+        if len(working) == 0:
+            working = df.copy()
+
+        working["ai_recommendation_score"] = (
+            (10 - abs(working["strength"] - strength)) * 0.30
+            + (10 - abs(working["biodegradability_score"] - biodeg)) * 0.25
+            + (10 - abs(working["recyclability_percent"] - recycle) / 10) * 0.20
+            + (10 - working["predicted_unit_cost"]) * 0.25
         )
 
-        max_unit_cost = filtered["predicted_unit_cost"].quantile(
-            max(0.1, min(cost_efficiency, 0.95))
-        )
+        working["total_cost"] = working["predicted_unit_cost"] * quantity
 
-        filtered = filtered[
-            filtered["predicted_unit_cost"] <= max_unit_cost
-        ]
-
-        # ---------------- NORMALIZE COST ----------------
-
-        cmin = filtered["predicted_unit_cost"].min()
-        cmax = filtered["predicted_unit_cost"].max()
-
-        filtered["predicted_unit_cost_norm"] = (
-            (filtered["predicted_unit_cost"] - cmin) /
-            (cmax - cmin + 1e-6)
-        )
-
-        # ---------------- SCORE ----------------
-
-        filtered["ai_recommendation_score"] = (
-
-            (10 - abs(filtered["strength"] - strength)) * 0.25 +
-
-            (10 - abs(filtered["weight_capacity"] - weight_capacity)) * 0.20 +
-
-            filtered["biodegradability_score"] * 0.20 +
-
-            filtered["recyclability_percent"] / 10 * 0.15 +
-
-            (1 - filtered["predicted_unit_cost_norm"]) *
-            (0.20 + cost_efficiency)
-        )
-
-        # ---------------- TOTAL COST ----------------
-
-        filtered["total_cost"] = (
-            filtered["predicted_unit_cost"] * quantity
-        )
-
-        top_materials = filtered.sort_values(
+        top = working.sort_values(
             by="ai_recommendation_score",
-            ascending=False
+            ascending=False,
         ).head(5)
-
-        # ---------------- RESPONSE ----------------
 
         return jsonify({
 
@@ -301,29 +211,104 @@ def recommend_material():
             "baseline_co2": baseline_co2,
             "predicted_co2": round(predicted_co2, 2),
             "co2_reduction": round(reduction, 2),
-            "co2_reduction_percent": round(reduction_percent, 2),
+            "co2_reduction_percent": round(reduction_pct, 2),
 
-            "recommendation_strategy": "AI optimized sustainability and cost",
-
-            "recommendations": top_materials[
+            "recommendations": top[
                 [
                     "material_name",
                     "predicted_unit_cost",
                     "total_cost",
-                    "ai_recommendation_score"
+                    "ai_recommendation_score",
                 ]
-            ].round(2).to_dict(orient="records")
+            ].round(2).to_dict(orient="records"),
         })
 
     except Exception as e:
+        logger.exception("Recommendation crashed")
+        return jsonify({"error": str(e)}), 500
 
-        logger.exception("Recommendation API crashed")
 
-        return jsonify({
-            "error": "Internal server error",
-            "details": str(e)
-        }), 500
+# EXPORT CSV
 
+
+@app.route("/export/csv", methods=["POST"])
+def export_csv():
+
+    recs = request.json["recommendations"]
+
+    df = pd.DataFrame(recs)
+
+    mem = io.BytesIO()
+    df.to_csv(mem, index=False)
+    mem.seek(0)
+
+    return send_file(
+        mem,
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name="ecopackai_report.csv",
+    )
+
+
+# EXPORT PDF
+
+
+@app.route("/export/pdf", methods=["POST"])
+def export_pdf():
+
+    payload = request.json
+    recs = payload["recommendations"]
+
+    buffer = io.BytesIO()
+
+    doc = SimpleDocTemplate(buffer, pagesize=A4)
+    styles = getSampleStyleSheet()
+
+    story = []
+
+    story.append(Paragraph("EcoPackAI Sustainability Report", styles["Title"]))
+    story.append(Spacer(1, 20))
+
+    story.append(Paragraph(
+        f"""
+        Product: {payload['product_name']}<br/>
+        Quantity: {payload['quantity']}<br/>
+        Baseline CO₂: {payload['baseline_co2']}<br/>
+        Predicted CO₂: {payload['predicted_co2']}<br/>
+        Reduction %: {payload['co2_reduction_percent']}%
+        """,
+        styles["Normal"],
+    ))
+
+    story.append(Spacer(1, 20))
+
+    table_data = [["Material", "Unit Cost", "Total Cost", "AI Score"]]
+
+    for r in recs:
+        table_data.append([
+            r["material_name"],
+            r["predicted_unit_cost"],
+            r["total_cost"],
+            r["ai_recommendation_score"],
+        ])
+
+    table = Table(table_data)
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0,0), (-1,0), colors.lightblue),
+        ("GRID", (0,0), (-1,-1), 1, colors.grey),
+    ]))
+
+    story.append(table)
+
+    doc.build(story)
+    buffer.seek(0)
+
+    return send_file(
+        buffer,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name="ecopackai_report.pdf",
+    )
 
 
 # RUN

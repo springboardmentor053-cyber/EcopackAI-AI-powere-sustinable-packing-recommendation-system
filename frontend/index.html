@@ -66,37 +66,28 @@ body {
     box-shadow: 0 12px 35px rgba(0,0,0,0.6);
 }
 
-/* SUMMARY VALUES */
+/* SUMMARY */
 .card h4 {
     color: #e0fff9 !important;
     font-weight: 700;
-    text-shadow: 0 0 8px rgba(38,166,154,0.6);
 }
 
 .card h6 {
     color:#7ddfd3;
-    opacity:.9;
 }
 
 /* TABLE */
-.table {
-    color:#e0f2f1;
-}
+.table { color:#e0f2f1; }
 
-.table thead {
-    background:#081821;
-}
+.table thead { background:#081821; }
 
 .table th {
     color:#7ddfd3;
     border-color:#16414a;
 }
 
-.table td {
-    border-color:#16414a;
-}
+.table td { border-color:#16414a; }
 
-/* CHARTS */
 canvas {
     max-height:260px;
     background:#071821;
@@ -111,7 +102,8 @@ canvas {
 <div class="container-fluid">
 <div class="row">
 
-<!-- LEFT PANEL -->
+<!-- ================= LEFT PANEL ================= -->
+
 <div class="col-md-3 sidebar">
 
 <h3>🌿 EcoPackAI</h3>
@@ -119,43 +111,45 @@ canvas {
 <hr>
 
 <label>Product Name</label>
-<input id="product_name" class="form-control mb-2" placeholder="e.g. Electronics Box">
+<input id="product_name" class="form-control mb-2">
 
 <label>Quantity</label>
 <input id="quantity" type="number" class="form-control mb-2" value="500">
 
-<label>Baseline CO₂ (Current Packaging)</label>
+<label>Baseline CO₂</label>
 <input id="baseline_co2" type="number" class="form-control mb-2" value="15">
 
-<label>Strength Requirement</label>
+<label>Strength</label>
 <select id="strength" class="form-select mb-2">
-    <option value="3">Low</option>
-    <option value="6">Medium</option>
-    <option value="9" selected>High</option>
+<option value="3">Low</option>
+<option value="6">Medium</option>
+<option value="9" selected>High</option>
 </select>
 
 <label>Weight Capacity</label>
 <input id="weight_capacity" type="number" class="form-control mb-2" value="10">
 
-<label>Biodegradability (1–10)</label>
+<label>Biodegradability</label>
 <input id="biodegradability" type="number" class="form-control mb-2" value="6">
 
 <label>Recyclability (%)</label>
 <input id="recyclability" type="number" class="form-control mb-2" value="60">
 
-<label>Cost Efficiency (0–1)</label>
+<label>Cost Efficiency</label>
 <input id="cost_efficiency" type="number" step="0.1" class="form-control mb-3" value="0.9">
 
 <button class="btn btn-ai w-100" onclick="getAIRecommendation()">🚀 Run AI Analysis</button>
 
 </div>
 
-<!-- DASHBOARD -->
+<!-- ================= DASHBOARD ================= -->
+
 <div class="col-md-9 dashboard">
 
 <h4 class="mb-4">📊 EcoPackAI Recommendation Dashboard</h4>
 
 <!-- SUMMARY -->
+
 <div class="row mb-4">
 
 <div class="col-md-3">
@@ -203,7 +197,8 @@ canvas {
 </div>
 
 <!-- TABLE -->
-<div class="card p-3 mb-4">
+
+<div class="card p-3 mb-3">
 <h5>🏆 Top Recommended Materials</h5>
 
 <table class="table text-center">
@@ -220,7 +215,15 @@ canvas {
 </table>
 </div>
 
+<!-- EXPORT -->
+
+<div class="d-flex gap-3 mb-4">
+<button class="btn btn-outline-info" onclick="downloadCSV()">⬇ Download CSV</button>
+<button class="btn btn-outline-warning" onclick="downloadPDF()">⬇ Download PDF</button>
+</div>
+
 <!-- CHARTS -->
+
 <div class="row">
 
 <div class="col-md-6">
@@ -245,37 +248,35 @@ canvas {
 
 <script>
 let costChart, scoreChart;
+let lastResult = null;
 
 function getAIRecommendation() {
 
 const payload = {
-    product_name: product_name.value,
-    selected_material: null,
-
-    quantity: Number(quantity.value),
-    baseline_co2: Number(baseline_co2.value),
-
-    strength_encoded: Number(strength.value),
-    weight_capacity: Number(weight_capacity.value),
-    biodegradability_score: Number(biodegradability.value),
-    recyclability_percent: Number(recyclability.value),
-    cost_efficiency_score: Number(cost_efficiency.value)
+product_name: product_name.value,
+quantity: Number(quantity.value),
+baseline_co2: Number(baseline_co2.value),
+strength_encoded: Number(strength.value),
+weight_capacity: Number(weight_capacity.value),
+biodegradability_score: Number(biodegradability.value),
+recyclability_percent: Number(recyclability.value),
+cost_efficiency_score: Number(cost_efficiency.value)
 };
 
 fetch("http://127.0.0.1:5000/recommend", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body:JSON.stringify(payload)
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify(payload)
 })
 .then(res => res.json())
 .then(result => {
 
-console.log("API RESULT:", result);
-
 if (result.error) {
-    alert(result.error);
-    return;
+alert(result.error);
+return;
 }
+
+lastResult = result;
 
 const recs = result.recommendations;
 
@@ -289,15 +290,14 @@ co2Percent.innerText = result.co2_reduction_percent + "%";
 
 resultTable.innerHTML = "";
 
-const labels = [], costs = [], scores = [];
+const labels=[],costs=[],scores=[];
 
-recs.forEach((r, i) => {
-
+recs.forEach((r,i)=>{
 labels.push(r.material_name);
 costs.push(r.total_cost);
 scores.push(r.ai_recommendation_score);
 
-resultTable.innerHTML += `
+resultTable.innerHTML+=`
 <tr>
 <td>${i+1}</td>
 <td>${r.material_name}</td>
@@ -307,19 +307,57 @@ resultTable.innerHTML += `
 </tr>`;
 });
 
-if (costChart) costChart.destroy();
-if (scoreChart) scoreChart.destroy();
+if(costChart)costChart.destroy();
+if(scoreChart)scoreChart.destroy();
 
-costChart = new Chart(document.getElementById("costChart"), {
+costChart=new Chart(costChart=document.getElementById("costChart"),{
 type:"bar",
 data:{labels,datasets:[{label:"Total Cost",data:costs}]}
 });
 
-scoreChart = new Chart(document.getElementById("scoreChart"), {
+scoreChart=new Chart(scoreChart=document.getElementById("scoreChart"),{
 type:"line",
 data:{labels,datasets:[{label:"AI Score",data:scores}]}
 });
 
+});
+}
+
+// EXPORT CSV
+function downloadCSV(){
+if(!lastResult){alert("Run AI Analysis first");return;}
+
+fetch("http://127.0.0.1:5000/export/csv",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({recommendations:lastResult.recommendations})
+})
+.then(r=>r.blob())
+.then(blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+a.href=url;
+a.download="ecopackai_report.csv";
+a.click();
+});
+}
+
+// EXPORT PDF
+function downloadPDF(){
+if(!lastResult){alert("Run AI Analysis first");return;}
+
+fetch("http://127.0.0.1:5000/export/pdf",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(lastResult)
+})
+.then(r=>r.blob())
+.then(blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+a.href=url;
+a.download="ecopackai_report.pdf";
+a.click();
 });
 }
 </script>
