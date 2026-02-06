@@ -28,7 +28,7 @@ if (form) {
     };
 
     localStorage.setItem("ecoPackAI_product", JSON.stringify(productData));
-    window.location.href = "results.html";
+    window.location.href = "/results";
   });
 }
 

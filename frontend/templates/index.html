@@ -1,137 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EcoPackAI - Product Input</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>EcoPackAI • Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url=/">
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial; padding:24px;}
+    .box{max-width:720px;margin:0 auto}
+  </style>
 </head>
-
-<body class="bg-light">
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="container">
-      <a class="navbar-brand fw-semibold" href="#">EcoPackAI</a>
-      <span class="navbar-text text-white-50">Sustainable Packaging Recommendation System</span>
-    </div>
-  </nav>
-
-  <main class="container py-4">
-    <div class="row justify-content-center">
-      <div class="col-lg-9 col-xl-8">
-
-        <div class="card shadow-sm border-0">
-          <div class="card-body p-4">
-            <h4 class="mb-1">Product Input</h4>
-            <p class="text-muted mb-4">
-              Enter product details to get AI-based sustainable packaging material recommendations.
-            </p>
-
-            <!-- IMPORTANT: needs novalidate so we can show Bootstrap validation -->
-            <form id="productForm" class="needs-validation" novalidate>
-
-              <div class="row g-3">
-                <!-- Product Name -->
-                <div class="col-md-6">
-                  <label class="form-label">Product Name *</label>
-                  <input id="product_name" type="text" class="form-control" placeholder="e.g., Smartphone" required />
-                  <div class="invalid-feedback">Please enter a valid product name.</div>
-                  <div class="form-text"></div>
-                </div>
-
-                <!-- Category (optional UI-only) -->
-                <div class="col-md-6">
-                  <label class="form-label">Product Category</label>
-                  <input id="product_category" type="text" class="form-control" placeholder="e.g., Electronics" />
-                  <div class="form-text">Optional </div>
-                </div>
-
-                <!-- Weight -->
-                <div class="col-md-4">
-                  <label class="form-label">Weight (kg)</label>
-                  <input id="product_weight_kg" type="number" class="form-control" step="0.01" min="0" placeholder="e.g., 0.22" />
-                </div>
-
-                <!-- Fragility -->
-                <div class="col-md-4">
-                  <label class="form-label">Fragility Level</label>
-                  <select id="fragility_level" class="form-select">
-                    <option value="">Select</option>
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
-                  </select>
-                </div>
-
-                <!-- Temperature Sensitive -->
-                <div class="col-md-4">
-                  <label class="form-label">Temperature Sensitive</label>
-                  <select id="temperature_sensitive" class="form-select">
-                    <option value="">Select</option>
-                    <option>No</option>
-                    <option>Yes</option>
-                  </select>
-                </div>
-
-                <!-- Strength requirement -->
-                <div class="col-md-4">
-                  <label class="form-label">Required Strength Score</label>
-                  <input id="required_strength_score" type="number" class="form-control" min="1" max="10" placeholder="1-10" />
-                </div>
-
-                <!-- Biodegradability -->
-                <div class="col-md-4">
-                  <label class="form-label">Preferred Biodegradability</label>
-                  <input id="preferred_biodegradability_score" type="number" class="form-control" min="1" max="10" placeholder="1-10" />
-                </div>
-
-                <!-- Budget -->
-                <div class="col-md-4">
-                  <label class="form-label">Max Packaging Cost (INR)</label>
-                  <input id="max_packaging_cost_inr" type="number" class="form-control" min="0" placeholder="e.g., 100" />
-                </div>
-              </div>
-
-              <hr class="my-4" />
-
-              <div class="d-flex gap-2">
-                <button class="btn btn-success px-4" type="submit">Get Recommendations</button>
-                <button class="btn btn-outline-secondary" type="reset">Reset</button>
-              </div>
-
-              <p class="text-muted mt-3 mb-0">
-                Tip: Try <span class="fw-semibold">Smartphone</span>, <span class="fw-semibold">Laptop</span>, <span class="fw-semibold">Frozen Food Pack</span>
-              </p>
-            </form>
-          </div>
-        </div>
-
-        <p class="text-center text-muted small mt-3">
-          EcoPackAI • Modules 1–6 Progress Demo
-        </p>
-
-      </div>
-    </div>
-  </main>
-
-  <script src="../static/js/script.js"></script>
-
-  <!-- Bootstrap validation helper -->
-  <script>
-    (function () {
-      "use strict";
-      const form = document.querySelector(".needs-validation");
-      form.addEventListener("submit", function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add("was-validated");
-      }, false);
-    })();
-  </script>
-
+<body>
+  <div class="box">
+    <h2>EcoPackAI</h2>
+    <p>Redirecting to the EcoPackAI app…</p>
+    <p>If you are not redirected, open: <b>http://127.0.0.1:5000/</b></p>
+  </div>
 </body>
 </html>
