@@ -329,8 +329,17 @@ def compare_materials():
             product_weight_kg=weight,
             current_material_name=data['current_material']
         )
-
+        
         logger.info(f"Result: {comparison['co2_reduction_percent']}% CO2 reduction")
+
+        try:
+            recommender.update_recommendation_with_comparison(
+                category_name=data['category'],
+                product_weight_kg=weight,
+                comparison=comparison
+            )
+        except Exception as e:
+            logger.warning(f"Failed to update recommendation with comparison: {e}")
 
         return jsonify({
             'status': 'success',
