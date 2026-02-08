@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 import os
 import warnings
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 warnings.filterwarnings('ignore')
 
@@ -198,19 +198,19 @@ class EcoPackRecommender:
             co2_savings = comparison['co2_savings_kg'] if comparison else None
             cost_savings = comparison['cost_difference_inr'] if comparison else None
             
-            insert_query = """
+            insert_query = text("""
                 INSERT INTO recommendations (
                     category_name, product_weight_kg, fragility_level, budget_limit,
                     current_material_name, recommended_material_name, recommended_material_type,
                     suitability_score, predicted_cost_inr, predicted_co2_kg, eco_score,
                     co2_savings_kg, cost_savings_inr
                 ) VALUES (
-                    %(category_name)s, %(product_weight_kg)s, %(fragility_level)s, %(budget_limit)s,
-                    %(current_material_name)s, %(recommended_material_name)s, %(recommended_material_type)s,
-                    %(suitability_score)s, %(predicted_cost_inr)s, %(predicted_co2_kg)s, %(eco_score)s,
-                    %(co2_savings_kg)s, %(cost_savings_inr)s
+                    :category_name, :product_weight_kg, :fragility_level, :budget_limit,
+                    :current_material_name, :recommended_material_name, :recommended_material_type,
+                    :suitability_score, :predicted_cost_inr, :predicted_co2_kg, :eco_score,
+                    :co2_savings_kg, :cost_savings_inr
                 )
-            """
+            """)
             
             params = {
                 'category_name': category_name,
@@ -233,11 +233,49 @@ class EcoPackRecommender:
                 conn.commit()
             
             engine.dispose()
-            print(f"  Recommendation saved: {recommendation['material_name']} for {category_name}")
+            print(f"Recommendation saved: {recommendation['material_name']} for {category_name}")
             return True
             
         except Exception as e:
-            print(f"  ✗ Failed to save recommendation: {e}")
+            print(f"Failed to save recommendation: {e}")
+            return False
+        
+    def update_recommendation_with_comparison(self, category_name, product_weight_kg, comparison):
+        try:
+            engine = self._get_db_engine()
+            
+            update_query = text("""
+                UPDATE recommendations
+                SET current_material_name = :current_material_name,
+                    co2_savings_kg = :co2_savings_kg,
+                    cost_savings_inr = :cost_savings_inr
+                WHERE recommendation_id = (
+                    SELECT recommendation_id FROM recommendations
+                    WHERE category_name = :category_name
+                    AND product_weight_kg = :product_weight_kg
+                    ORDER BY created_at DESC
+                    LIMIT 1
+                )
+            """)
+            
+            params = {
+                'category_name': category_name,
+                'product_weight_kg': float(product_weight_kg),
+                'current_material_name': comparison['current_material'],
+                'co2_savings_kg': comparison['co2_savings_kg'],
+                'cost_savings_inr': comparison['cost_difference_inr']
+            }
+                
+            with engine.connect() as conn:
+                conn.execute(update_query, params)
+                conn.commit()
+            
+            engine.dispose()
+            print(f"Updated recommendation with comparison data")
+            return True
+            
+        except Exception as e:
+            print(f"Failed to update recommendation: {e}")
             return False
 
 if __name__ == "__main__":
