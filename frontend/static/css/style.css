@@ -5,12 +5,38 @@ body {
   color: #1A1A1A;
 }
 
-/* HEADER */
 .header {
   background: linear-gradient(135deg, #2E8B57, #1F6B42);
-  padding: 28px;
-  text-align: center;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: white;
+}
+
+.header-content {
+  text-align: left;
+}
+
+.header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  opacity: 0.85;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+  background: rgba(255,255,255,0.15);
 }
 
 .header h1 {

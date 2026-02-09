@@ -169,6 +169,11 @@ def validate_compare_input(data):
 def home():
     return render_template('index.html')
 
+@app.route('/dashboard')
+def dashboard():
+    """Serve the BI dashboard page"""
+    return render_template('dashboard.html')
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return jsonify({
@@ -391,6 +396,102 @@ def get_eco_score():
         }), 404
     except Exception as e:
         logger.error(f"Eco-score error: {traceback.format_exc()}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Internal server error'
+        }), 500
+        
+
+@app.route('/api/analytics/summary', methods=['GET'])
+@require_api_key
+def get_analytics_summary():
+    """Get overall analytics summary"""
+    try:
+        summary = recommender.get_analytics_summary()
+        
+        if summary is None:
+            return jsonify({
+                'status': 'error',
+                'message': 'Failed to fetch analytics summary'
+            }), 500
+        
+        return jsonify({
+            'status': 'success',
+            'summary': summary
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Analytics summary error: {traceback.format_exc()}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Internal server error'
+        }), 500
+
+
+@app.route('/api/analytics/materials', methods=['GET'])
+@require_api_key
+def get_analytics_materials():
+    """Get recommendation stats by material"""
+    try:
+        limit = request.args.get('limit', 10, type=int)
+        if limit < 1 or limit > 25:
+            limit = 10
+        
+        materials = recommender.get_analytics_by_material(limit=limit)
+        
+        return jsonify({
+            'status': 'success',
+            'count': len(materials),
+            'materials': materials
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Analytics materials error: {traceback.format_exc()}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Internal server error'
+        }), 500
+
+
+@app.route('/api/analytics/categories', methods=['GET'])
+@require_api_key
+def get_analytics_categories():
+    """Get recommendation stats by category"""
+    try:
+        categories = recommender.get_analytics_by_category()
+        
+        return jsonify({
+            'status': 'success',
+            'count': len(categories),
+            'categories': categories
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Analytics categories error: {traceback.format_exc()}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Internal server error'
+        }), 500
+
+@app.route('/api/analytics/recent', methods=['GET'])
+@require_api_key
+def get_recent_recommendations():
+    """Get recent recommendations for activity log"""
+    try:
+        limit = request.args.get('limit', 10, type=int)
+        if limit < 1 or limit > 50:
+            limit = 10
+        
+        recent = recommender.get_recent_recommendations(limit=limit)
+        
+        return jsonify({
+            'status': 'success',
+            'count': len(recent),
+            'recommendations': recent
+        }), 200
+        
+    except Exception as e:
+        logger.error(f"Recent recommendations error: {traceback.format_exc()}")
         return jsonify({
             'status': 'error',
             'message': 'Internal server error'

@@ -147,6 +147,23 @@ class EcoPackRecommender:
         current_co2 = current['co2_emission_kg'] * product_weight_kg * packaging_factor
         current_cost = current['cost_per_kg'] * product_weight_kg * packaging_factor
         
+        # Check if recommended material is same as current material
+        if best_material['material_name'] == current_material_name:
+            # Same material - no savings, use consistent values
+            return {
+                'current_material': current_material_name,
+                'current_co2_kg': round(float(best_material['predicted_co2_kg']), 4),
+                'current_cost_inr': round(float(best_material['predicted_cost_inr']), 2),
+                'recommended_material': best_material['material_name'],
+                'recommended_co2_kg': round(float(best_material['predicted_co2_kg']), 4),
+                'recommended_cost_inr': round(float(best_material['predicted_cost_inr']), 2),
+                'recommended_eco_score': round(float(best_material['eco_score']), 3),
+                'co2_savings_kg': 0.0,
+                'co2_reduction_percent': 0.0,
+                'cost_difference_inr': 0.0,
+                'same_material': True
+            }
+        
         co2_savings = current_co2 - best_material['predicted_co2_kg']
         cost_savings = current_cost - best_material['predicted_cost_inr']
         co2_reduction_pct = (co2_savings / current_co2 * 100) if current_co2 > 0 else 0
@@ -161,7 +178,8 @@ class EcoPackRecommender:
             'recommended_eco_score': round(float(best_material['eco_score']), 3),
             'co2_savings_kg': round(float(co2_savings), 4),
             'co2_reduction_percent': round(float(co2_reduction_pct), 1),
-            'cost_difference_inr': round(float(cost_savings), 2)
+            'cost_difference_inr': round(float(cost_savings), 2),
+            'same_material': False
         }
     
     def get_material_details(self, material_name):
@@ -277,6 +295,235 @@ class EcoPackRecommender:
         except Exception as e:
             print(f"Failed to update recommendation: {e}")
             return False
+        
+    def get_analytics_summary(self):
+        """
+        Get overall analytics summary from recommendations table.
+        
+        Returns:
+            Dictionary with total counts, CO₂ saved, cost metrics
+        """
+        try:
+            engine = self._get_db_engine()
+            
+            query = text("""
+                SELECT 
+                    COUNT(*) as total_recommendations,
+                    COUNT(DISTINCT category_name) as categories_served,
+                    COUNT(DISTINCT recommended_material_name) as unique_materials_recommended,
+                    COALESCE(SUM(co2_savings_kg), 0) as total_co2_saved_kg,
+                    COALESCE(SUM(cost_savings_inr), 0) as total_cost_saved_inr,
+                    COALESCE(AVG(predicted_co2_kg), 0) as avg_co2_per_recommendation,
+                    COALESCE(AVG(predicted_cost_inr), 0) as avg_cost_per_recommendation,
+                    COALESCE(AVG(suitability_score), 0) as avg_suitability_score,
+                    COALESCE(AVG(eco_score), 0) as avg_eco_score,
+                    COUNT(CASE WHEN co2_savings_kg > 0 THEN 1 END) as recommendations_with_savings,
+                    MIN(created_at) as first_recommendation,
+                    MAX(created_at) as last_recommendation
+                FROM recommendations
+            """)
+            
+            with engine.connect() as conn:
+                result = conn.execute(query)
+                row = result.fetchone()
+            
+            engine.dispose()
+            
+            if row is None or row[0] == 0:
+                return {
+                    'total_recommendations': 0,
+                    'categories_served': 0,
+                    'unique_materials_recommended': 0,
+                    'total_co2_saved_kg': 0,
+                    'total_cost_saved_inr': 0,
+                    'avg_co2_per_recommendation': 0,
+                    'avg_cost_per_recommendation': 0,
+                    'avg_suitability_score': 0,
+                    'avg_eco_score': 0,
+                    'recommendations_with_savings': 0,
+                    'first_recommendation': None,
+                    'last_recommendation': None
+                }
+            
+            return {
+                'total_recommendations': int(row[0]),
+                'categories_served': int(row[1]),
+                'unique_materials_recommended': int(row[2]),
+                'total_co2_saved_kg': round(float(row[3]), 4),
+                'total_cost_saved_inr': round(float(row[4]), 2),
+                'avg_co2_per_recommendation': round(float(row[5]), 4),
+                'avg_cost_per_recommendation': round(float(row[6]), 2),
+                'avg_suitability_score': round(float(row[7]), 3),
+                'avg_eco_score': round(float(row[8]), 3),
+                'recommendations_with_savings': int(row[9]),
+                'first_recommendation': row[10].isoformat() if row[10] else None,
+                'last_recommendation': row[11].isoformat() if row[11] else None
+            }
+            
+        except Exception as e:
+            print(f"Failed to get analytics summary: {e}")
+            return None
+
+
+    def get_analytics_by_material(self, limit=10):
+        """
+        Get recommendation counts grouped by material.
+        
+        Args:
+            limit: Number of top materials to return (default 10)
+        
+        Returns:
+            List of dictionaries with material stats
+        """
+        try:
+            engine = self._get_db_engine()
+            
+            query = text("""
+                SELECT 
+                    recommended_material_name,
+                    recommended_material_type,
+                    COUNT(*) as recommendation_count,
+                    COALESCE(AVG(suitability_score), 0) as avg_suitability,
+                    COALESCE(AVG(predicted_co2_kg), 0) as avg_co2_kg,
+                    COALESCE(AVG(predicted_cost_inr), 0) as avg_cost_inr,
+                    COALESCE(AVG(eco_score), 0) as avg_eco_score
+                FROM recommendations
+                GROUP BY recommended_material_name, recommended_material_type
+                ORDER BY recommendation_count DESC
+                LIMIT :limit
+            """)
+            
+            with engine.connect() as conn:
+                result = conn.execute(query, {'limit': limit})
+                rows = result.fetchall()
+            
+            engine.dispose()
+            
+            materials = []
+            for row in rows:
+                materials.append({
+                    'material_name': row[0],
+                    'material_type': row[1],
+                    'recommendation_count': int(row[2]),
+                    'avg_suitability': round(float(row[3]), 3),
+                    'avg_co2_kg': round(float(row[4]), 4),
+                    'avg_cost_inr': round(float(row[5]), 2),
+                    'avg_eco_score': round(float(row[6]), 3)
+                })
+            
+            return materials
+            
+        except Exception as e:
+            print(f"Failed to get material analytics: {e}")
+            return []
+
+
+    def get_analytics_by_category(self):
+        """
+        Get recommendation stats grouped by product category.
+        
+        Returns:
+            List of dictionaries with category stats
+        """
+        try:
+            engine = self._get_db_engine()
+            
+            query = text("""
+                SELECT 
+                    category_name,
+                    COUNT(*) as recommendation_count,
+                    COALESCE(SUM(co2_savings_kg), 0) as total_co2_saved,
+                    COALESCE(SUM(cost_savings_inr), 0) as total_cost_saved,
+                    COALESCE(AVG(predicted_co2_kg), 0) as avg_co2_kg,
+                    COALESCE(AVG(predicted_cost_inr), 0) as avg_cost_inr,
+                    COALESCE(AVG(suitability_score), 0) as avg_suitability
+                FROM recommendations
+                GROUP BY category_name
+                ORDER BY recommendation_count DESC
+            """)
+            
+            with engine.connect() as conn:
+                result = conn.execute(query)
+                rows = result.fetchall()
+            
+            engine.dispose()
+            
+            categories = []
+            for row in rows:
+                categories.append({
+                    'category_name': row[0],
+                    'recommendation_count': int(row[1]),
+                    'total_co2_saved': round(float(row[2]), 4),
+                    'total_cost_saved': round(float(row[3]), 2),
+                    'avg_co2_kg': round(float(row[4]), 4),
+                    'avg_cost_inr': round(float(row[5]), 2),
+                    'avg_suitability': round(float(row[6]), 3)
+                })
+            
+            return categories
+            
+        except Exception as e:
+            print(f"Failed to get category analytics: {e}")
+            return []
+        
+    def get_recent_recommendations(self, limit=10):
+        """
+        Get most recent recommendations.
+        
+        Args:
+            limit: Number of recent records to return (default 10)
+        
+        Returns:
+            List of recent recommendation dictionaries
+        """
+        try:
+            engine = self._get_db_engine()
+            
+            query = text("""
+                SELECT 
+                    recommendation_id,
+                    category_name,
+                    product_weight_kg,
+                    recommended_material_name,
+                    suitability_score,
+                    predicted_cost_inr,
+                    predicted_co2_kg,
+                    eco_score,
+                    co2_savings_kg,
+                    cost_savings_inr,
+                    created_at
+                FROM recommendations
+                ORDER BY created_at DESC
+                LIMIT :limit
+            """)
+            
+            with engine.connect() as conn:
+                result = conn.execute(query, {'limit': limit})
+                rows = result.fetchall()
+            
+            engine.dispose()
+            
+            recommendations = []
+            for row in rows:
+                recommendations.append({
+                    'id': int(row[0]),
+                    'category': row[1],
+                    'weight_kg': float(row[2]),
+                    'material': row[3],
+                    'suitability': round(float(row[4]), 3) if row[4] else 0,
+                    'cost_inr': round(float(row[5]), 2) if row[5] else 0,
+                    'co2_kg': round(float(row[6]), 4) if row[6] else 0,
+                    'eco_score': round(float(row[7]), 3) if row[7] else 0,
+                    'co2_saved': round(float(row[8]), 4) if row[8] else None,
+                    'cost_saved': round(float(row[9]), 2) if row[9] else None,
+                    'timestamp': row[10].strftime('%Y-%m-%d %H:%M') if row[10] else None
+                })
+            
+            return recommendations
+            
+        except Exception as e:
+            print(f"Failed to get recent recommendations: {e}")
+            return []
 
 if __name__ == "__main__":
     

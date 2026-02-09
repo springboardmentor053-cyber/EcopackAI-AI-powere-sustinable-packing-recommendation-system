@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPackAI - Analytics Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-content">
+        <h1>EcoPackAI</h1>
+        <p>Business Intelligence Dashboard</p>
+    </div>
+    <nav class="header-nav">
+        <a href="/" class="nav-link">Recommendations</a>
+        <a href="/dashboard" class="nav-link active">Dashboard</a>
+    </nav>
+</header>
+
+<main class="container main-container">
+
+    <!-- SUMMARY CARDS -->
+    <section class="summary-section">
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="card-icon">📊</div>
+                <div class="card-value" id="totalRecommendations">-</div>
+                <div class="card-label">Total Recommendations</div>
+            </div>
+            <div class="summary-card highlight">
+                <div class="card-icon">🌱</div>
+                <div class="card-value" id="totalCO2Saved">-</div>
+                <div class="card-label">Total CO2 Saved (kg)</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-icon">📦</div>
+                <div class="card-value" id="categoriesServed">-</div>
+                <div class="card-label">Categories Served</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-icon">⭐</div>
+                <div class="card-value" id="avgEcoScore">-</div>
+                <div class="card-label">Avg Eco Score</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHARTS ROW -->
+    <section class="charts-section">
+        <div class="row">
+            <!-- Materials Chart -->
+            <div class="col-lg-6">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Most Recommended Materials</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="materialsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories Chart -->
+            <div class="col-lg-6">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Recommendations by Category</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="categoriesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CO2 SAVINGS BY CATEGORY -->
+    <section class="charts-section">
+        <div class="chart-card">
+            <div class="chart-header">
+                <h3>CO2 Savings by Category</h3>
+            </div>
+            <div class="chart-body">
+                <canvas id="co2Chart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENT ACTIVITY TABLE -->
+    <section class="table-section">
+        <div class="table-card">
+            <div class="table-header">
+                <h3>Recent Recommendations</h3>
+                <button class="refresh-btn" onclick="loadDashboard()">Refresh</button>
+            </div>
+            <div class="table-body">
+                <table class="activity-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Category</th>
+                            <th>Weight</th>
+                            <th>Recommended Material</th>
+                            <th>Suitability</th>
+                            <th>Cost</th>
+                            <th>CO2</th>
+                            <th>CO2 Saved</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTableBody">
+                        <tr>
+                            <td colspan="8" class="loading-text">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPORT SECTION -->
+    <section class="export-section">
+        <button class="export-btn" onclick="exportToCSV()">Export to CSV</button>
+        <button class="export-btn secondary" onclick="window.print()">Print Report</button>
+    </section>
+
+</main>
+
+<footer class="footer">
+    EcoPackAI 2025 | AI-Powered Sustainable Packaging Recommendation System
+</footer>
+
+<script src="/static/js/dashboard.js"></script>
+</body>
+</html>

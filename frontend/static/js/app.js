@@ -212,6 +212,52 @@ function buildTable(recs) {
   });
 }
 
+function displaySavings(cmp) {
+  document.getElementById("savingsSection").style.display = "block";
+
+  // Check if same material
+  if (cmp.same_material) {
+    document.getElementById("savingsMetrics").innerHTML = `
+      <div class="analytics-box" style="grid-column: span 3; background: #E3F2FD; border-color: #90CAF9;">
+        You're already using the optimal material for this product!
+      </div>
+    `;
+    document.getElementById("savingsDetails").innerHTML = `
+      <div class="material-card best" style="grid-column: span 2;">
+        <strong>CURRENT & RECOMMENDED</strong><br>
+        ${cmp.current_material}<br>
+        Cost: Rs.${cmp.current_cost_inr.toFixed(2)}<br>
+        CO2: ${cmp.current_co2_kg.toFixed(4)} kg<br>
+        Eco Score: ${cmp.recommended_eco_score.toFixed(3)}
+      </div>
+    `;
+    return;
+  }
+
+  // Rest of your existing code...
+  document.getElementById("savingsMetrics").innerHTML = `
+    <div class="analytics-box">${cmp.co2_reduction_percent.toFixed(1)}% CO2 Reduction</div>
+    <div class="analytics-box">${cmp.co2_savings_kg.toFixed(4)} kg CO2 Saved</div>
+    <div class="analytics-box">Rs.${cmp.cost_difference_inr.toFixed(2)} Cost Saved</div>
+  `;
+
+  document.getElementById("savingsDetails").innerHTML = `
+    <div class="material-card">
+      <strong>CURRENT</strong><br>
+      ${cmp.current_material}<br>
+      Cost: Rs.${cmp.current_cost_inr.toFixed(2)}<br>
+      CO2: ${cmp.current_co2_kg.toFixed(4)}
+    </div>
+    <div class="material-card best">
+      <strong>RECOMMENDED</strong><br>
+      ${cmp.recommended_material}<br>
+      Cost: Rs.${cmp.recommended_cost_inr.toFixed(2)}<br>
+      CO2: ${cmp.recommended_co2_kg.toFixed(4)}<br>
+      Eco Score: ${cmp.recommended_eco_score.toFixed(3)}
+    </div>
+  `;
+}
+
 
 function displaySavings(cmp) {
   document.getElementById("savingsSection").style.display = "block";
