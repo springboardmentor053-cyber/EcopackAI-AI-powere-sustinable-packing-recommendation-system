@@ -64,14 +64,14 @@ EcoPackAI solves this challenge by:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                      User Interface Layer                        │
-│              (HTML + CSS + JavaScript + Chart.js)                │
+│                      User Interface Layer                       │
+│              (HTML + CSS + JavaScript + Chart.js)               │
 └─────────────────────────────────────────────────────────────────┘
                                 │
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                      Flask Backend API                           │
-│         (REST Endpoints + Rate Limiting + Validation)            │
+│                      Flask Backend API                          │
+│         (REST Endpoints + Rate Limiting + Validation)           │
 └─────────────────────────────────────────────────────────────────┘
                                 │
                 ┌───────────────┼───────────────┐
