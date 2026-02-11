@@ -1,3 +1,7 @@
+/* =============================================
+   EcoPackAI - Recommendations Page Logic
+   ============================================= */
+
 let comparisonChart = null;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -120,11 +124,13 @@ function displayResults(recs) {
     card.className = "material-card" + (i === 0 ? " best" : "");
     card.innerHTML = `
       <strong>${r.material_name}</strong><br>
-      Type: ${r.material_type}<br>
-      Suitability: ${(r.suitability_score * 100).toFixed(1)}%<br>
-      Predicted Cost: Rs.${r.predicted_cost_inr.toFixed(2)}<br>
-      CO2 Impact: ${r.predicted_co2_kg.toFixed(4)} kg<br>
-      Eco Score: ${r.eco_score.toFixed(3)}
+      <span style="color: #6B7280; font-size: 0.85rem;">Type: ${r.material_type}</span><br><br>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.9rem;">
+        <div><strong>Suitability:</strong> ${(r.suitability_score * 100).toFixed(1)}%</div>
+        <div><strong>Cost:</strong> Rs.${r.predicted_cost_inr.toFixed(2)}</div>
+        <div><strong>CO₂:</strong> ${r.predicted_co2_kg.toFixed(4)} kg</div>
+        <div><strong>Eco Score:</strong> ${r.eco_score.toFixed(3)}</div>
+      </div>
     `;
     grid.appendChild(card);
   });
@@ -138,9 +144,21 @@ function displayResults(recs) {
   const best = recs[0];
 
   document.getElementById("analyticsGrid").innerHTML = `
-    <div class="analytics-box">Lowest Cost<br>${lowestCost.material_name} (Rs.${lowestCost.predicted_cost_inr.toFixed(2)})</div>
-    <div class="analytics-box">Lowest CO2 Impact<br>${lowestCO2.material_name} (${lowestCO2.predicted_co2_kg.toFixed(4)} kg)</div>
-    <div class="analytics-box">Best Overall Choice<br>${best.material_name}</div>
+    <div class="analytics-box">
+      <div style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 4px;">LOWEST COST</div>
+      <div style="font-size: 1.1rem;">${lowestCost.material_name}</div>
+      <div style="font-size: 0.85rem; margin-top: 4px;">Rs.${lowestCost.predicted_cost_inr.toFixed(2)}</div>
+    </div>
+    <div class="analytics-box">
+      <div style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 4px;">LOWEST CO₂</div>
+      <div style="font-size: 1.1rem;">${lowestCO2.material_name}</div>
+      <div style="font-size: 0.85rem; margin-top: 4px;">${lowestCO2.predicted_co2_kg.toFixed(4)} kg</div>
+    </div>
+    <div class="analytics-box" style="background: linear-gradient(135deg, #059669, #047857); color: white; border-color: transparent;">
+      <div style="font-size: 0.75rem; opacity: 0.9; margin-bottom: 4px;">BEST OVERALL</div>
+      <div style="font-size: 1.1rem;">${best.material_name}</div>
+      <div style="font-size: 0.85rem; margin-top: 4px;">${(best.suitability_score * 100).toFixed(1)}% Match</div>
+    </div>
   `;
 
   renderChart(recs);
@@ -163,13 +181,15 @@ function renderChart(recs) {
         {
           label: "Cost (INR)",
           data: recs.map(r => r.predicted_cost_inr),
-          backgroundColor: "#4CAF50",
+          backgroundColor: "#059669",
+          borderRadius: 4,
           yAxisID: "yCost"
         },
         {
-          label: "CO2 Impact (kg)",
+          label: "CO₂ Impact (kg)",
           data: recs.map(r => r.predicted_co2_kg),
-          backgroundColor: "#FFC107",
+          backgroundColor: "#F59E0B",
+          borderRadius: 4,
           yAxisID: "yCO2"
         }
       ]
@@ -177,15 +197,44 @@ function renderChart(recs) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: {
+            usePointStyle: true,
+            padding: 20
+          }
+        },
+        tooltip: {
+          backgroundColor: '#1F2937',
+          titleFont: { size: 13, weight: '600' },
+          bodyFont: { size: 12 },
+          padding: 12,
+          cornerRadius: 8
+        }
+      },
       scales: {
         yCost: {
           position: "left",
-          title: { display: true, text: "Cost (INR)" }
+          title: { 
+            display: true, 
+            text: "Cost (INR)",
+            font: { size: 11, weight: '600' }
+          },
+          grid: { color: '#F3F4F6' }
         },
         yCO2: {
           position: "right",
-          title: { display: true, text: "CO2 Impact (kg)" },
+          title: { 
+            display: true, 
+            text: "CO₂ Impact (kg)",
+            font: { size: 11, weight: '600' }
+          },
           grid: { drawOnChartArea: false }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { font: { size: 10 } }
         }
       }
     }
@@ -198,15 +247,14 @@ function buildTable(recs) {
 
   recs.forEach((r, i) => {
     const tr = document.createElement("tr");
-    if (i === 0) tr.className = "best-row";
     tr.innerHTML = `
-      <td>${r.material_name}</td>
+      <td><strong>${r.material_name}</strong></td>
       <td>${r.material_type}</td>
       <td>${(r.suitability_score * 100).toFixed(1)}%</td>
       <td>Rs.${r.predicted_cost_inr.toFixed(2)}</td>
-      <td>${r.predicted_co2_kg.toFixed(4)}</td>
+      <td>${r.predicted_co2_kg.toFixed(4)} kg</td>
       <td>${r.eco_score.toFixed(3)}</td>
-      <td>#${i + 1}</td>
+      <td><span style="background: ${i === 0 ? '#059669' : '#E5E7EB'}; color: ${i === 0 ? 'white' : '#374151'}; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">#${i + 1}</span></td>
     `;
     tbody.appendChild(tr);
   });
@@ -218,69 +266,65 @@ function displaySavings(cmp) {
   // Check if same material
   if (cmp.same_material) {
     document.getElementById("savingsMetrics").innerHTML = `
-      <div class="analytics-box" style="grid-column: span 3; background: #E3F2FD; border-color: #90CAF9;">
-        You're already using the optimal material for this product!
+      <div class="analytics-box" style="grid-column: span 3; background: linear-gradient(135deg, #DBEAFE, #BFDBFE); border-color: #93C5FD; color: #1E40AF;">
+        <svg style="width: 24px; height: 24px; margin-bottom: 8px; stroke: currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        <div style="font-weight: 600;">You're already using the optimal material!</div>
+        <div style="font-size: 0.85rem; opacity: 0.8; margin-top: 4px;">No changes needed for this product category</div>
       </div>
     `;
     document.getElementById("savingsDetails").innerHTML = `
       <div class="material-card best" style="grid-column: span 2;">
         <strong>CURRENT & RECOMMENDED</strong><br>
-        ${cmp.current_material}<br>
-        Cost: Rs.${cmp.current_cost_inr.toFixed(2)}<br>
-        CO2: ${cmp.current_co2_kg.toFixed(4)} kg<br>
-        Eco Score: ${cmp.recommended_eco_score.toFixed(3)}
+        ${cmp.current_material}<br><br>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 0.9rem;">
+          <div><strong>Cost:</strong> Rs.${cmp.current_cost_inr.toFixed(2)}</div>
+          <div><strong>CO₂:</strong> ${cmp.current_co2_kg.toFixed(4)} kg</div>
+          <div><strong>Eco Score:</strong> ${cmp.recommended_eco_score.toFixed(3)}</div>
+        </div>
       </div>
     `;
     return;
   }
 
-  // Rest of your existing code...
+  // Different materials - show comparison
+  const co2Positive = cmp.co2_savings_kg >= 0;
+  const costPositive = cmp.cost_difference_inr >= 0;
+
   document.getElementById("savingsMetrics").innerHTML = `
-    <div class="analytics-box">${cmp.co2_reduction_percent.toFixed(1)}% CO2 Reduction</div>
-    <div class="analytics-box">${cmp.co2_savings_kg.toFixed(4)} kg CO2 Saved</div>
-    <div class="analytics-box">Rs.${cmp.cost_difference_inr.toFixed(2)} Cost Saved</div>
+    <div class="analytics-box" style="background: ${co2Positive ? 'linear-gradient(135deg, #ECFDF5, #D1FAE5)' : 'linear-gradient(135deg, #FEF2F2, #FECACA)'}; border-color: ${co2Positive ? '#6EE7B7' : '#FCA5A5'}; color: ${co2Positive ? '#047857' : '#DC2626'};">
+      <div style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 4px;">CO₂ REDUCTION</div>
+      <div style="font-size: 1.5rem; font-weight: 700;">${cmp.co2_reduction_percent.toFixed(1)}%</div>
+    </div>
+    <div class="analytics-box" style="background: ${co2Positive ? 'linear-gradient(135deg, #ECFDF5, #D1FAE5)' : 'linear-gradient(135deg, #FEF2F2, #FECACA)'}; border-color: ${co2Positive ? '#6EE7B7' : '#FCA5A5'}; color: ${co2Positive ? '#047857' : '#DC2626'};">
+      <div style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 4px;">CO₂ SAVED</div>
+      <div style="font-size: 1.5rem; font-weight: 700;">${cmp.co2_savings_kg.toFixed(4)} kg</div>
+    </div>
+    <div class="analytics-box" style="background: ${costPositive ? 'linear-gradient(135deg, #ECFDF5, #D1FAE5)' : 'linear-gradient(135deg, #FFFBEB, #FEF3C7)'}; border-color: ${costPositive ? '#6EE7B7' : '#FCD34D'}; color: ${costPositive ? '#047857' : '#B45309'};">
+      <div style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 4px;">COST ${costPositive ? 'SAVED' : 'PREMIUM'}</div>
+      <div style="font-size: 1.5rem; font-weight: 700;">Rs.${Math.abs(cmp.cost_difference_inr).toFixed(2)}</div>
+    </div>
   `;
 
   document.getElementById("savingsDetails").innerHTML = `
     <div class="material-card">
-      <strong>CURRENT</strong><br>
-      ${cmp.current_material}<br>
-      Cost: Rs.${cmp.current_cost_inr.toFixed(2)}<br>
-      CO2: ${cmp.current_co2_kg.toFixed(4)}
+      <div style="font-size: 0.7rem; font-weight: 700; color: #6B7280; margin-bottom: 8px;">CURRENT MATERIAL</div>
+      <strong>${cmp.current_material}</strong><br><br>
+      <div style="font-size: 0.9rem;">
+        <div style="margin-bottom: 6px;"><strong>Cost:</strong> Rs.${cmp.current_cost_inr.toFixed(2)}</div>
+        <div><strong>CO₂:</strong> ${cmp.current_co2_kg.toFixed(4)} kg</div>
+      </div>
     </div>
     <div class="material-card best">
-      <strong>RECOMMENDED</strong><br>
-      ${cmp.recommended_material}<br>
-      Cost: Rs.${cmp.recommended_cost_inr.toFixed(2)}<br>
-      CO2: ${cmp.recommended_co2_kg.toFixed(4)}<br>
-      Eco Score: ${cmp.recommended_eco_score.toFixed(3)}
-    </div>
-  `;
-}
-
-
-function displaySavings(cmp) {
-  document.getElementById("savingsSection").style.display = "block";
-
-  document.getElementById("savingsMetrics").innerHTML = `
-    <div class="analytics-box">${cmp.co2_reduction_percent.toFixed(1)}% CO2 Reduction</div>
-    <div class="analytics-box">${cmp.co2_savings_kg.toFixed(4)} kg CO2 Saved</div>
-    <div class="analytics-box">Rs.${cmp.cost_difference_inr.toFixed(2)} Cost Saved</div>
-  `;
-
-  document.getElementById("savingsDetails").innerHTML = `
-    <div class="material-card">
-      <strong>CURRENT</strong><br>
-      ${cmp.current_material}<br>
-      Cost: Rs.${cmp.current_cost_inr.toFixed(2)}<br>
-      CO2: ${cmp.current_co2_kg.toFixed(4)}
-    </div>
-    <div class="material-card best">
-      <strong>RECOMMENDED</strong><br>
-      ${cmp.recommended_material}<br>
-      Cost: Rs.${cmp.recommended_cost_inr.toFixed(2)}<br>
-      CO2: ${cmp.recommended_co2_kg.toFixed(4)}<br>
-      Eco Score: ${cmp.recommended_eco_score.toFixed(3)}
+      <div style="font-size: 0.7rem; font-weight: 700; color: #047857; margin-bottom: 8px;">RECOMMENDED MATERIAL</div>
+      <strong>${cmp.recommended_material}</strong><br><br>
+      <div style="font-size: 0.9rem;">
+        <div style="margin-bottom: 6px;"><strong>Cost:</strong> Rs.${cmp.recommended_cost_inr.toFixed(2)}</div>
+        <div style="margin-bottom: 6px;"><strong>CO₂:</strong> ${cmp.recommended_co2_kg.toFixed(4)} kg</div>
+        <div><strong>Eco Score:</strong> ${cmp.recommended_eco_score.toFixed(3)}</div>
+      </div>
     </div>
   `;
 }
@@ -289,7 +333,21 @@ function displaySavings(cmp) {
 function setLoading(state) {
   const btn = document.getElementById("recommendBtn");
   btn.disabled = state;
-  btn.textContent = state ? "Analyzing..." : "Run Recommendation Engine";
+  if (state) {
+    btn.innerHTML = `
+      <svg class="btn-icon" style="animation: spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="32"/>
+      </svg>
+      Analyzing...
+    `;
+  } else {
+    btn.innerHTML = `
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      Run Recommendation Engine
+    `;
+  }
 }
 
 function showAlert(type, msg) {
@@ -314,3 +372,13 @@ function resetUI() {
   hideAlert();
   resetResults();
 }
+
+// Add CSS animation for loading spinner
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
