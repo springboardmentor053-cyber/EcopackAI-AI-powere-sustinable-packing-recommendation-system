@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EcoPackAI | Optimizer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* { font-family: Poppins; }
+
+body{
+background:radial-gradient(circle at top,#0f2a36,#09161e);
+color:#e0f2f1;
+}
+
+/*  LAYOUT  */
+
+.sidebar{
+width:320px;
+height:100vh;
+position:fixed;
+padding:25px;
+background:linear-gradient(180deg,#0b2430,#071821);
+}
+
+.main{
+margin-left:320px;
+padding:30px;
+}
+
+/*  CARDS  */
+
+.card{
+background:linear-gradient(160deg,#0f2933,#0a1d26);
+border-radius:18px;
+border:1px solid rgba(38,166,154,.25);
+}
+
+/*  BEST CHOICE FIX  */
+
+.best-choice,
+.best-choice * {
+color:#e0f2f1 !important;
+-webkit-text-fill-color: initial !important;
+}
+
+/*  SLIDERS  */
+
+.slider-row{ margin-top:18px; }
+
+.slider-label{
+display:flex;
+justify-content:space-between;
+font-weight:600;
+}
+
+/*  TABLE  */
+
+.table{ color:white; }
+
+.table th{ color:#7ddfd3; }
+
+/*  HEADER  */
+
+.top-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+/*  TEXT SELECTION FIX  */
+
+::selection{
+background:#2dd4bf;
+color:#041217 !important;
+}
+
+::-moz-selection{
+background:#2dd4bf;
+color:#041217 !important;
+}
+
+.main ::selection,
+.sidebar ::selection,
+.card ::selection,
+table ::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+span::selection{
+background:#2dd4bf;
+color:#041217 !important;
+}
+
+/*  ALERT  */
+
+.alert{ border-radius:14px; }
+
+</style>
+</head>
+
+<body>
+
+<!--  SIDEBAR  -->
+
+<div class="sidebar">
+
+<h4>⚖ Optimizer</h4>
+<p>Re-rank Top 5 using priorities</p>
+
+<div class="slider-row">
+<div class="slider-label">
+<span>💰 Cost Priority</span>
+<span id="costVal">33%</span>
+</div>
+<input type="range" id="costRange" class="form-range" min="0" max="100" value="33">
+</div>
+
+<div class="slider-row">
+<div class="slider-label">
+<span>🌱 CO₂ Priority</span>
+<span id="co2Val">33%</span>
+</div>
+<input type="range" id="co2Range" class="form-range" min="0" max="100" value="33">
+</div>
+
+<div class="slider-row">
+<div class="slider-label">
+<span>📦 Strength Priority</span>
+<span id="strengthVal">34%</span>
+</div>
+<input type="range" id="strengthRange" class="form-range" min="0" max="100" value="34">
+</div>
+
+<button class="btn btn-warning w-100 mt-4" onclick="runOptimizer()">
+🚀 Optimize These 5
+</button>
+
+<a href="dashboard.html" class="btn btn-outline-light w-100 mt-3">
+⬅ Back to Dashboard
+</a>
+
+</div>
+
+<!--  MAIN  -->
+
+<div class="main">
+
+<div class="top-bar">
+<h3>🏆 Optimized Result</h3>
+</div>
+
+<div id="warningBox" class="alert alert-danger d-none">
+⚠ Run analysis on dashboard first.
+</div>
+
+<!--  TOP CARD  -->
+
+<div class="row g-4 mb-4">
+
+<div class="col-md-4">
+<div class="card p-3 text-center best-choice">
+<h6>Best Choice</h6>
+<h4 id="topMaterial">–</h4>
+</div>
+</div>
+
+<div class="col-md-8">
+<div class="card p-3">
+<h6>Ranked Shortlist</h6>
+
+<table class="table table-hover text-center">
+<thead>
+<tr>
+<th>#</th>
+<th>Material</th>
+<th>Cost</th>
+<th>CO₂</th>
+<th>Strength</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody id="rankTable"></tbody>
+</table>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/*  LOAD SHORTLIST  */
+
+let shortlist = JSON.parse(localStorage.getItem("eco_shortlist"));
+
+if(!shortlist){
+document.getElementById("warningBox").classList.remove("d-none");
+}
+
+/*  SLIDERS  */
+
+const costRange = document.getElementById("costRange");
+const co2Range = document.getElementById("co2Range");
+const strengthRange = document.getElementById("strengthRange");
+
+const costVal = document.getElementById("costVal");
+const co2Val = document.getElementById("co2Val");
+const strengthVal = document.getElementById("strengthVal");
+
+function syncSliders(){
+costVal.innerText = costRange.value + "%";
+co2Val.innerText = co2Range.value + "%";
+strengthVal.innerText = strengthRange.value + "%";
+}
+
+[costRange,co2Range,strengthRange].forEach(x=>{
+x.addEventListener("input",syncSliders);
+});
+
+syncSliders();
+
+/*  OPTIMIZER  */
+
+function runOptimizer(){
+
+if(!shortlist){
+alert("Run dashboard analysis first!");
+return;
+}
+
+const payload = {
+
+weights:{
+cost: costRange.value / 100,
+co2: co2Range.value / 100,
+strength: strengthRange.value / 100
+},
+
+candidates: shortlist
+
+};
+
+fetch("http://127.0.0.1:5000/optimize-shortlist",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(payload)
+})
+.then(r=>r.json())
+.then(res=>{
+
+if(res.error){
+alert(res.error);
+return;
+}
+
+topMaterial.innerText = res.top_material;
+
+rankTable.innerHTML = "";
+
+res.ranking.forEach((r,i)=>{
+
+rankTable.innerHTML += `
+<tr>
+<td>${i+1}</td>
+<td>${r.material_name}</td>
+<td>₹${Number(r.predicted_unit_cost).toFixed(2)}</td>
+<td>${Number(r.predicted_co2).toFixed(2)}</td>
+<td>${Number(r.predicted_strength).toFixed(2)}</td>
+<td>${Number(r.optimizer_score).toFixed(3)}</td>
+</tr>
+`;
+
+});
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

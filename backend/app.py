@@ -185,16 +185,36 @@ def recommend():
                    / (cost_max - cost_min)) * 10
             )
 
+        #  ESTIMATE STRENGTH (ENGINEERING PROXY) 
+
+        working["predicted_strength"] = (
+        working["durability_score"] * 0.4 +
+        working["weight_capacity"] * 0.4 +
+        working["recyclability_percent"] * 0.05 +
+        (100 - working["biodegradability_score"]) * 0.15
+        )
+
+        logger.info("STRENGTH SAMPLE:\n%s",
+            working[["material_name","predicted_strength"]].head()
+        )
+
         #  AI SCORE 
 
         working["ai_recommendation_score"] = (
-            (10 - abs(working["strength"] - strength)) * 0.30
+            (10 - abs(working["predicted_strength"] - strength)) * 0.30
             + (10 - abs(working["biodegradability_score"] - biodeg)) * 0.25
             + (10 - abs(working["recyclability_percent"] - recycle) / 10) * 0.20
             + working["cost_score"] * 0.25
         )
 
         working["total_cost"] = working["predicted_unit_cost"] * quantity
+        #  ESTIMATE CO2 PER MATERIAL (for optimizer) 
+        working["predicted_co2"] = (
+        100
+        - working["biodegradability_score"] * 5
+        - working["recyclability_percent"] * 0.5
+        )
+
 
         top = working.sort_values(
             by="ai_recommendation_score",
@@ -260,8 +280,11 @@ def recommend():
                     "predicted_unit_cost",
                     "total_cost",
                     "ai_recommendation_score",
+                    "predicted_strength",
+                    "predicted_co2",
                 ]
-            ].round(2).to_dict(orient="records"),
+].round(2).to_dict(orient="records"),
+
         })
 
     except Exception as e:
@@ -317,6 +340,109 @@ def compare_history():
         logger.exception("Compare failed")
         return jsonify({"error": str(e)}), 500
 
+# DELETE HISTORY 
+
+@app.route("/history/<int:run_id>", methods=["DELETE"])
+def delete_history(run_id):
+
+    try:
+        with engine.begin() as conn:
+
+            result = conn.execute(
+                text("DELETE FROM analysis_history WHERE id = :id"),
+                {"id": run_id},
+            )
+
+            if result.rowcount == 0:
+                return jsonify({"error": "Record not found"}), 404
+
+        logger.info("Deleted history id=%s", run_id)
+
+        return jsonify({"success": True})
+
+    except Exception as e:
+        logger.exception("Delete history failed")
+        return jsonify({"error": str(e)}), 500
+
+
+# OPTIMIZE SHORTLIST 
+
+@app.route("/optimize-shortlist", methods=["POST"])
+def optimize_shortlist():
+
+    try:
+
+        data = request.json
+
+        weights = data.get("weights", {})
+        candidates = data.get("candidates", [])
+
+        if not candidates:
+            return jsonify({"error": "No candidates sent"}), 400
+
+        w_cost = float(weights.get("cost", 0.33))
+        w_co2 = float(weights.get("co2", 0.33))
+        w_strength = float(weights.get("strength", 0.34))
+
+        total = w_cost + w_co2 + w_strength
+        w_cost /= total
+        w_co2 /= total
+        w_strength /= total
+
+        df = pd.DataFrame(candidates)
+
+        #  FORCE REQUIRED COLUMNS 
+        if "predicted_unit_cost" not in df.columns:
+            return jsonify({"error": "predicted_unit_cost missing"}), 400
+
+        if "predicted_co2" not in df.columns:
+            df["predicted_co2"] = 0.0
+
+        #  USE PREDICTED STRENGTH 
+        if "predicted_strength" not in df.columns:
+            df["predicted_strength"] = 5.0
+
+
+        #  NORMALIZE 
+        def normalize(series):
+            series = pd.to_numeric(series, errors="coerce").fillna(0)
+            return (series - series.min()) / (
+                series.max() - series.min() + 1e-6
+            )
+
+        df["norm_cost"] = normalize(df["predicted_unit_cost"])
+        df["norm_co2"] = normalize(df["predicted_co2"])
+        df["norm_strength"] = normalize(df["predicted_strength"])
+
+        #  FINAL SCORE 
+        df["optimizer_score"] = (
+            (1 - df["norm_cost"]) * w_cost +
+            (1 - df["norm_co2"]) * w_co2 +
+            df["norm_strength"] * w_strength
+        )
+
+        ranked = df.sort_values(
+            by="optimizer_score",
+            ascending=False,
+        )
+
+        return jsonify({
+
+            "weights": {
+                "cost": round(w_cost, 2),
+                "co2": round(w_co2, 2),
+                "strength": round(w_strength, 2),
+            },
+
+            "top_material": ranked.iloc[0]["material_name"],
+
+            "ranking": ranked.round(4).to_dict(orient="records"),
+
+        })
+
+    except Exception as e:
+        logger.exception("Optimize shortlist failed")
+        return jsonify({"error": str(e)}), 500
 
 # ANALYTICS 
 

@@ -89,7 +89,6 @@ canvas{
     min-width:160px;
 }
 
-/* ===== FIX INVISIBLE SELECTION BUG (COMPATIBLE) ===== */
 
 .table th,
 .table td,
@@ -106,7 +105,7 @@ canvas{
     color: white !important;
 }
 
-/* ===== TEXT SELECTION COLOR ===== */
+/*  TEXT SELECTION COLOR  */
 
 ::selection {
     background:#26a69a;
@@ -118,7 +117,7 @@ canvas{
     color:#041217;
 }
 
-/* ===== DASHBOARD HEADER ===== */
+/*  DASHBOARD HEADER  */
 
 .dashboard-header{
     display:flex;
@@ -178,11 +177,20 @@ canvas{
 
 <h4 class="mb-0">📊 EcoPackAI Recommendation Dashboard</h4>
 
+<div class="d-flex gap-2">
+
+<a href="optimizer.html" class="btn btn-outline-warning">
+⚖ Optimizer
+</a>
+
 <a href="history.html" class="btn btn-outline-light">
 📜 View History
 </a>
 
 </div>
+
+</div>
+
 
 <!-- SUMMARY -->
 
@@ -206,6 +214,7 @@ canvas{
 <table class="table text-center">
 <thead>
 <tr>
+<th>Select</th>
 <th>#</th>
 <th>Material</th>
 <th>Unit Cost</th>
@@ -215,6 +224,9 @@ canvas{
 </thead>
 <tbody id="resultTable"></tbody>
 </table>
+<button class="btn btn-outline-info mt-3" onclick="compareSelected()">
+📊 Compare Selected
+</button>
 </div>
 
 <!-- EXPORT -->
@@ -283,6 +295,11 @@ console.log("AI RESULT:",result);
 
 lastResult = result;
 
+localStorage.setItem(
+  "eco_shortlist",
+  JSON.stringify(result.recommendations)
+);
+
 const recs = result.recommendations;
 
 topMaterial.innerText = recs[0].material_name;
@@ -297,6 +314,8 @@ resultTable.innerHTML = "";
 
 const labels=[], costs=[], scores=[];
 
+/* ---------- TABLE LOOP ---------- */
+
 recs.forEach((r,i)=>{
 
 labels.push(r.material_name);
@@ -305,15 +324,20 @@ scores.push(r.ai_recommendation_score);
 
 resultTable.innerHTML += `
 <tr>
+<td>
+  <input type="checkbox" class="compareBox" data-index="${i}">
+</td>
 <td>${i+1}</td>
 <td>${r.material_name}</td>
 <td>₹${r.predicted_unit_cost.toFixed(2)}</td>
 <td>₹${r.total_cost.toFixed(2)}</td>
 <td>${r.ai_recommendation_score.toFixed(2)}</td>
-</tr>`;
+</tr>
+`;
+
 });
 
-/* COST CHART */
+/* ---------- COST CHART ---------- */
 
 if(costChart) costChart.destroy();
 
@@ -322,7 +346,7 @@ type:"bar",
 data:{labels,datasets:[{label:"Total Cost",data:costs}]}
 });
 
-/* SCORE CHART */
+/* ---------- SCORE CHART ---------- */
 
 if(scoreChart) scoreChart.destroy();
 
@@ -331,13 +355,11 @@ type:"line",
 data:{labels,datasets:[{label:"AI Score",data:scores}]}
 });
 
-/* MATERIAL USAGE TRENDS */
+/* ---------- MATERIAL USAGE ---------- */
 
 fetch("http://127.0.0.1:5000/analytics/usage")
 .then(r => r.json())
 .then(data => {
-
-console.log("USAGE DATA:",data);
 
 const uLabels = data.map(x => x.material_name);
 const uValues = data.map(x => Number(x.total_quantity));
@@ -363,7 +385,7 @@ fill:false
 });
 }
 
-/* EXPORT CSV */
+/* ---------- EXPORT CSV ---------- */
 
 function downloadCSV(){
 
@@ -381,7 +403,7 @@ a.click();
 });
 }
 
-/* EXPORT PDF */
+/* ---------- EXPORT PDF ---------- */
 
 function downloadPDF(){
 
@@ -399,13 +421,41 @@ a.click();
 });
 }
 
-/* CANVAS SHORTCUTS */
+/* ---------- CANVAS SHORTCUTS ---------- */
 
 const costChartElem = document.getElementById("costChart");
 const scoreChartElem = document.getElementById("scoreChart");
 const usageChartElem = document.getElementById("usageChart");
 
+/* ---------- COMPARE ---------- */
+
+function compareSelected(){
+
+const checked = document.querySelectorAll(".compareBox:checked");
+
+if(checked.length < 2){
+alert("Select at least 2 materials to compare!");
+return;
+}
+
+const selected = [];
+
+checked.forEach(box=>{
+selected.push(
+lastResult.recommendations[box.dataset.index]
+);
+});
+
+localStorage.setItem(
+"eco_compare",
+JSON.stringify(selected)
+);
+
+window.location.href = "compare.html";
+}
+
 </script>
+
 
 </body>
 </html>

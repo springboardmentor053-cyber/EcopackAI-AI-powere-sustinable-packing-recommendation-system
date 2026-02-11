@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EcoPackAI | Compare Materials</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{font-family:Poppins}
+
+body{
+background:radial-gradient(circle at top,#0f2a36,#09161e);
+color:#e0f2f1;
+}
+
+/* layout */
+
+.container{max-width:1300px}
+
+/* cards */
+
+.card{
+background:linear-gradient(160deg,#0f2933,#0a1d26);
+border-radius:18px;
+border:1px solid rgba(38,166,154,.25);
+}
+
+/* winner */
+
+.winner-card{
+border:2px solid #1de9b6;
+box-shadow:0 0 20px rgba(30,233,182,.5);
+}
+
+.winner-title{
+color:#1de9b6;
+font-weight:700;
+}
+
+/* table */
+
+.table{color:white}
+.table th{color:#7ddfd3}
+
+/* charts */
+
+canvas{
+background:#071821;
+border-radius:12px;
+padding:12px;
+}
+
+/* ===== FIX CARD TEXT VISIBILITY ===== */
+
+.card,
+.card * {
+    color: #e0f2f1 !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+    color: #7ddfd3 !important;
+    font-weight: 600;
+}
+
+/* winner highlight */
+
+.winner-title {
+    color: #1de9b6 !important;
+}
+
+.winner-card h3 {
+    color: #e0fff9 !important;
+}
+
+/* table inside cards */
+
+.card table td {
+    color: white !important;
+}
+
+/* ===== FORCE TABLE TEXT BLACK ===== */
+
+table,
+.table,
+.table td,
+.table th,
+.table tbody td,
+.table thead th {
+    color: #000 !important;
+}
+
+/* optional: light background so black text is readable */
+
+.table tbody tr {
+    background: rgba(255,255,255,0.85);
+}
+
+.table thead tr {
+    background: rgba(230,230,230,0.95);
+}
+
+/* hover still readable */
+
+.table-hover tbody tr:hover {
+    background: #c8fff1 !important;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="container mt-4">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h3>📊 Material Comparison</h3>
+
+<a href="dashboard.html" class="btn btn-outline-light">
+⬅ Back to Dashboard
+</a>
+
+</div>
+
+<!-- WINNER -->
+
+<div class="card p-4 mb-4 text-center winner-card">
+
+<h6 class="winner-title">🏆 Best Choice</h6>
+<h3 id="winnerName">–</h3>
+
+</div>
+
+<!-- TABLE -->
+
+<div class="card p-3 mb-4">
+
+<h6>📋 Comparison Table</h6>
+
+<table class="table text-center">
+
+<thead>
+<tr>
+<th>#</th>
+<th>Material</th>
+<th>Unit Cost</th>
+<th>Total Cost</th>
+<th>AI Score</th>
+</tr>
+</thead>
+
+<tbody id="compareTable"></tbody>
+
+</table>
+
+</div>
+
+<!-- CHARTS -->
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card p-3">
+<h6>💰 Unit Cost</h6>
+<canvas id="unitChart"></canvas>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card p-3">
+<h6>🤖 AI Score</h6>
+<canvas id="scoreChart"></canvas>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card p-3">
+<h6>💸 Total Cost</h6>
+<canvas id="totalChart"></canvas>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ================= LOAD FROM STORAGE ================= */
+
+const selected = JSON.parse(localStorage.getItem("eco_compare"));
+
+if(!selected || selected.length < 2){
+alert("No comparison data found. Go back to dashboard.");
+window.location.href = "dashboard.html";
+}
+
+/* ================= TABLE ================= */
+
+const tbody = document.getElementById("compareTable");
+
+selected.forEach((r,i)=>{
+
+tbody.innerHTML += `
+<tr>
+<td>${i+1}</td>
+<td>${r.material_name}</td>
+<td>₹${Number(r.predicted_unit_cost).toFixed(2)}</td>
+<td>₹${Number(r.total_cost).toFixed(2)}</td>
+<td>${Number(r.ai_recommendation_score).toFixed(2)}</td>
+</tr>
+`;
+
+});
+
+/* ================= WINNER ================= */
+
+const winner = [...selected].sort(
+(a,b)=>b.ai_recommendation_score - a.ai_recommendation_score
+)[0];
+
+document.getElementById("winnerName").innerText =
+winner.material_name;
+
+/* ================= CHART DATA ================= */
+
+const labels = selected.map(x=>x.material_name);
+const unitCosts = selected.map(x=>x.predicted_unit_cost);
+const totalCosts = selected.map(x=>x.total_cost);
+const scores = selected.map(x=>x.ai_recommendation_score);
+
+/* ================= CHARTS ================= */
+
+new Chart(document.getElementById("unitChart"),{
+type:"bar",
+data:{
+labels,
+datasets:[{label:"Unit Cost",data:unitCosts}]
+}
+});
+
+new Chart(document.getElementById("scoreChart"),{
+type:"bar",
+data:{
+labels,
+datasets:[{label:"AI Score",data:scores}]
+}
+});
+
+new Chart(document.getElementById("totalChart"),{
+type:"bar",
+data:{
+labels,
+datasets:[{label:"Total Cost",data:totalCosts}]
+}
+});
+
+</script>
+
+</body>
+</html>
