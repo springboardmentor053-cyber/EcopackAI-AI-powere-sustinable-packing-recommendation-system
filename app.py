@@ -1,96 +1,96 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
-import numpy as np
 import joblib
-import os
+import numpy as np
+import pandas as pd
+from flask_cors import CORS
 
-# ✅ CREATE APP FIRST
+# Initialize Flask app
 app = Flask(__name__)
 CORS(app)
 
-# Base directory
-BASE_DIR = os.path.dirname(__file__)
-
 # Load trained models
-cost_model = joblib.load(os.path.join(BASE_DIR, "models", "cost_model.pkl"))
-co2_model = joblib.load(os.path.join(BASE_DIR, "models", "co2_model.pkl"))
+import os
 
-# ✅ ROUTES COME AFTER app IS DEFINED
-@app.route("/", methods=["GET"])
-def home():
-    return "EcoPackAI backend is running"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "models")
 
+cost_model = joblib.load(os.path.join(MODEL_DIR, "cost_model.pkl"))
+co2_model = joblib.load(os.path.join(MODEL_DIR, "co2_model.pkl"))
+
+# Load materials data for recommendation
+MATERIALS_PATH = os.path.join(BASE_DIR, "..", "..", "..", "data", "materials_final.csv")
+materials_df = pd.read_csv(MATERIALS_PATH)
+
+# Clean column names (safety)
+materials_df.columns = materials_df.columns.str.strip().str.lower()
+print(materials_df.head())
+
+print(materials_df.columns.tolist())
+
+
+#@app.route("/")
+#def home():
+#    return "Backend is running"
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({
+        "status": "OK",
+        "message": "EcoPackAI Flask backend is running"
+    })
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json(silent=True)
+    data = request.get_json()
 
-    if not data:
-        return jsonify({"error": "Request body must be valid JSON"}), 400
-
-    required_fields = [
-        "strength_mpa",
-        "biodegradability_score",
-        "recyclability_percent",
-        "flexibility",
-        "cost_per_unit",
-        "co2_emission_score"
-    ]
-
-    for field in required_fields:
-        if field not in data:
-            return jsonify({"error": f"Missing field: {field}"}), 400
-
-    # Encode flexibility
-    flexibility_map = {
-        "Low": 1,
-        "Medium": 2,
-        "High": 3
-    }
-
-    flexibility_value = data["flexibility"]
-
-    if isinstance(flexibility_value, str):
-        flexibility_encoded = flexibility_map.get(flexibility_value)
-    else:
-        flexibility_encoded = int(flexibility_value)
-
-    if flexibility_encoded is None:
-        return jsonify({
-            "error": "flexibility must be Low, Medium, or High"
-        }), 400
-
-    # Features for models
-    cost_features = np.array([[
-        float(data["strength_mpa"]),
-        float(data["biodegradability_score"]),
-        float(data["recyclability_percent"]),
-        float(data["co2_emission_score"]),
-        float(flexibility_encoded)
+    # Prepare input for ML models
+    input_features = np.array([[
+        data["weight_capacity_score"],
+        data["strength_score"],
+        data["barrier_score"],
+        data["reuse_potential_score"],
+        data["material_strength"],
+        data["biodegradability"],
+        data["recyclability_percent"]
     ]])
 
-    co2_features = np.array([[
-        float(data["strength_mpa"]),
-        float(data["biodegradability_score"]),
-        float(data["recyclability_percent"]),
-        float(data["cost_per_unit"]),
-        float(flexibility_encoded)
-    ]])
+    predicted_cost = cost_model.predict(input_features)[0]
+    predicted_co2 = co2_model.predict(input_features)[0]
 
-    cost = float(cost_model.predict(cost_features)[0])
-    co2 = float(co2_model.predict(co2_features)[0])
+    # Copy materials dataframe 
+    df = materials_df.copy()
 
-    suggestion = (
-        "Switch to recycled materials"
-        if co2 > 50 else
-        "Sustainable material choice"
+    # Calculate material score (CORRECT COLUMNS) 
+    df["material_score"] = (
+        predicted_cost +
+        predicted_co2 -
+        df["strength_score"] -
+        df["recyclability_percent"] -
+        df["biodegradability_score"]
     )
 
-    return jsonify({
-        "predicted_cost": round(cost, 2),
-        "predicted_co2": round(co2, 2),
-        "suggestion": suggestion
-    })
 
-# ✅ START SERVER LAST
+    #  Sort & select Top 5
+    top_materials = df.sort_values("material_score").head(5)
+
+    # Prepare response
+    results = top_materials[[
+        "material_name",
+        "strength_score",
+        "recyclability_percent",
+        "biodegradability_score",
+        "co2_emission_score",
+        "material_score"
+    ]].to_dict(orient="records")
+
+    return jsonify({
+        "predicted_cost": round(float(predicted_cost), 2),
+        "predicted_co2": round(float(predicted_co2), 2),
+        "recommended_materials": results
+    })
+@app.route("/")
+def home():
+    return "EcoPackAI Backend is running"
+
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=8000, debug=True)
