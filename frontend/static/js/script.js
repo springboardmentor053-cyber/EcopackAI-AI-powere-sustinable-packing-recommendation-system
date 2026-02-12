@@ -2,7 +2,16 @@
 // CONFIG
 // =======================
 const API_BASE = "http://127.0.0.1:5000";
-const API_KEY = "dev-key-123";
+const res = await fetch("/api/recommend", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-KEY": API_KEY,
+  },
+  body: JSON.stringify(payload),
+});
+
+const data = await res.json();
 
 // =======================
 // index.html page
