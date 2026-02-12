@@ -1,0 +1,20 @@
+2026-02-12 18:10:40,953 | INFO | CONNECTED DATABASE
+2026-02-12 18:10:41,245 | INFO | Materials loaded
+2026-02-12 18:10:43,895 | INFO | CO2 model loaded
+2026-02-12 18:10:43,999 | INFO | Cost model loaded
+2026-02-12 18:10:44,087 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-12 18:10:44,087 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-12 18:10:44,090 | INFO |  * Restarting with stat
+2026-02-12 18:10:47,691 | INFO | CONNECTED DATABASE
+2026-02-12 18:10:47,808 | INFO | Materials loaded
+2026-02-12 18:10:48,238 | INFO | CO2 model loaded
+2026-02-12 18:10:48,324 | INFO | Cost model loaded
+2026-02-12 18:10:48,345 | WARNING |  * Debugger is active!
+2026-02-12 18:10:48,351 | INFO |  * Debugger PIN: 371-273-567
+2026-02-12 18:11:52,272 | INFO |  * Detected change in 'D:\\Project ecopackai\\backend\\app.py', reloading
+2026-02-12 18:11:52,605 | INFO |  * Restarting with stat
+2026-02-12 18:11:56,648 | INFO | CONNECTED DATABASE
+2026-02-12 18:11:56,733 | INFO | Materials loaded
+2026-02-12 18:11:57,032 | INFO | CO2 model loaded
+2026-02-12 18:11:57,092 | INFO | Cost model loaded
