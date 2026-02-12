@@ -212,10 +212,12 @@ input[type="range"]{ accent-color: var(--green); }
   text-shadow: var(--textShadow) !important;
   opacity: 1 !important;
 }
+
 .analysis-card,
 .analysis-panel {
   display: none !important;
 }
+
 /* Fix dropdown & select visibility */
 select,
 option {
@@ -241,3 +243,185 @@ select:focus {
   color: #ffffff;
   background-color: rgba(255,255,255,0.05);
 }
+
+/* ---------- Comparison table visibility fixes ---------- */
+
+/* Force any Bootstrap muted text to still be readable in dark theme */
+.table .text-muted,
+.table .text-secondary {
+  color: var(--textStrong) !important;
+  opacity: 1 !important;
+}
+
+/* Make Rank column bold + clear (2nd column) */
+.ranking-table th:nth-child(2),
+.ranking-table td:nth-child(2) {
+  color: var(--textStrong) !important;
+  font-weight: 900 !important;
+  opacity: 1 !important;
+  text-shadow: var(--textShadow);
+}
+
+/* Env Score pill: readable number */
+.ranking-table td:last-child .env-pill,
+.ranking-table td:last-child .badge,
+.ranking-table td:last-child span {
+  color: #051009 !important;              /* dark text */
+  font-weight: 900 !important;
+  background: linear-gradient(90deg, var(--green2), var(--green)) !important;
+  border: 1px solid rgba(80,255,160,.22) !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  display: inline-block !important;
+  min-width: 64px;
+  text-align: center;
+}
+
+.env-badge{
+  color: #06140c !important;      /* dark text */
+  font-weight: 800;
+}
+
+/* Force Rank column visibility on dark theme */
+.rank-cell{
+  color: rgba(255,255,255,.92) !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.55);
+  opacity: 1 !important;
+}
+
+.ranking-table td,
+.ranking-table th{
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   ✅ Comparison Matrix header fix (THIS is the new part)
+   - Makes the selected material names (m1..m4) readable
+   - Wraps long names instead of squeezing/clipping
+   ========================================================= */
+.ranking-table{
+  table-layout: fixed;          /* important: force equal columns */
+  width: 100%;
+}
+
+.ranking-table thead th{
+  white-space: normal !important;     /* allow wrapping */
+  overflow-wrap: anywhere !important; /* break long names */
+  word-break: break-word !important;
+  line-height: 1.2 !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+/* Keep metric column wide */
+.ranking-table thead th:first-child{
+  width: 220px;
+}
+
+/* Give each material header enough width + stronger font */
+.ranking-table thead th:not(:first-child){
+  width: 240px;
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+/* Optional: add a tiny highlight so headers pop more */
+.ranking-table thead th{
+  background: rgba(53,255,138,.16) !important;
+  border-bottom: 1px solid rgba(80,255,160,.22) !important;
+}
+/* ==============================
+   ✅ Fix: Metric column readability
+   ============================== */
+
+/* Metric column cells (tbody first column) */
+.ranking-table tbody td:first-child{
+  color: #06140c !important;               /* dark readable text */
+  font-weight: 900 !important;
+  text-shadow: none !important;            /* remove glow shadow that makes it blurry */
+  background: rgba(255,255,255,.92) !important; /* strong light background */
+  border-right: 1px solid rgba(80,255,160,.18) !important;
+}
+
+/* Metric header cell (thead first column) */
+.ranking-table thead th:first-child{
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+/* Make sure "Metric" column never becomes transparent */
+.ranking-table tbody td:first-child *{
+  opacity: 1 !important;
+}
+/* =======================================
+   ✅ Comparison Matrix – Best Cell Fix
+   ======================================= */
+
+/* Improve highlighted best metric cells */
+.ranking-table td[style*="rgba(53,255,138"]{
+  background: linear-gradient(90deg, #145c36, #0e3e25) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+/* Make numbers inside highlighted cells sharp */
+.ranking-table td[style*="rgba(53,255,138"] span,
+.ranking-table td[style*="rgba(53,255,138"] {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Improve Best badge contrast */
+.badge-eco{
+  background: #1ed67b !important;
+  color: #052b18 !important;
+  font-weight: 900 !important;
+  border: none !important;
+}
+/* ==========================================
+   COMPARISON MATRIX – CLEAN VISIBILITY FIX
+   ========================================== */
+
+/* Remove global text shadow inside comparison matrix */
+.ranking-table td,
+.ranking-table th {
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Default comparison cell text */
+.ranking-table tbody td {
+  color: #111111 !important;
+  font-weight: 600;
+}
+
+/* Metric name column */
+.ranking-table tbody td:first-child {
+  color: #0b1e12 !important;
+  font-weight: 700 !important;
+}
+
+/* Highlighted "Best" cells stay white */
+.ranking-table td[style*="rgba(53,255,138"] {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure header text is bright */
+.ranking-table thead th {
+  color: #ffffff !important;
+}
+.cmp-chart-wrap{
+  position: relative;
+  height: 380px;          /* adjust if you want taller */
+  width: 100%;
+}
+
+.cmp-chart-wrap canvas{
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+

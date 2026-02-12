@@ -293,14 +293,14 @@ if (tbody){
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td><input type="checkbox" class="form-check-input compareCheck" data-material="${r.material_name}"></td>
-        <td class="fw-bold">${r.rank}</td>
+        <td class="fw-bold rank-cell">${r.rank}</td>
         <td>${r.material_name}</td>
         <td>₹${safeNum(r.pred_cost_inr,2)}</td>
         <td>${safeNum(r.pred_co2_kg,3)}</td>
         <td>${safeNum(r.recyclability_percent,0)}%</td>
         <td>${safeNum(r.biodegradability_score,0)}/10</td>
         <td>${safeNum(r.suitability_score,4)}</td>
-        <td><span class="badge badge-eco">${safeNum(r.environment_score,2)}</span></td>
+        <td><span class="badge badge-eco env-badge">${safeNum(r.environment_score,2)}</span></td>
       `;
       tbody.appendChild(tr);
     });

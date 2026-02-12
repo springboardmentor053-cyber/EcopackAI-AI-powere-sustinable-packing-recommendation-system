@@ -6,7 +6,8 @@
   <title>EcoPackAI • Sustainable Packaging Intelligence</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../static/css/theme.css" rel="stylesheet">
+  <!-- Use url_for so paths work everywhere -->
+  <link href="{{ url_for('static', filename='css/theme.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -22,6 +23,10 @@
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
         <li class="nav-item"><a class="nav-link text-white-50" href="#solutions">Solutions</a></li>
         <li class="nav-item"><a class="nav-link text-white-50" href="#features">Features</a></li>
+
+        <!-- ✅ Added: Dashboard link -->
+        <li class="nav-item"><a class="nav-link text-white-50" href="/dashboard">Dashboard</a></li>
+
         <li class="nav-item ms-lg-2">
           <a class="btn btn-eco btn-sm" href="/wizard">Get Started</a>
         </li>
@@ -86,14 +91,90 @@
   </div>
 </section>
 
+<!-- =========================================================
+     ✅ Added: BI Dashboard Preview (Live) — Option 1
+     NOTE: requires landing route to pass bi=fetch_dashboard_summary()
+     ========================================================= -->
+<section class="container pb-5">
+  <div class="card p-4"
+       style="background: linear-gradient(135deg,#0f2d1f,#143d2a);
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(0,0,0,.25);
+              border: 1px solid rgba(255,255,255,.08);">
+
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+      <div>
+        <div class="fw-bold text-white" style="font-size: 1.4rem;">
+          Sustainability BI Dashboard (Live Preview)
+        </div>
+        <div class="text-white-50">
+          Real-time insights from recommendation history stored in PostgreSQL.
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success">Live</span>
+        <a href="/dashboard" class="btn btn-outline-light btn-sm">
+          View Full Dashboard →
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <div class="col-md-3">
+        <div class="p-3 rounded-4" style="background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.06);">
+          <div class="text-white-50 small">Total Recommendations</div>
+          <div class="text-white fw-bold" style="font-size: 2rem;">
+            {{ bi.total_requests if bi is defined else 0 }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="p-3 rounded-4" style="background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.06);">
+          <div class="text-white-50 small">Avg Predicted Cost (INR)</div>
+          <div class="text-white fw-bold" style="font-size: 2rem;">
+            {{ "%.2f"|format(bi.avg_cost or 0) if bi is defined else "0.00" }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="p-3 rounded-4" style="background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.06);">
+          <div class="text-white-50 small">Avg Predicted CO₂ (kg)</div>
+          <div class="text-white fw-bold" style="font-size: 2rem;">
+            {{ "%.2f"|format(bi.avg_co2 or 0) if bi is defined else "0.00" }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="p-3 rounded-4" style="background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.06);">
+          <div class="text-white-50 small">Top Material</div>
+          <div class="text-white fw-semibold" style="margin-top: 6px;">
+            {% if bi is defined and bi.top_materials and bi.top_materials|length > 0 %}
+              {{ bi.top_materials[0].recommended_material }}
+            {% else %}
+              —
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional mini chart preview -->
+    
+
+  </div>
+</section>
+
 <section id="features" class="container pb-5">
   <div class="card p-4">
     <div class="row g-4 align-items-center">
       <div class="col-lg-12">
         <h3 class="fw-bold mb-2">Smarter Packaging Decisions with Material Intelligence</h3>
         <p class="small-muted mb-4">
-          Go beyond “Top 1” results—EcoPackAI helps you explain trade-offs using rankings, what-if prioritization,
-          and decision-ready insights.
+          EcoPackAI helps you explain trade-offs using rankings, what-if prioritization, and decision-ready insights.
         </p>
 
         <div class="row g-3">
@@ -126,7 +207,6 @@
           </div>
         </div>
 
-        
       </div>
     </div>
   </div>

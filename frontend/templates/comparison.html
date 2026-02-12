@@ -7,6 +7,74 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/css/theme.css" rel="stylesheet">
+
+  <style>
+    /* Chart wrapper: give stable height so Chart.js doesn’t keep resizing */
+    .cmp-chart-wrap{
+      position: relative;
+      width: 100%;
+      height: 360px;            /* ✅ increase height */
+      max-height: 420px;
+    }
+    .cmp-chart-wrap canvas{
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+    /* --- Comparison Matrix readability fixes (only for this page) --- */
+    .cmp-matrix{
+      color: var(--textStrong) !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+    }
+
+    .cmp-matrix thead th{
+      background: rgba(53,255,138,.12) !important;
+      color: var(--textStrong) !important;
+      border-bottom: 1px solid rgba(80,255,160,.16) !important;
+      white-space: normal !important;
+      word-break: break-word !important;
+      line-height: 1.15;
+      padding: 12px 12px !important;
+      vertical-align: middle;
+    }
+
+    /* Default value cells: dark background so white text stays readable */
+    .cmp-matrix tbody td{
+      background: rgba(11,30,18,.70) !important;
+      color: var(--textStrong) !important;
+      border-top: 1px solid rgba(80,255,160,.10) !important;
+      padding: 12px 12px !important;
+      vertical-align: middle;
+      font-weight: 700;
+    }
+
+    /* Metric column */
+    .cmp-matrix tbody td:first-child{
+      background: rgba(255,255,255,.06) !important;
+      color: var(--textStrong) !important;
+      font-weight: 900 !important;
+      width: 240px;
+      min-width: 240px;
+    }
+
+    /* “Best” highlight cells: force readable text even if inline style exists */
+    .cmp-matrix tbody td[style]{
+      color: #06140c !important;       /* ✅ dark text on green-tinted highlight */
+      font-weight: 900 !important;
+      text-shadow: none !important;
+    }
+
+    /* Best badge */
+    .cmp-matrix .badge-eco{
+      background: rgba(53,255,138,.22) !important;
+      border: 1px solid rgba(80,255,160,.28) !important;
+      color: #06140c !important;
+      font-weight: 900 !important;
+      text-shadow: none !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -27,7 +95,7 @@
       <div>
         <h4 class="mb-1">Material Comparison</h4>
         <div class="small-muted">
-          Side-by-side decision view across cost, CO₂, recyclability, biodegradability, and eco score.
+          Side-by-side decision view across cost, CO2, recyclability, biodegradability, and eco score.
         </div>
 
         <div class="d-flex flex-wrap gap-2 mt-3" id="selectedChips"></div>
@@ -45,7 +113,7 @@
     <div class="card p-3" style="background: rgba(255,255,255,.03); border-radius:16px;">
       <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
         <div>
-          <div class="small-muted">Best Overall (balanced across Eco + Cost + CO₂)</div>
+          <div class="small-muted">Best Overall (balanced across Eco + Cost + CO2)</div>
           <div class="fw-bold" id="bestOverall">—</div>
         </div>
         <span class="badge badge-eco" id="bestOverallTag">Waiting for selection…</span>
@@ -57,16 +125,16 @@
   <div class="card p-4 mb-3">
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
       <div>
-        <h6 class="mb-1 fw-semibold">Trade-off View (Cost vs CO₂)</h6>
-        <div class="small-muted">
-          Lower-left is best (lower cost + lower CO₂). This helps explain trade-offs in review.
-        </div>
+        <h6 class="mb-1 fw-semibold">Trade-off View (Cost vs CO2)</h6>
+        <div class="small-muted">Lower-left is best (lower cost + lower CO2).</div>
       </div>
       <span class="badge badge-eco">Selected Materials</span>
     </div>
 
     <div class="mt-3">
-      <canvas id="cmpScatter" height="120"></canvas>
+      <div class="cmp-chart-wrap">
+        <canvas id="cmpScatter"></canvas>
+      </div>
     </div>
   </div>
 
@@ -77,10 +145,10 @@
     </div>
 
     <div class="table-responsive">
-      <table class="table align-middle">
+      <table class="table table-sm table-hover ranking-table cmp-matrix">
         <thead>
           <tr>
-            <th style="min-width: 210px;">Metric</th>
+            <th style="min-width: 240px;">Metric</th>
             <th id="m1">—</th>
             <th id="m2">—</th>
             <th id="m3">—</th>
@@ -89,10 +157,6 @@
         </thead>
         <tbody id="cmpBody"></tbody>
       </table>
-    </div>
-
-    <div class="small-muted mt-2">
-      Review tip: Mention that this view helps stakeholders choose based on trade-offs, not just rank.
     </div>
   </div>
 
@@ -134,12 +198,6 @@
       }).join("")
     : `<span class="small-muted">No materials selected. Go back to results and choose 2–4 materials.</span>`;
 
-  if(!selected.length){
-    document.getElementById("bestOverall").textContent = "—";
-    document.getElementById("bestOverallTag").textContent = "No selection";
-    document.getElementById("bestOverallReason").textContent = "Select materials from results page to compare.";
-  }
-
   function pickBestOverall(list){
     const maxCost = Math.max(...list.map(r => Number(r.pred_cost_inr)||0)) || 1;
     const maxCo2  = Math.max(...list.map(r => Number(r.pred_co2_kg)||0)) || 1;
@@ -155,13 +213,20 @@
     return scored[0];
   }
 
-  if(selected.length){
+  if(!selected.length){
+    document.getElementById("bestOverall").textContent = "—";
+    document.getElementById("bestOverallTag").textContent = "No selection";
+    document.getElementById("bestOverallReason").textContent = "Select materials from results page to compare.";
+  } else {
     const best = pickBestOverall(selected);
     document.getElementById("bestOverall").textContent = best.material_name;
     document.getElementById("bestOverallTag").textContent = `Overall Score: ${safeNum(best.overall_score,3)}`;
     document.getElementById("bestOverallReason").textContent =
-      `Chosen because it balances a high environment score (${safeNum(best.environment_score,2)}) with good cost (₹${safeNum(best.pred_cost_inr,2)}) and lower CO₂ (${safeNum(best.pred_co2_kg,3)} kg).`;
+      `Chosen because it balances a high environment score (${safeNum(best.environment_score,2)}) with good cost (INR ${safeNum(best.pred_cost_inr,2)}) and lower CO2 (${safeNum(best.pred_co2_kg,3)} kg).`;
   }
+
+  // ---- Scatter Chart (no animation / no pulsing) ----
+  let cmpChart = null;
 
   function renderComparisonScatter(){
     const canvas = document.getElementById("cmpScatter");
@@ -173,25 +238,41 @@
       label: r.material_name
     })).filter(p => Number.isFinite(p.x) && Number.isFinite(p.y));
 
-    new Chart(canvas, {
+    if (cmpChart) cmpChart.destroy();
+
+    cmpChart = new Chart(canvas, {
       type: "scatter",
-      data: { datasets: [{ data: points, pointRadius: 6 }] },
+      data: {
+        datasets: [{
+          data: points,
+          pointRadius: 7,
+          pointHoverRadius: 10
+        }]
+      },
       options: {
         responsive: true,
+        maintainAspectRatio: false,     // ✅ use our wrapper height
+        animation: false,               // ✅ stop animation
+        responsiveAnimationDuration: 0, // ✅ stop resize animation
+
+        interaction: { mode: "nearest", intersect: false },
+
         plugins: {
           legend: { display: false },
           tooltip: {
+            enabled: true,
             callbacks: {
               label: (ctx) => {
-                const p = ctx.raw;
-                return `${p.label}: ₹${p.x.toFixed(2)}, CO₂ ${p.y.toFixed(3)} kg`;
+                const p = ctx.raw; // ✅ correct for scatter
+                const name = p.label || `Material ${ctx.dataIndex + 1}`;
+                return `${name}: INR ${Number(p.x).toFixed(2)}, CO2 ${Number(p.y).toFixed(3)} kg`;
               }
             }
           }
         },
         scales: {
           x: { title: { display:true, text:"Cost (INR)" } },
-          y: { title: { display:true, text:"CO₂ (kg)" } }
+          y: { title: { display:true, text:"CO2 (kg)" } }
         }
       }
     });
@@ -199,9 +280,10 @@
 
   renderComparisonScatter();
 
+  // ---- Matrix ----
   const metrics = [
-    { label:"Predicted Cost (INR)", key:"pred_cost_inr", fmt:(r)=>`₹${safeNum(r.pred_cost_inr,2)}`, better:"min" },
-    { label:"Predicted CO₂ (kg)",   key:"pred_co2_kg",   fmt:(r)=>safeNum(r.pred_co2_kg,3), better:"min" },
+    { label:"Predicted Cost (INR)", key:"pred_cost_inr", fmt:(r)=>`INR ${safeNum(r.pred_cost_inr,2)}`, better:"min" },
+    { label:"Predicted CO2 (kg)",   key:"pred_co2_kg",   fmt:(r)=>safeNum(r.pred_co2_kg,3), better:"min" },
     { label:"Recyclability (%)",    key:"recyclability_percent", fmt:(r)=>`${safeNum(r.recyclability_percent,0)}%`, better:"max" },
     { label:"Biodegradability",     key:"biodegradability_score", fmt:(r)=>`${safeNum(r.biodegradability_score,0)}/10`, better:"max" },
     { label:"Suitability Score",    key:"suitability_score", fmt:(r)=>safeNum(r.suitability_score,4), better:"max" },
@@ -228,7 +310,7 @@
     const cols = [0,1,2,3].map(i=>{
       if(!selected[i]) return `<td>—</td>`;
       const isWin = (i === winIdx);
-      const style = isWin ? `style="background: rgba(53,255,138,.10); border:1px solid rgba(53,255,138,.22); border-radius:10px;"` : "";
+      const style = isWin ? `style="background: rgba(53,255,138,.20); border:1px solid rgba(53,255,138,.28); border-radius:10px;"` : "";
       const tag = isWin ? ` <span class="badge badge-eco ms-1">Best</span>` : "";
       return `<td ${style}>${m.fmt(selected[i])}${tag}</td>`;
     }).join("");
@@ -239,6 +321,7 @@
     </tr>`;
   }).join("");
 
+  // ---- Export CSV ----
   document.getElementById("btnExportCsv").addEventListener("click", ()=>{
     if(!selected.length) return;
 
@@ -256,11 +339,13 @@
     URL.revokeObjectURL(url);
   });
 
+  // ---- Export PDF (avoid ₹ and CO₂ to prevent garbled symbols) ----
   document.getElementById("btnExportPdf").addEventListener("click", ()=>{
     if(!selected.length) return;
 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+
     doc.setFontSize(16);
     doc.text("EcoPackAI Material Comparison Report", 14, 18);
 
