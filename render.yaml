@@ -1,0 +1,24 @@
+# Render Blueprint - EcoPackAI Deployment Configuration
+
+services:
+  # Web Service
+  - type: web
+    name: ecopackai
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --chdir backend app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.6
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ecopackai-db
+          property: connectionString
+
+databases:
+  # PostgreSQL Database
+  - name: ecopackai-db
+    plan: free
+    region: oregon
