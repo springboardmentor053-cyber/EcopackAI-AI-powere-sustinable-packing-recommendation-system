@@ -338,7 +338,7 @@ body {
 
 .charts-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
 }
 
@@ -351,7 +351,7 @@ body {
 }
 
 .chart-header {
-    padding: 20px 24px;
+    padding: 16px 24px 12px 24px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
@@ -360,7 +360,7 @@ body {
 
 .chart-title h3 {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
@@ -604,82 +604,31 @@ body {
     color: #6B7280;
 }
 
-/* Performance Metrics List */
+/* Quick Insights List */
 .insights-list {
-    padding: 16px;
+    padding: 8px 0;
 }
 
-.metric-item {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.metric-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.metric-row {
+.insight-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 20px;
 }
 
-.metric-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+.insight-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
-.metric-value {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.metric-value.small {
+.insight-text {
     font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
-.metric-value.positive {
-    color: var(--primary-green);
-}
-
-.metric-value.negative {
-    color: #EF4444;
-}
-
-.metric-subtext {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.metric-bar {
-    height: 6px;
-    background: #F3F4F6;
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.metric-bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    transition: width 0.5s ease;
-}
-
-.metric-bar-fill.green {
-    background: linear-gradient(90deg, #059669, #34D399);
-}
-
-.metric-bar-fill.red {
-    background: linear-gradient(90deg, #EF4444, #F87171);
-}
-
-.metric-bar-fill.purple {
-    background: linear-gradient(90deg, #8B5CF6, #A78BFA);
+.insight-text strong {
+    color: var(--text-primary);
 }
 
 /* =============================================
@@ -754,30 +703,6 @@ body {
 .btn-icon {
     width: 18px;
     height: 18px;
-}
-
-/* =============================================
-   FOOTER
-   ============================================= */
-
-.footer {
-    background: #1F2937;
-    padding: 16px 24px;
-}
-
-.footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    color: #9CA3AF;
-    font-size: 0.85rem;
-}
-
-.footer-divider {
-    opacity: 0.5;
 }
 
 /* =============================================

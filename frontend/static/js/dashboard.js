@@ -29,7 +29,7 @@ function loadSummary() {
             const s = data.summary;
             
             // Hero metric - Total CO2 Saved
-            const co2Saved = s.total_co2_saved_kg;
+            const co2Saved = s.total_co2_saved_kg || 0;
             document.getElementById('heroCO2Saved').textContent = co2Saved.toFixed(2);
             
             // Trees equivalent (1 tree absorbs ~0.022 kg CO2 per day)
@@ -37,36 +37,40 @@ function loadSummary() {
             document.getElementById('treesEquivalent').textContent = treesEquiv.toLocaleString();
             
             // KPI Cards
-            document.getElementById('totalRecommendations').textContent = s.total_recommendations;
+            document.getElementById('totalRecommendations').textContent = s.total_recommendations || 0;
             
             // Cost saved - handle negative
-            const costSaved = s.total_cost_saved_inr;
+            const costSaved = s.total_cost_saved_inr || 0;
             const costTrend = document.getElementById('costTrend');
             if (costSaved >= 0) {
                 document.getElementById('totalCostSaved').textContent = '+' + costSaved.toFixed(0);
                 costTrend.textContent = 'Savings';
                 costTrend.className = 'kpi-trend positive';
-                document.getElementById('costBar').className = 'kpi-bar-fill green';
             } else {
                 document.getElementById('totalCostSaved').textContent = costSaved.toFixed(0);
                 costTrend.textContent = 'Premium';
                 costTrend.className = 'kpi-trend negative';
-                document.getElementById('costBar').className = 'kpi-bar-fill orange';
             }
             
             // Suitability score
-            const suitability = (s.avg_suitability_score * 100).toFixed(1);
-            document.getElementById('avgSuitability').textContent = suitability + '%';
-            document.getElementById('suitabilityBar').style.width = suitability + '%';
+            const suitability = s.avg_suitability_score || 0;
+            const suitabilityPercent = (suitability * 100).toFixed(1);
+            document.getElementById('avgSuitability').textContent = suitabilityPercent + '%';
             
             // Categories served
-            document.getElementById('categoriesServed').textContent = s.categories_served;
-            document.getElementById('categoriesBar').style.width = (s.categories_served / 13 * 100) + '%';
+            const categories = s.categories_served || 0;
+            document.getElementById('categoriesServed').textContent = categories;
+            document.getElementById('categoriesTrend').textContent = categories + ' of 13';
             
         })
         .catch(err => {
             console.error('Summary error:', err);
-            document.getElementById('heroCO2Saved').textContent = 'Error';
+            document.getElementById('heroCO2Saved').textContent = '0.00';
+            document.getElementById('treesEquivalent').textContent = '0';
+            document.getElementById('totalRecommendations').textContent = '0';
+            document.getElementById('totalCostSaved').textContent = '0';
+            document.getElementById('avgSuitability').textContent = '0%';
+            document.getElementById('categoriesServed').textContent = '0';
         });
 }
 
@@ -344,65 +348,40 @@ function loadRecentActivity() {
         });
 }
 
-// Update performance metrics panel
+// Update quick insights panel
 function updateQuickInsights(recommendations) {
     const insightsList = document.getElementById('insightsList');
     
-    // Calculate metrics
     const totalRecs = recommendations.length;
     const withSavings = recommendations.filter(r => r.co2_saved && r.co2_saved > 0).length;
     const savingsRate = totalRecs > 0 ? ((withSavings / totalRecs) * 100).toFixed(0) : 0;
     
-    // Most recommended material
     const materials = {};
     recommendations.forEach(r => {
         materials[r.material] = (materials[r.material] || 0) + 1;
     });
-    const sortedMaterials = Object.entries(materials).sort((a, b) => b[1] - a[1]);
-    const topMaterial = sortedMaterials[0];
+    const topMaterial = Object.entries(materials).sort((a, b) => b[1] - a[1])[0];
     
-    // Average suitability
     const avgSuitability = recommendations.length > 0 
         ? (recommendations.reduce((sum, r) => sum + r.suitability, 0) / recommendations.length * 100).toFixed(0)
         : 0;
     
-    // Total CO2 from recent
-    const totalCO2Recent = recommendations.reduce((sum, r) => sum + (r.co2_saved || 0), 0).toFixed(2);
-    
-    // Categories coverage
-    const uniqueCategories = new Set(recommendations.map(r => r.category)).size;
-    
     insightsList.innerHTML = `
-        <div class="metric-item">
-            <div class="metric-row">
-                <span class="metric-label">CO₂ Positive Rate</span>
-                <span class="metric-value ${savingsRate >= 50 ? 'positive' : 'negative'}">${savingsRate}%</span>
-            </div>
-            <div class="metric-bar">
-                <div class="metric-bar-fill ${savingsRate >= 50 ? 'green' : 'red'}" style="width: ${savingsRate}%"></div>
-            </div>
+        <div class="insight-item">
+            <span class="insight-icon">🎯</span>
+            <span class="insight-text"><strong>${savingsRate}%</strong> of recommendations resulted in CO₂ savings</span>
         </div>
-        <div class="metric-item">
-            <div class="metric-row">
-                <span class="metric-label">Top Material</span>
-                <span class="metric-value small">${topMaterial ? topMaterial[0].split(' ')[0] : 'N/A'}</span>
-            </div>
-            <div class="metric-subtext">${topMaterial ? topMaterial[1] + ' recommendations' : ''}</div>
+        <div class="insight-item">
+            <span class="insight-icon">🏆</span>
+            <span class="insight-text"><strong>${topMaterial ? topMaterial[0] : 'N/A'}</strong> is the top recommended material</span>
         </div>
-        <div class="metric-item">
-            <div class="metric-row">
-                <span class="metric-label">Avg Match Score</span>
-                <span class="metric-value">${avgSuitability}%</span>
-            </div>
-            <div class="metric-bar">
-                <div class="metric-bar-fill purple" style="width: ${avgSuitability}%"></div>
-            </div>
+        <div class="insight-item">
+            <span class="insight-icon">⭐</span>
+            <span class="insight-text">Average suitability score is <strong>${avgSuitability}%</strong></span>
         </div>
-        <div class="metric-item">
-            <div class="metric-row">
-                <span class="metric-label">Recent CO₂ Impact</span>
-                <span class="metric-value ${parseFloat(totalCO2Recent) >= 0 ? 'positive' : 'negative'}">${totalCO2Recent} kg</span>
-            </div>
+        <div class="insight-item">
+            <span class="insight-icon">💡</span>
+            <span class="insight-text">Compare current materials to maximize savings</span>
         </div>
     `;
 }
@@ -467,4 +446,9 @@ function exportToCSV() {
             console.error('Export error:', err);
             alert('Failed to export data');
         });
+}
+
+// Export to PDF (using browser print to PDF)
+function exportToPDF() {
+    window.print();
 }

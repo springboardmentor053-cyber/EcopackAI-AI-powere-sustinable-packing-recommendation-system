@@ -410,29 +410,6 @@ label {
   padding: 0 20px 20px 20px;
 }
 
-/* =============================================
-   FOOTER - Matching Dashboard
-   ============================================= */
-
-.footer {
-  background: #1F2937;
-  padding: 16px 24px;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  color: #9CA3AF;
-  font-size: 0.85rem;
-}
-
-.footer-divider {
-  opacity: 0.5;
-}
 
 /* =============================================
    RESPONSIVE
