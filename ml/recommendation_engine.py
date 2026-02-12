@@ -9,24 +9,30 @@ warnings.filterwarnings('ignore')
 
 
 class EcoPackRecommender:
-    
-    def __init__(self):
         
+    def __init__(self):
+        """Initialize the recommendation engine with trained models and data"""
+        
+        # Get the base directory (project root) - works on any OS
         self.base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         
-        self.rf_suitability = joblib.load('E:/Data Science/EcoPackAI/ml/models/rf_suitability.pkl')
-        self.xgb_co2 = joblib.load('E:/Data Science/EcoPackAI/ml/models/xgb_co2.pkl')
-        self.rf_cost = joblib.load('E:/Data Science/EcoPackAI/ml/models/rf_cost.pkl')
+        # Load trained models using relative paths
+        self.rf_suitability = joblib.load(os.path.join(self.base_dir, 'ml/models/rf_suitability.pkl'))
+        self.xgb_co2 = joblib.load(os.path.join(self.base_dir, 'ml/models/xgb_co2.pkl'))
+        self.rf_cost = joblib.load(os.path.join(self.base_dir, 'ml/models/rf_cost.pkl'))
         
-        self.encoders = joblib.load('E:/Data Science/EcoPackAI/ml/models/encoders.pkl')
-        self.scaler = joblib.load('E:/Data Science/EcoPackAI/ml/models/scaler.pkl')
-        self.feature_columns = joblib.load('E:/Data Science/EcoPackAI/ml/models/feature_columns.pkl')
+        # Load preprocessing objects
+        self.encoders = joblib.load(os.path.join(self.base_dir, 'ml/models/encoders.pkl'))
+        self.scaler = joblib.load(os.path.join(self.base_dir, 'ml/models/scaler.pkl'))
+        self.feature_columns = joblib.load(os.path.join(self.base_dir, 'ml/models/feature_columns.pkl'))
         
-        self.materials_df = pd.read_csv(os.path.join(self.base_dir, 'E:/Data Science/EcoPackAI/data/processed/materials_engineered.csv'))
+        # Load materials data
+        self.materials_df = pd.read_csv(os.path.join(self.base_dir, 'data/processed/materials_engineered.csv'))
         
+        # Database connection
         self.db_url = os.getenv(
             "DATABASE_URL",
-            "postgresql://postgres:Manikanta%403@localhost:5432/ecopackai"
+            "postgresql://postgres:postgres@localhost:5432/ecopackai"
         )
         
         print("Recommendation engine initialized")
