@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌿EcoPackAI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2 class="logo">🌿EcoPackAI</h2>
+  <div class="nav-links">
+    <a href="#recommend">Recommendations</a>
+    <a href="#analytics">Analytics</a>
+    <button class="btn primary" onclick="scrollToRecommend()">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      Smart Packaging<br />
+    </h1>
+    <h2>
+      <span>Sustainable Future</span>
+    </h2>
+    <p>
+      AI-powered packaging recommendations to reduce cost and carbon footprint.
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-card">
+    <h2>92%</h2>
+    <p>Cost Reduction</p>
+  </div>
+  <div class="stat-card">
+    <h2>45%</h2>
+    <p>CO₂ Reduction</p>
+  </div>
+  <div class="stat-card">
+    <h2>1000+</h2>
+    <p>Materials Analyzed</p>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section id="recommend" class="recommend">
+  <div class="form-card">
+    <h2>Find Your Perfect Packaging</h2>
+
+    <label>Product Category</label>
+      <select id="category">
+        <option value="">Select category</option>
+        <option value="electronics">Electronics</option>
+        <option value="food">Food</option>
+        <option value="cosmetics">Cosmetics</option>
+        <option value="Pharmaceuticals">Pharmaceuticals</option>
+        <option value="Beverages">Beverages</option>
+        <option value="Textile/Apparel">Textile/Apparel</option>
+        <option value="Personal Care/Home">Personal Care/Home</option>
+        <option value="Household Appliances">Household Appliances</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Toys">Toys</option>
+        <option value="Baby Care">Baby Care</option>
+        <option value="Industrial/Automotive">Industrial/Automotive</option>
+        <option value="Healthcare/Medical Devices">Healthcare/Medical Devices</option>
+        <option value="Stationary">Stationary</option>
+        <option value="Sports & Outdoor">Sports & Outdoor</option>
+        <option value="Home Decor">Home Decor</option>
+      </select>
+  
+    <label>Strength <span id="strengthVal">5</span></label>
+    <input id="strength" type="range" min="1" max="10" step="1" value="5" />
+
+    <label>Weight (kg) <span id="weightVal">1.00</span></label>
+    <input id="weight" type="number" step="0.01" min="0" value="1" />
+
+    <label>Biodegradability <span id="bioVal">50%</span></label>
+    <input id="bio" type="range" min="0" max="100" step="1" value="50" />
+
+    <label>Recyclability <span id="recycleVal">50%</span></label>
+    <input id="recycle" type="range" min="0" max="100" step="1" value="50" />
+
+    <button class="btn primary" onclick="getRecommendation()">
+      Get Recommendation
+    </button>
+  </div>
+
+  <div class="result-card" id="result">
+    <h3>AI Recommendation</h3>
+    <div id="mainRecommendation">
+      <p class="placeholder">Fill the form to see results</p>
+    </div>
+    <div id="envMetrics" class="env-score" aria-live="polite" style="margin-top:12px;">
+      <!-- Environment metrics (predicted CO₂, baseline, reduction) will appear here -->
+      <p style="color:#a0c9a0;">Environmental impact will be displayed here after recommendation.</p>
+    </div>
+    <div class="export-buttons" style="margin-top:18px; display:flex; gap:10px; justify-content:center;">
+      <button class="btn" id="exportExcelBtn" onclick="exportExcel()">Export Excel</button>
+      <button class="btn" id="exportPdfBtn" onclick="exportPDF()">Export PDF</button>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYTICS -->
+<section id="analytics" class="analytics">
+  <h2>Sustainability Analytics</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span>Total CO₂ Saved</span>
+      <strong>2,847 kg</strong>
+    </div>
+    <div class="card">
+      <span>Cost Savings</span>
+      <strong>₹45,230</strong>
+    </div>
+    <div class="card">
+      <span>Materials Upgraded</span>
+      <strong>156</strong>
+    </div>
+  </div>
+
+  <!-- RANKING TABLE SECTION -->
+  <div class="ranking-section" style="padding: 40px 0;">
+    <h3 style="margin-bottom: 30px;">Material Ranking & Comparison</h3>
+    <div class="ranking-container">
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Material</th>
+            <th>Predicted Cost</th>
+            <th>Predicted CO₂</th>
+          </tr>
+        </thead>
+        <tbody id="rankingTable">
+          <tr>
+            <td>-</td>
+            <td>Fill the form to see rankings</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- METRICS SECTION -->
+  <div class="metrics-section" id="metricsContainer" style="padding: 40px 0; background: none;">
+    <h4 style="color: #d0e7d1; text-align: center; margin-bottom: 30px;">Comparison Metrics</h4>
+    <div class="metrics-container">
+      <div class="metric-card">
+        <h4>Cost Savings</h4>
+        <div class="metric-value">₹ -</div>
+        <div class="metric-unit">vs standard material</div>
+      </div>
+      <div class="metric-card">
+        <h4>CO₂ Reduction</h4>
+        <div class="metric-value">-</div>
+        <div class="metric-unit">environmental impact</div>
+      </div>
+      <div class="metric-card">
+        <h4>Material Score</h4>
+        <div class="metric-value">-</div>
+        <div class="metric-unit">eco-friendliness index</div>
+      </div>
+      <div class="metric-card">
+        <h4>Weight Optimized</h4>
+        <div class="metric-value">-</div>
+        <div class="metric-unit">packaging weight</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-container">
+    <div class="chart-wrapper">
+      <h3>Material Distribution</h3>
+      <canvas id="materialChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>CO₂ vs Cost Savings Trend</h3>
+      <canvas id="trendsChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Recyclability by Material</h3>
+      <canvas id="recycleChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Monthly Impact</h3>
+      <canvas id="monthlyChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 EcoPackAI | AI for Sustainable Packaging
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
