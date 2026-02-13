@@ -107,7 +107,7 @@ function runRecommendation() {
             if (cmp.status === "success") {
               // Override with our stored best recommendation
               cmp.comparison.recommended_material = bestRecommendation.material_name;
-              cmp.comparison.recommended_co2_kg = Math.abs(bestRecommendation.predicted_co2_kg);
+              cmp.comparison.recommended_co2_kg = bestRecommendation.predicted_co2_kg;
               cmp.comparison.recommended_cost_inr = bestRecommendation.predicted_cost_inr;
               cmp.comparison.recommended_eco_score = bestRecommendation.eco_score;
               
@@ -115,10 +115,9 @@ function runRecommendation() {
               cmp.comparison.same_material = (currentMaterial === bestRecommendation.material_name);
               
               // Recalculate savings based on correct recommendation
-              const currentCo2 = Math.abs(cmp.comparison.current_co2_kg);
+              const currentCo2 = cmp.comparison.current_co2_kg;
               const currentCost = cmp.comparison.current_cost_inr;
-              const recommendedCo2 = Math.abs(bestRecommendation.predicted_co2_kg);
-              cmp.comparison.co2_savings_kg = currentCo2 - recommendedCo2;
+              cmp.comparison.co2_savings_kg = currentCo2 - bestRecommendation.predicted_co2_kg;
               cmp.comparison.cost_difference_inr = currentCost - bestRecommendation.predicted_cost_inr;
               cmp.comparison.co2_reduction_percent = currentCo2 > 0 
                 ? (cmp.comparison.co2_savings_kg / currentCo2 * 100) 
@@ -147,7 +146,6 @@ function displayResults(recs) {
   grid.innerHTML = "";
 
   recs.forEach((r, i) => {
-    const co2Value = Math.abs(r.predicted_co2_kg);
     const card = document.createElement("div");
     card.className = "material-card" + (i === 0 ? " best" : "");
     card.innerHTML = `
@@ -156,7 +154,7 @@ function displayResults(recs) {
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; color: #374151;">
         <div><span style="color: #6B7280;">Suitability:</span> ${(r.suitability_score * 100).toFixed(1)}%</div>
         <div><span style="color: #6B7280;">Cost:</span> Rs.${r.predicted_cost_inr.toFixed(2)}</div>
-        <div><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${co2Value.toFixed(4)} kg</div>
+        <div><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${r.predicted_co2_kg.toFixed(4)} kg</div>
         <div><span style="color: #6B7280;">Eco Score:</span> ${r.eco_score.toFixed(3)}</div>
       </div>
     `;
@@ -167,7 +165,7 @@ function displayResults(recs) {
     b.predicted_cost_inr < a.predicted_cost_inr ? b : a
   );
   const lowestCO2 = recs.reduce((a, b) =>
-    Math.abs(b.predicted_co2_kg) < Math.abs(a.predicted_co2_kg) ? b : a
+    b.predicted_co2_kg < a.predicted_co2_kg ? b : a
   );
   const best = recs[0];
 
@@ -180,7 +178,7 @@ function displayResults(recs) {
     <div class="analytics-box">
       <div style="font-size: 0.7rem; color: #047857; letter-spacing: 0.5px; margin-bottom: 6px;">LOWEST CO<sub>2</sub></div>
       <div style="font-size: 1.05rem; font-weight: 600; color: #111827;">${lowestCO2.material_name}</div>
-      <div style="font-size: 0.85rem; color: #6B7280; margin-top: 4px;">${Math.abs(lowestCO2.predicted_co2_kg).toFixed(4)} kg</div>
+      <div style="font-size: 0.85rem; color: #6B7280; margin-top: 4px;">${lowestCO2.predicted_co2_kg.toFixed(4)} kg</div>
     </div>
     <div class="analytics-box" style="background: linear-gradient(135deg, #059669, #047857); border-color: transparent;">
       <div style="font-size: 0.7rem; color: rgba(255,255,255,0.85); letter-spacing: 0.5px; margin-bottom: 6px;">BEST OVERALL</div>
@@ -201,8 +199,13 @@ function renderChart(recs) {
 
   if (comparisonChart) comparisonChart.destroy();
 
-  // Prepare CO2 data with absolute values
-  const co2Data = recs.map(r => Math.abs(r.predicted_co2_kg));
+  // Get CO2 data
+  const co2Data = recs.map(r => r.predicted_co2_kg);
+  const costData = recs.map(r => r.predicted_cost_inr);
+  
+  // Calculate appropriate max values for scales
+  const maxCost = Math.max(...costData) * 1.2;
+  const maxCO2 = Math.max(...co2Data) * 1.2;
 
   comparisonChart = new Chart(ctx, {
     type: "bar",
@@ -211,13 +214,13 @@ function renderChart(recs) {
       datasets: [
         {
           label: "Cost (INR)",
-          data: recs.map(r => r.predicted_cost_inr),
+          data: costData,
           backgroundColor: "#059669",
           borderRadius: 4,
           yAxisID: "yCost"
         },
         {
-          label: "CO2 Impact (kg)",
+          label: "CO\u2082 Impact (kg)",
           data: co2Data,
           backgroundColor: "#F59E0B",
           borderRadius: 4,
@@ -249,6 +252,7 @@ function renderChart(recs) {
         yCost: {
           position: "left",
           beginAtZero: true,
+          max: maxCost,
           title: { 
             display: true, 
             text: "Cost (INR)",
@@ -261,9 +265,10 @@ function renderChart(recs) {
         yCO2: {
           position: "right",
           beginAtZero: true,
+          max: maxCO2,
           title: { 
             display: true, 
-            text: "CO2 Impact (kg)",
+            text: "CO\u2082 Impact (kg)",
             font: { size: 11, weight: '500' },
             color: '#6B7280'
           },
@@ -284,14 +289,13 @@ function buildTable(recs) {
   tbody.innerHTML = "";
 
   recs.forEach((r, i) => {
-    const co2Value = Math.abs(r.predicted_co2_kg);
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${r.material_name}</td>
       <td style="color: #6B7280;">${r.material_type}</td>
       <td>${(r.suitability_score * 100).toFixed(1)}%</td>
       <td>Rs.${r.predicted_cost_inr.toFixed(2)}</td>
-      <td>${co2Value.toFixed(4)} kg</td>
+      <td>${r.predicted_co2_kg.toFixed(4)} kg</td>
       <td>${r.eco_score.toFixed(3)}</td>
       <td><span style="background: ${i === 0 ? '#059669' : '#E5E7EB'}; color: ${i === 0 ? 'white' : '#374151'}; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 500;">#${i + 1}</span></td>
     `;
@@ -320,7 +324,7 @@ function displaySavings(cmp) {
         <div style="font-weight: 600; font-size: 1rem; margin-bottom: 12px;">${cmp.current_material}</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 0.85rem; color: #374151;">
           <div><span style="color: #6B7280;">Cost:</span> Rs.${cmp.current_cost_inr.toFixed(2)}</div>
-          <div><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${Math.abs(cmp.current_co2_kg).toFixed(4)} kg</div>
+          <div><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${cmp.current_co2_kg.toFixed(4)} kg</div>
           <div><span style="color: #6B7280;">Eco Score:</span> ${cmp.recommended_eco_score.toFixed(3)}</div>
         </div>
       </div>
@@ -353,7 +357,7 @@ function displaySavings(cmp) {
       <div style="font-weight: 600; font-size: 1rem; margin-bottom: 12px;">${cmp.current_material}</div>
       <div style="font-size: 0.85rem; color: #374151;">
         <div style="margin-bottom: 6px;"><span style="color: #6B7280;">Cost:</span> Rs.${cmp.current_cost_inr.toFixed(2)}</div>
-        <div><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${Math.abs(cmp.current_co2_kg).toFixed(4)} kg</div>
+        <div><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${cmp.current_co2_kg.toFixed(4)} kg</div>
       </div>
     </div>
     <div class="material-card best">
@@ -361,7 +365,7 @@ function displaySavings(cmp) {
       <div style="font-weight: 600; font-size: 1rem; margin-bottom: 12px;">${cmp.recommended_material}</div>
       <div style="font-size: 0.85rem; color: #374151;">
         <div style="margin-bottom: 6px;"><span style="color: #6B7280;">Cost:</span> Rs.${cmp.recommended_cost_inr.toFixed(2)}</div>
-        <div style="margin-bottom: 6px;"><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${Math.abs(cmp.recommended_co2_kg).toFixed(4)} kg</div>
+        <div style="margin-bottom: 6px;"><span style="color: #6B7280;">CO<sub>2</sub>:</span> ${cmp.recommended_co2_kg.toFixed(4)} kg</div>
         <div><span style="color: #6B7280;">Eco Score:</span> ${cmp.recommended_eco_score.toFixed(3)}</div>
       </div>
     </div>

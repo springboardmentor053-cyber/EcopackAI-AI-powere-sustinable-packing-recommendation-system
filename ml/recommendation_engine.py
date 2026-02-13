@@ -74,6 +74,9 @@ class EcoPackRecommender:
         else:
             fragility_level = category['fragility_level']
         
+        # Packaging factor - typical ratio of packaging material to product weight
+        packaging_factor = 0.15
+        
         predictions = []
         
         for _, material in self.materials_df.iterrows():
@@ -102,9 +105,14 @@ class EcoPackRecommender:
                 columns=self.feature_columns
             )
             
+            # Predict suitability using ML model
             suitability = self.rf_suitability.predict(X_scaled)[0]
-            predicted_co2 = self.xgb_co2.predict(X_scaled)[0]
-            predicted_co2 = max(0, predicted_co2)
+            
+            # Calculate CO2 based on material's actual emission rate and weight
+            # This is more reliable than ML prediction for CO2
+            predicted_co2 = material['co2_emission_kg'] * product_weight_kg * packaging_factor
+            
+            # Predict cost using ML model
             predicted_cost = self.rf_cost.predict(X_scaled)[0]
             
             can_handle_weight = material['weight_capacity_kg'] >= product_weight_kg
@@ -124,9 +132,6 @@ class EcoPackRecommender:
                 'can_handle_weight': bool(can_handle_weight),
                 'weight_capacity_kg': float(material['weight_capacity_kg'])
             })
-        
-        results_df = pd.DataFrame(predictions)
-        results_df = results_df.sort_values('suitability_score', ascending=False)
         
         results_df = pd.DataFrame(predictions)
         results_df = results_df.sort_values('suitability_score', ascending=False)
@@ -195,54 +200,50 @@ class EcoPackRecommender:
         }
     
     def get_material_details(self, material_name):
-        
+        """Get detailed information about a specific material"""
         material = self.materials_df[self.materials_df['material_name'] == material_name]
         
         if len(material) == 0:
-            raise ValueError(f"Material '{material_name}' not found")
+            return None
         
-        material = material.iloc[0]
-        
+        m = material.iloc[0]
         return {
-            'material_id': int(material['material_id']),
-            'material_name': material['material_name'],
-            'material_type': material['material_type'],
-            'strength_score': round(float(material['strength_score']), 2),
-            'weight_capacity_kg': float(material['weight_capacity_kg']),
-            'biodegradability_score': round(float(material['biodegradability_score']), 2),
-            'co2_emission_kg': round(float(material['co2_emission_kg']), 4),
-            'recyclability_percent': round(float(material['recyclability_percent']), 1),
-            'cost_per_kg': round(float(material['cost_per_kg']), 2),
-            'moisture_resistance': round(float(material['moisture_resistance']), 2),
-            'eco_score': round(float(material['eco_score']), 3),
-            'co2_impact_index': round(float(material['co2_impact_index']), 3),
-            'cost_efficiency_index': round(float(material['cost_efficiency_index']), 3)
+            'material_id': int(m['material_id']),
+            'material_name': m['material_name'],
+            'material_type': m['material_type'],
+            'strength_score': float(m['strength_score']),
+            'weight_capacity_kg': float(m['weight_capacity_kg']),
+            'biodegradability_score': float(m['biodegradability_score']),
+            'recyclability_percent': float(m['recyclability_percent']),
+            'moisture_resistance': float(m['moisture_resistance']),
+            'co2_emission_kg': float(m['co2_emission_kg']),
+            'cost_per_kg': float(m['cost_per_kg']),
+            'eco_score': float(m['eco_score'])
         }
+    
+    def calculate_eco_score(self, biodegradability, recyclability, co2_emission, cost_efficiency=None):
+        """Calculate eco score based on environmental factors"""
+        # Normalize CO2 (lower is better, so invert)
+        co2_normalized = 1 - (co2_emission / 3.5)  # 3.5 is max CO2 in our dataset
+        co2_normalized = max(0, min(1, co2_normalized))
         
+        # Weighted combination
+        eco_score = (
+            biodegradability * 0.35 +
+            (recyclability / 100) * 0.25 +
+            co2_normalized * 0.40
+        )
+        
+        return round(eco_score, 3)
+    
     def save_recommendation(self, category_name, product_weight_kg, fragility_level,
-                        budget_limit, current_material_name, recommendation, comparison=None):
-
+                           budget_limit, current_material_name, recommendation, comparison=None):
+        """Save a recommendation to the database for analytics"""
         try:
             engine = self._get_db_engine()
             
-            co2_savings = comparison['co2_savings_kg'] if comparison else None
-            cost_savings = comparison['cost_difference_inr'] if comparison else None
-            
-            insert_query = text("""
-                INSERT INTO recommendations (
-                    category_name, product_weight_kg, fragility_level, budget_limit,
-                    current_material_name, recommended_material_name, recommended_material_type,
-                    suitability_score, predicted_cost_inr, predicted_co2_kg, eco_score,
-                    co2_savings_kg, cost_savings_inr
-                ) VALUES (
-                    :category_name, :product_weight_kg, :fragility_level, :budget_limit,
-                    :current_material_name, :recommended_material_name, :recommended_material_type,
-                    :suitability_score, :predicted_cost_inr, :predicted_co2_kg, :eco_score,
-                    :co2_savings_kg, :cost_savings_inr
-                )
-            """)
-            
-            params = {
+            # Prepare data
+            data = {
                 'category_name': category_name,
                 'product_weight_kg': product_weight_kg,
                 'fragility_level': fragility_level,
@@ -254,66 +255,42 @@ class EcoPackRecommender:
                 'predicted_cost_inr': recommendation['predicted_cost_inr'],
                 'predicted_co2_kg': recommendation['predicted_co2_kg'],
                 'eco_score': recommendation['eco_score'],
-                'co2_savings_kg': co2_savings,
-                'cost_savings_inr': cost_savings
+                'co2_savings_kg': comparison['co2_savings_kg'] if comparison else None,
+                'cost_savings_inr': comparison['cost_difference_inr'] if comparison else None
             }
             
+            # Insert into database
+            query = text("""
+                INSERT INTO recommendations 
+                (category_name, product_weight_kg, fragility_level, budget_limit,
+                 current_material_name, recommended_material_name, recommended_material_type,
+                 suitability_score, predicted_cost_inr, predicted_co2_kg, eco_score,
+                 co2_savings_kg, cost_savings_inr)
+                VALUES 
+                (:category_name, :product_weight_kg, :fragility_level, :budget_limit,
+                 :current_material_name, :recommended_material_name, :recommended_material_type,
+                 :suitability_score, :predicted_cost_inr, :predicted_co2_kg, :eco_score,
+                 :co2_savings_kg, :cost_savings_inr)
+            """)
+            
             with engine.connect() as conn:
-                conn.execute(insert_query, params)
+                conn.execute(query, data)
                 conn.commit()
             
             engine.dispose()
-            print(f"Recommendation saved: {recommendation['material_name']} for {category_name}")
             return True
             
         except Exception as e:
             print(f"Failed to save recommendation: {e}")
             return False
-        
-    def update_recommendation_with_comparison(self, category_name, product_weight_kg, comparison):
-        try:
-            engine = self._get_db_engine()
-            
-            update_query = text("""
-                UPDATE recommendations
-                SET current_material_name = :current_material_name,
-                    co2_savings_kg = :co2_savings_kg,
-                    cost_savings_inr = :cost_savings_inr
-                WHERE recommendation_id = (
-                    SELECT recommendation_id FROM recommendations
-                    WHERE category_name = :category_name
-                    AND product_weight_kg = :product_weight_kg
-                    ORDER BY created_at DESC
-                    LIMIT 1
-                )
-            """)
-            
-            params = {
-                'category_name': category_name,
-                'product_weight_kg': float(product_weight_kg),
-                'current_material_name': comparison['current_material'],
-                'co2_savings_kg': comparison['co2_savings_kg'],
-                'cost_savings_inr': comparison['cost_difference_inr']
-            }
-                
-            with engine.connect() as conn:
-                conn.execute(update_query, params)
-                conn.commit()
-            
-            engine.dispose()
-            print(f"Updated recommendation with comparison data")
-            return True
-            
-        except Exception as e:
-            print(f"Failed to update recommendation: {e}")
-            return False
-        
+
+
     def get_analytics_summary(self):
         """
-        Get overall analytics summary from recommendations table.
+        Get aggregated analytics summary for dashboard.
         
         Returns:
-            Dictionary with total counts, CO₂ saved, cost metrics
+            Dictionary with summary statistics
         """
         try:
             engine = self._get_db_engine()
@@ -322,14 +299,14 @@ class EcoPackRecommender:
                 SELECT 
                     COUNT(*) as total_recommendations,
                     COUNT(DISTINCT category_name) as categories_served,
-                    COUNT(DISTINCT recommended_material_name) as unique_materials_recommended,
-                    COALESCE(SUM(co2_savings_kg), 0) as total_co2_saved_kg,
-                    COALESCE(SUM(cost_savings_inr), 0) as total_cost_saved_inr,
-                    COALESCE(AVG(predicted_co2_kg), 0) as avg_co2_per_recommendation,
-                    COALESCE(AVG(predicted_cost_inr), 0) as avg_cost_per_recommendation,
-                    COALESCE(AVG(suitability_score), 0) as avg_suitability_score,
+                    COUNT(DISTINCT recommended_material_name) as unique_materials,
+                    COALESCE(SUM(co2_savings_kg), 0) as total_co2_saved,
+                    COALESCE(SUM(cost_savings_inr), 0) as total_cost_saved,
+                    COALESCE(AVG(predicted_co2_kg), 0) as avg_co2,
+                    COALESCE(AVG(predicted_cost_inr), 0) as avg_cost,
+                    COALESCE(AVG(suitability_score), 0) as avg_suitability,
                     COALESCE(AVG(eco_score), 0) as avg_eco_score,
-                    COUNT(CASE WHEN co2_savings_kg > 0 THEN 1 END) as recommendations_with_savings,
+                    SUM(CASE WHEN co2_savings_kg > 0 THEN 1 ELSE 0 END) as positive_savings_count,
                     MIN(created_at) as first_recommendation,
                     MAX(created_at) as last_recommendation
                 FROM recommendations
@@ -341,7 +318,7 @@ class EcoPackRecommender:
             
             engine.dispose()
             
-            if row is None or row[0] == 0:
+            if not row or row[0] == 0:
                 return {
                     'total_recommendations': 0,
                     'categories_served': 0,
