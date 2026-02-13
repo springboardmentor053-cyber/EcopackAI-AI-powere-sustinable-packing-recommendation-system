@@ -29,11 +29,16 @@ class EcoPackRecommender:
         # Load materials data
         self.materials_df = pd.read_csv(os.path.join(self.base_dir, 'data/processed/materials_engineered.csv'))
         
-        # Database connection
-        self.db_url = os.getenv(
+        
+        # Get database URL 
+        db_url = os.getenv(
             "DATABASE_URL",
             "postgresql://postgres:postgres@localhost:5432/ecopackai"
         )
+        
+        if db_url.startswith("postgres://"):
+            db_url = db_url.replace("postgres://", "postgresql://", 1)
+        self.db_url = db_url
         
         print("Recommendation engine initialized")
     
