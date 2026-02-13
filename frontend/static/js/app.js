@@ -154,7 +154,7 @@ function displayResults(recs) {
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; color: #374151;">
         <div><span style="color: #6B7280;">Suitability:</span> ${(r.suitability_score * 100).toFixed(1)}%</div>
         <div><span style="color: #6B7280;">Cost:</span> Rs.${r.predicted_cost_inr.toFixed(2)}</div>
-        <div><span style="color: #6B7280;">CO₂:</span> ${r.predicted_co2_kg.toFixed(4)} kg</div>
+        <div><span style="color: #6B7280;">CO₂:</span> ${Math.abs(r.predicted_co2_kg).toFixed(4)} kg</div>
         <div><span style="color: #6B7280;">Eco Score:</span> ${r.eco_score.toFixed(3)}</div>
       </div>
     `;
@@ -178,7 +178,7 @@ function displayResults(recs) {
     <div class="analytics-box">
       <div style="font-size: 0.7rem; color: #047857; letter-spacing: 0.5px; margin-bottom: 6px;">LOWEST CO₂</div>
       <div style="font-size: 1.05rem; font-weight: 600; color: #111827;">${lowestCO2.material_name}</div>
-      <div style="font-size: 0.85rem; color: #6B7280; margin-top: 4px;">${lowestCO2.predicted_co2_kg.toFixed(4)} kg</div>
+      <div><span style="color: #6B7280;">CO₂:</span> ${Math.abs(r.predicted_co2_kg).toFixed(4)} kg</div>
     </div>
     <div class="analytics-box" style="background: linear-gradient(135deg, #059669, #047857); border-color: transparent;">
       <div style="font-size: 0.7rem; color: rgba(255,255,255,0.85); letter-spacing: 0.5px; margin-bottom: 6px;">BEST OVERALL</div>

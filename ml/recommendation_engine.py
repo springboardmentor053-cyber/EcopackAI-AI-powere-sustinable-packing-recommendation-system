@@ -104,6 +104,7 @@ class EcoPackRecommender:
             
             suitability = self.rf_suitability.predict(X_scaled)[0]
             predicted_co2 = self.xgb_co2.predict(X_scaled)[0]
+            predicted_co2 = max(0, predicted_co2)
             predicted_cost = self.rf_cost.predict(X_scaled)[0]
             
             can_handle_weight = material['weight_capacity_kg'] >= product_weight_kg
