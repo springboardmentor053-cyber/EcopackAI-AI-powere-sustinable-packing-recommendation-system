@@ -1,190 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>EcoPackAI – Material Recommendation</title>
+<meta charset="UTF-8">
+<title>EcoPackAI – Smart BI Dashboard</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<style>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    overflow-x:hidden;
+}
 
-    <style>
-        body {
-            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-            font-family: "Segoe UI", sans-serif;
-        }
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:230px;
+    height:100vh;
+    background:#071a20;
+    padding:30px 20px;
+    transition:0.4s ease;
+    box-shadow:5px 0 20px rgba(0,0,0,0.4);
+}
 
-        .app-header {
-            background: linear-gradient(135deg, #2e7d32, #66bb6a);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
+.sidebar.collapsed{ width:70px; }
 
-        .card {
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            border: none;
-        }
+.sidebar h4{
+    color:#00ffd5;
+    margin-bottom:40px;
+}
 
-        .form-label {
-            font-weight: 600;
-        }
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    color:#cfd8dc;
+    text-decoration:none;
+    margin:8px 0;
+    border-radius:8px;
+    transition:0.3s;
+}
 
-        .btn-success {
-            font-size: 18px;
-            padding: 10px;
-            border-radius: 10px;
-        }
+.sidebar a:hover{
+    background:#00ffd5;
+    color:black;
+    transform:translateX(5px);
+}
 
-        .result-box span {
-            font-weight: bold;
-            color: #2e7d32;
-        }
+.toggle-btn{
+    position:absolute;
+    top:15px;
+    right:-15px;
+    background:#00ffd5;
+    border-radius:50%;
+    width:30px;
+    height:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    color:black;
+}
 
-        #materials li {
-            background: #f1f8e9;
-            margin-bottom: 8px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: 500;
-        }
-    </style>
+/* MAIN */
+.main{
+    margin-left:230px;
+    padding:40px;
+    transition:0.4s;
+}
+
+.main.expanded{ margin-left:70px; }
+
+.card-custom{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:30px;
+}
+
+.form-label{ color:#00ffd5; }
+
+.form-control{
+    background:rgba(255,255,255,0.15);
+    border:none;
+    color:white;
+}
+
+.form-control:focus{
+    background:rgba(255,255,255,0.25);
+    color:white;
+    box-shadow:none;
+}
+
+.btn-ai{
+    background:linear-gradient(45deg,#00c853,#64dd17);
+    border:none;
+    font-weight:bold;
+    color:black;
+}
+
+.btn-export{
+    background:transparent;
+    border:2px solid #00ffd5;
+    color:#00ffd5;
+}
+
+.counter{
+    font-size:22px;
+    font-weight:bold;
+    color:#00ffae;
+}
+
+/* ===== Recommended Materials Cards ===== */
+.material-card{
+    background:linear-gradient(135deg,#1f4037,#99f2c8);
+    color:black;
+    padding:12px 15px;
+    border-radius:10px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.material-card:hover{
+    transform:scale(1.02);
+}
+
+/* Graph size */
+canvas{
+    max-height:200px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="container mt-4 mb-5">
-
-    <!-- Header -->
-    <div class="app-header mb-4">
-        <h2><i class="bi bi-recycle"></i> EcoPackAI</h2>
-        <p class="mb-0">AI-Powered Sustainable Packaging Recommendation System</p>
+<div class="sidebar" id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
     </div>
 
-    <!-- Input Form -->
-    <div class="card p-4">
-        <h5 class="mb-3"><i class="bi bi-pencil-square"></i> Product & Material Inputs</h5>
-        <div class="row g-3">
+    <h4><i class="bi bi-recycle"></i> EcoPackAI</h4>
 
-            <div class="col-md-6">
-                <label class="form-label">Weight Capacity Score (1–10)</label>
-                <input type="number" id="weight_capacity_score" class="form-control">
-            </div>
+    <a onclick="scrollToSection('dashboard')">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
 
-            <div class="col-md-6">
-                <label class="form-label">Strength Score (1–10)</label>
-                <input type="number" id="strength_score" class="form-control">
-            </div>
+    <a onclick="scrollToSection('analytics')">
+        <i class="bi bi-graph-up"></i> Analytics
+    </a>
 
-            <div class="col-md-6">
-                <label class="form-label">Barrier Score (1–10)</label>
-                <input type="number" id="barrier_score" class="form-control">
-            </div>
+    <a onclick="scrollToSection('reports')">
+        <i class="bi bi-file-earmark-arrow-down"></i> Reports
+    </a>
+</div>
 
-            <div class="col-md-6">
-                <label class="form-label">Reuse Potential Score (1–10)</label>
-                <input type="number" id="reuse_potential_score" class="form-control">
-            </div>
+<div class="main" id="main">
 
-            <div class="col-md-6">
-                <label class="form-label">Material Strength (1–10)</label>
-                <input type="number" id="material_strength" class="form-control">
-            </div>
+<!-- INPUT -->
+<div id="dashboard" class="card-custom">
+<h5>Input Parameters</h5>
 
-            <div class="col-md-6">
-                <label class="form-label">Biodegradability (0–1)</label>
-                <input type="number" step="0.1" id="biodegradability" class="form-control">
-            </div>
+<div class="row g-3">
+<div class="col-md-4"><label class="form-label">Weight Capacity (1-10)</label><input type="number" id="weight_capacity_score" class="form-control"></div>
+<div class="col-md-4"><label class="form-label">Strength Score (1-10)</label><input type="number" id="strength_score" class="form-control"></div>
+<div class="col-md-4"><label class="form-label">Barrier Score (1-10)</label><input type="number" id="barrier_score" class="form-control"></div>
+<div class="col-md-4"><label class="form-label">Reuse Potential (1-10)</label><input type="number" id="reuse_potential_score" class="form-control"></div>
+<div class="col-md-4"><label class="form-label">Material Strength (1-10)</label><input type="number" id="material_strength" class="form-control"></div>
+<div class="col-md-4"><label class="form-label">Biodegradability (0.0 - 1.0)</label><input type="number" step="0.1" id="biodegradability" class="form-control"></div>
+<div class="col-md-4"><label class="form-label">Recyclability% (1-100)</label><input type="number" id="recyclability_percent" class="form-control"></div>
+</div>
 
-            <div class="col-md-6">
-                <label class="form-label">Recyclability Percent (0–100)</label>
-                <input type="number" id="recyclability_percent" class="form-control">
-            </div>
+<button class="btn btn-ai w-100 mt-4" onclick="predict()">⚡ Run AI Prediction</button>
+</div>
 
-        </div>
+<!-- RESULTS -->
+<div id="analytics" class="card-custom">
+<h5>Prediction Results</h5>
 
-        <button class="btn btn-success mt-4 w-100" onclick="predict()">
-            <i class="bi bi-lightning-charge"></i> Predict Sustainable Material
-        </button>
-    </div>
+<div class="row text-center mt-3">
+<div class="col-md-3">Cost<br><span id="predicted_cost" class="counter">-</span></div>
+<div class="col-md-3">CO₂<br><span id="predicted_co2" class="counter">-</span></div>
+<div class="col-md-3">CO₂ Reduction %<br><span id="co2_reduction" class="counter">-</span></div>
+<div class="col-md-3">Cost Savings %<br><span id="cost_savings" class="counter">-</span></div>
+</div>
 
-    <!-- Results -->
-    <div class="card p-4 mt-4 result-box">
-        <h5><i class="bi bi-graph-up"></i> Prediction Results</h5>
-        <p>Predicted Cost: <span id="predicted_cost">-</span></p>
-        <p>Predicted CO₂: <span id="predicted_co2">-</span></p>
+<hr>
 
-        <hr>
-        <h5><i class="bi bi-award"></i> Top Recommended Materials</h5>
-        <ul id="materials"></ul>
-    </div>
+<h6>Top Recommended Materials</h6>
+<div id="materials"></div>
+</div>
 
-    <!-- Charts -->
-    <div class="card p-4 mt-4">
-        <h5><i class="bi bi-bar-chart"></i> Material Comparison Dashboard</h5>
-        <canvas id="co2Chart" height="120"></canvas>
-        <canvas id="costChart" height="120" class="mt-4"></canvas>
-    </div>
+<!-- CHARTS -->
+<div class="card-custom">
+<h5>Material Comparison</h5>
+<canvas id="co2Chart"></canvas>
+<canvas id="costChart" class="mt-4"></canvas>
+<canvas id="recycleChart" class="mt-4"></canvas>
+</div>
+
+<!-- REPORT -->
+<div id="reports" class="card-custom text-center">
+<h5>Sustainability Report</h5>
+<button onclick="exportExcel()" class="btn btn-export mt-3">
+⬇ Download Report as Excel
+</button>
+</div>
 
 </div>
 
 <script>
-function predict() {
-    const data = {
-        weight_capacity_score: Number(document.getElementById("weight_capacity_score").value),
-        strength_score: Number(document.getElementById("strength_score").value),
-        barrier_score: Number(document.getElementById("barrier_score").value),
-        reuse_potential_score: Number(document.getElementById("reuse_potential_score").value),
-        material_strength: Number(document.getElementById("material_strength").value),
-        biodegradability: Number(document.getElementById("biodegradability").value),
-        recyclability_percent: Number(document.getElementById("recyclability_percent").value)
-    };
 
-    fetch("http://127.0.0.1:8000/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(result => {
-        document.getElementById("predicted_cost").innerText = result.predicted_cost;
-        document.getElementById("predicted_co2").innerText = result.predicted_co2;
+let co2Chart, costChart, recycleChart;
 
-        const list = document.getElementById("materials");
-        list.innerHTML = "";
-
-        const names = [], co2 = [], cost = [];
-
-        result.recommended_materials.forEach(item => {
-            const li = document.createElement("li");
-            li.innerText = item.material_name + " (Score: " + item.material_score + ")";
-            list.appendChild(li);
-
-            names.push(item.material_name);
-            co2.push(item.co2_emission_score);
-            cost.push(item.material_score);
-        });
-
-        new Chart(co2Chart, {
-            type: "bar",
-            data: { labels: names, datasets: [{ label: "CO₂ Emission", data: co2, backgroundColor: "#66bb6a" }] }
-        });
-
-        new Chart(costChart, {
-            type: "bar",
-            data: { labels: names, datasets: [{ label: "Cost Score", data: cost, backgroundColor: "#ffa726" }] }
-        });
-    })
-    .catch(err => alert("Error connecting to backend"));
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("collapsed");
+    document.getElementById("main").classList.toggle("expanded");
 }
+
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function exportExcel(){
+    window.open("https://ecopackai-2rda.onrender.com/export_excel");
+}
+
+function predict(){
+
+const data={
+weight_capacity_score:+weight_capacity_score.value,
+strength_score:+strength_score.value,
+barrier_score:+barrier_score.value,
+reuse_potential_score:+reuse_potential_score.value,
+material_strength:+material_strength.value,
+biodegradability:+biodegradability.value,
+recyclability_percent:+recyclability_percent.value
+};
+console.log("Sent Data:", data);
+
+fetch("https://ecopackai-2rda.onrender.com/predict", {
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+})
+.then(res=>res.json())
+.then(result=>{
+
+predicted_cost.innerText=result.predicted_cost;
+predicted_co2.innerText=result.predicted_co2;
+co2_reduction.innerText=result.co2_reduction_percent;
+cost_savings.innerText=result.cost_savings_percent;
+
+const container=document.getElementById("materials");
+container.innerHTML="";
+
+const names=[],co2=[],cost=[],rec=[];
+
+result.recommended_materials.forEach(item=>{
+container.innerHTML+=`
+<div class="material-card">
+<span>${item.material_name}</span>
+<span>Score: ${item.material_score}</span>
+</div>
+`;
+names.push(item.material_name);
+co2.push(item.co2_emission_score);
+cost.push(item.material_score);
+rec.push(item.recyclability_percent);
+});
+
+if(co2Chart) co2Chart.destroy();
+if(costChart) costChart.destroy();
+if(recycleChart) recycleChart.destroy();
+
+/* GRAPH AXIS COLOR FIX */
+const axisColor = "#ffffff";
+
+co2Chart=new Chart(document.getElementById("co2Chart"),{
+type:"bar",
+data:{labels:names,datasets:[{label:"CO₂",data:co2,backgroundColor:"#00e5ff"}]},
+options:{
+scales:{
+x:{ticks:{color:axisColor}},
+y:{ticks:{color:axisColor}}
+},
+plugins:{legend:{labels:{color:axisColor}}}
+}
+});
+
+costChart=new Chart(document.getElementById("costChart"),{
+type:"bar",
+data:{labels:names,datasets:[{label:"Cost",data:cost,backgroundColor:"#ffca28"}]},
+options:{
+scales:{
+x:{ticks:{color:axisColor}},
+y:{ticks:{color:axisColor}}
+},
+plugins:{legend:{labels:{color:axisColor}}}
+}
+});
+
+recycleChart=new Chart(document.getElementById("recycleChart"),{
+type:"line",
+data:{labels:names,datasets:[{label:"Recyclability %",data:rec,borderColor:"#00ffae",fill:false}]},
+options:{
+scales:{
+x:{ticks:{color:axisColor}},
+y:{ticks:{color:axisColor}}
+},
+plugins:{legend:{labels:{color:axisColor}}}
+}
+});
+
+});
+}
+
 </script>
 
 </body>
