@@ -2,15 +2,32 @@
 
 **AI-Powered Sustainable Packaging Material Recommendation System**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-EcoPackAI-brightgreen)](https://ecopackai-q982.onrender.com/)
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-3.0-lightgrey)](https://flask.palletsprojects.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)](https://postgresql.org)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3-orange)](https://scikit-learn.org)
+[![XGBoost](https://img.shields.io/badge/XGBoost-2.0-red)](https://xgboost.ai)
+
 EcoPackAI is a full-stack web platform that recommends optimal eco-friendly packaging materials to businesses based on product attributes, sustainability parameters, and cost constraints. The system uses machine learning models to predict material suitability, environmental impact (CO₂ footprint), and cost efficiency.
+
+## 🌐 Live Demo
+
+**🔗 [https://ecopackai-q982.onrender.com/](https://ecopackai-q982.onrender.com/)**
+
+| Page | URL |
+|------|-----|
+| Recommendations | [https://ecopackai-q982.onrender.com/](https://ecopackai-q982.onrender.com/) |
+| Dashboard | [https://ecopackai-q982.onrender.com/dashboard](https://ecopackai-q982.onrender.com/dashboard) |
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
 - [Problem Statement](#problem-statement)
 - [Solution Overview](#solution-overview)
 - [Key Features](#key-features)
+- [Screenshots](#screenshots)
 - [System Architecture](#system-architecture)
 - [Technology Stack](#technology-stack)
 - [Project Structure](#project-structure)
@@ -19,19 +36,20 @@ EcoPackAI is a full-stack web platform that recommends optimal eco-friendly pack
 - [API Documentation](#api-documentation)
 - [Frontend Interface](#frontend-interface)
 - [Installation & Setup](#installation--setup)
+- [Deployment](#deployment)
 - [Usage Guide](#usage-guide)
 - [Sample Results](#sample-results)
 - [Future Enhancements](#future-enhancements)
 
 ---
 
-## Problem Statement
+## ❓ Problem Statement
 
 Traditional packaging used in industries and e-commerce heavily relies on non-biodegradable and costly materials, causing increasing environmental damage and financial inefficiency. Businesses lack intelligent decision-support systems that can help them evaluate and adopt eco-friendly alternative packaging materials without compromising durability, product safety, or cost-efficiency.
 
 ---
 
-## Solution Overview
+## 💡 Solution Overview
 
 EcoPackAI solves this challenge by:
 
@@ -40,10 +58,11 @@ EcoPackAI solves this challenge by:
 3. Providing ranked recommendations based on suitability, cost, and environmental impact
 4. Enabling comparison with current packaging to show potential CO₂ and cost savings
 5. Storing recommendation history for business intelligence analytics
+6. Providing a BI Dashboard for tracking environmental impact over time
 
 ---
 
-## Key Features
+## ✨ Key Features
 
 | Feature | Description |
 |---------|-------------|
@@ -54,31 +73,61 @@ EcoPackAI solves this challenge by:
 | **Comparison Analysis** | Compare current material vs recommended to see exact savings |
 | **Budget Filtering** | Filter recommendations by maximum cost constraint |
 | **Fragility Override** | Override category defaults for specific product needs |
-| **Recommendation Logging** | All recommendations saved for BI analytics |
-| **REST API** | 7+ endpoints for integration with other systems |
+| **BI Dashboard** | Analytics dashboard with KPIs, charts, and insights |
+| **Recommendation Logging** | All recommendations saved for analytics |
+| **REST API** | 10+ endpoints for integration with other systems |
 | **Responsive UI** | Works on desktop and mobile devices |
+| **Cloud Deployed** | Live on Render with PostgreSQL database |
 
 ---
 
-## System Architecture
+## 📸 Screenshots
+
+### Recommendation Interface
+![Recommendation Interface](screenshots/recommendation-interface.png)
+*AI-powered material recommendations with suitability scores, cost, and CO₂ impact*
+
+### Comparison Chart
+![Comparison Chart](screenshots/comparison-chart.png)
+*Dual-axis bar chart comparing Cost (INR) vs CO₂ Impact (kg)*
+
+### Savings Analysis
+![Savings Analysis](screenshots/savings-analysis.png)
+*CO₂ reduction and cost savings when switching from current material*
+
+### BI Dashboard
+![Dashboard](screenshots/dashboard.png)
+*Business Intelligence dashboard with KPIs, charts, and recent activity*
+
+---
+
+## 🏗️ System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                      User Interface Layer                       │
 │              (HTML + CSS + JavaScript + Chart.js)               │
+│         ┌─────────────────┐    ┌─────────────────┐              │
+│         │  Recommendations│    │    Dashboard    │              │
+│         │      Page       │    │      Page       │              │
+│         └─────────────────┘    └─────────────────┘              │
 └─────────────────────────────────────────────────────────────────┘
                                 │
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                      Flask Backend API                          │
 │         (REST Endpoints + Rate Limiting + Validation)           │
+│                                                                 │
+│   /api/recommend    /api/compare    /api/analytics/summary      │
+│   /api/categories   /api/materials  /api/analytics/by-material  │
+│   /api/health       /api/eco-score  /api/analytics/by-category  │
 └─────────────────────────────────────────────────────────────────┘
                                 │
                 ┌───────────────┼───────────────┐
                 ▼                               ▼
 ┌───────────────────────────┐   ┌───────────────────────────────┐
 │     AI/ML Layer           │   │     PostgreSQL Database       │
-│  - Random Forest (2x)     │   │  - materials                  │
+│  - Random Forest (2x)     │   │  - packaging_materials        │
 │  - XGBoost                │   │  - product_categories         │
 │  - StandardScaler         │   │  - recommendations            │
 │  - LabelEncoders          │   │                               │
@@ -87,36 +136,40 @@ EcoPackAI solves this challenge by:
 
 ---
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 | Layer | Technology |
 |-------|------------|
-| **Frontend** | HTML5, CSS3, JavaScript (ES6), Bootstrap 5, Chart.js |
-| **Backend** | Python 3.12, Flask 3.x, Flask-CORS |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6), Chart.js |
+| **Backend** | Python 3.11, Flask 3.0, Flask-CORS |
 | **Database** | PostgreSQL 16 |
-| **ML/AI** | scikit-learn, XGBoost, pandas, numpy |
+| **ML/AI** | scikit-learn 1.3, XGBoost 2.0, pandas, numpy |
 | **ORM** | SQLAlchemy 2.0 |
-| **Data Processing** | pandas, numpy |
+| **Deployment** | Render (Web Service + PostgreSQL) |
 | **Model Serialization** | joblib |
+| **Version Control** | Git, GitHub |
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 EcoPackAI/
 │
 ├── backend/
-│   └── app.py                    # Flask API server (7 endpoints)
+│   └── app.py                    # Flask API server (10+ endpoints)
 │
 ├── frontend/
 │   ├── templates/
-│   │   └── index.html            # Main UI page
+│   │   ├── index.html            # Recommendations page
+│   │   └── dashboard.html        # BI Dashboard page
 │   └── static/
 │       ├── css/
-│       │   └── style.css         # Custom styling
+│       │   ├── style.css         # Recommendations styling
+│       │   └── dashboard.css     # Dashboard styling
 │       └── js/
-│           └── app.js            # Frontend logic
+│           ├── app.js            # Recommendations logic
+│           └── dashboard.js      # Dashboard logic
 │
 ├── ml/
 │   ├── models/
@@ -126,7 +179,11 @@ EcoPackAI/
 │   │   ├── encoders.pkl          # Label encoders for categorical features
 │   │   ├── scaler.pkl            # StandardScaler for feature normalization
 │   │   └── feature_columns.pkl   # Feature column order
-│   └── recommendation_engine.py  # Core ML recommendation logic
+│   ├── recommendation_engine.py  # Core ML recommendation logic
+│   ├── train_models.py           # Model training script
+│   ├── generate_training_data.py # Training data generation
+│   ├── feature_engineering.py    # Feature engineering pipeline
+│   └── prepare_ml_data.py        # Data preparation utilities
 │
 ├── data/
 │   ├── raw/
@@ -135,18 +192,33 @@ EcoPackAI/
 │       └── materials_engineered.csv  # Feature-engineered data
 │
 ├── database/
-│   └── schema.sql                # PostgreSQL table definitions
+│   └── init_schema.sql           # PostgreSQL table definitions
 │
-├── dashboard/                    # BI Dashboard (in progress)
-│
+├── requirements.txt              # Python dependencies
+├── Procfile                      # Render deployment config
+├── render.yaml                   # Render blueprint
+├── runtime.txt                   # Python version specification
 └── README.md                     # This file
 ```
 
 ---
 
-## Database Schema
+## 🗄️ Database Schema
 
-### Table: `materials`
+### ER Diagram
+
+![ER Diagram](screenshots/er-diagram.png)
+
+*Entity Relationship Diagram showing the database structure*
+
+<!-- 
+ER Diagram placeholder - Replace with actual diagram
+Tables: packaging_materials, product_categories, recommendations
+-->
+
+---
+
+### Table: `packaging_materials`
 
 Stores 25 packaging materials with their properties.
 
@@ -156,12 +228,14 @@ Stores 25 packaging materials with their properties.
 | material_name | VARCHAR(100) | Unique material name |
 | material_type | VARCHAR(50) | Category: Paper-based, Plastic-based, Foam-based, Fiber/Fabric, Organic |
 | strength_score | DECIMAL(3,2) | 0-1 scale, higher = stronger |
-| weight_capacity_kg | DECIMAL(10,2) | Maximum weight the material can handle |
+| weight_capacity_kg | DECIMAL(6,2) | Maximum weight the material can handle |
 | biodegradability_score | DECIMAL(3,2) | 0-1 scale, higher = more biodegradable |
-| co2_emission_kg | DECIMAL(10,4) | CO₂ emitted per kg of material production |
 | recyclability_percent | DECIMAL(5,2) | Percentage that can be recycled |
-| cost_per_kg | DECIMAL(10,2) | Cost in INR per kg |
 | moisture_resistance | DECIMAL(3,2) | 0-1 scale, higher = more resistant |
+| co2_emission_kg | DECIMAL(6,4) | CO₂ emitted per kg of material production |
+| cost_per_kg | DECIMAL(8,2) | Cost in INR per kg |
+| eco_score | DECIMAL(4,3) | Computed sustainability score |
+| created_at | TIMESTAMP | Record creation time |
 
 ### Table: `product_categories`
 
@@ -175,7 +249,8 @@ Stores 13 product categories with their packaging requirements.
 | requires_cushioning | BOOLEAN | Whether products need cushioning |
 | moisture_sensitive | BOOLEAN | Whether products are moisture sensitive |
 | temperature_sensitive | BOOLEAN | Whether products are temperature sensitive |
-| typical_weight_kg | DECIMAL(10,2) | Typical product weight in this category |
+| typical_weight_range | VARCHAR(50) | Typical product weight range |
+| created_at | TIMESTAMP | Record creation time |
 
 ### Table: `recommendations`
 
@@ -185,7 +260,7 @@ Logs all recommendations for analytics.
 |--------|------|-------------|
 | recommendation_id | SERIAL | Primary key |
 | category_name | VARCHAR(100) | Product category |
-| product_weight_kg | DECIMAL(10,2) | User-entered weight |
+| product_weight_kg | DECIMAL(8,2) | User-entered weight |
 | fragility_level | VARCHAR(20) | Fragility used (auto or override) |
 | budget_limit | DECIMAL(10,2) | Budget constraint if provided |
 | current_material_name | VARCHAR(100) | User's current material (optional) |
@@ -193,15 +268,15 @@ Logs all recommendations for analytics.
 | recommended_material_type | VARCHAR(50) | Type of recommended material |
 | suitability_score | DECIMAL(5,3) | Predicted suitability (0-1) |
 | predicted_cost_inr | DECIMAL(10,2) | Predicted cost in INR |
-| predicted_co2_kg | DECIMAL(10,4) | Predicted CO₂ emission in kg |
-| eco_score | DECIMAL(5,3) | Environmental score (0-1) |
-| co2_savings_kg | DECIMAL(10,4) | CO₂ saved vs current material |
+| predicted_co2_kg | DECIMAL(8,4) | Predicted CO₂ emission in kg |
+| eco_score | DECIMAL(4,3) | Environmental score (0-1) |
+| co2_savings_kg | DECIMAL(8,4) | CO₂ saved vs current material |
 | cost_savings_inr | DECIMAL(10,2) | Cost saved vs current material |
 | created_at | TIMESTAMP | When recommendation was made |
 
 ---
 
-## Machine Learning Models
+## 🤖 Machine Learning Models
 
 ### Model Performance
 
@@ -238,21 +313,36 @@ Logs all recommendations for analytics.
 
 ---
 
-## API Documentation
+## 📡 API Documentation
 
 ### Base URL
 ```
-http://localhost:5000
+Production: https://ecopackai-q982.onrender.com
+Local:      http://localhost:5000
 ```
 
-### Endpoints
+### Endpoints Overview
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+| GET | `/api/categories` | List all categories |
+| GET | `/api/materials` | List all materials |
+| GET | `/api/materials/<name>` | Get material details |
+| POST | `/api/recommend` | Get AI recommendations |
+| POST | `/api/compare` | Compare materials |
+| POST | `/api/eco-score` | Get eco score |
+| GET | `/api/analytics/summary` | Dashboard summary |
+| GET | `/api/analytics/by-material` | Stats by material |
+| GET | `/api/analytics/by-category` | Stats by category |
+| GET | `/api/analytics/recent` | Recent recommendations |
+
+### Core Endpoints
 
 #### 1. Health Check
 ```
 GET /api/health
 ```
-Returns API status and model loading confirmation.
-
 **Response:**
 ```json
 {
@@ -267,64 +357,10 @@ Returns API status and model loading confirmation.
 }
 ```
 
-#### 2. List Categories
-```
-GET /api/categories
-```
-Returns all 13 product categories.
-
-**Response:**
-```json
-{
-  "status": "success",
-  "count": 13,
-  "categories": ["Books & Stationery", "Clothing & Textiles", "Cosmetics & Personal Care", ...]
-}
-```
-
-#### 3. List Materials
-```
-GET /api/materials
-```
-Returns all 25 packaging materials.
-
-**Response:**
-```json
-{
-  "status": "success",
-  "count": 25,
-  "materials": ["Corrugated Cardboard", "Honeycomb Cardboard", "Kraft Paper", ...]
-}
-```
-
-#### 4. Get Material Details
-```
-GET /api/materials/<material_name>
-```
-Returns detailed properties of a specific material.
-
-**Response:**
-```json
-{
-  "status": "success",
-  "material": {
-    "material_id": 7,
-    "material_name": "Recycled PET (rPET)",
-    "material_type": "Plastic-based",
-    "strength_score": 0.85,
-    "weight_capacity_kg": 35.0,
-    "biodegradability_score": 0.02,
-    "eco_score": 0.513,
-    ...
-  }
-}
-```
-
-#### 5. Get Recommendations (Core Endpoint)
+#### 2. Get Recommendations
 ```
 POST /api/recommend
 ```
-
 **Request Body:**
 ```json
 {
@@ -357,22 +393,20 @@ POST /api/recommend
       "material_name": "Recycled PET (rPET)",
       "material_type": "Plastic-based",
       "suitability_score": 1.0,
-      "predicted_co2_kg": 0.3253,
+      "predicted_co2_kg": 0.0325,
       "predicted_cost_inr": 80.02,
       "eco_score": 0.513,
       "can_handle_weight": true,
       "weight_capacity_kg": 35.0
-    },
-    ...
+    }
   ]
 }
 ```
 
-#### 6. Compare Materials
+#### 3. Compare Materials
 ```
 POST /api/compare
 ```
-
 **Request Body:**
 ```json
 {
@@ -388,42 +422,35 @@ POST /api/compare
   "status": "success",
   "comparison": {
     "current_material": "EPS (Expanded Polystyrene)",
-    "current_co2_kg": 1.785,
+    "current_co2_kg": 0.1785,
     "current_cost_inr": 110.25,
     "recommended_material": "Recycled PET (rPET)",
-    "recommended_co2_kg": 0.3253,
+    "recommended_co2_kg": 0.0325,
     "recommended_cost_inr": 80.02,
     "recommended_eco_score": 0.513,
-    "co2_savings_kg": 1.4597,
+    "co2_savings_kg": 0.146,
     "co2_reduction_percent": 81.8,
     "cost_difference_inr": 30.23
   }
 }
 ```
 
-#### 7. Get Eco Score
+#### 4. Analytics Summary (Dashboard)
 ```
-POST /api/eco-score
+GET /api/analytics/summary
 ```
-
-**Request Body:**
-```json
-{
-  "material_name": "Recycled PET (rPET)"
-}
-```
-
 **Response:**
 ```json
 {
   "status": "success",
-  "material_name": "Recycled PET (rPET)",
-  "environmental_scores": {
-    "eco_score": 0.513,
-    "co2_emission_kg": 0.62,
-    "co2_impact_index": 0.182,
-    "biodegradability_score": 0.02,
-    "recyclability_percent": 75.0
+  "analytics": {
+    "total_recommendations": 50,
+    "categories_served": 11,
+    "unique_materials_recommended": 8,
+    "total_co2_saved_kg": 3.53,
+    "total_cost_saved_inr": 245.67,
+    "avg_suitability_score": 0.93,
+    "avg_eco_score": 0.72
   }
 }
 ```
@@ -441,7 +468,6 @@ All endpoints return errors in this format:
 | Status Code | Meaning |
 |-------------|---------|
 | 400 | Bad Request - Invalid input |
-| 401 | Unauthorized - Invalid API key |
 | 404 | Not Found - Resource doesn't exist |
 | 429 | Too Many Requests - Rate limit exceeded |
 | 500 | Internal Server Error |
@@ -454,9 +480,16 @@ All endpoints return errors in this format:
 
 ---
 
-## Frontend Interface
+## 🖥️ Frontend Interface
 
-### Input Parameters
+### Pages
+
+| Page | Path | Description |
+|------|------|-------------|
+| Recommendations | `/` | Main recommendation interface |
+| Dashboard | `/dashboard` | BI Analytics dashboard |
+
+### Recommendation Page - Input Parameters
 
 | Input | Type | Purpose |
 |-------|------|---------|
@@ -467,7 +500,7 @@ All endpoints return errors in this format:
 | **Number of Recommendations** | Dropdown | Controls output size (3/5/10) |
 | **Current Material** | Dropdown | Enables comparison to show savings |
 
-### Output Sections
+### Recommendation Page - Output Sections
 
 1. **Recommended Materials** - Cards showing top materials with scores
 2. **Recommendation Analytics** - Lowest cost, lowest CO₂, best overall
@@ -475,21 +508,35 @@ All endpoints return errors in this format:
 4. **Material Comparison Table** - Full details with ranking
 5. **Savings vs Current** - CO₂ and cost savings (if current material selected)
 
+### Dashboard Page - KPIs & Charts
+
+| Component | Description |
+|-----------|-------------|
+| **Total Recommendations** | Count of all recommendations made |
+| **CO₂ Saved** | Total environmental impact saved |
+| **Avg Suitability** | Average recommendation quality |
+| **Cost Impact** | Total cost implications |
+| **Top Materials Chart** | Bar chart of most recommended materials |
+| **CO₂ by Category Chart** | Environmental impact by industry |
+| **Recent Activity** | Latest recommendation history |
+| **Quick Insights** | AI-generated observations |
+
 ---
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
 ### Prerequisites
 
 - Python 3.10+
 - PostgreSQL 14+
 - pip (Python package manager)
+- Git
 
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/EcoPackAI.git
-cd EcoPackAI
+git clone https://github.com/mani9kanta3/EcoPackAI-AI-Powered-Sustainable-Packaging-Recommendation-System.git
+cd EcoPackAI-AI-Powered-Sustainable-Packaging-Recommendation-System
 ```
 
 ### Step 2: Create Virtual Environment
@@ -502,7 +549,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ### Step 3: Install Dependencies
 
 ```bash
-pip install flask flask-cors pandas numpy scikit-learn xgboost sqlalchemy psycopg2-binary joblib
+pip install -r requirements.txt
+```
+
+Or install manually:
+```bash
+pip install flask flask-cors pandas numpy scikit-learn xgboost sqlalchemy psycopg2-binary joblib gunicorn
 ```
 
 ### Step 4: Setup PostgreSQL Database
@@ -517,37 +569,65 @@ CREATE DATABASE ecopackai;
 # Connect to database
 \c ecopackai
 
-# Run schema (copy from database/schema.sql)
+# Run schema from database/init_schema.sql
 ```
 
-### Step 5: Load Data
+### Step 5: Configure Environment
 
+Create `.env` file or set environment variable:
 ```bash
-# Insert materials data into PostgreSQL
-# Insert product categories data into PostgreSQL
+DATABASE_URL=postgresql://username:password@localhost:5432/ecopackai
 ```
 
-### Step 6: Configure Database URL
-
-Edit `ml/recommendation_engine.py`:
-```python
-self.db_url = "postgresql://username:password@localhost:5432/ecopackai"
-```
-
-### Step 7: Run Application
+### Step 6: Run Application
 
 ```bash
 cd backend
 python app.py
 ```
 
-### Step 8: Access Application
+### Step 7: Access Application
 
 Open browser: `http://localhost:5000`
 
 ---
 
-## Usage Guide
+## 🚀 Deployment
+
+### Deployed On: Render
+
+| Service | Type | URL |
+|---------|------|-----|
+| Web Service | Python | https://ecopackai-q982.onrender.com |
+| Database | PostgreSQL | Render Managed PostgreSQL |
+
+### Deployment Files
+
+| File | Purpose |
+|------|---------|
+| `requirements.txt` | Python dependencies |
+| `Procfile` | Start command for Render |
+| `render.yaml` | Render blueprint configuration |
+| `runtime.txt` | Python version (3.11.6) |
+
+### Deploy Your Own
+
+1. Fork this repository
+2. Create account on [Render](https://render.com)
+3. Create PostgreSQL database
+4. Create Web Service connected to your repo
+5. Add `DATABASE_URL` environment variable
+6. Deploy!
+
+### Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `DATABASE_URL` | PostgreSQL connection string |
+
+---
+
+## 📖 Usage Guide
 
 ### Basic Recommendation
 
@@ -571,42 +651,50 @@ Open browser: `http://localhost:5000`
 ### With Comparison
 
 1. Select all inputs as above
-2. Select **Current Packaging Material** (e.g., "Corrugated Cardboard")
+2. Select **Current Packaging Material** (e.g., "EPS (Expanded Polystyrene)")
 3. Click run
 4. View **Savings vs Current Material** section showing CO₂ and cost differences
 
+### Using the Dashboard
+
+1. Navigate to `/dashboard`
+2. View KPI cards for overall metrics
+3. Analyze Top Materials and CO₂ by Category charts
+4. Check Recent Activity for recommendation history
+5. Use Export PDF to download reports
+
 ---
 
-## Sample Results
+## 📊 Sample Results
 
 ### Example: Electronics, 3.5 kg, Auto Fragility, No Budget
 
 | Rank | Material | Suitability | Cost (INR) | CO₂ (kg) | Eco Score |
 |------|----------|-------------|------------|----------|-----------|
-| #1 | Recycled PET (rPET) | 100.0% | 80.02 | 0.3253 | 0.513 |
-| #2 | Hemp Packaging | 94.3% | 222.02 | 0.2395 | 0.787 |
-| #3 | Honeycomb Cardboard | 94.0% | 98.94 | 0.3855 | 0.849 |
-| #4 | Bamboo Fiber | 91.8% | 106.93 | 0.3396 | 0.713 |
-| #5 | PLA Bioplastic | 91.6% | 198.66 | 0.6326 | 0.505 |
+| #1 | Recycled PET (rPET) | 100.0% | 80.02 | 0.0325 | 0.513 |
+| #2 | Hemp Packaging | 94.3% | 222.02 | 0.0236 | 0.787 |
+| #3 | Honeycomb Cardboard | 94.0% | 98.94 | 0.0394 | 0.849 |
+| #4 | Bamboo Fiber | 91.8% | 106.93 | 0.0341 | 0.713 |
+| #5 | PLA Bioplastic | 91.6% | 198.66 | 0.0630 | 0.505 |
 
 ### Example: Comparison Result
 
 **Current:** EPS (Expanded Polystyrene)
-- CO₂: 1.785 kg
+- CO₂: 0.1785 kg
 - Cost: Rs. 110.25
 
 **Recommended:** Recycled PET (rPET)
-- CO₂: 0.3253 kg
+- CO₂: 0.0325 kg
 - Cost: Rs. 80.02
 
 **Savings:**
 - CO₂ Reduction: **81.8%**
-- CO₂ Saved: **1.46 kg**
+- CO₂ Saved: **0.146 kg**
 - Cost Saved: **Rs. 30.23**
 
 ---
 
-## Understanding the Scores
+## 📈 Understanding the Scores
 
 ### Eco Score (0 to 1)
 
@@ -625,10 +713,10 @@ Open browser: `http://localhost:5000`
 
 | Range | Meaning |
 |-------|---------|
-| Below 0.20 kg | Excellent |
-| 0.20 - 0.40 kg | Good |
-| 0.40 - 0.80 kg | Moderate |
-| Above 0.80 kg | High |
+| Below 0.05 kg | Excellent |
+| 0.05 - 0.10 kg | Good |
+| 0.10 - 0.20 kg | Moderate |
+| Above 0.20 kg | High |
 
 ### Suitability Score (0 to 1)
 
@@ -640,30 +728,47 @@ Open browser: `http://localhost:5000`
 
 ---
 
-## Future Enhancements
+## 🔮 Future Enhancements
 
-- [ ] **BI Dashboard** - Analytics page with charts and export
-- [ ] **PDF/Excel Export** - Download sustainability reports
+- [ ] **PDF/Excel Export** - Download detailed sustainability reports
 - [ ] **User Authentication** - Login system for businesses
-- [ ] **Historical Trends** - Track recommendations over time
+- [ ] **Historical Trends** - Track recommendations over time with graphs
 - [ ] **Multi-language Support** - Hindi, regional languages
 - [ ] **Mobile App** - React Native version
 - [ ] **Supplier Integration** - Direct ordering from material suppliers
+- [ ] **Carbon Footprint Calculator** - Annual emissions tracking
+- [ ] **Email Reports** - Automated weekly sustainability reports
+- [ ] **API Key Management** - Secure API access for integrations
 
 ---
 
-## Project Info
+## 🏆 Project Info
 
 | | |
 |---|---|
+| **Project Name** | EcoPackAI - AI-Powered Sustainable Packaging Recommendation System |
 | **Domain** | AI/ML, Sustainability, Full-Stack Development |
+| **Platform** | Infosys Springboard |
 | **Duration** | 8 Weeks |
 | **Author** | Manikanta Pudi |
+| **Live Demo** | [https://ecopackai-q982.onrender.com/](https://ecopackai-q982.onrender.com/) |
 
 ---
 
-## License
+## 📄 License
 
-This project is developed as part of an educational internship program.
+This project is developed as part of an educational internship program at Infosys Springboard.
 
 ---
+
+## 🙏 Acknowledgments
+
+- Infosys Springboard for the internship opportunity
+- Open source community for the amazing tools and libraries
+- Environmental research papers for sustainability metrics
+
+---
+
+<p align="center">
+  <b>Built with 💚 for a sustainable future</b>
+</p>
