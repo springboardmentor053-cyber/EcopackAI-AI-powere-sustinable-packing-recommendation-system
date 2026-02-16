@@ -740,32 +740,6 @@ Open browser: `http://localhost:5000`
 - [ ] **Email Reports** - Automated weekly sustainability reports
 - [ ] **API Key Management** - Secure API access for integrations
 
----
-
-## 🏆 Project Info
-
-| | |
-|---|---|
-| **Project Name** | EcoPackAI - AI-Powered Sustainable Packaging Recommendation System |
-| **Domain** | AI/ML, Sustainability, Full-Stack Development |
-| **Platform** | Infosys Springboard |
-| **Duration** | 8 Weeks |
-| **Author** | Manikanta Pudi |
-| **Live Demo** | [https://ecopackai-q982.onrender.com/](https://ecopackai-q982.onrender.com/) |
-
----
-
-## 📄 License
-
-This project is developed as part of an educational internship program at Infosys Springboard.
-
----
-
-## 🙏 Acknowledgments
-
-- Infosys Springboard for the internship opportunity
-- Open source community for the amazing tools and libraries
-- Environmental research papers for sustainability metrics
 
 ---
 
