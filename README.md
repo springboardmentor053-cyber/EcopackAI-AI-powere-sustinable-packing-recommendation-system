@@ -1,220 +1,212 @@
-EcoPackAI – AI-Powered Sustainable Packaging Recommendation System
-Project Overview
+# EcoPackAI
+## AI-Powered Sustainable Packaging Recommendation System
 
-EcoPackAI is an AI-driven decision support system that recommends optimal and sustainable packaging materials for different products.
-The system evaluates cost, strength, recyclability, biodegradability, and CO₂ footprint using machine learning models and ranks materials using an AI-based suitability score.
 
-Objectives
+### Live Deployment
 
-Promote eco-friendly packaging decisions
+* Production URL:
+https://ecopackai-qj2j.onrender.com
 
-Reduce packaging cost and carbon footprint
 
-Apply machine learning for data-driven recommendations
 
-Build an end-to-end system (Database → ML → API → UI)
+### Project Overview
 
-Tech Stack
+EcoPackAI is a full-stack AI-driven decision support system that recommends the most sustainable and cost-efficient packaging material for a given product.
 
-Backend: Python, Flask, Flask-CORS
+The system evaluates:
+* Product weight
+* Fragility level
+* Product category
+* Maximum packaging cost constraint
+* Environmental sustainability parameters
 
-Database: PostgreSQL
+Using machine learning models, EcoPackAI predicts packaging cost and CO₂ emissions, then ranks materials using a composite suitability and environmental score.
 
-ML: Pandas, NumPy, Scikit-learn, XGBoost
+This project demonstrates a complete end-to-end AI system:
 
-Frontend: HTML, CSS, Bootstrap, JavaScript
+* Database → Feature Engineering → ML Models → REST API → Dashboard → Cloud Deployment
 
-Tools: Jupyter Notebook, GitHub, VS Code
 
-Project Architecture
-EcoPackAI/
-│
-├── data/
-│   └── processed/
-│       ├── materials_dataset.csv
-│       └── products_dataset.csv
-│
-├── src/
-│   └── feature_engineering.py
-│
-├── models/
-│   ├── rf_cost_model.pkl
-│   ├── xgb_co2_model.pkl
-│   └── scaler.pkl
-│
-├── backend/
-│   ├── app.py
-│   └── db.py
-│
-├── frontend/
-│   ├── templates/
-│   │   ├── index.html
-│   │   └── results.html
-│   ├── static/
-│   │   ├── css/style.css
-│   │   └── js/script.js
-│
-├── notebooks/
-│   ├── module1_data_collection.ipynb
-│   ├── module2_data_cleaning_feature_engineering.ipynb
-│   ├── module3_ml_preparation.ipynb
-│   ├── module4_model_training.ipynb
-│   ├── module5_flask_backend_api.ipynb
-│   └── module6_frontend_ui_development.ipynb
-│
-└── README.md
 
-Module-wise Progress
- Module 1 – Data Collection & Database Setup
+### System Architecture
 
-Created Materials dataset (120 records)
+Frontend (HTML / CSS / JS)
+        ↓
+Flask Backend (REST API Layer)
+        ↓
+Machine Learning Models (RF + XGBoost + Scaler)
+        ↓
+PostgreSQL Database (Products, Materials, Logs)
+        ↓
+Business Intelligence Dashboard + Reports
 
-Created Products dataset (175 records)
 
-Designed PostgreSQL schema
 
-Imported datasets into PostgreSQL
+### Machine Learning Models
+| Model | Purpose|
+|-------|--------|
+| Random Forest Regressor | Predict Packaging Cost |
+|XGBoost Regressor | Predict CO₂ Emission |
+| StandardScaler | Feature Normalization |
 
- Module 2 – Data Cleaning & Feature Engineering
+Model Details:
 
-Verified no missing values or duplicates
+* Models trained in Jupyter Notebooks
+* ~21,000 product–material combinations generated
+* 80/20 train-test split
+* High R² performance on both models
+* Exported as .pkl files
+* Deployment environment library versions aligned with training environment to ensure prediction consistency
 
-Standardized numerical features
 
-Engineered features:
 
-Cost score
+### Database Schema
 
-CO₂ score
+1. products
 
-Sustainability score
+Stores product specifications:
+* product_id
+* product_name
+* product_category
+* product_weight_kg
+* fragility_level
+* required_strength_score
+* preferred_biodegradability_score
+* max_packaging_cost_inr
+* temperature_sensitive
 
-Material suitability score
 
-Implemented feature logic in src/feature_engineering.py
+2. materials
 
- Module 3 – Machine Learning Dataset Preparation
+Stores packaging material attributes:
+* material_id
+* material_name
+* strength_score
+* weight_capacity_kg
+* biodegradability_score
+* co2_emission_kg
+* recyclability_percent
+* cost_per_unit_inr
+* product_category
+* used_for_products
 
-Cross-joined products and materials
 
-Generated ~21,000 product–material combinations
+3. recommendation_logs
 
-Created ML targets:
+Stores generated predictions for analytics:
+* predicted_cost
+* predicted_co2
+* material_name
+* suitability_score
+* category
+* timestamp
+Used for dashboard visualizations and reporting.
 
-target_cost_inr
 
-target_co2_kg
 
-Selected ML features (9 key attributes)
+### Core Features Implemented
 
-Split data into 80% train / 20% test
+1. Intelligent Recommendation Engine
 
-Applied StandardScaler
+Ranks materials based on:
+* Predicted packaging cost
+* Predicted CO₂ emission
+* Suitability score
+* Environmental sustainability score
+* Recyclability percentage
+* Biodegradability score
 
- Module 4 – AI Recommendation Models
 
-Cost Prediction
+2. Interactive BI Dashboard
 
-Model: Random Forest Regressor
+Displays:
+* Total recommendations generated
+* Average predicted cost
+* Average predicted CO₂ emission
+* Category-wise cost & emission insights
+* Top recommended materials
+* Material comparison analytics
+All charts are dynamic and data-driven from PostgreSQL.
 
-Metrics:
 
-RMSE ≈ 0.48
+3. Export Functionality
 
-MAE ≈ 0.12
+Supports:
+* CSV export (Excel compatible)
+* PDF report export
+* Comparison report export
+* Dashboard analytics export
+PDF generation implemented using:
+* ReportLab (backend)
+* jsPDF (frontend)
 
-R² ≈ 0.999
 
-CO₂ Prediction
+4. API Security
 
-Model: XGBoost Regressor
+* API protected using header-based API key authentication
+* Unauthorized requests return 401
+* Secrets managed via environment variables
 
-Metrics:
 
-RMSE ≈ 0.017
 
-MAE ≈ 0.009
+### Tech Stack
 
-R² ≈ 1.0
+Backend
+* Python
+* Flask
+* Flask-CORS
+* Gunicorn (Production WSGI server)
 
-Outputs
+Machine Learning
+* Pandas
+* NumPy
+* Scikit-learn
+* XGBoost
 
-Trained models saved as .pkl
+Database
+* PostgreSQL (Cloud-hosted on Render)
 
-Integrated predictions into ranking logic
+Frontend
+* HTML
+* CSS
+* Bootstrap
+* JavaScript (Fetch API)
+* Chart.js
 
- Module 5 – Flask Backend API
+Deployment
+* Render Cloud
+* Managed PostgreSQL
+* Production environment configuration
 
-Built Flask REST API
 
-Endpoints:
 
-/api/health
+### Key Technical Highlights
 
-/api/recommend (POST)
+* End-to-end AI pipeline implementation
+* Cross-joined ML dataset (~21K combinations)
+* Version-controlled ML training notebooks
+* Dependency alignment between training and production
+* Production-grade WSGI deployment via Gunicorn
+* Cloud-hosted PostgreSQL integration
+* Secure API key authentication
+* Responsive UI with structured ranking logic
+* Real-time BI dashboard built from prediction logs
+* Automated PDF report generation
 
-Features:
 
-Product input handling
 
-Material filtering
+### Business Value
 
-Feature engineering
+EcoPackAI can be applied in:
+* E-commerce packaging optimization
+* Sustainable manufacturing decision systems
+* ESG reporting frameworks
+* Carbon footprint reduction strategies
+* Supply chain optimization
 
-ML-based cost & CO₂ prediction
+It demonstrates practical AI application in sustainability-focused decision making.
 
-Final ranking logic
+### Project Information
 
-Connected backend to PostgreSQL
-
-Implemented structured JSON responses
-
-Added basic API key security
-
- Module 6 – Frontend UI Development
-
-Built UI using HTML, CSS, Bootstrap
-
-Pages:
-
-Product input page
-
-Results page
-
-Features:
-
-Input form with validations
-
-API integration using Fetch
-
-Display ranked recommendations in table
-
-Comparison metrics:
-
-Cost
-
-CO₂
-
-Recyclability
-
-Biodegradability
-
-Suitability score
-
-Improved layout using Bootstrap cards & tables
-
-
-
-## ML Models (Not Tracked in Git)
-
-Trained ML models are intentionally excluded from version control due to size limits.
-
-Models used:
-- Random Forest (Cost Prediction)
-- XGBoost (CO₂ Prediction)
-- StandardScaler
-
-To regenerate models:
-1. Run `module3_ml_preparation.ipynb`
-2. Run `module4_model_training.ipynb`
-3. Models will be saved locally under `/models`
+Project Type: AI Virtual Internship Project
+Developed By: Varshitha Tummala
