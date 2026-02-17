@@ -1,0 +1,13 @@
+flask==3.0.0
+flask-cors==4.0.0
+joblib==1.4.0
+pandas==2.1.0
+scikit-learn==1.4.1
+numpy==1.26.0
+scipy==1.11.4
+xgboost==2.0.3
+matplotlib==3.8.2
+plotly==5.18.0
+openpyxl==3.1.2
+reportlab==4.0.7
+kaleido==0.2.1
