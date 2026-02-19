@@ -51,3 +51,10 @@ EcoPackAI is an AI-powered sustainable packaging recommendation system that help
 - Git & GitHub
 - Jupyter Notebook
 - VS Code
+
+### Frontend 
+- HTML
+- CSS
+- Javascript
+
+
