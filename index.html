@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EcoPackAI - Sustainable Packaging Recommender</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; margin: 40px; background:#f4f7f9; }
+        h1 { text-align:center; color:#2e7d32; }
+        .card { background:white; padding:20px; margin:15px 0; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+        input, select { padding:8px; margin:5px; }
+        button { padding:10px 15px; background:#2e7d32; color:white; border:none; border-radius:5px; cursor:pointer; }
+        table { width:100%; border-collapse:collapse; }
+        table, th, td { border:1px solid #ccc; }
+        th { background:#2e7d32; color:white; }
+        th, td { padding:10px; text-align:center; }
+        .summary { display:flex; justify-content:space-between; }
+        .summary div { flex:1; margin:10px; padding:20px; background:#e8f5e9; border-radius:10px; text-align:center; font-weight:bold; }
+    </style>
+</head>
+<body>
+
+<h1>EcoPackAI - Sustainable Packaging Recommender</h1>
+
+<div class="card">
+    <h2>Inputs</h2>
+
+    <select id="category">
+        <option>Food</option>
+        <option>Electronics</option>
+        <option>Clothing</option>
+    </select>
+
+    <input type="number" id="weight" placeholder="Weight (kg)" value="1">
+    
+    <select id="fragility">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <input type="number" id="budget" placeholder="Budget (₹)" value="15">
+
+    <select id="eco_priority">
+        <option>Low</option>
+        <option selected>Medium</option>
+        <option>High</option>
+    </select>
+
+    <input type="number" id="recommendations" value="3">
+
+    <button onclick="getRecommendations()">Recommend</button>
+</div>
+
+<div class="card">
+    <h2>Recommendations</h2>
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Cost (₹)</th>
+                <th>CO₂</th>
+                <th>Cost Savings %</th>
+                <th>CO₂ Reduction %</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <br>
+    <button onclick="downloadExcel()">Download Excel Report</button>
+</div>
+
+<div class="card">
+    <h2>Summary</h2>
+    <div class="summary">
+        <div id="costSaved">Total Cost Savings %: 0</div>
+        <div id="co2Saved">Total CO₂ Reduction %: 0</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Charts</h2>
+    <canvas id="costChart"></canvas>
+    <br><br>
+    <canvas id="co2Chart"></canvas>
+</div>
+
+<script>
+let costChart, co2Chart;
+
+async function getRecommendations() {
+
+    const response = await fetch("/recommend", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            product_category: document.getElementById("category").value,
+            weight: document.getElementById("weight").value,
+            fragility: document.getElementById("fragility").value,
+            budget: document.getElementById("budget").value,
+            eco_priority: document.getElementById("eco_priority").value,
+            recommendations: document.getElementById("recommendations").value
+        })
+    });
+
+    const data = await response.json();
+
+    const tableBody = document.querySelector("#resultTable tbody");
+    tableBody.innerHTML = "";
+
+    let totalCost = 0;
+    let totalCO2 = 0;
+
+    data.forEach(d => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${d.Material}</td>
+            <td>${d.final_cost}</td>
+            <td>${d.final_co2}</td>
+            <td>${d.cost_savings_percent}%</td>
+            <td>${d.co2_reduction_percent}%</td>
+        `;
+        totalCost += d.cost_savings_percent;
+        totalCO2 += d.co2_reduction_percent;
+        tableBody.appendChild(row);
+    });
+
+    document.getElementById("costSaved").innerText = 
+        "Total Cost Savings %: " + totalCost.toFixed(2);
+
+    document.getElementById("co2Saved").innerText = 
+        "Total CO₂ Reduction %: " + totalCO2.toFixed(2);
+
+    createCharts(data);
+}
+
+function createCharts(data) {
+
+    const labels = data.map(d => d.Material);
+    const cost = data.map(d => d.final_cost);
+    const co2 = data.map(d => d.final_co2);
+
+    if (costChart) costChart.destroy();
+    if (co2Chart) co2Chart.destroy();
+
+    costChart = new Chart(document.getElementById("costChart"), {
+        type:"bar",
+        data:{ labels:labels, datasets:[{ label:"Cost (₹)", data:cost }] }
+    });
+
+    co2Chart = new Chart(document.getElementById("co2Chart"), {
+        type:"bar",
+        data:{ labels:labels, datasets:[{ label:"CO₂", data:co2 }] }
+    });
+}
+
+async function downloadExcel() {
+
+    const response = await fetch("/export_excel", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            product_category: document.getElementById("category").value,
+            weight: document.getElementById("weight").value,
+            fragility: document.getElementById("fragility").value,
+            budget: document.getElementById("budget").value,
+            eco_priority: document.getElementById("eco_priority").value,
+            recommendations: document.getElementById("recommendations").value
+        })
+    });
+
+    const blob = await response.blob();
+    const link = document.createElement("a");
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "sustainability_report.xlsx";
+    link.click();
+}
+</script>
+
+</body>
+</html>
