@@ -57,10 +57,10 @@ EcoPackAI is an AI-powered sustainable packaging recommendation system that help
 - CSS
 - Javascript
 
-  ### Backend
-  - Flask
+### Backend
+- Flask
 
-  ### API
-  - Thunder Client
+### API
+- Thunder Client
 
 
