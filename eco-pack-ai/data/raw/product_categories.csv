@@ -1,0 +1,14 @@
+category_name,fragility_level,requires_cushioning,moisture_sensitive,temperature_sensitive,typical_weight_kg
+Electronics,high,TRUE,TRUE,FALSE,3.5
+Food & Beverages,medium,FALSE,TRUE,TRUE,2
+Cosmetics & Personal Care,high,TRUE,TRUE,FALSE,1.2
+Pharmaceuticals,high,TRUE,TRUE,TRUE,0.8
+Clothing & Textiles,low,FALSE,TRUE,FALSE,2
+Glassware & Ceramics,high,TRUE,FALSE,FALSE,3.5
+Furniture (Small/Flat-pack),medium,TRUE,FALSE,FALSE,18
+Books & Stationery,low,FALSE,TRUE,FALSE,3
+Toys & Games,medium,TRUE,FALSE,FALSE,2
+Industrial & Auto Parts,medium,FALSE,FALSE,FALSE,12
+Jewelry & Watches,high,TRUE,FALSE,FALSE,0.3
+Sports & Outdoor Equipment,medium,TRUE,FALSE,FALSE,5
+Pet Supplies,low,FALSE,TRUE,FALSE,4

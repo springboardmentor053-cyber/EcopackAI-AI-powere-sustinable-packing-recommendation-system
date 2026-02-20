@@ -1,0 +1,26 @@
+material_name,material_type,strength_score,weight_capacity_kg,biodegradability_score,co2_emission_kg,recyclability_percent,cost_per_kg,moisture_resistance
+Corrugated Cardboard,Paper-based,0.7,25,0.85,0.84,93,125,0.15
+Honeycomb Cardboard,Paper-based,0.82,50,0.85,0.75,90,185,0.12
+Kraft Paper,Paper-based,0.55,15,0.9,0.95,85,100,0.1
+Molded Pulp,Paper-based,0.6,20,0.95,0.7,82,150,0.25
+Paperboard,Paper-based,0.58,18,0.88,0.85,88,115,0.18
+Glassine Paper,Paper-based,0.42,8,0.75,0.9,75,230,0.45
+Recycled PET (rPET),Plastic-based,0.85,35,0.02,0.62,75,150,0.95
+PLA Bioplastic,Plastic-based,0.65,20,0.45,1.2,45,375,0.6
+PHA Bioplastic,Plastic-based,0.58,18,0.9,1.7,30,540,0.55
+PBAT Compostable,Plastic-based,0.52,15,0.7,2.1,25,430,0.5
+Cellophane,Plastic-based,0.45,10,0.85,1.4,40,330,0.4
+EPS (Expanded Polystyrene),Foam-based,0.62,30,0.02,3.4,35,210,0.92
+Mushroom Foam (Mycelium),Foam-based,0.5,15,0.98,0.2,20,455,0.2
+Cornstarch Peanuts,Foam-based,0.3,5,0.99,1.5,15,315,0.05
+Paper Bubble Wrap,Foam-based,0.4,10,0.88,0.8,80,200,0.12
+Air Pillows (HDPE),Plastic-based,0.45,8,0.03,2.5,50,160,0.9
+Jute Fiber,Fiber/Fabric,0.75,25,0.8,0.5,65,85,0.15
+Hemp Packaging,Fiber/Fabric,0.82,30,0.92,0.45,60,415,0.18
+Cotton Cushioning,Fiber/Fabric,0.48,12,0.85,1.8,70,265,0.08
+Coconut Coir,Fiber/Fabric,0.65,20,0.75,0.35,55,75,0.35
+Seaweed Film,Organic,0.35,5,0.99,0.8,0,665,0.08
+Bamboo Fiber,Organic,0.72,25,0.65,0.65,70,200,0.3
+Bagasse (Sugarcane),Organic,0.62,18,0.95,0.55,60,95,0.32
+Palm Leaf,Organic,0.55,12,0.9,0.4,20,110,0.38
+Wheat Straw,Organic,0.52,15,0.95,0.5,45,70,0.12
