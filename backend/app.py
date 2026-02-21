@@ -496,6 +496,14 @@ def get_recent_recommendations():
             'status': 'error',
             'message': 'Internal server error'
         }), 500
+        
+@app.route('/')
+def home():
+    return render_template('landing.html')
+
+@app.route('/recommend')
+def recommend():
+    return render_template('index.html')  
 
 @app.errorhandler(404)
 def not_found(error):

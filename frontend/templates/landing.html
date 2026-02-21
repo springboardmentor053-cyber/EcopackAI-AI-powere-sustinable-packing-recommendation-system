@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EcoPackAI - AI-Powered Sustainable Packaging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green-50: #ECFDF5; --green-100: #D1FAE5; --green-200: #A7F3D0;
+      --green-400: #34D399; --green-500: #10B981; --green-600: #059669;
+      --green-700: #047857; --green-800: #065F46; --green-900: #064E3B;
+      --green-950: #022C22;
+      --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB; --gray-400: #9CA3AF; --gray-500: #6B7280;
+      --gray-600: #4B5563; --gray-700: #374151; --gray-800: #1F2937;
+      --gray-900: #111827;
+      --accent-amber: #F59E0B; --accent-blue: #3B82F6; --accent-red: #EF4444;
+      --radius: 12px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-elevated: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+      --shadow-hero: 0 25px 60px rgba(6,78,59,0.25);
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .nav.scrolled { background: rgba(255,255,255,0.95); box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--green-900);
+    }
+    .nav-logo {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--green-600), var(--green-800));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(5,150,105,0.3);
+    }
+    .nav-logo svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; }
+    .nav-brand-text { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; }
+    .nav-brand-text span { color: var(--green-600); }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-link {
+      padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
+      color: var(--gray-600); text-decoration: none; transition: all 0.2s;
+    }
+    .nav-link:hover { color: var(--green-700); background: var(--green-50); }
+    .nav-cta {
+      padding: 9px 22px; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+      color: white; background: var(--green-600); text-decoration: none;
+      transition: all 0.2s; border: none; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(5,150,105,0.25);
+    }
+    .nav-cta:hover { background: var(--green-700); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(5,150,105,0.3); }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 140px 24px 80px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(165deg, #FFFFFF 0%, var(--green-50) 40%, #E0F7EC 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -100px; left: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; border: 1px solid var(--green-200);
+      padding: 6px 16px 6px 8px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; color: var(--green-700);
+      margin-bottom: 24px; box-shadow: var(--shadow-card);
+      animation: fadeSlideUp 0.6s ease both;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green-500); animation: pulse 2s infinite;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 3.6rem; line-height: 1.1; letter-spacing: -1.5px;
+      color: var(--green-950); margin-bottom: 20px;
+      animation: fadeSlideUp 0.6s 0.1s ease both;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--green-600), var(--green-400));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1.15rem; color: var(--gray-500); line-height: 1.7;
+      margin-bottom: 36px; max-width: 520px;
+      animation: fadeSlideUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: fadeSlideUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 600;
+      color: white; background: linear-gradient(135deg, var(--green-600), var(--green-700));
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: var(--shadow-hero); transition: all 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 30px 70px rgba(6,78,59,0.3); }
+    .btn-primary svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 30px; border-radius: 10px; font-size: 1rem; font-weight: 600;
+      color: var(--gray-700); background: white; text-decoration: none;
+      border: 1px solid var(--gray-200); cursor: pointer;
+      box-shadow: var(--shadow-card); transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: var(--green-300); color: var(--green-700); transform: translateY(-1px); }
+    .btn-secondary svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* Hero Visual - Mock UI Preview */
+    .hero-visual {
+      position: relative;
+      animation: fadeSlideUp 0.8s 0.4s ease both;
+    }
+    .hero-mockup {
+      background: white; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+      transform: perspective(1000px) rotateY(-3deg) rotateX(2deg);
+      transition: transform 0.5s ease;
+    }
+    .hero-mockup:hover { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+    .mockup-bar {
+      height: 40px; background: linear-gradient(135deg, var(--green-900), var(--green-700));
+      display: flex; align-items: center; padding: 0 16px; gap: 8px;
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+    .mockup-dot:first-child { background: #FF5F57; }
+    .mockup-dot:nth-child(2) { background: #FFBD2E; }
+    .mockup-dot:nth-child(3) { background: #27C93F; }
+    .mockup-url {
+      margin-left: 16px; background: rgba(255,255,255,0.12); padding: 4px 14px;
+      border-radius: 6px; font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 500;
+    }
+    .mockup-body { padding: 24px; }
+    .mockup-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .mockup-field {
+      background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px;
+      padding: 10px 14px; font-size: 0.78rem; color: var(--gray-400);
+    }
+    .mockup-field.filled { color: var(--gray-800); border-color: var(--green-300); background: var(--green-50); }
+    .mockup-btn {
+      width: 100%; padding: 11px; border-radius: 8px; border: none;
+      background: linear-gradient(135deg, var(--green-600), var(--green-700));
+      color: white; font-size: 0.82rem; font-weight: 600; margin-bottom: 18px;
+      cursor: default;
+    }
+    .mockup-result {
+      background: var(--green-50); border: 1px solid var(--green-200); border-radius: 10px;
+      padding: 14px; display: flex; align-items: center; gap: 14px;
+    }
+    .mockup-rank {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green-600); color: white; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+    }
+    .mockup-result-info { flex: 1; }
+    .mockup-result-name { font-size: 0.85rem; font-weight: 700; color: var(--green-900); }
+    .mockup-result-meta { font-size: 0.72rem; color: var(--gray-500); margin-top: 2px; }
+    .mockup-result-scores { display: flex; gap: 8px; margin-top: 8px; }
+    .mockup-score {
+      padding: 3px 10px; border-radius: 20px; font-size: 0.68rem; font-weight: 600;
+    }
+    .score-green { background: var(--green-100); color: var(--green-700); }
+    .score-blue { background: #DBEAFE; color: #2563EB; }
+    .score-amber { background: #FEF3C7; color: #D97706; }
+
+    /* Floating elements for depth */
+    .hero-float {
+      position: absolute; border-radius: 12px; background: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 12px 16px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-float-1 {
+      top: -10px; right: -20px; z-index: 5;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .float-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+    }
+    .float-icon.green { background: var(--green-100); }
+    .float-text { font-size: 0.75rem; }
+    .float-text strong { display: block; font-weight: 700; color: var(--green-700); font-size: 0.9rem; }
+    .float-text span { color: var(--gray-500); }
+
+    .hero-float-2 {
+      bottom: 30px; left: -30px; z-index: 5;
+      display: flex; align-items: center; gap: 10px;
+      animation-delay: -3s;
+    }
+    .float-icon.blue { background: #DBEAFE; }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: white; border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100); padding: 0 24px;
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 28px 20px; text-align: center;
+      border-right: 1px solid var(--gray-100);
+      transition: background 0.2s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: var(--green-50); }
+    .stat-number {
+      font-size: 2rem; font-weight: 800; letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--green-700), var(--green-500));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 4px;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--gray-500); font-weight: 500; }
+
+    /* ===== PROBLEM SECTION ===== */
+    .problem {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, white 0%, var(--gray-50) 100%);
+    }
+    .problem-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 700; color: var(--green-600);
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: ''; width: 24px; height: 2px; background: var(--green-400); border-radius: 1px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2.5rem; line-height: 1.2; letter-spacing: -1px;
+      color: var(--gray-900); margin-bottom: 16px; max-width: 600px;
+    }
+    .section-desc {
+      font-size: 1.05rem; color: var(--gray-500); max-width: 600px; margin-bottom: 48px;
+    }
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .problem-card {
+      background: white; border-radius: var(--radius); padding: 32px;
+      border: 1px solid var(--gray-200); transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .problem-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-amber));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .problem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); }
+    .problem-card:hover::before { opacity: 1; }
+    .problem-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 1.4rem;
+    }
+    .problem-icon.red { background: #FEE2E2; }
+    .problem-icon.amber { background: #FEF3C7; }
+    .problem-icon.gray { background: var(--gray-100); }
+    .problem-card h3 {
+      font-size: 1.1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;
+    }
+    .problem-card p { font-size: 0.92rem; color: var(--gray-500); line-height: 1.6; }
+    .problem-stat {
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--gray-100);
+      font-size: 0.82rem; color: var(--gray-400); font-weight: 500;
+    }
+    .problem-stat strong { color: var(--accent-red); font-weight: 700; }
+
+    /* ===== SOLUTION / HOW IT WORKS ===== */
+    .solution {
+      padding: 100px 24px; background: var(--green-950); color: white;
+      position: relative; overflow: hidden;
+    }
+    .solution::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .solution-inner {
+      max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+      text-align: center;
+    }
+    .solution .section-label { color: var(--green-400); }
+    .solution .section-label::before { background: var(--green-400); }
+    .solution .section-title { color: white; margin: 0 auto 16px; }
+    .solution .section-desc { color: rgba(255,255,255,0.6); margin: 0 auto 64px; }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: ''; position: absolute; top: 50px; left: 12.5%; right: 12.5%;
+      height: 2px; background: linear-gradient(90deg, var(--green-700), var(--green-400), var(--green-700));
+      opacity: 0.3;
+    }
+    .step-item { padding: 0 20px; text-align: center; position: relative; }
+    .step-number {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--green-600), var(--green-400));
+      color: white; position: relative; z-index: 2;
+      box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+    }
+    .step-title {
+      font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: white;
+    }
+    .step-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    /* ===== FEATURES ===== */
+    .features { padding: 100px 24px; background: white; }
+    .features-inner { max-width: 1200px; margin: 0 auto; }
+    .features-header { text-align: center; margin-bottom: 64px; }
+    .features-header .section-title { margin: 0 auto 16px; }
+    .features-header .section-desc { margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feature-card {
+      padding: 32px; border-radius: var(--radius);
+      border: 1px solid var(--gray-200); transition: all 0.3s;
+      position: relative;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); border-color: var(--green-200); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 1.3rem;
+    }
+    .feature-icon.g { background: var(--green-100); }
+    .feature-icon.b { background: #DBEAFE; }
+    .feature-icon.p { background: #EDE9FE; }
+    .feature-icon.a { background: #FEF3C7; }
+    .feature-icon.r { background: #FEE2E2; }
+    .feature-icon.t { background: #E0E7FF; }
+    .feature-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+    .feature-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* ===== TECH STACK ===== */
+    .tech { padding: 80px 24px; background: var(--gray-50); }
+    .tech-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .tech .section-title { margin: 0 auto 48px; }
+    .tech-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px;
+    }
+    .tech-item {
+      background: white; border-radius: var(--radius); padding: 28px 16px;
+      border: 1px solid var(--gray-200); transition: all 0.3s; text-align: center;
+    }
+    .tech-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-elevated); border-color: var(--green-200); }
+    .tech-icon { font-size: 2rem; margin-bottom: 10px; }
+    .tech-name { font-size: 0.85rem; font-weight: 700; color: var(--gray-800); }
+    .tech-role { font-size: 0.72rem; color: var(--gray-400); margin-top: 2px; }
+
+    /* ===== CTA ===== */
+    .cta {
+      padding: 100px 24px;
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 50%, var(--green-700) 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent);
+    }
+    .cta-inner { max-width: 650px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2.5rem; color: white; line-height: 1.2; margin-bottom: 16px;
+    }
+    .cta p { font-size: 1.05rem; color: rgba(255,255,255,0.65); margin-bottom: 36px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta .btn-primary {
+      background: white; color: var(--green-800);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+    .cta .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+    .cta .btn-secondary { border-color: rgba(255,255,255,0.2); color: white; background: transparent; }
+    .cta .btn-secondary:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 32px 24px; background: var(--green-950);
+      border-top: 1px solid rgba(255,255,255,0.08); text-align: center;
+    }
+    .footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+    .footer a { color: var(--green-400); text-decoration: none; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin: 0 auto 36px; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { max-width: 560px; margin: 0 auto; }
+      .hero-float { display: none; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .steps-grid::before { display: none; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .tech-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .section-title { font-size: 2rem; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .tech-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-link { display: none; }
+      .hero-mockup { transform: none; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--gray-100); }
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="nav-brand-text">Eco<span>Pack</span>AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem" class="nav-link">Problem</a>
+      <a href="#solution" class="nav-link">How It Works</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/recommend" class="nav-cta">Get Recommendations →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        AI-Powered Sustainability Platform
+      </div>
+      <h1>Smarter Packaging.<br>Smaller <span class="highlight">Carbon Footprint.</span></h1>
+      <p class="hero-desc">EcoPackAI uses machine learning to recommend optimal eco-friendly packaging materials — reducing CO₂ emissions and cutting costs for businesses across 13 product categories.</p>
+      <div class="hero-actions">
+        <a href="/recommend" class="btn-primary">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Run Recommendation Engine
+        </a>
+        <a href="/dashboard" class="btn-secondary">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          View Dashboard
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- Floating badges -->
+      <div class="hero-float hero-float-1">
+        <div class="float-icon green">🌱</div>
+        <div class="float-text"><strong>-42%</strong><span>CO₂ Reduced</span></div>
+      </div>
+      <div class="hero-float hero-float-2">
+        <div class="float-icon blue">💰</div>
+        <div class="float-text"><strong>₹18/kg</strong><span>Avg Savings</span></div>
+      </div>
+
+      <!-- Mockup -->
+      <div class="hero-mockup">
+        <div class="mockup-bar">
+          <span class="mockup-dot"></span>
+          <span class="mockup-dot"></span>
+          <span class="mockup-dot"></span>
+          <span class="mockup-url">ecopackai.onrender.com/recommend</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-input-row">
+            <div class="mockup-field filled">📦 Electronics</div>
+            <div class="mockup-field filled">⚖️ 3.5 kg</div>
+          </div>
+          <div class="mockup-input-row">
+            <div class="mockup-field">⚡ Fragility: High</div>
+            <div class="mockup-field">💵 Budget: ₹120/kg</div>
+          </div>
+          <div class="mockup-btn">▶ Run Recommendation Engine</div>
+          <div class="mockup-result">
+            <div class="mockup-rank">★</div>
+            <div class="mockup-result-info">
+              <div class="mockup-result-name">Molded Pulp Packaging</div>
+              <div class="mockup-result-meta">Paper-based · Biodegradable · Low emissions</div>
+              <div class="mockup-result-scores">
+                <span class="mockup-score score-green">Suitability: 92%</span>
+                <span class="mockup-score score-blue">CO₂: 0.12 kg</span>
+                <span class="mockup-score score-amber">₹45/kg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">25</div>
+      <div class="stat-label">Packaging Materials</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">13</div>
+      <div class="stat-label">Product Categories</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3</div>
+      <div class="stat-label">ML Models Trained</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">7+</div>
+      <div class="stat-label">REST API Endpoints</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Traditional Packaging Is Destroying Our Environment</h2>
+    <p class="section-desc">Industries and e-commerce rely heavily on non-biodegradable, expensive materials — causing massive environmental damage with no intelligent way to evaluate alternatives.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon red">🏭</div>
+        <h3>High CO₂ Emissions</h3>
+        <p>Conventional packaging materials like expanded polystyrene and plastic wraps produce significant carbon emissions during production and disposal.</p>
+        <div class="problem-stat">Packaging accounts for <strong>~5%</strong> of global CO₂ emissions</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon amber">💸</div>
+        <h3>Cost Inefficiency</h3>
+        <p>Businesses overspend on packaging without visibility into cost-effective eco-friendly alternatives that could save money while reducing environmental impact.</p>
+        <div class="problem-stat">Companies waste up to <strong>30%</strong> on suboptimal packaging</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon gray">🔍</div>
+        <h3>No Decision Support</h3>
+        <p>There is no intelligent system that compares materials across durability, biodegradability, cost, and emissions — leaving businesses guessing.</p>
+        <div class="problem-stat"><strong>Zero</strong> AI tools exist for packaging material selection</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION / HOW IT WORKS -->
+<section class="solution" id="solution">
+  <div class="solution-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From Product Details to Optimal Packaging in Seconds</h2>
+    <p class="section-desc">EcoPackAI's ML pipeline analyzes your product attributes and returns ranked, sustainable packaging recommendations instantly.</p>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-title">Input Product Details</div>
+        <div class="step-desc">Select product category, weight, fragility level, and optional budget constraint.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-title">AI Analyzes Materials</div>
+        <div class="step-desc">Random Forest and XGBoost models predict suitability, cost, and CO₂ impact for 25 materials.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-title">Get Ranked Results</div>
+        <div class="step-desc">Materials are ranked by a composite eco-score balancing sustainability, cost, and protection.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-title">Compare &amp; Save</div>
+        <div class="step-desc">See exact CO₂ and cost savings compared to your current packaging on the BI Dashboard.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything You Need for Sustainable Packaging Decisions</h2>
+      <p class="section-desc">A complete platform from AI recommendations to business intelligence analytics.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon g">🤖</div>
+        <h3>AI-Powered Recommendations</h3>
+        <p>Random Forest &amp; XGBoost models predict optimal materials with suitability scores, cost estimation, and CO₂ footprint prediction.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon b">📊</div>
+        <h3>BI Analytics Dashboard</h3>
+        <p>Real-time sustainability metrics — total CO₂ saved, cost savings, material distribution charts, and recent recommendation activity.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon p">⚖️</div>
+        <h3>Material Comparison</h3>
+        <p>Compare recommended materials against your current packaging with dual-axis charts showing exact savings potential.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon a">💰</div>
+        <h3>Budget Filtering</h3>
+        <p>Set maximum cost per kg to automatically filter out materials beyond your budget while still optimizing for sustainability.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon r">📋</div>
+        <h3>Export Reports</h3>
+        <p>Generate sustainability reports with CO₂ reduction metrics and cost analysis — ready for compliance and stakeholder reviews.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon t">🔗</div>
+        <h3>REST API Integration</h3>
+        <p>7+ API endpoints for seamless integration with existing business systems — categories, materials, recommendations, and analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech">
+  <div class="tech-inner">
+    <h2 class="section-title">Built With</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-icon">🐍</div>
+        <div class="tech-name">Python / Flask</div>
+        <div class="tech-role">Backend API</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🐘</div>
+        <div class="tech-name">PostgreSQL</div>
+        <div class="tech-role">Database</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🌲</div>
+        <div class="tech-name">Random Forest</div>
+        <div class="tech-role">Cost &amp; Suitability</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">⚡</div>
+        <div class="tech-name">XGBoost</div>
+        <div class="tech-role">CO₂ Prediction</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">📈</div>
+        <div class="tech-name">Chart.js</div>
+        <div class="tech-role">Visualizations</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🚀</div>
+        <div class="tech-name">Render</div>
+        <div class="tech-role">Deployment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Ready to Make Your Packaging Sustainable?</h2>
+    <p>Get AI-powered recommendations for eco-friendly packaging materials tailored to your product — in seconds.</p>
+    <div class="cta-btns">
+      <a href="/recommend" class="btn-primary">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Try It Now — Free
+      </a>
+      <a href="/dashboard" class="btn-secondary">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        Explore Dashboard
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>EcoPackAI © 2025 · AI-Powered Sustainable Packaging Recommendation System · Built by <a href="#">Manikanta Pudi</a></p>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
