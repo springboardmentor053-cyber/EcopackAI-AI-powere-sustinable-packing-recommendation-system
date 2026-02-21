@@ -167,7 +167,11 @@ def validate_compare_input(data):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('landing.html')
+
+@app.route('/recommend')
+def recommend():
+    return render_template('index.html')  
 
 @app.route('/dashboard')
 def dashboard():
@@ -497,13 +501,6 @@ def get_recent_recommendations():
             'message': 'Internal server error'
         }), 500
         
-@app.route('/')
-def home():
-    return render_template('landing.html')
-
-@app.route('/recommend')
-def recommend():
-    return render_template('index.html')  
 
 @app.errorhandler(404)
 def not_found(error):
