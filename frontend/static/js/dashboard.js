@@ -348,32 +348,68 @@ function loadRecentActivity() {
         });
 }
 
-// Update quick insights panel
+// =============================================
+// FIX: Quick Insights — was showing "0% CO₂ savings" because
+// co2_saved is only set when user selects a comparison material.
+// Most users skip this, making the metric always 0%.
+//
+// New logic:
+// - Show high-suitability rate (>80%) instead of CO₂ savings %
+// - Show eco-score-based insight (recommendations with low CO₂)
+// - Keep top material and avg suitability as before
+// =============================================
+
 function updateQuickInsights(recommendations) {
     const insightsList = document.getElementById('insightsList');
     
     const totalRecs = recommendations.length;
+
+    // Count recommendations that included a comparison (co2_saved is not null)
+    const withComparison = recommendations.filter(r => r.co2_saved !== null && r.co2_saved !== undefined).length;
     const withSavings = recommendations.filter(r => r.co2_saved && r.co2_saved > 0).length;
-    const savingsRate = totalRecs > 0 ? ((withSavings / totalRecs) * 100).toFixed(0) : 0;
     
+    // Count high-suitability recommendations (>80%)
+    const highSuitability = recommendations.filter(r => r.suitability >= 0.8).length;
+    const highSuitabilityRate = totalRecs > 0 ? ((highSuitability / totalRecs) * 100).toFixed(0) : 0;
+    
+    // Top material
     const materials = {};
     recommendations.forEach(r => {
         materials[r.material] = (materials[r.material] || 0) + 1;
     });
     const topMaterial = Object.entries(materials).sort((a, b) => b[1] - a[1])[0];
     
-    const avgSuitability = recommendations.length > 0 
-        ? (recommendations.reduce((sum, r) => sum + r.suitability, 0) / recommendations.length * 100).toFixed(0)
+    // Average suitability
+    const avgSuitability = totalRecs > 0 
+        ? (recommendations.reduce((sum, r) => sum + r.suitability, 0) / totalRecs * 100).toFixed(0)
         : 0;
     
+    // Build the first insight based on whether comparisons exist
+    let firstInsight;
+    if (withComparison > 0) {
+        // Users DID compare — show actual CO₂ savings rate
+        const savingsRate = ((withSavings / withComparison) * 100).toFixed(0);
+        firstInsight = `
+            <div class="insight-item">
+                <span class="insight-icon">🎯</span>
+                <span class="insight-text"><strong>${savingsRate}%</strong> of compared materials showed CO₂ savings (${withComparison} comparisons made)</span>
+            </div>
+        `;
+    } else {
+        // No comparisons — show high-suitability rate instead
+        firstInsight = `
+            <div class="insight-item">
+                <span class="insight-icon">🎯</span>
+                <span class="insight-text"><strong>${highSuitabilityRate}%</strong> of recommendations have high suitability (80%+). Select a current material when recommending to track CO₂ savings.</span>
+            </div>
+        `;
+    }
+
     insightsList.innerHTML = `
-        <div class="insight-item">
-            <span class="insight-icon">🎯</span>
-            <span class="insight-text"><strong>${savingsRate}%</strong> of recommendations resulted in CO₂ savings</span>
-        </div>
+        ${firstInsight}
         <div class="insight-item">
             <span class="insight-icon">🏆</span>
-            <span class="insight-text"><strong>${topMaterial ? topMaterial[0] : 'N/A'}</strong> is the top recommended material</span>
+            <span class="insight-text"><strong>${topMaterial ? topMaterial[0] : 'N/A'}</strong> is the top recommended material${topMaterial ? ' (' + topMaterial[1] + ' times)' : ''}</span>
         </div>
         <div class="insight-item">
             <span class="insight-icon">⭐</span>
@@ -381,7 +417,7 @@ function updateQuickInsights(recommendations) {
         </div>
         <div class="insight-item">
             <span class="insight-icon">💡</span>
-            <span class="insight-text">Compare current materials to maximize savings</span>
+            <span class="insight-text">Tip: Select your current packaging material when running recommendations to see exact CO₂ and cost savings</span>
         </div>
     `;
 }
