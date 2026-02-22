@@ -1,6 +1,6 @@
 /* =============================================
    EcoPackAI - Recommendations Page Styles
-   Matching Dashboard Theme
+   Unified with Landing Page Design System
    ============================================= */
 
 * {
@@ -10,12 +10,25 @@
 }
 
 :root {
+  /* Landing page design tokens */
+  --green-50: #ECFDF5; --green-100: #D1FAE5; --green-200: #A7F3D0;
+  --green-400: #34D399; --green-500: #10B981; --green-600: #059669;
+  --green-700: #047857; --green-800: #065F46; --green-900: #064E3B;
+  --green-950: #022C22;
+  --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB; --gray-400: #9CA3AF; --gray-500: #6B7280;
+  --gray-600: #4B5563; --gray-700: #374151; --gray-800: #1F2937;
+  --gray-900: #111827;
+  --accent-amber: #F59E0B; --accent-blue: #3B82F6; --accent-red: #EF4444;
+  --radius: 12px;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-elevated: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+  --shadow-hero: 0 25px 60px rgba(6,78,59,0.25);
+
+  /* Aliases for backward compat */
   --primary-green: #059669;
   --primary-green-dark: #047857;
   --primary-green-light: #D1FAE5;
-  --header-gradient-start: #064E3B;
-  --header-gradient-end: #047857;
-  --accent-blue: #3B82F6;
   --accent-purple: #8B5CF6;
   --accent-orange: #F59E0B;
   --text-primary: #111827;
@@ -27,104 +40,96 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* =============================================
-   HEADER - Matching Dashboard
+   NAVIGATION - Matching Landing Page
    ============================================= */
 
-.header {
-  background: linear-gradient(135deg, var(--header-gradient-start) 0%, var(--header-gradient-end) 100%);
-  padding: 0 32px;
-  height: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav {
   position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--shadow-md);
+  top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.nav.scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
 }
 
-.logo-icon {
-  width: 28px;
-  height: 28px;
-  stroke: white;
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--green-900);
 }
 
-.logo-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: -0.5px;
+.nav-logo {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--green-600), var(--green-800));
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(5,150,105,0.3);
 }
 
-.header-divider {
-  width: 1px;
-  height: 24px;
-  background: rgba(255,255,255,0.3);
+.nav-logo svg {
+  width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2;
 }
 
-.header-subtitle {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.9rem;
-  font-weight: 500;
+.nav-brand-text {
+  font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px;
 }
 
-.header-nav {
-  display: flex;
-  gap: 8px;
+.nav-brand-text span {
+  color: var(--green-600);
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 6px;
 }
 
 .nav-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
+  color: var(--gray-600); text-decoration: none; transition: all 0.2s;
+  display: flex; align-items: center; gap: 7px;
 }
 
 .nav-link:hover {
-  color: white;
-  background: rgba(255,255,255,0.1);
+  color: var(--green-700); background: var(--green-50);
 }
 
 .nav-link.active {
-  color: white;
-  background: rgba(255,255,255,0.15);
+  color: var(--green-700); background: var(--green-50); font-weight: 600;
 }
 
-.nav-icon {
-  width: 18px;
-  height: 18px;
+.nav-link svg {
+  width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2;
+}
+
+.nav-cta {
+  padding: 9px 22px; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+  color: white; background: var(--green-600); text-decoration: none;
+  transition: all 0.2s; border: none; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(5,150,105,0.25);
+}
+
+.nav-cta:hover {
+  background: var(--green-700); transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5,150,105,0.3);
 }
 
 /* =============================================
@@ -133,7 +138,7 @@ body {
 
 .main-container {
   max-width: 1200px;
-  padding: 24px 20px;
+  padding: 32px 20px;
 }
 
 /* =============================================
@@ -142,20 +147,20 @@ body {
 
 .card-ui {
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
   border: 1px solid var(--border-color);
   margin-bottom: 24px;
   overflow: hidden;
 }
 
 .card-header-ui {
-  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--green-100) 100%);
   padding: 16px 24px;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--primary-green-dark);
-  border-bottom: 1px solid #A7F3D0;
+  color: var(--green-800);
+  border-bottom: 1px solid var(--green-200);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -164,7 +169,7 @@ body {
 .section-icon {
   width: 20px;
   height: 20px;
-  stroke: var(--primary-green);
+  stroke: var(--green-600);
   flex-shrink: 0;
 }
 
@@ -187,9 +192,10 @@ label {
 .input-ui {
   width: 100%;
   padding: 12px 16px;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   border: 1px solid var(--border-color);
   font-size: 0.95rem;
+  font-family: inherit;
   color: var(--text-primary);
   background: var(--bg-card);
   transition: all 0.2s;
@@ -197,8 +203,8 @@ label {
 
 .input-ui:focus {
   outline: none;
-  border-color: var(--primary-green);
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
 }
 
 .input-ui::placeholder {
@@ -206,32 +212,36 @@ label {
 }
 
 /* =============================================
-   PRIMARY BUTTON
+   BUTTONS - Matching Landing Page
    ============================================= */
 
 .primary-btn {
   margin-top: 20px;
   width: 100%;
-  padding: 14px 24px;
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  padding: 14px 30px;
+  background: linear-gradient(135deg, var(--green-600), var(--green-700));
   color: white;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   font-weight: 600;
   font-size: 1rem;
+  font-family: inherit;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.2s;
-  box-shadow: var(--shadow-md);
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(6,78,59,0.2);
 }
 
 .primary-btn:hover {
-  background: linear-gradient(135deg, var(--primary-green-dark) 0%, #065F46 100%);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(6,78,59,0.28);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
 }
 
 .primary-btn:disabled {
@@ -254,7 +264,7 @@ label {
   display: none;
   margin-top: 16px;
   padding: 14px 18px;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -272,9 +282,9 @@ label {
 }
 
 .alert-box.success {
-  background: #ECFDF5;
-  color: #059669;
-  border: 1px solid #6EE7B7;
+  background: var(--green-50);
+  color: var(--green-600);
+  border: 1px solid var(--green-200);
 }
 
 /* =============================================
@@ -290,20 +300,21 @@ label {
 
 .material-card {
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius);
   padding: 20px;
   background: var(--bg-card);
   transition: all 0.2s;
 }
 
 .material-card:hover {
-  border-color: var(--primary-green-light);
-  box-shadow: var(--shadow-md);
+  border-color: var(--green-200);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
 }
 
 .material-card.best {
-  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-  border: 2px solid var(--primary-green);
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--green-100) 100%);
+  border: 2px solid var(--green-600);
   position: relative;
 }
 
@@ -312,12 +323,13 @@ label {
   position: absolute;
   top: -1px;
   right: -1px;
-  background: var(--primary-green);
+  background: var(--green-600);
   color: white;
   font-size: 0.65rem;
   font-weight: 700;
   padding: 4px 10px;
-  border-radius: 0 var(--radius-md) 0 var(--radius-md);
+  border-radius: 0 var(--radius) 0 var(--radius);
+  letter-spacing: 0.5px;
 }
 
 .material-card strong {
@@ -337,13 +349,13 @@ label {
 }
 
 .analytics-box {
-  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-  border: 1px solid #A7F3D0;
-  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--green-100) 100%);
+  border: 1px solid var(--green-200);
+  border-radius: var(--radius);
   padding: 20px;
   text-align: center;
   font-weight: 600;
-  color: var(--primary-green-dark);
+  color: var(--green-800);
 }
 
 /* =============================================
@@ -369,7 +381,7 @@ label {
 }
 
 .summary-table th {
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+  background: linear-gradient(135deg, var(--green-600) 0%, var(--green-700) 100%);
   color: white;
   padding: 14px 16px;
   text-align: left;
@@ -384,11 +396,11 @@ label {
 }
 
 .summary-table tbody tr:hover {
-  background: #F9FAFB;
+  background: var(--gray-50);
 }
 
 .summary-table tbody tr:first-child {
-  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--green-100) 100%);
   font-weight: 600;
 }
 
@@ -410,7 +422,6 @@ label {
   padding: 0 20px 20px 20px;
 }
 
-
 /* =============================================
    RESPONSIVE
    ============================================= */
@@ -423,36 +434,40 @@ label {
 }
 
 @media (max-width: 768px) {
-  .header {
+  .nav-inner {
     padding: 0 16px;
     height: auto;
-    padding: 12px 16px;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .header-left {
-    flex-direction: column;
+    min-height: 60px;
+    flex-wrap: wrap;
     gap: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-  
-  .header-divider {
-    display: none;
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 4px;
   }
-  
-  .header-subtitle {
-    display: none;
+
+  .nav-link {
+    font-size: 0.82rem;
+    padding: 6px 12px;
   }
-  
+
+  .nav-cta {
+    font-size: 0.82rem;
+    padding: 7px 16px;
+  }
+
   .analytics-grid,
   .savings-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .comparison-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .materials-grid {
     grid-template-columns: 1fr;
   }
@@ -463,11 +478,11 @@ label {
    ============================================= */
 
 @media print {
-  .header-nav,
+  .nav,
   .primary-btn {
     display: none !important;
   }
-  
+
   .card-ui {
     box-shadow: none;
     border: 1px solid #ddd;
