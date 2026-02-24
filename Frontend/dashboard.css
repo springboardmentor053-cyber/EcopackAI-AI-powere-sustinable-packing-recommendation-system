@@ -1,0 +1,171 @@
+/* ================= GLOBAL ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:#f4f7fb;
+  color:#111827;
+}
+
+.layout{
+  display:flex;
+  min-height:100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,#0f6b47,#0c4a35);
+  color:white;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.brand-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.15);
+}
+
+.brand-text h2{font-size:18px;}
+.brand-text p{font-size:12px;opacity:.85;}
+
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.nav-item{
+  padding:12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.10);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.nav-item:hover{background:rgba(255,255,255,.16);}
+.nav-item.active{background:rgba(255,255,255,.22);}
+
+.sidebar-footer{
+  margin-top:auto;
+  font-size:12px;
+  opacity:.85;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+  flex:1;
+  padding:22px 26px;
+}
+
+/* ===== Recommendation Layout ===== */
+
+.content{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+select,input{
+  width:100%;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  background:#f9fafb;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.btn-row{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+
+.btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.primary{
+  background:#22c55e;
+}
+
+.secondary{
+  background:#e5e7eb;
+}
+
+/* ================= MATERIAL DB ================= */
+
+.table-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.search{
+  width:100%;
+  max-width:320px;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+}
+
+.table-wrap{
+  overflow:auto;
+  border-radius:14px;
+  border:1px solid #eef2f7;
+}
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+}
+
+.table th,.table td{
+  padding:12px;
+  border-bottom:1px solid #eef2f7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+  .content{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+}

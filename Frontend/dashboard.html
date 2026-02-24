@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- RESPONSIVE FIX -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EcoPackAI Dashboard</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+
+  <!-- Chart JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">📦</div>
+      <div class="brand-text">
+        <h2>EcoPackAI</h2>
+        <p>AI Packaging</p>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a class="nav-item" href="/">🏠 Recommendation</a>
+      <a class="nav-item" href="/materials">📦 Materials DB</a>
+      <a class="nav-item active" href="/dashboard">📊 Dashboard</a>
+    </div>
+
+    <div class="sidebar-footer">Eco-friendly Decision Tool</div>
+  </div>
+
+  <!-- Dashboard Main -->
+  <div class="main dashboard-main">
+
+    <h1>📊 BI Dashboard</h1>
+
+    <!-- KPI -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <h3>Total Materials</h3>
+        <p id="totalMaterials">--</p>
+      </div>
+
+      <div class="kpi-card">
+        <h3>Average Cost</h3>
+        <p>₹ <span id="avgCost">--</span></p>
+      </div>
+
+      <div class="kpi-card">
+        <h3>Average CO₂</h3>
+        <p><span id="avgCO2">--</span> kg/kg</p>
+      </div>
+    </div>
+
+    <!-- AI Summary -->
+    <div class="glass-card">
+      <h2>🤖 AI Analytics Summary</h2>
+      <p id="aiSummary">AI is analyzing materials sustainability trends...</p>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-grid">
+
+      <div class="chart-card">
+        <h3>Cost Trend (Line)</h3>
+        <div class="chart-fixed">
+          <canvas id="costChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Sustainability Tier</h3>
+        <div class="chart-fixed">
+          <canvas id="tierChart"></canvas>
+        </div>
+
+        <div class="export-buttons">
+         <button id="exportCSV" type="button">Export CSV</button>
+         <button id="exportPDF" type="button">Export PDF</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="/static/dashboard.js"></script>
+
+</body>
+</html>

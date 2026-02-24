@@ -1,8 +1,7 @@
-// -------------------- DASHBOARD (PREDICT) --------------------
 const form = document.getElementById("predictForm");
 const resetBtn = document.getElementById("resetBtn");
 
-const resultBox = document.getElementById("resultBox");
+const resultBox = document.getElementById("rankingCards");
 const loaderBox = document.getElementById("loaderBox");
 const errorBox = document.getElementById("errorBox");
 const errorText = document.getElementById("errorText");
@@ -10,22 +9,12 @@ const errorText = document.getElementById("errorText");
 const predCost = document.getElementById("predCost");
 const predCO2 = document.getElementById("predCO2");
 
-function hidePredictBoxes() {
-  if (resultBox) resultBox.style.display = "none";
-  if (loaderBox) loaderBox.style.display = "none";
-  if (errorBox) errorBox.style.display = "none";
-}
-
-function setDefaultPredict() {
-  if (predCost) predCost.textContent = "--";
-  if (predCO2) predCO2.textContent = "--";
-}
-
 async function handlePredictSubmit(e) {
   e.preventDefault();
 
-  hidePredictBoxes();
-  if (loaderBox) loaderBox.style.display = "flex";
+  loaderBox.classList.remove("hidden");
+  errorBox.classList.add("hidden");
+  resultBox.innerHTML = "";
 
   const payload = {
     strength_mpa: parseFloat(document.getElementById("strength_mpa").value),
@@ -36,137 +25,108 @@ async function handlePredictSubmit(e) {
   };
 
   try {
-    const res = await fetch("/predict", {
+
+    // ======================
+    // PREDICT API
+    // ======================
+    const predictRes = await fetch("/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
-    const data = await res.json();
+    const predictData = await predictRes.json();
 
-    if (loaderBox) loaderBox.style.display = "none";
-
-    if (!res.ok) {
-      if (errorText) errorText.textContent = data.error || "Server error!";
-      if (errorBox) errorBox.style.display = "block";
-      return;
+    if (!predictRes.ok) {
+      throw new Error(predictData.error || "Prediction failed");
     }
 
-    if (predCost) predCost.textContent = Number(data.predicted_cost).toFixed(2);
-    if (predCO2) predCO2.textContent = Number(data.predicted_co2).toFixed(2);
+    predCost.textContent =
+      Number(predictData.predicted_cost).toFixed(2);
 
-    if (resultBox) resultBox.style.display = "block";
-  } catch (err) {
-    if (loaderBox) loaderBox.style.display = "none";
-    if (errorText) errorText.textContent = "Connection failed! Check Flask terminal.";
-    if (errorBox) errorBox.style.display = "block";
-    console.log(err);
-  }
-}
+    predCO2.textContent =
+      Number(predictData.predicted_co2).toFixed(2);
 
-function setupDashboard() {
-  if (!form) return;
+    // ======================
+    // SUSTAINABILITY SCORE
+    // ======================
+    const recyclability = payload.recyclability_pct;
+    const biodegradability = payload.biodegradability_score * 10;
+    const co2Impact = 100 - (predictData.predicted_co2 * 20);
 
-  form.addEventListener("submit", handlePredictSubmit);
+    let sustainabilityScore = Math.min(
+      100,
+      Math.max(0, (recyclability + biodegradability + co2Impact) / 3)
+    );
 
-  if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-      form.reset();
-      hidePredictBoxes();
-      setDefaultPredict();
+    document.getElementById("sustainScore").textContent =
+      sustainabilityScore.toFixed(0);
+
+    document.getElementById("sustainMeter").style.width =
+      sustainabilityScore + "%";
+
+    // ======================
+    // RECOMMEND API
+    // ======================
+    const recommendRes = await fetch("/recommend", {
+      method: "POST"
     });
-  }
-}
 
-// -------------------- MATERIALS PAGE --------------------
-async function loadMaterials() {
-  const tbody = document.getElementById("materialsBody");
-  const loader = document.getElementById("loaderBox");
-  const errorBox = document.getElementById("errorBox");
-  const errorText = document.getElementById("errorText");
-  const rowCount = document.getElementById("rowCount");
+    const recommendData = await recommendRes.json();
 
-  if (!tbody) return;
-
-  loader.style.display = "flex";
-  errorBox.style.display = "none";
-
-  try {
-    const res = await fetch("/api/materials");
-    const data = await res.json();
-
-    if (!res.ok) {
-      loader.style.display = "none";
-      errorText.textContent = data.error || "Failed to load materials";
-      errorBox.style.display = "block";
-      return;
+    if (!recommendRes.ok) {
+      throw new Error(recommendData.error || "Recommendation failed");
     }
 
-    tbody.innerHTML = "";
+    // ======================
+    // SHOW TOP 5 CARDS
+    // ======================
+    if (recommendData.recommendations?.length > 0) {
 
-    data.materials.forEach((m) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${m.material_id ?? "-"}</td>
-        <td>${m.material_type ?? "-"}</td>
-        <td>${m.strength_mpa ?? "-"}</td>
-        <td>${m.weight_capacity ?? "-"}</td>
-        <td>${m.co2_emission_kg_per_kg ?? "-"}</td>
-        <td>${m.biodegradability_score ?? "-"}</td>
-        <td>${m.recyclability_pct ?? "-"}</td>
-        <td>${m.cost_inr_per_kg ?? "-"}</td>
-        <td>${m.material_category ?? "-"}</td>
-      `;
-      tbody.appendChild(tr);
-    });
+      // ⭐ SAVE FOR DASHBOARD EXPORT
+      localStorage.setItem(
+        "top5Data",
+        JSON.stringify(recommendData.recommendations)
+      );
 
-    rowCount.textContent = `Rows: ${data.materials.length}`;
-    loader.style.display = "none";
+      recommendData.recommendations.forEach((item, index) => {
+
+        resultBox.innerHTML += `
+          <div class="material-card">
+            <div class="rank">#${index + 1}</div>
+            <h4>${item.material_type}</h4>
+            <p>💰 ₹ ${Number(item.predicted_cost).toFixed(2)}</p>
+            <p>🌍 ${Number(item.predicted_co2).toFixed(2)} kg/kg</p>
+          </div>
+        `;
+      });
+    }
+
+    loaderBox.classList.add("hidden");
+
   } catch (err) {
-    loader.style.display = "none";
-    errorText.textContent = "Server connection failed!";
-    errorBox.style.display = "block";
-    console.log(err);
+
+    loaderBox.classList.add("hidden");
+    errorBox.classList.remove("hidden");
+    errorText.textContent = err.message;
+
+    console.error("Prediction Error:", err);
   }
 }
 
-function setupSearch() {
-  const searchInput = document.getElementById("searchInput");
-  const tbody = document.getElementById("materialsBody");
+/* ======================
+   EVENTS
+====================== */
 
-  if (!searchInput || !tbody) return;
+form.addEventListener("submit", handlePredictSubmit);
 
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-    const rows = tbody.querySelectorAll("tr");
+resetBtn.addEventListener("click", () => {
+  form.reset();
+  predCost.textContent = "--";
+  predCO2.textContent = "--";
+  resultBox.innerHTML = "";
 
-    rows.forEach((row) => {
-      const rowText = row.innerText.toLowerCase();
-      row.style.display = rowText.includes(query) ? "" : "none";
-    });
-  });
-}
-
-function setupRefresh() {
-  const refreshBtn = document.getElementById("refreshBtn");
-  if (!refreshBtn) return;
-
-  refreshBtn.addEventListener("click", () => {
-    loadMaterials();
-  });
-}
-
-function setupMaterialsPage() {
-  const tbody = document.getElementById("materialsBody");
-  if (!tbody) return;
-
-  loadMaterials();
-  setupSearch();
-  setupRefresh();
-}
-
-// -------------------- INIT --------------------
-document.addEventListener("DOMContentLoaded", () => {
-  setupDashboard();
-  setupMaterialsPage();
+  // optional reset sustainability UI
+  document.getElementById("sustainScore").textContent = "--";
+  document.getElementById("sustainMeter").style.width = "0%";
 });
