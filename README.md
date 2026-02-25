@@ -1,7 +1,3 @@
-Bhai tension mat le 👍
-Main **tumhare project ke according** README ko **clean, professional aur evaluation-ready** bana ke de raha hoon.
-Tum isko **direct replace** kar sakte ho apni `README.md` file se.
-
 ---
 
 # 📦 EcoPackAI
