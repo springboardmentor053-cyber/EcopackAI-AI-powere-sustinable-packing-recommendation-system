@@ -5,3 +5,4 @@ psycopg2-binary
 gunicorn
 scikit-learn
 python-dotenv
+xgboost
