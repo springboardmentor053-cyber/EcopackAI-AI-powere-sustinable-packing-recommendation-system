@@ -3,16 +3,36 @@ import pandas as pd
 import joblib
 import os
 import psycopg2
-
+from urllib.parse import urlparse
+from dotenv import load_dotenv
 # ---------------- APP INIT ----------------
+load_dotenv()
+
 app = Flask(
     __name__,
     static_folder="../Frontend",
     static_url_path="/static"
 )
-
 # ---------------- DATABASE ----------------
 def get_db_connection():
+
+    # Render Environment Variable
+    DATABASE_URL = os.environ.get("DATABASE_URL")
+
+    # --- RENDER CLOUD DATABASE ---
+    if DATABASE_URL:
+        result = urlparse(DATABASE_URL)
+        
+    return psycopg2.connect(
+        dbname="ecopackai_6qi1",
+        user="ecopack_user",
+        password="R0MNhnqwOD19NfzBDw0E0fKFleKkZlLY",
+        host="dpg-d6eoik15pdvs73fvqrgg-a.singapore-postgres.render.com",
+        port="5432",
+        sslmode="require"
+    )
+    
+     # --- LOCAL DATABASE --- #
     return psycopg2.connect(
         dbname="EcoPackAI_Database",
         user="postgres",
@@ -20,7 +40,6 @@ def get_db_connection():
         host="127.0.0.1",
         port="5432"
     )
-
 # ---------------- PATHS ----------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FRONTEND_DIR = os.path.join(BASE_DIR, "Frontend")
