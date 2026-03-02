@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌿 EcoPackAI | Recommendations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='recommendations_style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="logo">🌿 EcoPackAI</a>
+  <div class="nav-links">
+    <a href="/#recommend">Recommendations</a>
+    <a href="/dashboard">Analytics</a>
+    <button class="btn primary" onclick="scrollToRecommend()">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      Smart Packaging<br />
+    </h1>
+    <h2>
+      <span>Sustainable Future</span>
+    </h2>
+    <p>
+      AI-powered packaging recommendations to reduce cost and carbon footprint.
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-card">
+    <h2>92%</h2>
+    <p>Cost Reduction</p>
+  </div>
+  <div class="stat-card">
+    <h2>45%</h2>
+    <p>CO₂ Reduction</p>
+  </div>
+  <div class="stat-card">
+    <h2>1000+</h2>
+    <p>Materials Analyzed</p>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section id="recommend" class="recommend">
+  <div class="form-card">
+    <div class="form-header">
+      <h2><i class="fas fa-magic"></i> Smart Packaging Finder</h2>
+      <p class="form-subtitle">Answer a few questions to get AI-powered packaging recommendations tailored to your product</p>
+    </div>
+
+    <form onsubmit="return false;">
+      <!-- Product Category -->
+      <div class="form-group">
+        <label><i class="fas fa-box"></i> Product Category <span class="required">*</span></label>
+        <p class="input-hint">What type of product do you want to package?</p>
+        <select id="category" class="form-input" required>
+          <option value="">-- Select Your Category --</option>
+          <option value="electronics">📱 Electronics</option>
+          <option value="food">🍕 Food & Beverages</option>
+          <option value="cosmetics">💄 Cosmetics & Beauty</option>
+          <option value="Pharmaceuticals">💊 Pharmaceuticals</option>
+          <option value="Beverages">🥤 Beverages</option>
+          <option value="Textile/Apparel">👗 Textile & Apparel</option>
+          <option value="Personal Care/Home">🧴 Personal Care</option>
+          <option value="Household Appliances">⚙️ Appliances</option>
+          <option value="Furniture">🪑 Furniture</option>
+          <option value="Toys">🧸 Toys</option>
+          <option value="Baby Care">👶 Baby Care</option>
+          <option value="Industrial/Automotive">🚗 Automotive</option>
+          <option value="Healthcare/Medical Devices">🏥 Healthcare</option>
+          <option value="Stationary">📝 Stationery</option>
+          <option value="Sports & Outdoor">⛺ Sports & Outdoor</option>
+          <option value="Home Decor">🏠 Home Decor</option>
+        </select>
+      </div>
+
+      <!-- Strength Requirement -->
+      <div class="form-group">
+        <label><i class="fas fa-shield-alt"></i> Required Strength <span class="required">*</span></label>
+        <p class="input-hint">How strong does your packaging need to be? (1 = Fragile, 10 = Heavy-Duty)</p>
+        <div class="slider-container">
+          <input id="strength" type="range" min="1" max="10" step="1" value="5" class="form-slider" />
+          <div class="slider-labels">
+            <span>Fragile</span>
+            <span class="strength-value" id="strengthVal">5</span>
+            <span>Heavy-Duty</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight -->
+      <div class="form-group">
+        <label><i class="fas fa-weight"></i> Product Weight <span class="required">*</span></label>
+        <p class="input-hint">Approximate weight of your product (in kg)</p>
+        <div class="input-wrapper">
+          <input id="weight" type="number" step="0.01" min="0" max="1000" value="1" class="form-input" required />
+          <span class="input-unit">kg</span>
+        </div>
+      </div>
+
+      <!-- Biodegradability -->
+      <div class="form-group">
+        <label><i class="fas fa-leaf"></i> Biodegradability Preference <span class="required">*</span></label>
+        <p class="input-hint">How important is biodegradability? (Lower = Less important, Higher = Very important)</p>
+        <div class="slider-container">
+          <input id="bio" type="range" min="0" max="100" step="10" value="50" class="form-slider" />
+          <div class="slider-labels">
+            <span>Not Important</span>
+            <span class="bio-value" id="bioVal">50%</span>
+            <span>Very Important</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recyclability -->
+      <div class="form-group">
+        <label><i class="fas fa-recycle"></i> Recyclability Preference <span class="required">*</span></label>
+        <p class="input-hint">How important is recyclability? (Lower = Less important, Higher = Very important)</p>
+        <div class="slider-container">
+          <input id="recycle" type="range" min="0" max="100" step="10" value="50" class="form-slider" />
+          <div class="slider-labels">
+            <span>Not Important</span>
+            <span class="recycle-value" id="recycleVal">50%</span>
+            <span>Very Important</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="button" class="btn primary large" onclick="getRecommendation()">
+        <i class="fas fa-rocket"></i> Get AI Recommendation
+      </button>
+    </form>
+  </div>
+
+  <!-- Results Card -->
+  <div class="result-card" id="result">
+    <div class="result-header">
+      <h3><i class="fas fa-check-circle"></i> AI Recommendation</h3>
+      <p class="result-subtitle">Your personalized packaging solution</p>
+    </div>
+    
+    <div id="mainRecommendation" class="main-recommendation">
+      <div class="placeholder-content">
+        <i class="fas fa-inbox"></i>
+        <p>Fill out the form above to receive your AI-powered packaging recommendation</p>
+      </div>
+    </div>
+    
+    <div id="envMetrics" class="env-score" aria-live="polite">
+      <i class="fas fa-leaf"></i>
+      <p>Environmental metrics will appear here after your recommendation</p>
+    </div>
+    
+    <div class="export-buttons">
+      <button class="btn secondary" id="exportExcelBtn" onclick="exportExcel()">
+        <i class="fas fa-file-excel"></i> Export to Excel
+      </button>
+      <button class="btn secondary" id="exportPdfBtn" onclick="exportPDF()">
+        <i class="fas fa-file-pdf"></i> Export as PDF
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYTICS -->
+<section id="analytics" class="analytics">
+  <h2>Sustainability Analytics</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span>Total CO₂ Saved</span>
+      <strong>2,847 kg</strong>
+    </div>
+    <div class="card">
+      <span>Cost Savings</span>
+      <strong>₹45,230</strong>
+    </div>
+    <div class="card">
+      <span>Materials Upgraded</span>
+      <strong>156</strong>
+    </div>
+  </div>
+
+  <!-- RANKING TABLE SECTION -->
+  <div class="ranking-section" style="padding: 40px 0;">
+    <h3 style="margin-bottom: 30px;">Material Ranking & Comparison</h3>
+    <div class="ranking-container">
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Material</th>
+            <th>Predicted Cost</th>
+            <th>Predicted CO₂</th>
+          </tr>
+        </thead>
+        <tbody id="rankingTable">
+          <tr>
+            <td>-</td>
+            <td>Fill the form to see rankings</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- METRICS SECTION -->
+  <div class="metrics-section" id="metricsContainer" style="padding: 40px 0; background: none;">
+    <h4 style="color: #d0e7d1; text-align: center; margin-bottom: 30px;">Comparison Metrics</h4>
+    <div class="metrics-container">
+      <div class="metric-card">
+        <h4>Cost Savings</h4>
+        <div class="metric-value">₹ -</div>
+        <div class="metric-unit">vs standard material</div>
+      </div>
+      <div class="metric-card">
+        <h4>CO₂ Reduction</h4>
+        <div class="metric-value">-</div>
+        <div class="metric-unit">environmental impact</div>
+      </div>
+      <div class="metric-card">
+        <h4>Material Score</h4>
+        <div class="metric-value">-</div>
+        <div class="metric-unit">eco-friendliness index</div>
+      </div>
+      <div class="metric-card">
+        <h4>Weight Optimized</h4>
+        <div class="metric-value">-</div>
+        <div class="metric-unit">packaging weight</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-container">
+    <div class="chart-wrapper">
+      <h3>Material Distribution</h3>
+      <canvas id="materialChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>CO₂ vs Cost Savings Trend</h3>
+      <canvas id="trendsChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Recyclability by Material</h3>
+      <canvas id="recycleChart"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Monthly Impact</h3>
+      <canvas id="monthlyChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 EcoPackAI | AI for Sustainable Packaging
+</footer>
+
+<script src="{{ url_for('static', filename='recommendations_script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BI Dashboard - EcoPackAI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fffe 50%, #e8f9f6 100%);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            box-shadow: 0 4px 20px rgba(15, 118, 110, 0.12);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0F766E 0%, #0D5C54 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #0F766E;
+        }
+
+        /* BUTTON */
+        .btn {
+            background: linear-gradient(135deg, #0F766E 0%, #0D5C54 100%);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.35);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* HEADER */
+        .dashboard-header {
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dashboard-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        /* SUMMARY STATS SECTION */
+        .summary-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
+            border: 1px solid #d4ede9;
+            margin-bottom: 3rem;
+        }
+
+        .summary-section h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f8fffe 0%, #f0fffe 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #d4ede9;
+            text-align: center;
+        }
+
+        .stat-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0F766E;
+        }
+
+        .stat-card .unit {
+            color: #0F766E;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* CHARTS SECTION */
+        .charts-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
+            border: 1px solid #d4ede9;
+            margin-bottom: 3rem;
+        }
+
+        .charts-section h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .chart-container {
+            background: #f8fffe;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #d4ede9;
+            position: relative;
+            min-height: 350px;
+        }
+
+        .chart-container h3 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        canvas {
+            max-height: 300px;
+        }
+
+        /* DOWNLOAD SECTION */
+        .download-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
+            border: 1px solid #d4ede9;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .download-section h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .download-section p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        /* LOADING STATE */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            color: #0F766E;
+            font-weight: 600;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #d4ede9;
+            border-top: 3px solid #0F766E;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* FOOTER */
+        .footer {
+            background: linear-gradient(135deg, #0D5C54 0%, #0F766E 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #0a4a44;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar h2 {
+                font-size: 1.2rem;
+            }
+
+            .navbar-menu {
+                gap: 1rem;
+            }
+
+            .dashboard-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2 style="cursor: pointer;" onclick="window.location.href='/'"><i class="fas fa-leaf"></i> EcoPackAI</h2>
+    <div class="navbar-menu">
+        <a href="/" style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-home"></i> Home</a>
+        <a href="/#recommend" style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-box"></i> Recommendations</a>
+        <a href="/#analytics" style="display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-chart-bar"></i> Analytics</a>
+        <a href="/dashboard" style="color: #0F766E; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-chart-line"></i> BI Dashboard</a>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <h1><i class="fas fa-chart-line"></i> Sustainability BI Dashboard</h1>
+        <p>Real-time analytics and insights from your packaging materials data</p>
+    </div>
+
+    <!-- SUMMARY METRICS SECTION -->
+    <div class="summary-section">
+        <h2><i class="fas fa-chart-bar"></i> Summary Metrics</h2>
+        <div class="stats-grid" id="summaryStats">
+            <div class="loading">
+                <div class="spinner"></div> Loading metrics...
+            </div>
+        </div>
+    </div>
+
+    <!-- CHARTS SECTION -->
+    <div class="charts-section">
+        <h2><i class="fas fa-chart-line"></i> Analytics Charts</h2>
+        <div class="charts-grid">
+            <!-- CO2 Reduction Chart -->
+            <div class="chart-container">
+                <h3><i class="fas fa-leaf"></i> CO₂ Impact by Material</h3>
+                <div class="chart-wrapper">
+                    <canvas id="co2Chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Cost Savings Chart -->
+            <div class="chart-container">
+                <h3><i class="fas fa-dollar-sign"></i> Cost Score by Material</h3>
+                <div class="chart-wrapper">
+                    <canvas id="costChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Material Usage Trends Chart -->
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-area"></i> Material Usage Trends</h3>
+                <div class="chart-wrapper">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD SECTION -->
+    <div class="download-section">
+        <h2><i class="fas fa-download"></i> Export Report</h2>
+        <p>Download a comprehensive CSV report with all sustainability metrics and material analysis</p>
+        <button class="btn btn-secondary" onclick="downloadReport()">
+            <i class="fas fa-file-csv"></i> Download Sustainability Report (CSV)
+        </button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; 2026 EcoPackAI. Sustainable packaging solutions powered by AI. All rights reserved.</p>
+</footer>
+
+<script>
+    let co2Chart, costChart, usageChart;
+
+    // Initialize dashboard on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadSummaryMetrics();
+        loadChartData();
+    });
+
+    // Load summary metrics from API
+    async function loadSummaryMetrics() {
+        try {
+            const response = await fetch('/api/dashboard/summary');
+            const data = await response.json();
+
+            const statsHtml = `
+                <div class="stat-card">
+                    <p>Total Materials</p>
+                    <div class="value">${data.total_materials}</div>
+                </div>
+                <div class="stat-card">
+                    <p>Average Cost Score</p>
+                    <div class="value">${data.average_cost_score}</div>
+                </div>
+                <div class="stat-card">
+                    <p>Average CO₂ Score</p>
+                    <div class="value">${data.average_co2_score}</div>
+                </div>
+                <div class="stat-card">
+                    <p>Est. CO₂ Reduction</p>
+                    <div class="value">${data.estimated_co2_reduction_pct}%</div>
+                </div>
+                <div class="stat-card">
+                    <p>Est. Cost Savings</p>
+                    <div class="value">${data.estimated_cost_savings_pct}%</div>
+                </div>
+                <div class="stat-card">
+                    <p>Eco-Friendly Materials</p>
+                    <div class="value">${data.eco_friendly_materials_count}</div>
+                </div>
+            `;
+
+            document.getElementById('summaryStats').innerHTML = statsHtml;
+        } catch (error) {
+            console.error('Error loading summary metrics:', error);
+            document.getElementById('summaryStats').innerHTML = '<p style="color: red;">Error loading data</p>';
+        }
+    }
+
+    // Load chart data from API
+    async function loadChartData() {
+        try {
+            const response = await fetch('/api/dashboard/charts');
+            const data = await response.json();
+
+            // Initialize CO2 Chart
+            initializeCO2Chart(data.co2_reduction_by_material);
+
+            // Initialize Cost Chart
+            initializeCostChart(data.cost_savings_by_material);
+
+            // Initialize Usage Chart
+            initializeUsageChart(data.material_usage_trends);
+        } catch (error) {
+            console.error('Error loading chart data:', error);
+        }
+    }
+
+    // Initialize CO2 Reduction Chart
+    function initializeCO2Chart(chartData) {
+        const ctx = document.getElementById('co2Chart').getContext('2d');
+
+        // Sort by reduction and take top 10
+        const sortedData = chartData.sort((a, b) => b.reduction - a.reduction).slice(0, 10);
+
+        if (co2Chart) co2Chart.destroy();
+
+        co2Chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sortedData.map(item => item.material),
+                datasets: [{
+                    label: 'CO₂ Score',
+                    data: sortedData.map(item => item.co2_score),
+                    backgroundColor: 'rgba(15, 118, 110, 0.6)',
+                    borderColor: 'rgba(15, 118, 110, 1)',
+                    borderWidth: 2,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'CO₂ Score'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Initialize Cost Savings Chart
+    function initializeCostChart(chartData) {
+        const ctx = document.getElementById('costChart').getContext('2d');
+
+        // Sort by savings and take top 10
+        const sortedData = chartData.sort((a, b) => b.savings - a.savings).slice(0, 10);
+
+        if (costChart) costChart.destroy();
+
+        costChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sortedData.map(item => item.material),
+                datasets: [{
+                    label: 'Cost Score',
+                    data: sortedData.map(item => item.cost_score),
+                    backgroundColor: 'rgba(99, 102, 241, 0.6)',
+                    borderColor: 'rgba(99, 102, 241, 1)',
+                    borderWidth: 2,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cost Score'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Initialize Material Usage Trends Chart
+    function initializeUsageChart(chartData) {
+        const ctx = document.getElementById('usageChart').getContext('2d');
+
+        // Sort by usage count and take top 10
+        const sortedData = chartData.sort((a, b) => b.usage_count - a.usage_count).slice(0, 10);
+
+        if (usageChart) usageChart.destroy();
+
+        usageChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: sortedData.map(item => item.material),
+                datasets: [{
+                    label: 'Product Count',
+                    data: sortedData.map(item => item.usage_count),
+                    borderColor: 'rgba(34, 197, 94, 1)',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointBackgroundColor: 'rgba(34, 197, 94, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Usage Count'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Download report function
+    function downloadReport() {
+        window.location.href = '/download_report';
+    }
+</script>
+
+</body>
+</html>

@@ -384,12 +384,12 @@ body {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <h2><i class="fas fa-leaf"></i> EcoPackAI</h2>
+  <h2 style="cursor: pointer;" onclick="window.location.href='/'"><i class="fas fa-leaf"></i> EcoPackAI</h2>
   <div class="navbar-menu">
-    <a href="#recommend">Recommendations</a>
+    <a href="/recommendations" style="color: #0F766E; font-weight: 600;"><i class="fas fa-magic"></i> Recommendations</a>
     <a href="#analytics">Analytics</a>
-    <a href="/dashboard" style="color: #0F766E; font-weight: 600;"><i class="fas fa-chart-line"></i> BI Dashboard</a>
-    <button class="btn" onclick="scrollToRecommend()">Get Started</button>
+    <a href="/dashboard" style="color: #0F766E; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-chart-line"></i> Dashboard</a>
+    <a href="/recommendations" class="btn"><i class="fas fa-arrow-right"></i> Get Started</a>
   </div>
 </nav>
 
@@ -397,7 +397,7 @@ body {
 <section class="hero">
   <h1>Smart Packaging,<br><span class="highlight">Sustainable Future</span></h1>
   <p>AI-powered recommendations to reduce cost and carbon footprint while maintaining product quality.</p>
-  <button class="btn" onclick="scrollToRecommend()">Start Free Analysis</button>
+  <a href="/recommendations" class="btn"><i class="fas fa-lightbulb"></i> Get Recommendation</a>
 </section>
 
 <!-- STATS -->
@@ -416,46 +416,7 @@ body {
   </div>
 </section>
 
-<!-- RECOMMENDATION FORM -->
-<section id="recommend" class="recommend">
-  <div class="recommend-header">
-    <h2>Get Your AI Packaging Recommendation</h2>
-    <p>Enter your product specifications and get instant recommendations tailored to your needs</p>
-  </div>
 
-  <div class="recommend-container">
-    <div class="form">
-      <h3><i class="fas fa-box"></i> Product Specifications</h3>
-
-      <div class="form-group">
-        <label for="strength">Strength Required (1-10)</label>
-        <input id="strength" type="number" placeholder="e.g., 8" min="1" max="10">
-      </div>
-
-      <div class="form-group">
-        <label for="weight">Weight Capacity (kg)</label>
-        <input id="weight" type="number" placeholder="e.g., 5.5" min="0">
-      </div>
-
-      <div class="form-group">
-        <label for="bio">Biodegradability Required (%)</label>
-        <input id="bio" type="number" placeholder="e.g., 85" min="0" max="100">
-      </div>
-
-      <div class="form-group">
-        <label for="recycle">Recyclability Required (%)</label>
-        <input id="recycle" type="number" placeholder="e.g., 90" min="0" max="100">
-      </div>
-
-      <button class="btn" onclick="getRecommendation()"><i class="fas fa-paper-plane"></i> Get Recommendation</button>
-    </div>
-
-    <div class="result" id="result">
-      <h3><i class="fas fa-star"></i> Your Recommendation</h3>
-      <p style="color: #9ca3af; margin-top: 1rem;">Fill in your product specifications to receive a personalized packaging recommendation.</p>
-    </div>
-  </div>
-</section>
 
 <!-- ANALYTICS -->
 <section id="analytics" class="analytics">
@@ -485,88 +446,8 @@ body {
   <p>&copy; 2026 EcoPackAI. Sustainable packaging solutions powered by AI. All rights reserved.</p>
 </footer>
 <script>
-function scrollToRecommend() {
-  document.getElementById("recommend").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-
-function getRecommendation() {
-  const strength = Number(document.getElementById("strength").value);
-  const weight = Number(document.getElementById("weight").value);
-  const bio = Number(document.getElementById("bio").value);
-  const recycle = Number(document.getElementById("recycle").value);
-
-  if (!strength || !weight || !bio || !recycle) {
-    alert("Please fill all fields");
-    return;
-  }
-
-  let recommendation = "";
-  let baseCost = 0;
-  let icon = "📦";
-
-  /* MATERIAL SELECTION + BASE COST */
-  if (bio > 80 && recycle > 80) {
-    recommendation = "100% Biodegradable Kraft Paper Packaging";
-    baseCost = 8;
-    icon = "🌱";
-  } 
-  else if (weight > 10) {
-    recommendation = "Corrugated Fiberboard Packaging";
-    baseCost = 12;
-    icon = "📫";
-  } 
-  else {
-    recommendation = "Recycled Cardboard + Molded Pulp";
-    baseCost = 6;
-    icon = "♻️";
-  }
-
-  /* COST CALCULATION */
-  let strengthCost = strength * 0.8;
-  let weightCost = weight * 1.2;
-
-  let totalCostPerUnit = baseCost + strengthCost + weightCost;
-  let monthlyCost = totalCostPerUnit * 1000;
-  let annualCost = monthlyCost * 12;
-  
-  let co2Reduction = Math.round(bio / 2);
-  let co2Saved = Math.round((co2Reduction / 100) * 50); // kg per 1000 units
-
-  document.getElementById("result").innerHTML = `
-    <h3><i class="fas fa-check-circle"></i> Recommended Solution</h3>
-    
-    <div class="recommendation-box">
-      <p>${icon} ${recommendation}</p>
-    </div>
-
-    <div class="result-item">
-      <div class="result-label">Cost Per Unit</div>
-      <div class="result-value">₹${totalCostPerUnit.toFixed(2)}</div>
-    </div>
-
-    <div class="result-item">
-      <div class="result-label">Monthly Cost (1,000 units)</div>
-      <div class="result-value">₹${monthlyCost.toFixed(0)}</div>
-    </div>
-
-    <div class="result-item">
-      <div class="result-label">Annual Cost (12,000 units)</div>
-      <div class="result-value">₹${annualCost.toFixed(0)}</div>
-    </div>
-
-    <div class="result-item">
-      <div class="result-label">Estimated CO₂ Reduction</div>
-      <div class="result-value">${co2Reduction}%</div>
-    </div>
-
-    <div class="result-item">
-      <div class="result-label">CO₂ Savings (1,000 units)</div>
-      <div class="result-value">${co2Saved} kg</div>
-    </div>
-  `;
-}
+// Home page minimal functionality
+// All recommendation logic moved to /recommendations page
 </script>
 </body>
 </html>
